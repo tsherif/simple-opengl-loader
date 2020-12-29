@@ -1,7 +1,7 @@
 Simple OpenGL Loader
 ====================
 
-An extensible, single-file(ish), C/C++ OpenGL loader for Windows and Linux.
+An extensible, single-file(ish) C/C++ OpenGL loader for Windows and Linux.
 
 Usage
 -----
