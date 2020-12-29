@@ -41,7 +41,7 @@ void *sogl_loadOpenGLFunction(const char *name) {
     void *fn = dlsym(sogl_libHandle, name);
 
     if (!fn) {
-        fprintf(stderr, "Unable to get function %s\n", name);
+        fprintf(stderr, "SOGL: Unable to load function %s\n", name);
     }
 
     return fn;
