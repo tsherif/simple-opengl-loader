@@ -22,9 +22,9 @@
 **********************************************************************************/
 
 #define WIN32_LEAN_AND_MEAN
-#define SOGL_IMPLEMENTATION
 #define SOGL_MAJOR_VERSION 4
 #define SOGL_MINOR_VERSION 5
+#define SOGL_IMPLEMENTATION
 #include <windows.h>
 #include "../../simple-opengl-loader.h"
 #include "wglext.h"

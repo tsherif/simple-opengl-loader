@@ -56,10 +56,11 @@ Note that the loader makes no guarantees about OpenGL version or extension suppo
 Platform Support
 ----------------
 
-Platform-specific logic is encapsulated in a single function `sogl_loadOpenGLFunction()` which takes the name of an OpenGL function as a null-terminated ASCII string and returns a pointer to the appropriate function:
+Platform-specific logic is encapsulated in two functions `sogl_loadOpenGLFunction()` which takes the name of an OpenGL function as a null-terminated ASCII string and returns a pointer to the appropriate function, and `sogl_cleanup()`, which should perform any cleanup necessary after loading is complete, e.g. freeing libraries.
 
 ```C
 void *sogl_loadOpenGLFunction(const char *name);
+void sogl_cleanup();
 ```
 
 Implementations are provided in the **platforms** directory and can be compiled directly into applications that wish to use them. Support for other platforms simply involves implementing this function for the target platform.

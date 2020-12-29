@@ -3,3 +3,5 @@
 **/*.pdb
 **/*.ilk
 .vs
+**/core
+examples/x11/x11-example

@@ -21,32 +21,38 @@
 * CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 **********************************************************************************/
 
-#define WIN32_LEAN_AND_MEAN
-#include <windows.h>
+#include <dlfcn.h>
+#include <stdio.h>
 
-typedef PROC (*wglGetProcAddressFP)(LPCSTR Arg1);
-static HMODULE sogl_libHandle = NULL;
+typedef void *(*glXGetProcAddressFP)(unsigned char *procName);
+static void* sogl_libHandle = NULL;
 
-void *sogl_loadOpenGLFunction(const char *name) {
-	static wglGetProcAddressFP wglGetProcAddress = NULL;
-
-	if (!sogl_libHandle) {
-		sogl_libHandle = LoadLibraryA("opengl32.dll");
-		wglGetProcAddress = (wglGetProcAddressFP) GetProcAddress(sogl_libHandle, "wglGetProcAddress");
-	}
-    void *fn = (void *)wglGetProcAddress(name);
-    if(fn == 0 || (fn == (void *) 0x1) || (fn == (void *) 0x2) || (fn == (void*) 0x3) || (fn == (void *) -1)) {
-        fn = (void *) GetProcAddress(sogl_libHandle, name);
+void *sogl_loadOpenGLFunction(const char *name) {  
+    static glXGetProcAddressFP glXGetProcAddress = NULL;
+    if (!sogl_libHandle) {
+        // Loading "libGL.so.1" seems more reliable. On my machine, switching an nvidia GPU leave "libGL.so" pointing
+        // to the mesa driver.
+        // Grabbed this from similar logic in GLFW.
+        // https://github.com/glfw/glfw/blob/0b2660f39fc7111a3ef2723b03f5111afbe75bb9/src/glx_context.c#L258-L277 
+        sogl_libHandle = dlopen("libGL.so.1", RTLD_LAZY | RTLD_LOCAL);
+        if (!sogl_libHandle) {
+            sogl_libHandle = dlopen("libGL.so", RTLD_LAZY | RTLD_LOCAL);   
+        }
+        glXGetProcAddress = (glXGetProcAddressFP) dlsym(sogl_libHandle, "glXGetProcAddress");
     }
 
-   	// TODO: Report failures.
+    void *fn = (void *) glXGetProcAddress((unsigned char *) name);
+
+    if (!fn) {
+        fprintf(stderr, "Unable to get function %s\n", name);
+    }
 
     return fn;
 }
 
 void sogl_cleanup() {
     if (sogl_libHandle) {
-        FreeLibrary(sogl_libHandle);
+        dlclose(sogl_libHandle);
         sogl_libHandle = NULL;
     }
 }
