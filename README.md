@@ -23,7 +23,7 @@ Simplest usage if OpenGL functions will be loaded and used in a single file invo
     }
 ```
 
-The application should be compiled with the appropriate platform-specific implementation in the **platforms** directory (named **simple-opengl-loader-<platform>.c**). See below to implement support for other platforms.
+The application should be compiled with the appropriate platform-specific implementation in the **platforms** directory (named **simple-opengl-loader-\<platform\>.c**). See below to implement support for other platforms.
 
 If OpenGL functions will be used in more then one file, the `SOGL_MAJOR_VERSION` and `SOGL_MINOR_VERSION` should match everywhere the header is included (and `SOGL_IMPLEMENTATION` should be defined exactly once). A simple way to make this more convenient is to wrap the **simple-opengl-loader.h** include and version defines in a separate header file and include the latter throughout the application.
 
