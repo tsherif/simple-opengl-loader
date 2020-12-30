@@ -24,11 +24,9 @@
 #include <dlfcn.h>
 #include <stdio.h>
 
-typedef void *(*glXGetProcAddressFP)(unsigned char *procName);
 static void* sogl_libHandle = NULL;
 
 void *sogl_loadOpenGLFunction(const char *name) {  
-    static glXGetProcAddressFP glXGetProcAddress = NULL;
     if (!sogl_libHandle) {
         /*
             Loading "libGL.so.1" seems more reliable. On my machine, switching to an nvidia GPU 
@@ -40,10 +38,9 @@ void *sogl_loadOpenGLFunction(const char *name) {
         if (!sogl_libHandle) {
             sogl_libHandle = dlopen("libGL.so", RTLD_LAZY | RTLD_LOCAL);   
         }
-        glXGetProcAddress = (glXGetProcAddressFP) dlsym(sogl_libHandle, "glXGetProcAddress");
     }
 
-    void *fn = (void *) glXGetProcAddress((unsigned char *) name);
+    void *fn = dlsym(sogl_libHandle, name);
 
     if (!fn) {
         fprintf(stderr, "SOGL: Unable to load function %s\n", name);

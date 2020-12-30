@@ -1,7 +1,7 @@
 Simple OpenGL Loader
 ====================
 
-An extensible, single-file(ish), cross-platform OpenGL loader for C/C++.
+An extensible, single-file(ish) C/C++ OpenGL loader for Windows and Linux.
 
 Usage
 -----
@@ -23,7 +23,7 @@ Simplest usage if OpenGL functions will be loaded and used in a single file invo
     }
 ```
 
-The application should be compiled with the appropriate platform-specific implementation in the **platforms** directory (named **simple-opengl-loader-<platform>.c**). See below to implement support for other platforms.
+The application should be compiled with the appropriate platform-specific implementation in the **platforms** directory (named **simple-opengl-loader-\<platform\>.c**). See below to implement support for other platforms.
 
 If OpenGL functions will be used in more then one file, the `SOGL_MAJOR_VERSION` and `SOGL_MINOR_VERSION` should match everywhere the header is included (and `SOGL_IMPLEMENTATION` should be defined exactly once). A simple way to make this more convenient is to wrap the **simple-opengl-loader.h** include and version defines in a separate header file and include the latter throughout the application.
 
@@ -56,11 +56,11 @@ Note that the loader makes no guarantees about OpenGL version or extension suppo
 Platform Support
 ----------------
 
-Platform-specific logic is encapsulated in two functions `sogl_loadOpenGLFunction()` which takes the name of an OpenGL function as a null-terminated ASCII string and returns a pointer to the appropriate function, and `sogl_cleanup()`, which should perform any cleanup necessary after loading is complete, e.g. freeing libraries.
+Platform-specific logic is encapsulated in two functions `sogl_loadOpenGLFunction()` which takes the name of an OpenGL function as a null-terminated ASCII string and returns a pointer to the appropriate function, and `sogl_cleanup()`, which should perform any cleanup necessary after loading is complete, e.g. freeing library handles.
 
 ```C
 void *sogl_loadOpenGLFunction(const char *name);
 void sogl_cleanup();
 ```
 
-Implementations are provided in the **platforms** directory and can be compiled directly into applications that wish to use them. Support for other platforms simply involves implementing this function for the target platform.
+Implementations are provided in the **platforms** directory and can be compiled directly into applications that wish to use them. Support for other platforms simply involves implementing these functions for the target platform.
