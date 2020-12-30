@@ -23,8 +23,14 @@
 
 #ifndef SIMPLE_OPENGL_LOADER
 #define SIMPLE_OPENGL_LOADER 1
-#define __gl_glcorearb_h_ 1
-#define __gl_h_
+
+/* 
+	Prevent other OpenGL headers from loading.
+*/
+#define __gl_glcorearb_h_ 1  /* Khronos core */
+#define __gl_glext_h_ 1      /* Khronos compatibility */
+#define __gl_h_ 1            /* Windows/Linux */
+#define __GL_H__ 1           /* Windows */
 
 #ifdef __cplusplus
 extern "C" {

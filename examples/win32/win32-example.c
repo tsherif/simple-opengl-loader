@@ -25,8 +25,9 @@
 #define SOGL_MAJOR_VERSION 4
 #define SOGL_MINOR_VERSION 5
 #define SOGL_IMPLEMENTATION
-#include <windows.h>
 #include "../../simple-opengl-loader.h"
+#include <windows.h>
+#include <GL\gl.h>
 #include "wglext.h"
 #include <stdint.h>
 

@@ -30,10 +30,12 @@ static void* sogl_libHandle = NULL;
 void *sogl_loadOpenGLFunction(const char *name) {  
     static glXGetProcAddressFP glXGetProcAddress = NULL;
     if (!sogl_libHandle) {
-        // Loading "libGL.so.1" seems more reliable. On my machine, switching an nvidia GPU leave "libGL.so" pointing
-        // to the mesa driver.
-        // Grabbed this from similar logic in GLFW.
-        // https://github.com/glfw/glfw/blob/0b2660f39fc7111a3ef2723b03f5111afbe75bb9/src/glx_context.c#L258-L277 
+        /*
+            Loading "libGL.so.1" seems more reliable. On my machine, switching to an nvidia GPU 
+            leaves "libGL.so" pointing to the mesa driver.
+            Grabbed this from similar logic in GLFW.
+            https://github.com/glfw/glfw/blob/0b2660f39fc7111a3ef2723b03f5111afbe75bb9/src/glx_context.c#L258-L277 
+        */
         sogl_libHandle = dlopen("libGL.so.1", RTLD_LAZY | RTLD_LOCAL);
         if (!sogl_libHandle) {
             sogl_libHandle = dlopen("libGL.so", RTLD_LAZY | RTLD_LOCAL);   
