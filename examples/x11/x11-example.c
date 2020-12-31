@@ -46,7 +46,7 @@ int main(int argc, char const *argv[]) {
         return 1;
     }
 
-    window = XCreateSimpleWindow(display, DefaultRootWindow(display), 20, 20, 2000, 2000, 0, 0, 0);
+    window = XCreateSimpleWindow(display, DefaultRootWindow(display), 20, 20, 800, 800, 0, 0, 0);
     
 
     XSelectInput(display, window, ExposureMask | KeyPressMask | ButtonPressMask);
