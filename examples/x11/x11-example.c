@@ -22,7 +22,7 @@
 **********************************************************************************/
 
 #define SOGL_MAJOR_VERSION 4
-#define SOGL_MINOR_VERSION 5
+#define SOGL_MINOR_VERSION 6
 #define SOGL_IMPLEMENTATION
 #include "../../simple-opengl-loader.h"
 #include <stdio.h>
@@ -99,7 +99,13 @@ int main(int argc, char const *argv[]) {
 
     glXMakeCurrent(display, window, ctx);
 
-    sogl_loadOpenGL();
+    if (!sogl_loadOpenGL()) {
+        const char **failures = sogl_getFailures();
+        while (*failures) {
+            fprintf(stderr, "SOGL X11 EXAMPLE: Failed to load function %s\n", *failures);
+            failures++;
+        }
+    }
 
     glClearColor(0.0, 0.0, 0.0, 1.0);
 

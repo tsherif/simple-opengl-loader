@@ -6997,7 +6997,7 @@ PFNGLFRAMEBUFFERTEXTUREMULTIVIEWOVRPROC glFramebufferTextureMultiviewOVR = SOGL_
 static const char* sogl_failedLoads[SOGL_MAX_REPORTED_FAILURES + 1];
 
 int sogl_loadOpenGL() {
-	size_t failedLoads = 0;
+	khronos_usize_t failedLoads = 0;
 
 #if SOGL_TEST_VERSION(1, 0)
     glCullFace = (PFNGLCULLFACEPROC) sogl_loadOpenGLFunction("glCullFace");

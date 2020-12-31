@@ -23,7 +23,9 @@
 
 #include <dlfcn.h>
 
-static void* sogl_libHandle = NULL;
+#define SOGL_NULL ((void *)0)
+
+static void* sogl_libHandle = SOGL_NULL;
 
 void *sogl_loadOpenGLFunction(const char *name) {  
     if (!sogl_libHandle) {
@@ -47,6 +49,6 @@ void *sogl_loadOpenGLFunction(const char *name) {
 void sogl_cleanup() {
     if (sogl_libHandle) {
         dlclose(sogl_libHandle);
-        sogl_libHandle = NULL;
+        sogl_libHandle = SOGL_NULL;
     }
 }
