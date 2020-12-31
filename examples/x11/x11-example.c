@@ -179,21 +179,19 @@ int main(int argc, char const *argv[]) {
 
     glUseProgram(program);
 
+    Atom wmDeleteMessage = XInternAtom(display, "WM_DELETE_WINDOW", False);
+    XSetWMProtocols(display, window, &wmDeleteMessage, 1);
+
     // Animation loop
     while (1) {
-        if (XCheckWindowEvent(display, window, ExposureMask | KeyPressMask, &event) == True) {
+        if (XCheckTypedWindowEvent(display, window, Expose, &event) == True) {
+            XGetWindowAttributes(display, window, &xWinAtt);
+            glViewport(0, 0, xWinAtt.width, xWinAtt.height);
+        }
 
-            if (event.type == Expose) {
-                XGetWindowAttributes(display, window, &xWinAtt);
-                glViewport(0, 0, xWinAtt.width, xWinAtt.height);
-            }
-
-            if (event.type == KeyPress) {
-                KeySym key = XLookupKeysym(&event.xkey, 0);
-                
-                if (key == XK_q) {
-                    break;
-                }
+        if (XCheckTypedWindowEvent(display, window, ClientMessage, &event) == True) {
+            if (event.xclient.data.l[0] == wmDeleteMessage) {
+                break;
             }
         }
 
