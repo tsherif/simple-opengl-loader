@@ -23,7 +23,6 @@
 
 #define WIN32_LEAN_AND_MEAN
 #include <windows.h>
-#include <stdio.h>
 
 typedef PROC (*wglGetProcAddressFP)(LPCSTR Arg1);
 static HMODULE sogl_libHandle = NULL;
@@ -38,12 +37,6 @@ void *sogl_loadOpenGLFunction(const char *name) {
     void *fn = (void *)wglGetProcAddress(name);
     if(fn == 0 || (fn == (void *) 0x1) || (fn == (void *) 0x2) || (fn == (void*) 0x3) || (fn == (void *) -1)) {
         fn = (void *) GetProcAddress(sogl_libHandle, name);
-    }
-
-   	if (!fn) {
-   		char debugMessage[256];
-        sprintf(debugMessage, "SOGL: Unable to load function %s\n", name);
-        OutputDebugStringA(debugMessage);
     }
 
     return fn;

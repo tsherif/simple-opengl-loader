@@ -53,7 +53,18 @@ OpenGL extensions can be loaded by defining a constant of the format `SOGL_<exte
     #include "simple-opengl-loader.h"
 ```
 
-Note that the loader makes no guarantees about OpenGL version or extension support. Failures to load functions will simply be reported via a warning message, and the function pointers will be set to `NULL`; 
+Note that the loader makes no guarantees about OpenGL version or extension support. `sogl_loadOpenGL()` returns a boolean value indicating whether any functions failed to load, and the function `sogl_getFailures` returns a null-terminated array of the names of the functions that failed to load (up to a maximum defined by `SOGL_MAX_REPORTED_FAILURES`). 
+
+```C
+    if (!sogl_loadOpenGL()) {
+        const char **failures = sogl_getFailures();
+        int i = 1;
+        while (*failures) {
+            fprintf(stderr, "Failed to load function %s\n", *failures);
+            failures++;
+        }
+    }
+```
 
 Platform Support
 ----------------

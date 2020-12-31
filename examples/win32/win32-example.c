@@ -30,6 +30,7 @@
 #include <GL\gl.h>
 #include "wglext.h"
 #include <stdint.h>
+#include <stdio.h>
 
 /////////////////////////////////////
 // WGL loading helper functions 
@@ -187,7 +188,16 @@ int CALLBACK WinMain(HINSTANCE instance, HINSTANCE prevInstance, LPSTR cmdLine, 
     }
 
     wglMakeCurrent(deviceContext, gl);
-    sogl_loadOpenGL();
+    if (!sogl_loadOpenGL()) {
+        const char **failures = sogl_getFailures();
+        int i = 1;
+        while (*failures) {
+            char debugMessage[256];
+            sprintf(debugMessage, "SOGL WIN32 EXAMPLE %d BOOM: Failed to load function %s\n", i++, *failures);
+            OutputDebugStringA(debugMessage);
+            failures++;
+        }
+    }
 
     ///////////////////////////
     // Set up GL resources

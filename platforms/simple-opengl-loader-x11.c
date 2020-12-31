@@ -22,7 +22,6 @@
 **********************************************************************************/
 
 #include <dlfcn.h>
-#include <stdio.h>
 
 static void* sogl_libHandle = NULL;
 
@@ -41,10 +40,6 @@ void *sogl_loadOpenGLFunction(const char *name) {
     }
 
     void *fn = dlsym(sogl_libHandle, name);
-
-    if (!fn) {
-        fprintf(stderr, "SOGL: Unable to load function %s\n", name);
-    }
 
     return fn;
 }

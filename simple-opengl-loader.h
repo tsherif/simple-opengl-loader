@@ -44,14 +44,21 @@ extern "C" {
 #define SOGL_MINOR_VERSION 0
 #endif
 
-#define SOGL_TEST_VERSION(major, minor) major < SOGL_MAJOR_VERSION || major == SOGL_MAJOR_VERSION && minor <= SOGL_MINOR_VERSION
+#ifndef SOGL_MAX_REPORTED_FAILURES
+#define SOGL_MAX_REPORTED_FAILURES 64
+#endif
 
-/* SINGLE API FUNCTION TO BE USED BY APPLICATION */
-extern void sogl_loadOpenGL();
+/* API FUNCTIONS */
+extern int sogl_loadOpenGL();
+extern const char** sogl_getFailures();
 
 /* MUST BE DEFINED PER PLATFORM */
 extern void* sogl_loadOpenGLFunction(const char* name);
 extern void sogl_cleanup();
+
+/* Internal macros */
+#define SOGL_TEST_VERSION(major, minor) major < SOGL_MAJOR_VERSION || major == SOGL_MAJOR_VERSION && minor <= SOGL_MINOR_VERSION
+#define SOGL_NULL ((void *)0)
 
 /*
 ** Copyright 2013-2020 The Khronos Group Inc.
@@ -5448,8 +5455,6 @@ extern PFNGLFRAMEBUFFERTEXTUREMULTIVIEWOVRPROC glFramebufferTextureMultiviewOVR;
 
 #ifdef SOGL_IMPLEMENTATION
 
-#define SOGL_NULL ((void *)0)
-
 #if SOGL_TEST_VERSION(1, 0)
 PFNGLCULLFACEPROC glCullFace = SOGL_NULL;
 PFNGLFRONTFACEPROC glFrontFace = SOGL_NULL;
@@ -6989,1549 +6994,5385 @@ PFNGLVIEWPORTSWIZZLENVPROC glViewportSwizzleNV = SOGL_NULL;
 PFNGLFRAMEBUFFERTEXTUREMULTIVIEWOVRPROC glFramebufferTextureMultiviewOVR = SOGL_NULL;
 #endif /* SOGL_OVR_multiview */
 
-#undef SOGL_NULL
+static const char* sogl_failedLoads[SOGL_MAX_REPORTED_FAILURES + 1];
 
-void sogl_loadOpenGL() {
+int sogl_loadOpenGL() {
+	size_t failedLoads = 0;
 
 #if SOGL_TEST_VERSION(1, 0)
     glCullFace = (PFNGLCULLFACEPROC) sogl_loadOpenGLFunction("glCullFace");
+    if (!glCullFace && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glCullFace";
+    }
+    if (!glCullFace && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glCullFace";
+    }
     glFrontFace = (PFNGLFRONTFACEPROC) sogl_loadOpenGLFunction("glFrontFace");
+    if (!glFrontFace && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glFrontFace";
+    }
     glHint = (PFNGLHINTPROC) sogl_loadOpenGLFunction("glHint");
+    if (!glHint && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glHint";
+    }
     glLineWidth = (PFNGLLINEWIDTHPROC) sogl_loadOpenGLFunction("glLineWidth");
+    if (!glLineWidth && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glLineWidth";
+    }
     glPointSize = (PFNGLPOINTSIZEPROC) sogl_loadOpenGLFunction("glPointSize");
+    if (!glPointSize && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glPointSize";
+    }
     glPolygonMode = (PFNGLPOLYGONMODEPROC) sogl_loadOpenGLFunction("glPolygonMode");
+    if (!glPolygonMode && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glPolygonMode";
+    }
     glScissor = (PFNGLSCISSORPROC) sogl_loadOpenGLFunction("glScissor");
+    if (!glScissor && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glScissor";
+    }
     glTexParameterf = (PFNGLTEXPARAMETERFPROC) sogl_loadOpenGLFunction("glTexParameterf");
+    if (!glTexParameterf && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glTexParameterf";
+    }
     glTexParameterfv = (PFNGLTEXPARAMETERFVPROC) sogl_loadOpenGLFunction("glTexParameterfv");
+    if (!glTexParameterfv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glTexParameterfv";
+    }
     glTexParameteri = (PFNGLTEXPARAMETERIPROC) sogl_loadOpenGLFunction("glTexParameteri");
+    if (!glTexParameteri && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glTexParameteri";
+    }
     glTexParameteriv = (PFNGLTEXPARAMETERIVPROC) sogl_loadOpenGLFunction("glTexParameteriv");
+    if (!glTexParameteriv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glTexParameteriv";
+    }
     glTexImage1D = (PFNGLTEXIMAGE1DPROC) sogl_loadOpenGLFunction("glTexImage1D");
+    if (!glTexImage1D && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glTexImage1D";
+    }
     glTexImage2D = (PFNGLTEXIMAGE2DPROC) sogl_loadOpenGLFunction("glTexImage2D");
+    if (!glTexImage2D && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glTexImage2D";
+    }
     glDrawBuffer = (PFNGLDRAWBUFFERPROC) sogl_loadOpenGLFunction("glDrawBuffer");
+    if (!glDrawBuffer && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glDrawBuffer";
+    }
     glClear = (PFNGLCLEARPROC) sogl_loadOpenGLFunction("glClear");
+    if (!glClear && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glClear";
+    }
     glClearColor = (PFNGLCLEARCOLORPROC) sogl_loadOpenGLFunction("glClearColor");
+    if (!glClearColor && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glClearColor";
+    }
     glClearStencil = (PFNGLCLEARSTENCILPROC) sogl_loadOpenGLFunction("glClearStencil");
+    if (!glClearStencil && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glClearStencil";
+    }
     glClearDepth = (PFNGLCLEARDEPTHPROC) sogl_loadOpenGLFunction("glClearDepth");
+    if (!glClearDepth && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glClearDepth";
+    }
     glStencilMask = (PFNGLSTENCILMASKPROC) sogl_loadOpenGLFunction("glStencilMask");
+    if (!glStencilMask && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glStencilMask";
+    }
     glColorMask = (PFNGLCOLORMASKPROC) sogl_loadOpenGLFunction("glColorMask");
+    if (!glColorMask && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glColorMask";
+    }
     glDepthMask = (PFNGLDEPTHMASKPROC) sogl_loadOpenGLFunction("glDepthMask");
+    if (!glDepthMask && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glDepthMask";
+    }
     glDisable = (PFNGLDISABLEPROC) sogl_loadOpenGLFunction("glDisable");
+    if (!glDisable && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glDisable";
+    }
     glEnable = (PFNGLENABLEPROC) sogl_loadOpenGLFunction("glEnable");
+    if (!glEnable && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glEnable";
+    }
     glFinish = (PFNGLFINISHPROC) sogl_loadOpenGLFunction("glFinish");
+    if (!glFinish && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glFinish";
+    }
     glFlush = (PFNGLFLUSHPROC) sogl_loadOpenGLFunction("glFlush");
+    if (!glFlush && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glFlush";
+    }
     glBlendFunc = (PFNGLBLENDFUNCPROC) sogl_loadOpenGLFunction("glBlendFunc");
+    if (!glBlendFunc && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glBlendFunc";
+    }
     glLogicOp = (PFNGLLOGICOPPROC) sogl_loadOpenGLFunction("glLogicOp");
+    if (!glLogicOp && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glLogicOp";
+    }
     glStencilFunc = (PFNGLSTENCILFUNCPROC) sogl_loadOpenGLFunction("glStencilFunc");
+    if (!glStencilFunc && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glStencilFunc";
+    }
     glStencilOp = (PFNGLSTENCILOPPROC) sogl_loadOpenGLFunction("glStencilOp");
+    if (!glStencilOp && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glStencilOp";
+    }
     glDepthFunc = (PFNGLDEPTHFUNCPROC) sogl_loadOpenGLFunction("glDepthFunc");
+    if (!glDepthFunc && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glDepthFunc";
+    }
     glPixelStoref = (PFNGLPIXELSTOREFPROC) sogl_loadOpenGLFunction("glPixelStoref");
+    if (!glPixelStoref && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glPixelStoref";
+    }
     glPixelStorei = (PFNGLPIXELSTOREIPROC) sogl_loadOpenGLFunction("glPixelStorei");
+    if (!glPixelStorei && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glPixelStorei";
+    }
     glReadBuffer = (PFNGLREADBUFFERPROC) sogl_loadOpenGLFunction("glReadBuffer");
+    if (!glReadBuffer && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glReadBuffer";
+    }
     glReadPixels = (PFNGLREADPIXELSPROC) sogl_loadOpenGLFunction("glReadPixels");
+    if (!glReadPixels && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glReadPixels";
+    }
     glGetBooleanv = (PFNGLGETBOOLEANVPROC) sogl_loadOpenGLFunction("glGetBooleanv");
+    if (!glGetBooleanv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glGetBooleanv";
+    }
     glGetDoublev = (PFNGLGETDOUBLEVPROC) sogl_loadOpenGLFunction("glGetDoublev");
+    if (!glGetDoublev && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glGetDoublev";
+    }
     glGetError = (PFNGLGETERRORPROC) sogl_loadOpenGLFunction("glGetError");
+    if (!glGetError && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glGetError";
+    }
     glGetFloatv = (PFNGLGETFLOATVPROC) sogl_loadOpenGLFunction("glGetFloatv");
+    if (!glGetFloatv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glGetFloatv";
+    }
     glGetIntegerv = (PFNGLGETINTEGERVPROC) sogl_loadOpenGLFunction("glGetIntegerv");
+    if (!glGetIntegerv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glGetIntegerv";
+    }
     glGetString = (PFNGLGETSTRINGPROC) sogl_loadOpenGLFunction("glGetString");
+    if (!glGetString && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glGetString";
+    }
     glGetTexImage = (PFNGLGETTEXIMAGEPROC) sogl_loadOpenGLFunction("glGetTexImage");
+    if (!glGetTexImage && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glGetTexImage";
+    }
     glGetTexParameterfv = (PFNGLGETTEXPARAMETERFVPROC) sogl_loadOpenGLFunction("glGetTexParameterfv");
+    if (!glGetTexParameterfv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glGetTexParameterfv";
+    }
     glGetTexParameteriv = (PFNGLGETTEXPARAMETERIVPROC) sogl_loadOpenGLFunction("glGetTexParameteriv");
+    if (!glGetTexParameteriv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glGetTexParameteriv";
+    }
     glGetTexLevelParameterfv = (PFNGLGETTEXLEVELPARAMETERFVPROC) sogl_loadOpenGLFunction("glGetTexLevelParameterfv");
+    if (!glGetTexLevelParameterfv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glGetTexLevelParameterfv";
+    }
     glGetTexLevelParameteriv = (PFNGLGETTEXLEVELPARAMETERIVPROC) sogl_loadOpenGLFunction("glGetTexLevelParameteriv");
+    if (!glGetTexLevelParameteriv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glGetTexLevelParameteriv";
+    }
     glIsEnabled = (PFNGLISENABLEDPROC) sogl_loadOpenGLFunction("glIsEnabled");
+    if (!glIsEnabled && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glIsEnabled";
+    }
     glDepthRange = (PFNGLDEPTHRANGEPROC) sogl_loadOpenGLFunction("glDepthRange");
+    if (!glDepthRange && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glDepthRange";
+    }
     glViewport = (PFNGLVIEWPORTPROC) sogl_loadOpenGLFunction("glViewport");
+    if (!glViewport && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glViewport";
+    }
 #endif /* GL_VERSION_1_0 */
 
 #if SOGL_TEST_VERSION(1, 1)
     glDrawArrays = (PFNGLDRAWARRAYSPROC) sogl_loadOpenGLFunction("glDrawArrays");
+    if (!glDrawArrays && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glDrawArrays";
+    }
     glDrawElements = (PFNGLDRAWELEMENTSPROC) sogl_loadOpenGLFunction("glDrawElements");
+    if (!glDrawElements && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glDrawElements";
+    }
     glGetPointerv = (PFNGLGETPOINTERVPROC) sogl_loadOpenGLFunction("glGetPointerv");
+    if (!glGetPointerv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glGetPointerv";
+    }
     glPolygonOffset = (PFNGLPOLYGONOFFSETPROC) sogl_loadOpenGLFunction("glPolygonOffset");
+    if (!glPolygonOffset && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glPolygonOffset";
+    }
     glCopyTexImage1D = (PFNGLCOPYTEXIMAGE1DPROC) sogl_loadOpenGLFunction("glCopyTexImage1D");
+    if (!glCopyTexImage1D && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glCopyTexImage1D";
+    }
     glCopyTexImage2D = (PFNGLCOPYTEXIMAGE2DPROC) sogl_loadOpenGLFunction("glCopyTexImage2D");
+    if (!glCopyTexImage2D && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glCopyTexImage2D";
+    }
     glCopyTexSubImage1D = (PFNGLCOPYTEXSUBIMAGE1DPROC) sogl_loadOpenGLFunction("glCopyTexSubImage1D");
+    if (!glCopyTexSubImage1D && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glCopyTexSubImage1D";
+    }
     glCopyTexSubImage2D = (PFNGLCOPYTEXSUBIMAGE2DPROC) sogl_loadOpenGLFunction("glCopyTexSubImage2D");
+    if (!glCopyTexSubImage2D && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glCopyTexSubImage2D";
+    }
     glTexSubImage1D = (PFNGLTEXSUBIMAGE1DPROC) sogl_loadOpenGLFunction("glTexSubImage1D");
+    if (!glTexSubImage1D && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glTexSubImage1D";
+    }
     glTexSubImage2D = (PFNGLTEXSUBIMAGE2DPROC) sogl_loadOpenGLFunction("glTexSubImage2D");
+    if (!glTexSubImage2D && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glTexSubImage2D";
+    }
     glBindTexture = (PFNGLBINDTEXTUREPROC) sogl_loadOpenGLFunction("glBindTexture");
+    if (!glBindTexture && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glBindTexture";
+    }
     glDeleteTextures = (PFNGLDELETETEXTURESPROC) sogl_loadOpenGLFunction("glDeleteTextures");
+    if (!glDeleteTextures && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glDeleteTextures";
+    }
     glGenTextures = (PFNGLGENTEXTURESPROC) sogl_loadOpenGLFunction("glGenTextures");
+    if (!glGenTextures && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glGenTextures";
+    }
     glIsTexture = (PFNGLISTEXTUREPROC) sogl_loadOpenGLFunction("glIsTexture");
+    if (!glIsTexture && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glIsTexture";
+    }
 #endif /* GL_VERSION_1_1 */
 
 #if SOGL_TEST_VERSION(1, 2)
     glDrawRangeElements = (PFNGLDRAWRANGEELEMENTSPROC) sogl_loadOpenGLFunction("glDrawRangeElements");
+    if (!glDrawRangeElements && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glDrawRangeElements";
+    }
     glTexImage3D = (PFNGLTEXIMAGE3DPROC) sogl_loadOpenGLFunction("glTexImage3D");
+    if (!glTexImage3D && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glTexImage3D";
+    }
     glTexSubImage3D = (PFNGLTEXSUBIMAGE3DPROC) sogl_loadOpenGLFunction("glTexSubImage3D");
+    if (!glTexSubImage3D && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glTexSubImage3D";
+    }
     glCopyTexSubImage3D = (PFNGLCOPYTEXSUBIMAGE3DPROC) sogl_loadOpenGLFunction("glCopyTexSubImage3D");
+    if (!glCopyTexSubImage3D && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glCopyTexSubImage3D";
+    }
 #endif /* GL_VERSION_1_2 */
 
 #if SOGL_TEST_VERSION(1, 3)
     glActiveTexture = (PFNGLACTIVETEXTUREPROC) sogl_loadOpenGLFunction("glActiveTexture");
+    if (!glActiveTexture && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glActiveTexture";
+    }
     glSampleCoverage = (PFNGLSAMPLECOVERAGEPROC) sogl_loadOpenGLFunction("glSampleCoverage");
+    if (!glSampleCoverage && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glSampleCoverage";
+    }
     glCompressedTexImage3D = (PFNGLCOMPRESSEDTEXIMAGE3DPROC) sogl_loadOpenGLFunction("glCompressedTexImage3D");
+    if (!glCompressedTexImage3D && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glCompressedTexImage3D";
+    }
     glCompressedTexImage2D = (PFNGLCOMPRESSEDTEXIMAGE2DPROC) sogl_loadOpenGLFunction("glCompressedTexImage2D");
+    if (!glCompressedTexImage2D && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glCompressedTexImage2D";
+    }
     glCompressedTexImage1D = (PFNGLCOMPRESSEDTEXIMAGE1DPROC) sogl_loadOpenGLFunction("glCompressedTexImage1D");
+    if (!glCompressedTexImage1D && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glCompressedTexImage1D";
+    }
     glCompressedTexSubImage3D = (PFNGLCOMPRESSEDTEXSUBIMAGE3DPROC) sogl_loadOpenGLFunction("glCompressedTexSubImage3D");
+    if (!glCompressedTexSubImage3D && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glCompressedTexSubImage3D";
+    }
     glCompressedTexSubImage2D = (PFNGLCOMPRESSEDTEXSUBIMAGE2DPROC) sogl_loadOpenGLFunction("glCompressedTexSubImage2D");
+    if (!glCompressedTexSubImage2D && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glCompressedTexSubImage2D";
+    }
     glCompressedTexSubImage1D = (PFNGLCOMPRESSEDTEXSUBIMAGE1DPROC) sogl_loadOpenGLFunction("glCompressedTexSubImage1D");
+    if (!glCompressedTexSubImage1D && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glCompressedTexSubImage1D";
+    }
     glGetCompressedTexImage = (PFNGLGETCOMPRESSEDTEXIMAGEPROC) sogl_loadOpenGLFunction("glGetCompressedTexImage");
+    if (!glGetCompressedTexImage && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glGetCompressedTexImage";
+    }
 #endif /* GL_VERSION_1_3 */
 
 #if SOGL_TEST_VERSION(1, 4)
     glBlendFuncSeparate = (PFNGLBLENDFUNCSEPARATEPROC) sogl_loadOpenGLFunction("glBlendFuncSeparate");
+    if (!glBlendFuncSeparate && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glBlendFuncSeparate";
+    }
     glMultiDrawArrays = (PFNGLMULTIDRAWARRAYSPROC) sogl_loadOpenGLFunction("glMultiDrawArrays");
+    if (!glMultiDrawArrays && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glMultiDrawArrays";
+    }
     glMultiDrawElements = (PFNGLMULTIDRAWELEMENTSPROC) sogl_loadOpenGLFunction("glMultiDrawElements");
+    if (!glMultiDrawElements && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glMultiDrawElements";
+    }
     glPointParameterf = (PFNGLPOINTPARAMETERFPROC) sogl_loadOpenGLFunction("glPointParameterf");
+    if (!glPointParameterf && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glPointParameterf";
+    }
     glPointParameterfv = (PFNGLPOINTPARAMETERFVPROC) sogl_loadOpenGLFunction("glPointParameterfv");
+    if (!glPointParameterfv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glPointParameterfv";
+    }
     glPointParameteri = (PFNGLPOINTPARAMETERIPROC) sogl_loadOpenGLFunction("glPointParameteri");
+    if (!glPointParameteri && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glPointParameteri";
+    }
     glPointParameteriv = (PFNGLPOINTPARAMETERIVPROC) sogl_loadOpenGLFunction("glPointParameteriv");
+    if (!glPointParameteriv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glPointParameteriv";
+    }
     glBlendColor = (PFNGLBLENDCOLORPROC) sogl_loadOpenGLFunction("glBlendColor");
+    if (!glBlendColor && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glBlendColor";
+    }
     glBlendEquation = (PFNGLBLENDEQUATIONPROC) sogl_loadOpenGLFunction("glBlendEquation");
+    if (!glBlendEquation && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glBlendEquation";
+    }
 #endif /* GL_VERSION_1_4 */
 
 #if SOGL_TEST_VERSION(1, 5)
     glGenQueries = (PFNGLGENQUERIESPROC) sogl_loadOpenGLFunction("glGenQueries");
+    if (!glGenQueries && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glGenQueries";
+    }
     glDeleteQueries = (PFNGLDELETEQUERIESPROC) sogl_loadOpenGLFunction("glDeleteQueries");
+    if (!glDeleteQueries && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glDeleteQueries";
+    }
     glIsQuery = (PFNGLISQUERYPROC) sogl_loadOpenGLFunction("glIsQuery");
+    if (!glIsQuery && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glIsQuery";
+    }
     glBeginQuery = (PFNGLBEGINQUERYPROC) sogl_loadOpenGLFunction("glBeginQuery");
+    if (!glBeginQuery && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glBeginQuery";
+    }
     glEndQuery = (PFNGLENDQUERYPROC) sogl_loadOpenGLFunction("glEndQuery");
+    if (!glEndQuery && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glEndQuery";
+    }
     glGetQueryiv = (PFNGLGETQUERYIVPROC) sogl_loadOpenGLFunction("glGetQueryiv");
+    if (!glGetQueryiv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glGetQueryiv";
+    }
     glGetQueryObjectiv = (PFNGLGETQUERYOBJECTIVPROC) sogl_loadOpenGLFunction("glGetQueryObjectiv");
+    if (!glGetQueryObjectiv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glGetQueryObjectiv";
+    }
     glGetQueryObjectuiv = (PFNGLGETQUERYOBJECTUIVPROC) sogl_loadOpenGLFunction("glGetQueryObjectuiv");
+    if (!glGetQueryObjectuiv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glGetQueryObjectuiv";
+    }
     glBindBuffer = (PFNGLBINDBUFFERPROC) sogl_loadOpenGLFunction("glBindBuffer");
+    if (!glBindBuffer && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glBindBuffer";
+    }
     glDeleteBuffers = (PFNGLDELETEBUFFERSPROC) sogl_loadOpenGLFunction("glDeleteBuffers");
+    if (!glDeleteBuffers && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glDeleteBuffers";
+    }
     glGenBuffers = (PFNGLGENBUFFERSPROC) sogl_loadOpenGLFunction("glGenBuffers");
+    if (!glGenBuffers && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glGenBuffers";
+    }
     glIsBuffer = (PFNGLISBUFFERPROC) sogl_loadOpenGLFunction("glIsBuffer");
+    if (!glIsBuffer && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glIsBuffer";
+    }
     glBufferData = (PFNGLBUFFERDATAPROC) sogl_loadOpenGLFunction("glBufferData");
+    if (!glBufferData && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glBufferData";
+    }
     glBufferSubData = (PFNGLBUFFERSUBDATAPROC) sogl_loadOpenGLFunction("glBufferSubData");
+    if (!glBufferSubData && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glBufferSubData";
+    }
     glGetBufferSubData = (PFNGLGETBUFFERSUBDATAPROC) sogl_loadOpenGLFunction("glGetBufferSubData");
+    if (!glGetBufferSubData && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glGetBufferSubData";
+    }
     glMapBuffer = (PFNGLMAPBUFFERPROC) sogl_loadOpenGLFunction("glMapBuffer");
+    if (!glMapBuffer && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glMapBuffer";
+    }
     glUnmapBuffer = (PFNGLUNMAPBUFFERPROC) sogl_loadOpenGLFunction("glUnmapBuffer");
+    if (!glUnmapBuffer && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glUnmapBuffer";
+    }
     glGetBufferParameteriv = (PFNGLGETBUFFERPARAMETERIVPROC) sogl_loadOpenGLFunction("glGetBufferParameteriv");
+    if (!glGetBufferParameteriv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glGetBufferParameteriv";
+    }
     glGetBufferPointerv = (PFNGLGETBUFFERPOINTERVPROC) sogl_loadOpenGLFunction("glGetBufferPointerv");
+    if (!glGetBufferPointerv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glGetBufferPointerv";
+    }
 #endif /* GL_VERSION_1_5 */
 
 #if SOGL_TEST_VERSION(2, 0)
     glBlendEquationSeparate = (PFNGLBLENDEQUATIONSEPARATEPROC) sogl_loadOpenGLFunction("glBlendEquationSeparate");
+    if (!glBlendEquationSeparate && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glBlendEquationSeparate";
+    }
     glDrawBuffers = (PFNGLDRAWBUFFERSPROC) sogl_loadOpenGLFunction("glDrawBuffers");
+    if (!glDrawBuffers && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glDrawBuffers";
+    }
     glStencilOpSeparate = (PFNGLSTENCILOPSEPARATEPROC) sogl_loadOpenGLFunction("glStencilOpSeparate");
+    if (!glStencilOpSeparate && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glStencilOpSeparate";
+    }
     glStencilFuncSeparate = (PFNGLSTENCILFUNCSEPARATEPROC) sogl_loadOpenGLFunction("glStencilFuncSeparate");
+    if (!glStencilFuncSeparate && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glStencilFuncSeparate";
+    }
     glStencilMaskSeparate = (PFNGLSTENCILMASKSEPARATEPROC) sogl_loadOpenGLFunction("glStencilMaskSeparate");
+    if (!glStencilMaskSeparate && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glStencilMaskSeparate";
+    }
     glAttachShader = (PFNGLATTACHSHADERPROC) sogl_loadOpenGLFunction("glAttachShader");
+    if (!glAttachShader && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glAttachShader";
+    }
     glBindAttribLocation = (PFNGLBINDATTRIBLOCATIONPROC) sogl_loadOpenGLFunction("glBindAttribLocation");
+    if (!glBindAttribLocation && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glBindAttribLocation";
+    }
     glCompileShader = (PFNGLCOMPILESHADERPROC) sogl_loadOpenGLFunction("glCompileShader");
+    if (!glCompileShader && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glCompileShader";
+    }
     glCreateProgram = (PFNGLCREATEPROGRAMPROC) sogl_loadOpenGLFunction("glCreateProgram");
+    if (!glCreateProgram && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glCreateProgram";
+    }
     glCreateShader = (PFNGLCREATESHADERPROC) sogl_loadOpenGLFunction("glCreateShader");
+    if (!glCreateShader && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glCreateShader";
+    }
     glDeleteProgram = (PFNGLDELETEPROGRAMPROC) sogl_loadOpenGLFunction("glDeleteProgram");
+    if (!glDeleteProgram && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glDeleteProgram";
+    }
     glDeleteShader = (PFNGLDELETESHADERPROC) sogl_loadOpenGLFunction("glDeleteShader");
+    if (!glDeleteShader && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glDeleteShader";
+    }
     glDetachShader = (PFNGLDETACHSHADERPROC) sogl_loadOpenGLFunction("glDetachShader");
+    if (!glDetachShader && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glDetachShader";
+    }
     glDisableVertexAttribArray = (PFNGLDISABLEVERTEXATTRIBARRAYPROC) sogl_loadOpenGLFunction("glDisableVertexAttribArray");
+    if (!glDisableVertexAttribArray && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glDisableVertexAttribArray";
+    }
     glEnableVertexAttribArray = (PFNGLENABLEVERTEXATTRIBARRAYPROC) sogl_loadOpenGLFunction("glEnableVertexAttribArray");
+    if (!glEnableVertexAttribArray && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glEnableVertexAttribArray";
+    }
     glGetActiveAttrib = (PFNGLGETACTIVEATTRIBPROC) sogl_loadOpenGLFunction("glGetActiveAttrib");
+    if (!glGetActiveAttrib && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glGetActiveAttrib";
+    }
     glGetActiveUniform = (PFNGLGETACTIVEUNIFORMPROC) sogl_loadOpenGLFunction("glGetActiveUniform");
+    if (!glGetActiveUniform && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glGetActiveUniform";
+    }
     glGetAttachedShaders = (PFNGLGETATTACHEDSHADERSPROC) sogl_loadOpenGLFunction("glGetAttachedShaders");
+    if (!glGetAttachedShaders && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glGetAttachedShaders";
+    }
     glGetAttribLocation = (PFNGLGETATTRIBLOCATIONPROC) sogl_loadOpenGLFunction("glGetAttribLocation");
+    if (!glGetAttribLocation && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glGetAttribLocation";
+    }
     glGetProgramiv = (PFNGLGETPROGRAMIVPROC) sogl_loadOpenGLFunction("glGetProgramiv");
+    if (!glGetProgramiv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glGetProgramiv";
+    }
     glGetProgramInfoLog = (PFNGLGETPROGRAMINFOLOGPROC) sogl_loadOpenGLFunction("glGetProgramInfoLog");
+    if (!glGetProgramInfoLog && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glGetProgramInfoLog";
+    }
     glGetShaderiv = (PFNGLGETSHADERIVPROC) sogl_loadOpenGLFunction("glGetShaderiv");
+    if (!glGetShaderiv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glGetShaderiv";
+    }
     glGetShaderInfoLog = (PFNGLGETSHADERINFOLOGPROC) sogl_loadOpenGLFunction("glGetShaderInfoLog");
+    if (!glGetShaderInfoLog && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glGetShaderInfoLog";
+    }
     glGetShaderSource = (PFNGLGETSHADERSOURCEPROC) sogl_loadOpenGLFunction("glGetShaderSource");
+    if (!glGetShaderSource && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glGetShaderSource";
+    }
     glGetUniformLocation = (PFNGLGETUNIFORMLOCATIONPROC) sogl_loadOpenGLFunction("glGetUniformLocation");
+    if (!glGetUniformLocation && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glGetUniformLocation";
+    }
     glGetUniformfv = (PFNGLGETUNIFORMFVPROC) sogl_loadOpenGLFunction("glGetUniformfv");
+    if (!glGetUniformfv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glGetUniformfv";
+    }
     glGetUniformiv = (PFNGLGETUNIFORMIVPROC) sogl_loadOpenGLFunction("glGetUniformiv");
+    if (!glGetUniformiv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glGetUniformiv";
+    }
     glGetVertexAttribdv = (PFNGLGETVERTEXATTRIBDVPROC) sogl_loadOpenGLFunction("glGetVertexAttribdv");
+    if (!glGetVertexAttribdv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glGetVertexAttribdv";
+    }
     glGetVertexAttribfv = (PFNGLGETVERTEXATTRIBFVPROC) sogl_loadOpenGLFunction("glGetVertexAttribfv");
+    if (!glGetVertexAttribfv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glGetVertexAttribfv";
+    }
     glGetVertexAttribiv = (PFNGLGETVERTEXATTRIBIVPROC) sogl_loadOpenGLFunction("glGetVertexAttribiv");
+    if (!glGetVertexAttribiv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glGetVertexAttribiv";
+    }
     glGetVertexAttribPointerv = (PFNGLGETVERTEXATTRIBPOINTERVPROC) sogl_loadOpenGLFunction("glGetVertexAttribPointerv");
+    if (!glGetVertexAttribPointerv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glGetVertexAttribPointerv";
+    }
     glIsProgram = (PFNGLISPROGRAMPROC) sogl_loadOpenGLFunction("glIsProgram");
+    if (!glIsProgram && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glIsProgram";
+    }
     glIsShader = (PFNGLISSHADERPROC) sogl_loadOpenGLFunction("glIsShader");
+    if (!glIsShader && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glIsShader";
+    }
     glLinkProgram = (PFNGLLINKPROGRAMPROC) sogl_loadOpenGLFunction("glLinkProgram");
+    if (!glLinkProgram && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glLinkProgram";
+    }
     glShaderSource = (PFNGLSHADERSOURCEPROC) sogl_loadOpenGLFunction("glShaderSource");
+    if (!glShaderSource && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glShaderSource";
+    }
     glUseProgram = (PFNGLUSEPROGRAMPROC) sogl_loadOpenGLFunction("glUseProgram");
+    if (!glUseProgram && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glUseProgram";
+    }
     glUniform1f = (PFNGLUNIFORM1FPROC) sogl_loadOpenGLFunction("glUniform1f");
+    if (!glUniform1f && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glUniform1f";
+    }
     glUniform2f = (PFNGLUNIFORM2FPROC) sogl_loadOpenGLFunction("glUniform2f");
+    if (!glUniform2f && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glUniform2f";
+    }
     glUniform3f = (PFNGLUNIFORM3FPROC) sogl_loadOpenGLFunction("glUniform3f");
+    if (!glUniform3f && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glUniform3f";
+    }
     glUniform4f = (PFNGLUNIFORM4FPROC) sogl_loadOpenGLFunction("glUniform4f");
+    if (!glUniform4f && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glUniform4f";
+    }
     glUniform1i = (PFNGLUNIFORM1IPROC) sogl_loadOpenGLFunction("glUniform1i");
+    if (!glUniform1i && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glUniform1i";
+    }
     glUniform2i = (PFNGLUNIFORM2IPROC) sogl_loadOpenGLFunction("glUniform2i");
+    if (!glUniform2i && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glUniform2i";
+    }
     glUniform3i = (PFNGLUNIFORM3IPROC) sogl_loadOpenGLFunction("glUniform3i");
+    if (!glUniform3i && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glUniform3i";
+    }
     glUniform4i = (PFNGLUNIFORM4IPROC) sogl_loadOpenGLFunction("glUniform4i");
+    if (!glUniform4i && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glUniform4i";
+    }
     glUniform1fv = (PFNGLUNIFORM1FVPROC) sogl_loadOpenGLFunction("glUniform1fv");
+    if (!glUniform1fv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glUniform1fv";
+    }
     glUniform2fv = (PFNGLUNIFORM2FVPROC) sogl_loadOpenGLFunction("glUniform2fv");
+    if (!glUniform2fv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glUniform2fv";
+    }
     glUniform3fv = (PFNGLUNIFORM3FVPROC) sogl_loadOpenGLFunction("glUniform3fv");
+    if (!glUniform3fv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glUniform3fv";
+    }
     glUniform4fv = (PFNGLUNIFORM4FVPROC) sogl_loadOpenGLFunction("glUniform4fv");
+    if (!glUniform4fv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glUniform4fv";
+    }
     glUniform1iv = (PFNGLUNIFORM1IVPROC) sogl_loadOpenGLFunction("glUniform1iv");
+    if (!glUniform1iv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glUniform1iv";
+    }
     glUniform2iv = (PFNGLUNIFORM2IVPROC) sogl_loadOpenGLFunction("glUniform2iv");
+    if (!glUniform2iv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glUniform2iv";
+    }
     glUniform3iv = (PFNGLUNIFORM3IVPROC) sogl_loadOpenGLFunction("glUniform3iv");
+    if (!glUniform3iv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glUniform3iv";
+    }
     glUniform4iv = (PFNGLUNIFORM4IVPROC) sogl_loadOpenGLFunction("glUniform4iv");
+    if (!glUniform4iv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glUniform4iv";
+    }
     glUniformMatrix2fv = (PFNGLUNIFORMMATRIX2FVPROC) sogl_loadOpenGLFunction("glUniformMatrix2fv");
+    if (!glUniformMatrix2fv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glUniformMatrix2fv";
+    }
     glUniformMatrix3fv = (PFNGLUNIFORMMATRIX3FVPROC) sogl_loadOpenGLFunction("glUniformMatrix3fv");
+    if (!glUniformMatrix3fv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glUniformMatrix3fv";
+    }
     glUniformMatrix4fv = (PFNGLUNIFORMMATRIX4FVPROC) sogl_loadOpenGLFunction("glUniformMatrix4fv");
+    if (!glUniformMatrix4fv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glUniformMatrix4fv";
+    }
     glValidateProgram = (PFNGLVALIDATEPROGRAMPROC) sogl_loadOpenGLFunction("glValidateProgram");
+    if (!glValidateProgram && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glValidateProgram";
+    }
     glVertexAttrib1d = (PFNGLVERTEXATTRIB1DPROC) sogl_loadOpenGLFunction("glVertexAttrib1d");
+    if (!glVertexAttrib1d && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glVertexAttrib1d";
+    }
     glVertexAttrib1dv = (PFNGLVERTEXATTRIB1DVPROC) sogl_loadOpenGLFunction("glVertexAttrib1dv");
+    if (!glVertexAttrib1dv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glVertexAttrib1dv";
+    }
     glVertexAttrib1f = (PFNGLVERTEXATTRIB1FPROC) sogl_loadOpenGLFunction("glVertexAttrib1f");
+    if (!glVertexAttrib1f && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glVertexAttrib1f";
+    }
     glVertexAttrib1fv = (PFNGLVERTEXATTRIB1FVPROC) sogl_loadOpenGLFunction("glVertexAttrib1fv");
+    if (!glVertexAttrib1fv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glVertexAttrib1fv";
+    }
     glVertexAttrib1s = (PFNGLVERTEXATTRIB1SPROC) sogl_loadOpenGLFunction("glVertexAttrib1s");
+    if (!glVertexAttrib1s && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glVertexAttrib1s";
+    }
     glVertexAttrib1sv = (PFNGLVERTEXATTRIB1SVPROC) sogl_loadOpenGLFunction("glVertexAttrib1sv");
+    if (!glVertexAttrib1sv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glVertexAttrib1sv";
+    }
     glVertexAttrib2d = (PFNGLVERTEXATTRIB2DPROC) sogl_loadOpenGLFunction("glVertexAttrib2d");
+    if (!glVertexAttrib2d && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glVertexAttrib2d";
+    }
     glVertexAttrib2dv = (PFNGLVERTEXATTRIB2DVPROC) sogl_loadOpenGLFunction("glVertexAttrib2dv");
+    if (!glVertexAttrib2dv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glVertexAttrib2dv";
+    }
     glVertexAttrib2f = (PFNGLVERTEXATTRIB2FPROC) sogl_loadOpenGLFunction("glVertexAttrib2f");
+    if (!glVertexAttrib2f && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glVertexAttrib2f";
+    }
     glVertexAttrib2fv = (PFNGLVERTEXATTRIB2FVPROC) sogl_loadOpenGLFunction("glVertexAttrib2fv");
+    if (!glVertexAttrib2fv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glVertexAttrib2fv";
+    }
     glVertexAttrib2s = (PFNGLVERTEXATTRIB2SPROC) sogl_loadOpenGLFunction("glVertexAttrib2s");
+    if (!glVertexAttrib2s && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glVertexAttrib2s";
+    }
     glVertexAttrib2sv = (PFNGLVERTEXATTRIB2SVPROC) sogl_loadOpenGLFunction("glVertexAttrib2sv");
+    if (!glVertexAttrib2sv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glVertexAttrib2sv";
+    }
     glVertexAttrib3d = (PFNGLVERTEXATTRIB3DPROC) sogl_loadOpenGLFunction("glVertexAttrib3d");
+    if (!glVertexAttrib3d && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glVertexAttrib3d";
+    }
     glVertexAttrib3dv = (PFNGLVERTEXATTRIB3DVPROC) sogl_loadOpenGLFunction("glVertexAttrib3dv");
+    if (!glVertexAttrib3dv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glVertexAttrib3dv";
+    }
     glVertexAttrib3f = (PFNGLVERTEXATTRIB3FPROC) sogl_loadOpenGLFunction("glVertexAttrib3f");
+    if (!glVertexAttrib3f && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glVertexAttrib3f";
+    }
     glVertexAttrib3fv = (PFNGLVERTEXATTRIB3FVPROC) sogl_loadOpenGLFunction("glVertexAttrib3fv");
+    if (!glVertexAttrib3fv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glVertexAttrib3fv";
+    }
     glVertexAttrib3s = (PFNGLVERTEXATTRIB3SPROC) sogl_loadOpenGLFunction("glVertexAttrib3s");
+    if (!glVertexAttrib3s && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glVertexAttrib3s";
+    }
     glVertexAttrib3sv = (PFNGLVERTEXATTRIB3SVPROC) sogl_loadOpenGLFunction("glVertexAttrib3sv");
+    if (!glVertexAttrib3sv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glVertexAttrib3sv";
+    }
     glVertexAttrib4Nbv = (PFNGLVERTEXATTRIB4NBVPROC) sogl_loadOpenGLFunction("glVertexAttrib4Nbv");
+    if (!glVertexAttrib4Nbv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glVertexAttrib4Nbv";
+    }
     glVertexAttrib4Niv = (PFNGLVERTEXATTRIB4NIVPROC) sogl_loadOpenGLFunction("glVertexAttrib4Niv");
+    if (!glVertexAttrib4Niv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glVertexAttrib4Niv";
+    }
     glVertexAttrib4Nsv = (PFNGLVERTEXATTRIB4NSVPROC) sogl_loadOpenGLFunction("glVertexAttrib4Nsv");
+    if (!glVertexAttrib4Nsv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glVertexAttrib4Nsv";
+    }
     glVertexAttrib4Nub = (PFNGLVERTEXATTRIB4NUBPROC) sogl_loadOpenGLFunction("glVertexAttrib4Nub");
+    if (!glVertexAttrib4Nub && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glVertexAttrib4Nub";
+    }
     glVertexAttrib4Nubv = (PFNGLVERTEXATTRIB4NUBVPROC) sogl_loadOpenGLFunction("glVertexAttrib4Nubv");
+    if (!glVertexAttrib4Nubv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glVertexAttrib4Nubv";
+    }
     glVertexAttrib4Nuiv = (PFNGLVERTEXATTRIB4NUIVPROC) sogl_loadOpenGLFunction("glVertexAttrib4Nuiv");
+    if (!glVertexAttrib4Nuiv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glVertexAttrib4Nuiv";
+    }
     glVertexAttrib4Nusv = (PFNGLVERTEXATTRIB4NUSVPROC) sogl_loadOpenGLFunction("glVertexAttrib4Nusv");
+    if (!glVertexAttrib4Nusv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glVertexAttrib4Nusv";
+    }
     glVertexAttrib4bv = (PFNGLVERTEXATTRIB4BVPROC) sogl_loadOpenGLFunction("glVertexAttrib4bv");
+    if (!glVertexAttrib4bv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glVertexAttrib4bv";
+    }
     glVertexAttrib4d = (PFNGLVERTEXATTRIB4DPROC) sogl_loadOpenGLFunction("glVertexAttrib4d");
+    if (!glVertexAttrib4d && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glVertexAttrib4d";
+    }
     glVertexAttrib4dv = (PFNGLVERTEXATTRIB4DVPROC) sogl_loadOpenGLFunction("glVertexAttrib4dv");
+    if (!glVertexAttrib4dv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glVertexAttrib4dv";
+    }
     glVertexAttrib4f = (PFNGLVERTEXATTRIB4FPROC) sogl_loadOpenGLFunction("glVertexAttrib4f");
+    if (!glVertexAttrib4f && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glVertexAttrib4f";
+    }
     glVertexAttrib4fv = (PFNGLVERTEXATTRIB4FVPROC) sogl_loadOpenGLFunction("glVertexAttrib4fv");
+    if (!glVertexAttrib4fv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glVertexAttrib4fv";
+    }
     glVertexAttrib4iv = (PFNGLVERTEXATTRIB4IVPROC) sogl_loadOpenGLFunction("glVertexAttrib4iv");
+    if (!glVertexAttrib4iv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glVertexAttrib4iv";
+    }
     glVertexAttrib4s = (PFNGLVERTEXATTRIB4SPROC) sogl_loadOpenGLFunction("glVertexAttrib4s");
+    if (!glVertexAttrib4s && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glVertexAttrib4s";
+    }
     glVertexAttrib4sv = (PFNGLVERTEXATTRIB4SVPROC) sogl_loadOpenGLFunction("glVertexAttrib4sv");
+    if (!glVertexAttrib4sv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glVertexAttrib4sv";
+    }
     glVertexAttrib4ubv = (PFNGLVERTEXATTRIB4UBVPROC) sogl_loadOpenGLFunction("glVertexAttrib4ubv");
+    if (!glVertexAttrib4ubv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glVertexAttrib4ubv";
+    }
     glVertexAttrib4uiv = (PFNGLVERTEXATTRIB4UIVPROC) sogl_loadOpenGLFunction("glVertexAttrib4uiv");
+    if (!glVertexAttrib4uiv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glVertexAttrib4uiv";
+    }
     glVertexAttrib4usv = (PFNGLVERTEXATTRIB4USVPROC) sogl_loadOpenGLFunction("glVertexAttrib4usv");
+    if (!glVertexAttrib4usv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glVertexAttrib4usv";
+    }
     glVertexAttribPointer = (PFNGLVERTEXATTRIBPOINTERPROC) sogl_loadOpenGLFunction("glVertexAttribPointer");
+    if (!glVertexAttribPointer && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glVertexAttribPointer";
+    }
 #endif /* GL_VERSION_2_0 */
 
 #if SOGL_TEST_VERSION(2, 1)
     glUniformMatrix2x3fv = (PFNGLUNIFORMMATRIX2X3FVPROC) sogl_loadOpenGLFunction("glUniformMatrix2x3fv");
+    if (!glUniformMatrix2x3fv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glUniformMatrix2x3fv";
+    }
     glUniformMatrix3x2fv = (PFNGLUNIFORMMATRIX3X2FVPROC) sogl_loadOpenGLFunction("glUniformMatrix3x2fv");
+    if (!glUniformMatrix3x2fv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glUniformMatrix3x2fv";
+    }
     glUniformMatrix2x4fv = (PFNGLUNIFORMMATRIX2X4FVPROC) sogl_loadOpenGLFunction("glUniformMatrix2x4fv");
+    if (!glUniformMatrix2x4fv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glUniformMatrix2x4fv";
+    }
     glUniformMatrix4x2fv = (PFNGLUNIFORMMATRIX4X2FVPROC) sogl_loadOpenGLFunction("glUniformMatrix4x2fv");
+    if (!glUniformMatrix4x2fv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glUniformMatrix4x2fv";
+    }
     glUniformMatrix3x4fv = (PFNGLUNIFORMMATRIX3X4FVPROC) sogl_loadOpenGLFunction("glUniformMatrix3x4fv");
+    if (!glUniformMatrix3x4fv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glUniformMatrix3x4fv";
+    }
     glUniformMatrix4x3fv = (PFNGLUNIFORMMATRIX4X3FVPROC) sogl_loadOpenGLFunction("glUniformMatrix4x3fv");
+    if (!glUniformMatrix4x3fv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glUniformMatrix4x3fv";
+    }
 #endif /* GL_VERSION_2_1 */
 
 #if SOGL_TEST_VERSION(3, 0)
     glColorMaski = (PFNGLCOLORMASKIPROC) sogl_loadOpenGLFunction("glColorMaski");
+    if (!glColorMaski && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glColorMaski";
+    }
     glGetBooleani_v = (PFNGLGETBOOLEANI_VPROC) sogl_loadOpenGLFunction("glGetBooleani_v");
+    if (!glGetBooleani_v && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glGetBooleani_v";
+    }
     glGetIntegeri_v = (PFNGLGETINTEGERI_VPROC) sogl_loadOpenGLFunction("glGetIntegeri_v");
+    if (!glGetIntegeri_v && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glGetIntegeri_v";
+    }
     glEnablei = (PFNGLENABLEIPROC) sogl_loadOpenGLFunction("glEnablei");
+    if (!glEnablei && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glEnablei";
+    }
     glDisablei = (PFNGLDISABLEIPROC) sogl_loadOpenGLFunction("glDisablei");
+    if (!glDisablei && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glDisablei";
+    }
     glIsEnabledi = (PFNGLISENABLEDIPROC) sogl_loadOpenGLFunction("glIsEnabledi");
+    if (!glIsEnabledi && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glIsEnabledi";
+    }
     glBeginTransformFeedback = (PFNGLBEGINTRANSFORMFEEDBACKPROC) sogl_loadOpenGLFunction("glBeginTransformFeedback");
+    if (!glBeginTransformFeedback && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glBeginTransformFeedback";
+    }
     glEndTransformFeedback = (PFNGLENDTRANSFORMFEEDBACKPROC) sogl_loadOpenGLFunction("glEndTransformFeedback");
+    if (!glEndTransformFeedback && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glEndTransformFeedback";
+    }
     glBindBufferRange = (PFNGLBINDBUFFERRANGEPROC) sogl_loadOpenGLFunction("glBindBufferRange");
+    if (!glBindBufferRange && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glBindBufferRange";
+    }
     glBindBufferBase = (PFNGLBINDBUFFERBASEPROC) sogl_loadOpenGLFunction("glBindBufferBase");
+    if (!glBindBufferBase && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glBindBufferBase";
+    }
     glTransformFeedbackVaryings = (PFNGLTRANSFORMFEEDBACKVARYINGSPROC) sogl_loadOpenGLFunction("glTransformFeedbackVaryings");
+    if (!glTransformFeedbackVaryings && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glTransformFeedbackVaryings";
+    }
     glGetTransformFeedbackVarying = (PFNGLGETTRANSFORMFEEDBACKVARYINGPROC) sogl_loadOpenGLFunction("glGetTransformFeedbackVarying");
+    if (!glGetTransformFeedbackVarying && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glGetTransformFeedbackVarying";
+    }
     glClampColor = (PFNGLCLAMPCOLORPROC) sogl_loadOpenGLFunction("glClampColor");
+    if (!glClampColor && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glClampColor";
+    }
     glBeginConditionalRender = (PFNGLBEGINCONDITIONALRENDERPROC) sogl_loadOpenGLFunction("glBeginConditionalRender");
+    if (!glBeginConditionalRender && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glBeginConditionalRender";
+    }
     glEndConditionalRender = (PFNGLENDCONDITIONALRENDERPROC) sogl_loadOpenGLFunction("glEndConditionalRender");
+    if (!glEndConditionalRender && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glEndConditionalRender";
+    }
     glVertexAttribIPointer = (PFNGLVERTEXATTRIBIPOINTERPROC) sogl_loadOpenGLFunction("glVertexAttribIPointer");
+    if (!glVertexAttribIPointer && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glVertexAttribIPointer";
+    }
     glGetVertexAttribIiv = (PFNGLGETVERTEXATTRIBIIVPROC) sogl_loadOpenGLFunction("glGetVertexAttribIiv");
+    if (!glGetVertexAttribIiv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glGetVertexAttribIiv";
+    }
     glGetVertexAttribIuiv = (PFNGLGETVERTEXATTRIBIUIVPROC) sogl_loadOpenGLFunction("glGetVertexAttribIuiv");
+    if (!glGetVertexAttribIuiv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glGetVertexAttribIuiv";
+    }
     glVertexAttribI1i = (PFNGLVERTEXATTRIBI1IPROC) sogl_loadOpenGLFunction("glVertexAttribI1i");
+    if (!glVertexAttribI1i && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glVertexAttribI1i";
+    }
     glVertexAttribI2i = (PFNGLVERTEXATTRIBI2IPROC) sogl_loadOpenGLFunction("glVertexAttribI2i");
+    if (!glVertexAttribI2i && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glVertexAttribI2i";
+    }
     glVertexAttribI3i = (PFNGLVERTEXATTRIBI3IPROC) sogl_loadOpenGLFunction("glVertexAttribI3i");
+    if (!glVertexAttribI3i && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glVertexAttribI3i";
+    }
     glVertexAttribI4i = (PFNGLVERTEXATTRIBI4IPROC) sogl_loadOpenGLFunction("glVertexAttribI4i");
+    if (!glVertexAttribI4i && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glVertexAttribI4i";
+    }
     glVertexAttribI1ui = (PFNGLVERTEXATTRIBI1UIPROC) sogl_loadOpenGLFunction("glVertexAttribI1ui");
+    if (!glVertexAttribI1ui && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glVertexAttribI1ui";
+    }
     glVertexAttribI2ui = (PFNGLVERTEXATTRIBI2UIPROC) sogl_loadOpenGLFunction("glVertexAttribI2ui");
+    if (!glVertexAttribI2ui && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glVertexAttribI2ui";
+    }
     glVertexAttribI3ui = (PFNGLVERTEXATTRIBI3UIPROC) sogl_loadOpenGLFunction("glVertexAttribI3ui");
+    if (!glVertexAttribI3ui && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glVertexAttribI3ui";
+    }
     glVertexAttribI4ui = (PFNGLVERTEXATTRIBI4UIPROC) sogl_loadOpenGLFunction("glVertexAttribI4ui");
+    if (!glVertexAttribI4ui && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glVertexAttribI4ui";
+    }
     glVertexAttribI1iv = (PFNGLVERTEXATTRIBI1IVPROC) sogl_loadOpenGLFunction("glVertexAttribI1iv");
+    if (!glVertexAttribI1iv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glVertexAttribI1iv";
+    }
     glVertexAttribI2iv = (PFNGLVERTEXATTRIBI2IVPROC) sogl_loadOpenGLFunction("glVertexAttribI2iv");
+    if (!glVertexAttribI2iv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glVertexAttribI2iv";
+    }
     glVertexAttribI3iv = (PFNGLVERTEXATTRIBI3IVPROC) sogl_loadOpenGLFunction("glVertexAttribI3iv");
+    if (!glVertexAttribI3iv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glVertexAttribI3iv";
+    }
     glVertexAttribI4iv = (PFNGLVERTEXATTRIBI4IVPROC) sogl_loadOpenGLFunction("glVertexAttribI4iv");
+    if (!glVertexAttribI4iv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glVertexAttribI4iv";
+    }
     glVertexAttribI1uiv = (PFNGLVERTEXATTRIBI1UIVPROC) sogl_loadOpenGLFunction("glVertexAttribI1uiv");
+    if (!glVertexAttribI1uiv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glVertexAttribI1uiv";
+    }
     glVertexAttribI2uiv = (PFNGLVERTEXATTRIBI2UIVPROC) sogl_loadOpenGLFunction("glVertexAttribI2uiv");
+    if (!glVertexAttribI2uiv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glVertexAttribI2uiv";
+    }
     glVertexAttribI3uiv = (PFNGLVERTEXATTRIBI3UIVPROC) sogl_loadOpenGLFunction("glVertexAttribI3uiv");
+    if (!glVertexAttribI3uiv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glVertexAttribI3uiv";
+    }
     glVertexAttribI4uiv = (PFNGLVERTEXATTRIBI4UIVPROC) sogl_loadOpenGLFunction("glVertexAttribI4uiv");
+    if (!glVertexAttribI4uiv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glVertexAttribI4uiv";
+    }
     glVertexAttribI4bv = (PFNGLVERTEXATTRIBI4BVPROC) sogl_loadOpenGLFunction("glVertexAttribI4bv");
+    if (!glVertexAttribI4bv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glVertexAttribI4bv";
+    }
     glVertexAttribI4sv = (PFNGLVERTEXATTRIBI4SVPROC) sogl_loadOpenGLFunction("glVertexAttribI4sv");
+    if (!glVertexAttribI4sv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glVertexAttribI4sv";
+    }
     glVertexAttribI4ubv = (PFNGLVERTEXATTRIBI4UBVPROC) sogl_loadOpenGLFunction("glVertexAttribI4ubv");
+    if (!glVertexAttribI4ubv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glVertexAttribI4ubv";
+    }
     glVertexAttribI4usv = (PFNGLVERTEXATTRIBI4USVPROC) sogl_loadOpenGLFunction("glVertexAttribI4usv");
+    if (!glVertexAttribI4usv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glVertexAttribI4usv";
+    }
     glGetUniformuiv = (PFNGLGETUNIFORMUIVPROC) sogl_loadOpenGLFunction("glGetUniformuiv");
+    if (!glGetUniformuiv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glGetUniformuiv";
+    }
     glBindFragDataLocation = (PFNGLBINDFRAGDATALOCATIONPROC) sogl_loadOpenGLFunction("glBindFragDataLocation");
+    if (!glBindFragDataLocation && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glBindFragDataLocation";
+    }
     glGetFragDataLocation = (PFNGLGETFRAGDATALOCATIONPROC) sogl_loadOpenGLFunction("glGetFragDataLocation");
+    if (!glGetFragDataLocation && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glGetFragDataLocation";
+    }
     glUniform1ui = (PFNGLUNIFORM1UIPROC) sogl_loadOpenGLFunction("glUniform1ui");
+    if (!glUniform1ui && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glUniform1ui";
+    }
     glUniform2ui = (PFNGLUNIFORM2UIPROC) sogl_loadOpenGLFunction("glUniform2ui");
+    if (!glUniform2ui && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glUniform2ui";
+    }
     glUniform3ui = (PFNGLUNIFORM3UIPROC) sogl_loadOpenGLFunction("glUniform3ui");
+    if (!glUniform3ui && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glUniform3ui";
+    }
     glUniform4ui = (PFNGLUNIFORM4UIPROC) sogl_loadOpenGLFunction("glUniform4ui");
+    if (!glUniform4ui && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glUniform4ui";
+    }
     glUniform1uiv = (PFNGLUNIFORM1UIVPROC) sogl_loadOpenGLFunction("glUniform1uiv");
+    if (!glUniform1uiv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glUniform1uiv";
+    }
     glUniform2uiv = (PFNGLUNIFORM2UIVPROC) sogl_loadOpenGLFunction("glUniform2uiv");
+    if (!glUniform2uiv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glUniform2uiv";
+    }
     glUniform3uiv = (PFNGLUNIFORM3UIVPROC) sogl_loadOpenGLFunction("glUniform3uiv");
+    if (!glUniform3uiv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glUniform3uiv";
+    }
     glUniform4uiv = (PFNGLUNIFORM4UIVPROC) sogl_loadOpenGLFunction("glUniform4uiv");
+    if (!glUniform4uiv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glUniform4uiv";
+    }
     glTexParameterIiv = (PFNGLTEXPARAMETERIIVPROC) sogl_loadOpenGLFunction("glTexParameterIiv");
+    if (!glTexParameterIiv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glTexParameterIiv";
+    }
     glTexParameterIuiv = (PFNGLTEXPARAMETERIUIVPROC) sogl_loadOpenGLFunction("glTexParameterIuiv");
+    if (!glTexParameterIuiv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glTexParameterIuiv";
+    }
     glGetTexParameterIiv = (PFNGLGETTEXPARAMETERIIVPROC) sogl_loadOpenGLFunction("glGetTexParameterIiv");
+    if (!glGetTexParameterIiv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glGetTexParameterIiv";
+    }
     glGetTexParameterIuiv = (PFNGLGETTEXPARAMETERIUIVPROC) sogl_loadOpenGLFunction("glGetTexParameterIuiv");
+    if (!glGetTexParameterIuiv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glGetTexParameterIuiv";
+    }
     glClearBufferiv = (PFNGLCLEARBUFFERIVPROC) sogl_loadOpenGLFunction("glClearBufferiv");
+    if (!glClearBufferiv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glClearBufferiv";
+    }
     glClearBufferuiv = (PFNGLCLEARBUFFERUIVPROC) sogl_loadOpenGLFunction("glClearBufferuiv");
+    if (!glClearBufferuiv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glClearBufferuiv";
+    }
     glClearBufferfv = (PFNGLCLEARBUFFERFVPROC) sogl_loadOpenGLFunction("glClearBufferfv");
+    if (!glClearBufferfv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glClearBufferfv";
+    }
     glClearBufferfi = (PFNGLCLEARBUFFERFIPROC) sogl_loadOpenGLFunction("glClearBufferfi");
+    if (!glClearBufferfi && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glClearBufferfi";
+    }
     glGetStringi = (PFNGLGETSTRINGIPROC) sogl_loadOpenGLFunction("glGetStringi");
+    if (!glGetStringi && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glGetStringi";
+    }
     glIsRenderbuffer = (PFNGLISRENDERBUFFERPROC) sogl_loadOpenGLFunction("glIsRenderbuffer");
+    if (!glIsRenderbuffer && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glIsRenderbuffer";
+    }
     glBindRenderbuffer = (PFNGLBINDRENDERBUFFERPROC) sogl_loadOpenGLFunction("glBindRenderbuffer");
+    if (!glBindRenderbuffer && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glBindRenderbuffer";
+    }
     glDeleteRenderbuffers = (PFNGLDELETERENDERBUFFERSPROC) sogl_loadOpenGLFunction("glDeleteRenderbuffers");
+    if (!glDeleteRenderbuffers && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glDeleteRenderbuffers";
+    }
     glGenRenderbuffers = (PFNGLGENRENDERBUFFERSPROC) sogl_loadOpenGLFunction("glGenRenderbuffers");
+    if (!glGenRenderbuffers && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glGenRenderbuffers";
+    }
     glRenderbufferStorage = (PFNGLRENDERBUFFERSTORAGEPROC) sogl_loadOpenGLFunction("glRenderbufferStorage");
+    if (!glRenderbufferStorage && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glRenderbufferStorage";
+    }
     glGetRenderbufferParameteriv = (PFNGLGETRENDERBUFFERPARAMETERIVPROC) sogl_loadOpenGLFunction("glGetRenderbufferParameteriv");
+    if (!glGetRenderbufferParameteriv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glGetRenderbufferParameteriv";
+    }
     glIsFramebuffer = (PFNGLISFRAMEBUFFERPROC) sogl_loadOpenGLFunction("glIsFramebuffer");
+    if (!glIsFramebuffer && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glIsFramebuffer";
+    }
     glBindFramebuffer = (PFNGLBINDFRAMEBUFFERPROC) sogl_loadOpenGLFunction("glBindFramebuffer");
+    if (!glBindFramebuffer && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glBindFramebuffer";
+    }
     glDeleteFramebuffers = (PFNGLDELETEFRAMEBUFFERSPROC) sogl_loadOpenGLFunction("glDeleteFramebuffers");
+    if (!glDeleteFramebuffers && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glDeleteFramebuffers";
+    }
     glGenFramebuffers = (PFNGLGENFRAMEBUFFERSPROC) sogl_loadOpenGLFunction("glGenFramebuffers");
+    if (!glGenFramebuffers && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glGenFramebuffers";
+    }
     glCheckFramebufferStatus = (PFNGLCHECKFRAMEBUFFERSTATUSPROC) sogl_loadOpenGLFunction("glCheckFramebufferStatus");
+    if (!glCheckFramebufferStatus && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glCheckFramebufferStatus";
+    }
     glFramebufferTexture1D = (PFNGLFRAMEBUFFERTEXTURE1DPROC) sogl_loadOpenGLFunction("glFramebufferTexture1D");
+    if (!glFramebufferTexture1D && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glFramebufferTexture1D";
+    }
     glFramebufferTexture2D = (PFNGLFRAMEBUFFERTEXTURE2DPROC) sogl_loadOpenGLFunction("glFramebufferTexture2D");
+    if (!glFramebufferTexture2D && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glFramebufferTexture2D";
+    }
     glFramebufferTexture3D = (PFNGLFRAMEBUFFERTEXTURE3DPROC) sogl_loadOpenGLFunction("glFramebufferTexture3D");
+    if (!glFramebufferTexture3D && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glFramebufferTexture3D";
+    }
     glFramebufferRenderbuffer = (PFNGLFRAMEBUFFERRENDERBUFFERPROC) sogl_loadOpenGLFunction("glFramebufferRenderbuffer");
+    if (!glFramebufferRenderbuffer && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glFramebufferRenderbuffer";
+    }
     glGetFramebufferAttachmentParameteriv = (PFNGLGETFRAMEBUFFERATTACHMENTPARAMETERIVPROC) sogl_loadOpenGLFunction("glGetFramebufferAttachmentParameteriv");
+    if (!glGetFramebufferAttachmentParameteriv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glGetFramebufferAttachmentParameteriv";
+    }
     glGenerateMipmap = (PFNGLGENERATEMIPMAPPROC) sogl_loadOpenGLFunction("glGenerateMipmap");
+    if (!glGenerateMipmap && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glGenerateMipmap";
+    }
     glBlitFramebuffer = (PFNGLBLITFRAMEBUFFERPROC) sogl_loadOpenGLFunction("glBlitFramebuffer");
+    if (!glBlitFramebuffer && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glBlitFramebuffer";
+    }
     glRenderbufferStorageMultisample = (PFNGLRENDERBUFFERSTORAGEMULTISAMPLEPROC) sogl_loadOpenGLFunction("glRenderbufferStorageMultisample");
+    if (!glRenderbufferStorageMultisample && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glRenderbufferStorageMultisample";
+    }
     glFramebufferTextureLayer = (PFNGLFRAMEBUFFERTEXTURELAYERPROC) sogl_loadOpenGLFunction("glFramebufferTextureLayer");
+    if (!glFramebufferTextureLayer && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glFramebufferTextureLayer";
+    }
     glMapBufferRange = (PFNGLMAPBUFFERRANGEPROC) sogl_loadOpenGLFunction("glMapBufferRange");
+    if (!glMapBufferRange && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glMapBufferRange";
+    }
     glFlushMappedBufferRange = (PFNGLFLUSHMAPPEDBUFFERRANGEPROC) sogl_loadOpenGLFunction("glFlushMappedBufferRange");
+    if (!glFlushMappedBufferRange && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glFlushMappedBufferRange";
+    }
     glBindVertexArray = (PFNGLBINDVERTEXARRAYPROC) sogl_loadOpenGLFunction("glBindVertexArray");
+    if (!glBindVertexArray && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glBindVertexArray";
+    }
     glDeleteVertexArrays = (PFNGLDELETEVERTEXARRAYSPROC) sogl_loadOpenGLFunction("glDeleteVertexArrays");
+    if (!glDeleteVertexArrays && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glDeleteVertexArrays";
+    }
     glGenVertexArrays = (PFNGLGENVERTEXARRAYSPROC) sogl_loadOpenGLFunction("glGenVertexArrays");
+    if (!glGenVertexArrays && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glGenVertexArrays";
+    }
     glIsVertexArray = (PFNGLISVERTEXARRAYPROC) sogl_loadOpenGLFunction("glIsVertexArray");
+    if (!glIsVertexArray && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glIsVertexArray";
+    }
 #endif /* GL_VERSION_3_0 */
 
 #if SOGL_TEST_VERSION(3, 1)
     glDrawArraysInstanced = (PFNGLDRAWARRAYSINSTANCEDPROC) sogl_loadOpenGLFunction("glDrawArraysInstanced");
+    if (!glDrawArraysInstanced && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glDrawArraysInstanced";
+    }
     glDrawElementsInstanced = (PFNGLDRAWELEMENTSINSTANCEDPROC) sogl_loadOpenGLFunction("glDrawElementsInstanced");
+    if (!glDrawElementsInstanced && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glDrawElementsInstanced";
+    }
     glTexBuffer = (PFNGLTEXBUFFERPROC) sogl_loadOpenGLFunction("glTexBuffer");
+    if (!glTexBuffer && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glTexBuffer";
+    }
     glPrimitiveRestartIndex = (PFNGLPRIMITIVERESTARTINDEXPROC) sogl_loadOpenGLFunction("glPrimitiveRestartIndex");
+    if (!glPrimitiveRestartIndex && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glPrimitiveRestartIndex";
+    }
     glCopyBufferSubData = (PFNGLCOPYBUFFERSUBDATAPROC) sogl_loadOpenGLFunction("glCopyBufferSubData");
+    if (!glCopyBufferSubData && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glCopyBufferSubData";
+    }
     glGetUniformIndices = (PFNGLGETUNIFORMINDICESPROC) sogl_loadOpenGLFunction("glGetUniformIndices");
+    if (!glGetUniformIndices && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glGetUniformIndices";
+    }
     glGetActiveUniformsiv = (PFNGLGETACTIVEUNIFORMSIVPROC) sogl_loadOpenGLFunction("glGetActiveUniformsiv");
+    if (!glGetActiveUniformsiv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glGetActiveUniformsiv";
+    }
     glGetActiveUniformName = (PFNGLGETACTIVEUNIFORMNAMEPROC) sogl_loadOpenGLFunction("glGetActiveUniformName");
+    if (!glGetActiveUniformName && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glGetActiveUniformName";
+    }
     glGetUniformBlockIndex = (PFNGLGETUNIFORMBLOCKINDEXPROC) sogl_loadOpenGLFunction("glGetUniformBlockIndex");
+    if (!glGetUniformBlockIndex && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glGetUniformBlockIndex";
+    }
     glGetActiveUniformBlockiv = (PFNGLGETACTIVEUNIFORMBLOCKIVPROC) sogl_loadOpenGLFunction("glGetActiveUniformBlockiv");
+    if (!glGetActiveUniformBlockiv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glGetActiveUniformBlockiv";
+    }
     glGetActiveUniformBlockName = (PFNGLGETACTIVEUNIFORMBLOCKNAMEPROC) sogl_loadOpenGLFunction("glGetActiveUniformBlockName");
+    if (!glGetActiveUniformBlockName && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glGetActiveUniformBlockName";
+    }
     glUniformBlockBinding = (PFNGLUNIFORMBLOCKBINDINGPROC) sogl_loadOpenGLFunction("glUniformBlockBinding");
+    if (!glUniformBlockBinding && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glUniformBlockBinding";
+    }
 #endif /* GL_VERSION_3_1 */
 
 #if SOGL_TEST_VERSION(3, 2)
     glDrawElementsBaseVertex = (PFNGLDRAWELEMENTSBASEVERTEXPROC) sogl_loadOpenGLFunction("glDrawElementsBaseVertex");
+    if (!glDrawElementsBaseVertex && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glDrawElementsBaseVertex";
+    }
     glDrawRangeElementsBaseVertex = (PFNGLDRAWRANGEELEMENTSBASEVERTEXPROC) sogl_loadOpenGLFunction("glDrawRangeElementsBaseVertex");
+    if (!glDrawRangeElementsBaseVertex && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glDrawRangeElementsBaseVertex";
+    }
     glDrawElementsInstancedBaseVertex = (PFNGLDRAWELEMENTSINSTANCEDBASEVERTEXPROC) sogl_loadOpenGLFunction("glDrawElementsInstancedBaseVertex");
+    if (!glDrawElementsInstancedBaseVertex && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glDrawElementsInstancedBaseVertex";
+    }
     glMultiDrawElementsBaseVertex = (PFNGLMULTIDRAWELEMENTSBASEVERTEXPROC) sogl_loadOpenGLFunction("glMultiDrawElementsBaseVertex");
+    if (!glMultiDrawElementsBaseVertex && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glMultiDrawElementsBaseVertex";
+    }
     glProvokingVertex = (PFNGLPROVOKINGVERTEXPROC) sogl_loadOpenGLFunction("glProvokingVertex");
+    if (!glProvokingVertex && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glProvokingVertex";
+    }
     glFenceSync = (PFNGLFENCESYNCPROC) sogl_loadOpenGLFunction("glFenceSync");
+    if (!glFenceSync && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glFenceSync";
+    }
     glIsSync = (PFNGLISSYNCPROC) sogl_loadOpenGLFunction("glIsSync");
+    if (!glIsSync && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glIsSync";
+    }
     glDeleteSync = (PFNGLDELETESYNCPROC) sogl_loadOpenGLFunction("glDeleteSync");
+    if (!glDeleteSync && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glDeleteSync";
+    }
     glClientWaitSync = (PFNGLCLIENTWAITSYNCPROC) sogl_loadOpenGLFunction("glClientWaitSync");
+    if (!glClientWaitSync && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glClientWaitSync";
+    }
     glWaitSync = (PFNGLWAITSYNCPROC) sogl_loadOpenGLFunction("glWaitSync");
+    if (!glWaitSync && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glWaitSync";
+    }
     glGetInteger64v = (PFNGLGETINTEGER64VPROC) sogl_loadOpenGLFunction("glGetInteger64v");
+    if (!glGetInteger64v && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glGetInteger64v";
+    }
     glGetSynciv = (PFNGLGETSYNCIVPROC) sogl_loadOpenGLFunction("glGetSynciv");
+    if (!glGetSynciv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glGetSynciv";
+    }
     glGetInteger64i_v = (PFNGLGETINTEGER64I_VPROC) sogl_loadOpenGLFunction("glGetInteger64i_v");
+    if (!glGetInteger64i_v && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glGetInteger64i_v";
+    }
     glGetBufferParameteri64v = (PFNGLGETBUFFERPARAMETERI64VPROC) sogl_loadOpenGLFunction("glGetBufferParameteri64v");
+    if (!glGetBufferParameteri64v && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glGetBufferParameteri64v";
+    }
     glFramebufferTexture = (PFNGLFRAMEBUFFERTEXTUREPROC) sogl_loadOpenGLFunction("glFramebufferTexture");
+    if (!glFramebufferTexture && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glFramebufferTexture";
+    }
     glTexImage2DMultisample = (PFNGLTEXIMAGE2DMULTISAMPLEPROC) sogl_loadOpenGLFunction("glTexImage2DMultisample");
+    if (!glTexImage2DMultisample && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glTexImage2DMultisample";
+    }
     glTexImage3DMultisample = (PFNGLTEXIMAGE3DMULTISAMPLEPROC) sogl_loadOpenGLFunction("glTexImage3DMultisample");
+    if (!glTexImage3DMultisample && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glTexImage3DMultisample";
+    }
     glGetMultisamplefv = (PFNGLGETMULTISAMPLEFVPROC) sogl_loadOpenGLFunction("glGetMultisamplefv");
+    if (!glGetMultisamplefv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glGetMultisamplefv";
+    }
     glSampleMaski = (PFNGLSAMPLEMASKIPROC) sogl_loadOpenGLFunction("glSampleMaski");
+    if (!glSampleMaski && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glSampleMaski";
+    }
 #endif /* GL_VERSION_3_2 */
 
 #if SOGL_TEST_VERSION(3, 3)
     glBindFragDataLocationIndexed = (PFNGLBINDFRAGDATALOCATIONINDEXEDPROC) sogl_loadOpenGLFunction("glBindFragDataLocationIndexed");
+    if (!glBindFragDataLocationIndexed && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glBindFragDataLocationIndexed";
+    }
     glGetFragDataIndex = (PFNGLGETFRAGDATAINDEXPROC) sogl_loadOpenGLFunction("glGetFragDataIndex");
+    if (!glGetFragDataIndex && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glGetFragDataIndex";
+    }
     glGenSamplers = (PFNGLGENSAMPLERSPROC) sogl_loadOpenGLFunction("glGenSamplers");
+    if (!glGenSamplers && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glGenSamplers";
+    }
     glDeleteSamplers = (PFNGLDELETESAMPLERSPROC) sogl_loadOpenGLFunction("glDeleteSamplers");
+    if (!glDeleteSamplers && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glDeleteSamplers";
+    }
     glIsSampler = (PFNGLISSAMPLERPROC) sogl_loadOpenGLFunction("glIsSampler");
+    if (!glIsSampler && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glIsSampler";
+    }
     glBindSampler = (PFNGLBINDSAMPLERPROC) sogl_loadOpenGLFunction("glBindSampler");
+    if (!glBindSampler && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glBindSampler";
+    }
     glSamplerParameteri = (PFNGLSAMPLERPARAMETERIPROC) sogl_loadOpenGLFunction("glSamplerParameteri");
+    if (!glSamplerParameteri && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glSamplerParameteri";
+    }
     glSamplerParameteriv = (PFNGLSAMPLERPARAMETERIVPROC) sogl_loadOpenGLFunction("glSamplerParameteriv");
+    if (!glSamplerParameteriv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glSamplerParameteriv";
+    }
     glSamplerParameterf = (PFNGLSAMPLERPARAMETERFPROC) sogl_loadOpenGLFunction("glSamplerParameterf");
+    if (!glSamplerParameterf && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glSamplerParameterf";
+    }
     glSamplerParameterfv = (PFNGLSAMPLERPARAMETERFVPROC) sogl_loadOpenGLFunction("glSamplerParameterfv");
+    if (!glSamplerParameterfv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glSamplerParameterfv";
+    }
     glSamplerParameterIiv = (PFNGLSAMPLERPARAMETERIIVPROC) sogl_loadOpenGLFunction("glSamplerParameterIiv");
+    if (!glSamplerParameterIiv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glSamplerParameterIiv";
+    }
     glSamplerParameterIuiv = (PFNGLSAMPLERPARAMETERIUIVPROC) sogl_loadOpenGLFunction("glSamplerParameterIuiv");
+    if (!glSamplerParameterIuiv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glSamplerParameterIuiv";
+    }
     glGetSamplerParameteriv = (PFNGLGETSAMPLERPARAMETERIVPROC) sogl_loadOpenGLFunction("glGetSamplerParameteriv");
+    if (!glGetSamplerParameteriv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glGetSamplerParameteriv";
+    }
     glGetSamplerParameterIiv = (PFNGLGETSAMPLERPARAMETERIIVPROC) sogl_loadOpenGLFunction("glGetSamplerParameterIiv");
+    if (!glGetSamplerParameterIiv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glGetSamplerParameterIiv";
+    }
     glGetSamplerParameterfv = (PFNGLGETSAMPLERPARAMETERFVPROC) sogl_loadOpenGLFunction("glGetSamplerParameterfv");
+    if (!glGetSamplerParameterfv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glGetSamplerParameterfv";
+    }
     glGetSamplerParameterIuiv = (PFNGLGETSAMPLERPARAMETERIUIVPROC) sogl_loadOpenGLFunction("glGetSamplerParameterIuiv");
+    if (!glGetSamplerParameterIuiv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glGetSamplerParameterIuiv";
+    }
     glQueryCounter = (PFNGLQUERYCOUNTERPROC) sogl_loadOpenGLFunction("glQueryCounter");
+    if (!glQueryCounter && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glQueryCounter";
+    }
     glGetQueryObjecti64v = (PFNGLGETQUERYOBJECTI64VPROC) sogl_loadOpenGLFunction("glGetQueryObjecti64v");
+    if (!glGetQueryObjecti64v && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glGetQueryObjecti64v";
+    }
     glGetQueryObjectui64v = (PFNGLGETQUERYOBJECTUI64VPROC) sogl_loadOpenGLFunction("glGetQueryObjectui64v");
+    if (!glGetQueryObjectui64v && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glGetQueryObjectui64v";
+    }
     glVertexAttribDivisor = (PFNGLVERTEXATTRIBDIVISORPROC) sogl_loadOpenGLFunction("glVertexAttribDivisor");
+    if (!glVertexAttribDivisor && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glVertexAttribDivisor";
+    }
     glVertexAttribP1ui = (PFNGLVERTEXATTRIBP1UIPROC) sogl_loadOpenGLFunction("glVertexAttribP1ui");
+    if (!glVertexAttribP1ui && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glVertexAttribP1ui";
+    }
     glVertexAttribP1uiv = (PFNGLVERTEXATTRIBP1UIVPROC) sogl_loadOpenGLFunction("glVertexAttribP1uiv");
+    if (!glVertexAttribP1uiv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glVertexAttribP1uiv";
+    }
     glVertexAttribP2ui = (PFNGLVERTEXATTRIBP2UIPROC) sogl_loadOpenGLFunction("glVertexAttribP2ui");
+    if (!glVertexAttribP2ui && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glVertexAttribP2ui";
+    }
     glVertexAttribP2uiv = (PFNGLVERTEXATTRIBP2UIVPROC) sogl_loadOpenGLFunction("glVertexAttribP2uiv");
+    if (!glVertexAttribP2uiv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glVertexAttribP2uiv";
+    }
     glVertexAttribP3ui = (PFNGLVERTEXATTRIBP3UIPROC) sogl_loadOpenGLFunction("glVertexAttribP3ui");
+    if (!glVertexAttribP3ui && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glVertexAttribP3ui";
+    }
     glVertexAttribP3uiv = (PFNGLVERTEXATTRIBP3UIVPROC) sogl_loadOpenGLFunction("glVertexAttribP3uiv");
+    if (!glVertexAttribP3uiv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glVertexAttribP3uiv";
+    }
     glVertexAttribP4ui = (PFNGLVERTEXATTRIBP4UIPROC) sogl_loadOpenGLFunction("glVertexAttribP4ui");
+    if (!glVertexAttribP4ui && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glVertexAttribP4ui";
+    }
     glVertexAttribP4uiv = (PFNGLVERTEXATTRIBP4UIVPROC) sogl_loadOpenGLFunction("glVertexAttribP4uiv");
+    if (!glVertexAttribP4uiv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glVertexAttribP4uiv";
+    }
 #endif /* GL_VERSION_3_3 */
 
 #if SOGL_TEST_VERSION(4, 0)
     glMinSampleShading = (PFNGLMINSAMPLESHADINGPROC) sogl_loadOpenGLFunction("glMinSampleShading");
+    if (!glMinSampleShading && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glMinSampleShading";
+    }
     glBlendEquationi = (PFNGLBLENDEQUATIONIPROC) sogl_loadOpenGLFunction("glBlendEquationi");
+    if (!glBlendEquationi && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glBlendEquationi";
+    }
     glBlendEquationSeparatei = (PFNGLBLENDEQUATIONSEPARATEIPROC) sogl_loadOpenGLFunction("glBlendEquationSeparatei");
+    if (!glBlendEquationSeparatei && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glBlendEquationSeparatei";
+    }
     glBlendFunci = (PFNGLBLENDFUNCIPROC) sogl_loadOpenGLFunction("glBlendFunci");
+    if (!glBlendFunci && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glBlendFunci";
+    }
     glBlendFuncSeparatei = (PFNGLBLENDFUNCSEPARATEIPROC) sogl_loadOpenGLFunction("glBlendFuncSeparatei");
+    if (!glBlendFuncSeparatei && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glBlendFuncSeparatei";
+    }
     glDrawArraysIndirect = (PFNGLDRAWARRAYSINDIRECTPROC) sogl_loadOpenGLFunction("glDrawArraysIndirect");
+    if (!glDrawArraysIndirect && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glDrawArraysIndirect";
+    }
     glDrawElementsIndirect = (PFNGLDRAWELEMENTSINDIRECTPROC) sogl_loadOpenGLFunction("glDrawElementsIndirect");
+    if (!glDrawElementsIndirect && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glDrawElementsIndirect";
+    }
     glUniform1d = (PFNGLUNIFORM1DPROC) sogl_loadOpenGLFunction("glUniform1d");
+    if (!glUniform1d && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glUniform1d";
+    }
     glUniform2d = (PFNGLUNIFORM2DPROC) sogl_loadOpenGLFunction("glUniform2d");
+    if (!glUniform2d && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glUniform2d";
+    }
     glUniform3d = (PFNGLUNIFORM3DPROC) sogl_loadOpenGLFunction("glUniform3d");
+    if (!glUniform3d && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glUniform3d";
+    }
     glUniform4d = (PFNGLUNIFORM4DPROC) sogl_loadOpenGLFunction("glUniform4d");
+    if (!glUniform4d && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glUniform4d";
+    }
     glUniform1dv = (PFNGLUNIFORM1DVPROC) sogl_loadOpenGLFunction("glUniform1dv");
+    if (!glUniform1dv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glUniform1dv";
+    }
     glUniform2dv = (PFNGLUNIFORM2DVPROC) sogl_loadOpenGLFunction("glUniform2dv");
+    if (!glUniform2dv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glUniform2dv";
+    }
     glUniform3dv = (PFNGLUNIFORM3DVPROC) sogl_loadOpenGLFunction("glUniform3dv");
+    if (!glUniform3dv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glUniform3dv";
+    }
     glUniform4dv = (PFNGLUNIFORM4DVPROC) sogl_loadOpenGLFunction("glUniform4dv");
+    if (!glUniform4dv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glUniform4dv";
+    }
     glUniformMatrix2dv = (PFNGLUNIFORMMATRIX2DVPROC) sogl_loadOpenGLFunction("glUniformMatrix2dv");
+    if (!glUniformMatrix2dv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glUniformMatrix2dv";
+    }
     glUniformMatrix3dv = (PFNGLUNIFORMMATRIX3DVPROC) sogl_loadOpenGLFunction("glUniformMatrix3dv");
+    if (!glUniformMatrix3dv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glUniformMatrix3dv";
+    }
     glUniformMatrix4dv = (PFNGLUNIFORMMATRIX4DVPROC) sogl_loadOpenGLFunction("glUniformMatrix4dv");
+    if (!glUniformMatrix4dv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glUniformMatrix4dv";
+    }
     glUniformMatrix2x3dv = (PFNGLUNIFORMMATRIX2X3DVPROC) sogl_loadOpenGLFunction("glUniformMatrix2x3dv");
+    if (!glUniformMatrix2x3dv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glUniformMatrix2x3dv";
+    }
     glUniformMatrix2x4dv = (PFNGLUNIFORMMATRIX2X4DVPROC) sogl_loadOpenGLFunction("glUniformMatrix2x4dv");
+    if (!glUniformMatrix2x4dv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glUniformMatrix2x4dv";
+    }
     glUniformMatrix3x2dv = (PFNGLUNIFORMMATRIX3X2DVPROC) sogl_loadOpenGLFunction("glUniformMatrix3x2dv");
+    if (!glUniformMatrix3x2dv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glUniformMatrix3x2dv";
+    }
     glUniformMatrix3x4dv = (PFNGLUNIFORMMATRIX3X4DVPROC) sogl_loadOpenGLFunction("glUniformMatrix3x4dv");
+    if (!glUniformMatrix3x4dv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glUniformMatrix3x4dv";
+    }
     glUniformMatrix4x2dv = (PFNGLUNIFORMMATRIX4X2DVPROC) sogl_loadOpenGLFunction("glUniformMatrix4x2dv");
+    if (!glUniformMatrix4x2dv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glUniformMatrix4x2dv";
+    }
     glUniformMatrix4x3dv = (PFNGLUNIFORMMATRIX4X3DVPROC) sogl_loadOpenGLFunction("glUniformMatrix4x3dv");
+    if (!glUniformMatrix4x3dv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glUniformMatrix4x3dv";
+    }
     glGetUniformdv = (PFNGLGETUNIFORMDVPROC) sogl_loadOpenGLFunction("glGetUniformdv");
+    if (!glGetUniformdv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glGetUniformdv";
+    }
     glGetSubroutineUniformLocation = (PFNGLGETSUBROUTINEUNIFORMLOCATIONPROC) sogl_loadOpenGLFunction("glGetSubroutineUniformLocation");
+    if (!glGetSubroutineUniformLocation && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glGetSubroutineUniformLocation";
+    }
     glGetSubroutineIndex = (PFNGLGETSUBROUTINEINDEXPROC) sogl_loadOpenGLFunction("glGetSubroutineIndex");
+    if (!glGetSubroutineIndex && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glGetSubroutineIndex";
+    }
     glGetActiveSubroutineUniformiv = (PFNGLGETACTIVESUBROUTINEUNIFORMIVPROC) sogl_loadOpenGLFunction("glGetActiveSubroutineUniformiv");
+    if (!glGetActiveSubroutineUniformiv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glGetActiveSubroutineUniformiv";
+    }
     glGetActiveSubroutineUniformName = (PFNGLGETACTIVESUBROUTINEUNIFORMNAMEPROC) sogl_loadOpenGLFunction("glGetActiveSubroutineUniformName");
+    if (!glGetActiveSubroutineUniformName && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glGetActiveSubroutineUniformName";
+    }
     glGetActiveSubroutineName = (PFNGLGETACTIVESUBROUTINENAMEPROC) sogl_loadOpenGLFunction("glGetActiveSubroutineName");
+    if (!glGetActiveSubroutineName && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glGetActiveSubroutineName";
+    }
     glUniformSubroutinesuiv = (PFNGLUNIFORMSUBROUTINESUIVPROC) sogl_loadOpenGLFunction("glUniformSubroutinesuiv");
+    if (!glUniformSubroutinesuiv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glUniformSubroutinesuiv";
+    }
     glGetUniformSubroutineuiv = (PFNGLGETUNIFORMSUBROUTINEUIVPROC) sogl_loadOpenGLFunction("glGetUniformSubroutineuiv");
+    if (!glGetUniformSubroutineuiv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glGetUniformSubroutineuiv";
+    }
     glGetProgramStageiv = (PFNGLGETPROGRAMSTAGEIVPROC) sogl_loadOpenGLFunction("glGetProgramStageiv");
+    if (!glGetProgramStageiv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glGetProgramStageiv";
+    }
     glPatchParameteri = (PFNGLPATCHPARAMETERIPROC) sogl_loadOpenGLFunction("glPatchParameteri");
+    if (!glPatchParameteri && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glPatchParameteri";
+    }
     glPatchParameterfv = (PFNGLPATCHPARAMETERFVPROC) sogl_loadOpenGLFunction("glPatchParameterfv");
+    if (!glPatchParameterfv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glPatchParameterfv";
+    }
     glBindTransformFeedback = (PFNGLBINDTRANSFORMFEEDBACKPROC) sogl_loadOpenGLFunction("glBindTransformFeedback");
+    if (!glBindTransformFeedback && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glBindTransformFeedback";
+    }
     glDeleteTransformFeedbacks = (PFNGLDELETETRANSFORMFEEDBACKSPROC) sogl_loadOpenGLFunction("glDeleteTransformFeedbacks");
+    if (!glDeleteTransformFeedbacks && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glDeleteTransformFeedbacks";
+    }
     glGenTransformFeedbacks = (PFNGLGENTRANSFORMFEEDBACKSPROC) sogl_loadOpenGLFunction("glGenTransformFeedbacks");
+    if (!glGenTransformFeedbacks && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glGenTransformFeedbacks";
+    }
     glIsTransformFeedback = (PFNGLISTRANSFORMFEEDBACKPROC) sogl_loadOpenGLFunction("glIsTransformFeedback");
+    if (!glIsTransformFeedback && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glIsTransformFeedback";
+    }
     glPauseTransformFeedback = (PFNGLPAUSETRANSFORMFEEDBACKPROC) sogl_loadOpenGLFunction("glPauseTransformFeedback");
+    if (!glPauseTransformFeedback && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glPauseTransformFeedback";
+    }
     glResumeTransformFeedback = (PFNGLRESUMETRANSFORMFEEDBACKPROC) sogl_loadOpenGLFunction("glResumeTransformFeedback");
+    if (!glResumeTransformFeedback && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glResumeTransformFeedback";
+    }
     glDrawTransformFeedback = (PFNGLDRAWTRANSFORMFEEDBACKPROC) sogl_loadOpenGLFunction("glDrawTransformFeedback");
+    if (!glDrawTransformFeedback && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glDrawTransformFeedback";
+    }
     glDrawTransformFeedbackStream = (PFNGLDRAWTRANSFORMFEEDBACKSTREAMPROC) sogl_loadOpenGLFunction("glDrawTransformFeedbackStream");
+    if (!glDrawTransformFeedbackStream && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glDrawTransformFeedbackStream";
+    }
     glBeginQueryIndexed = (PFNGLBEGINQUERYINDEXEDPROC) sogl_loadOpenGLFunction("glBeginQueryIndexed");
+    if (!glBeginQueryIndexed && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glBeginQueryIndexed";
+    }
     glEndQueryIndexed = (PFNGLENDQUERYINDEXEDPROC) sogl_loadOpenGLFunction("glEndQueryIndexed");
+    if (!glEndQueryIndexed && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glEndQueryIndexed";
+    }
     glGetQueryIndexediv = (PFNGLGETQUERYINDEXEDIVPROC) sogl_loadOpenGLFunction("glGetQueryIndexediv");
+    if (!glGetQueryIndexediv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glGetQueryIndexediv";
+    }
 #endif /* GL_VERSION_4_0 */
 
 #if SOGL_TEST_VERSION(4, 1)
     glReleaseShaderCompiler = (PFNGLRELEASESHADERCOMPILERPROC) sogl_loadOpenGLFunction("glReleaseShaderCompiler");
+    if (!glReleaseShaderCompiler && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glReleaseShaderCompiler";
+    }
     glShaderBinary = (PFNGLSHADERBINARYPROC) sogl_loadOpenGLFunction("glShaderBinary");
+    if (!glShaderBinary && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glShaderBinary";
+    }
     glGetShaderPrecisionFormat = (PFNGLGETSHADERPRECISIONFORMATPROC) sogl_loadOpenGLFunction("glGetShaderPrecisionFormat");
+    if (!glGetShaderPrecisionFormat && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glGetShaderPrecisionFormat";
+    }
     glDepthRangef = (PFNGLDEPTHRANGEFPROC) sogl_loadOpenGLFunction("glDepthRangef");
+    if (!glDepthRangef && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glDepthRangef";
+    }
     glClearDepthf = (PFNGLCLEARDEPTHFPROC) sogl_loadOpenGLFunction("glClearDepthf");
+    if (!glClearDepthf && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glClearDepthf";
+    }
     glGetProgramBinary = (PFNGLGETPROGRAMBINARYPROC) sogl_loadOpenGLFunction("glGetProgramBinary");
+    if (!glGetProgramBinary && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glGetProgramBinary";
+    }
     glProgramBinary = (PFNGLPROGRAMBINARYPROC) sogl_loadOpenGLFunction("glProgramBinary");
+    if (!glProgramBinary && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glProgramBinary";
+    }
     glProgramParameteri = (PFNGLPROGRAMPARAMETERIPROC) sogl_loadOpenGLFunction("glProgramParameteri");
+    if (!glProgramParameteri && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glProgramParameteri";
+    }
     glUseProgramStages = (PFNGLUSEPROGRAMSTAGESPROC) sogl_loadOpenGLFunction("glUseProgramStages");
+    if (!glUseProgramStages && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glUseProgramStages";
+    }
     glActiveShaderProgram = (PFNGLACTIVESHADERPROGRAMPROC) sogl_loadOpenGLFunction("glActiveShaderProgram");
+    if (!glActiveShaderProgram && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glActiveShaderProgram";
+    }
     glCreateShaderProgramv = (PFNGLCREATESHADERPROGRAMVPROC) sogl_loadOpenGLFunction("glCreateShaderProgramv");
+    if (!glCreateShaderProgramv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glCreateShaderProgramv";
+    }
     glBindProgramPipeline = (PFNGLBINDPROGRAMPIPELINEPROC) sogl_loadOpenGLFunction("glBindProgramPipeline");
+    if (!glBindProgramPipeline && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glBindProgramPipeline";
+    }
     glDeleteProgramPipelines = (PFNGLDELETEPROGRAMPIPELINESPROC) sogl_loadOpenGLFunction("glDeleteProgramPipelines");
+    if (!glDeleteProgramPipelines && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glDeleteProgramPipelines";
+    }
     glGenProgramPipelines = (PFNGLGENPROGRAMPIPELINESPROC) sogl_loadOpenGLFunction("glGenProgramPipelines");
+    if (!glGenProgramPipelines && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glGenProgramPipelines";
+    }
     glIsProgramPipeline = (PFNGLISPROGRAMPIPELINEPROC) sogl_loadOpenGLFunction("glIsProgramPipeline");
+    if (!glIsProgramPipeline && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glIsProgramPipeline";
+    }
     glGetProgramPipelineiv = (PFNGLGETPROGRAMPIPELINEIVPROC) sogl_loadOpenGLFunction("glGetProgramPipelineiv");
+    if (!glGetProgramPipelineiv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glGetProgramPipelineiv";
+    }
     glProgramUniform1i = (PFNGLPROGRAMUNIFORM1IPROC) sogl_loadOpenGLFunction("glProgramUniform1i");
+    if (!glProgramUniform1i && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glProgramUniform1i";
+    }
     glProgramUniform1iv = (PFNGLPROGRAMUNIFORM1IVPROC) sogl_loadOpenGLFunction("glProgramUniform1iv");
+    if (!glProgramUniform1iv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glProgramUniform1iv";
+    }
     glProgramUniform1f = (PFNGLPROGRAMUNIFORM1FPROC) sogl_loadOpenGLFunction("glProgramUniform1f");
+    if (!glProgramUniform1f && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glProgramUniform1f";
+    }
     glProgramUniform1fv = (PFNGLPROGRAMUNIFORM1FVPROC) sogl_loadOpenGLFunction("glProgramUniform1fv");
+    if (!glProgramUniform1fv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glProgramUniform1fv";
+    }
     glProgramUniform1d = (PFNGLPROGRAMUNIFORM1DPROC) sogl_loadOpenGLFunction("glProgramUniform1d");
+    if (!glProgramUniform1d && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glProgramUniform1d";
+    }
     glProgramUniform1dv = (PFNGLPROGRAMUNIFORM1DVPROC) sogl_loadOpenGLFunction("glProgramUniform1dv");
+    if (!glProgramUniform1dv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glProgramUniform1dv";
+    }
     glProgramUniform1ui = (PFNGLPROGRAMUNIFORM1UIPROC) sogl_loadOpenGLFunction("glProgramUniform1ui");
+    if (!glProgramUniform1ui && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glProgramUniform1ui";
+    }
     glProgramUniform1uiv = (PFNGLPROGRAMUNIFORM1UIVPROC) sogl_loadOpenGLFunction("glProgramUniform1uiv");
+    if (!glProgramUniform1uiv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glProgramUniform1uiv";
+    }
     glProgramUniform2i = (PFNGLPROGRAMUNIFORM2IPROC) sogl_loadOpenGLFunction("glProgramUniform2i");
+    if (!glProgramUniform2i && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glProgramUniform2i";
+    }
     glProgramUniform2iv = (PFNGLPROGRAMUNIFORM2IVPROC) sogl_loadOpenGLFunction("glProgramUniform2iv");
+    if (!glProgramUniform2iv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glProgramUniform2iv";
+    }
     glProgramUniform2f = (PFNGLPROGRAMUNIFORM2FPROC) sogl_loadOpenGLFunction("glProgramUniform2f");
+    if (!glProgramUniform2f && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glProgramUniform2f";
+    }
     glProgramUniform2fv = (PFNGLPROGRAMUNIFORM2FVPROC) sogl_loadOpenGLFunction("glProgramUniform2fv");
+    if (!glProgramUniform2fv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glProgramUniform2fv";
+    }
     glProgramUniform2d = (PFNGLPROGRAMUNIFORM2DPROC) sogl_loadOpenGLFunction("glProgramUniform2d");
+    if (!glProgramUniform2d && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glProgramUniform2d";
+    }
     glProgramUniform2dv = (PFNGLPROGRAMUNIFORM2DVPROC) sogl_loadOpenGLFunction("glProgramUniform2dv");
+    if (!glProgramUniform2dv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glProgramUniform2dv";
+    }
     glProgramUniform2ui = (PFNGLPROGRAMUNIFORM2UIPROC) sogl_loadOpenGLFunction("glProgramUniform2ui");
+    if (!glProgramUniform2ui && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glProgramUniform2ui";
+    }
     glProgramUniform2uiv = (PFNGLPROGRAMUNIFORM2UIVPROC) sogl_loadOpenGLFunction("glProgramUniform2uiv");
+    if (!glProgramUniform2uiv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glProgramUniform2uiv";
+    }
     glProgramUniform3i = (PFNGLPROGRAMUNIFORM3IPROC) sogl_loadOpenGLFunction("glProgramUniform3i");
+    if (!glProgramUniform3i && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glProgramUniform3i";
+    }
     glProgramUniform3iv = (PFNGLPROGRAMUNIFORM3IVPROC) sogl_loadOpenGLFunction("glProgramUniform3iv");
+    if (!glProgramUniform3iv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glProgramUniform3iv";
+    }
     glProgramUniform3f = (PFNGLPROGRAMUNIFORM3FPROC) sogl_loadOpenGLFunction("glProgramUniform3f");
+    if (!glProgramUniform3f && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glProgramUniform3f";
+    }
     glProgramUniform3fv = (PFNGLPROGRAMUNIFORM3FVPROC) sogl_loadOpenGLFunction("glProgramUniform3fv");
+    if (!glProgramUniform3fv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glProgramUniform3fv";
+    }
     glProgramUniform3d = (PFNGLPROGRAMUNIFORM3DPROC) sogl_loadOpenGLFunction("glProgramUniform3d");
+    if (!glProgramUniform3d && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glProgramUniform3d";
+    }
     glProgramUniform3dv = (PFNGLPROGRAMUNIFORM3DVPROC) sogl_loadOpenGLFunction("glProgramUniform3dv");
+    if (!glProgramUniform3dv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glProgramUniform3dv";
+    }
     glProgramUniform3ui = (PFNGLPROGRAMUNIFORM3UIPROC) sogl_loadOpenGLFunction("glProgramUniform3ui");
+    if (!glProgramUniform3ui && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glProgramUniform3ui";
+    }
     glProgramUniform3uiv = (PFNGLPROGRAMUNIFORM3UIVPROC) sogl_loadOpenGLFunction("glProgramUniform3uiv");
+    if (!glProgramUniform3uiv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glProgramUniform3uiv";
+    }
     glProgramUniform4i = (PFNGLPROGRAMUNIFORM4IPROC) sogl_loadOpenGLFunction("glProgramUniform4i");
+    if (!glProgramUniform4i && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glProgramUniform4i";
+    }
     glProgramUniform4iv = (PFNGLPROGRAMUNIFORM4IVPROC) sogl_loadOpenGLFunction("glProgramUniform4iv");
+    if (!glProgramUniform4iv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glProgramUniform4iv";
+    }
     glProgramUniform4f = (PFNGLPROGRAMUNIFORM4FPROC) sogl_loadOpenGLFunction("glProgramUniform4f");
+    if (!glProgramUniform4f && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glProgramUniform4f";
+    }
     glProgramUniform4fv = (PFNGLPROGRAMUNIFORM4FVPROC) sogl_loadOpenGLFunction("glProgramUniform4fv");
+    if (!glProgramUniform4fv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glProgramUniform4fv";
+    }
     glProgramUniform4d = (PFNGLPROGRAMUNIFORM4DPROC) sogl_loadOpenGLFunction("glProgramUniform4d");
+    if (!glProgramUniform4d && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glProgramUniform4d";
+    }
     glProgramUniform4dv = (PFNGLPROGRAMUNIFORM4DVPROC) sogl_loadOpenGLFunction("glProgramUniform4dv");
+    if (!glProgramUniform4dv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glProgramUniform4dv";
+    }
     glProgramUniform4ui = (PFNGLPROGRAMUNIFORM4UIPROC) sogl_loadOpenGLFunction("glProgramUniform4ui");
+    if (!glProgramUniform4ui && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glProgramUniform4ui";
+    }
     glProgramUniform4uiv = (PFNGLPROGRAMUNIFORM4UIVPROC) sogl_loadOpenGLFunction("glProgramUniform4uiv");
+    if (!glProgramUniform4uiv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glProgramUniform4uiv";
+    }
     glProgramUniformMatrix2fv = (PFNGLPROGRAMUNIFORMMATRIX2FVPROC) sogl_loadOpenGLFunction("glProgramUniformMatrix2fv");
+    if (!glProgramUniformMatrix2fv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glProgramUniformMatrix2fv";
+    }
     glProgramUniformMatrix3fv = (PFNGLPROGRAMUNIFORMMATRIX3FVPROC) sogl_loadOpenGLFunction("glProgramUniformMatrix3fv");
+    if (!glProgramUniformMatrix3fv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glProgramUniformMatrix3fv";
+    }
     glProgramUniformMatrix4fv = (PFNGLPROGRAMUNIFORMMATRIX4FVPROC) sogl_loadOpenGLFunction("glProgramUniformMatrix4fv");
+    if (!glProgramUniformMatrix4fv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glProgramUniformMatrix4fv";
+    }
     glProgramUniformMatrix2dv = (PFNGLPROGRAMUNIFORMMATRIX2DVPROC) sogl_loadOpenGLFunction("glProgramUniformMatrix2dv");
+    if (!glProgramUniformMatrix2dv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glProgramUniformMatrix2dv";
+    }
     glProgramUniformMatrix3dv = (PFNGLPROGRAMUNIFORMMATRIX3DVPROC) sogl_loadOpenGLFunction("glProgramUniformMatrix3dv");
+    if (!glProgramUniformMatrix3dv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glProgramUniformMatrix3dv";
+    }
     glProgramUniformMatrix4dv = (PFNGLPROGRAMUNIFORMMATRIX4DVPROC) sogl_loadOpenGLFunction("glProgramUniformMatrix4dv");
+    if (!glProgramUniformMatrix4dv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glProgramUniformMatrix4dv";
+    }
     glProgramUniformMatrix2x3fv = (PFNGLPROGRAMUNIFORMMATRIX2X3FVPROC) sogl_loadOpenGLFunction("glProgramUniformMatrix2x3fv");
+    if (!glProgramUniformMatrix2x3fv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glProgramUniformMatrix2x3fv";
+    }
     glProgramUniformMatrix3x2fv = (PFNGLPROGRAMUNIFORMMATRIX3X2FVPROC) sogl_loadOpenGLFunction("glProgramUniformMatrix3x2fv");
+    if (!glProgramUniformMatrix3x2fv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glProgramUniformMatrix3x2fv";
+    }
     glProgramUniformMatrix2x4fv = (PFNGLPROGRAMUNIFORMMATRIX2X4FVPROC) sogl_loadOpenGLFunction("glProgramUniformMatrix2x4fv");
+    if (!glProgramUniformMatrix2x4fv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glProgramUniformMatrix2x4fv";
+    }
     glProgramUniformMatrix4x2fv = (PFNGLPROGRAMUNIFORMMATRIX4X2FVPROC) sogl_loadOpenGLFunction("glProgramUniformMatrix4x2fv");
+    if (!glProgramUniformMatrix4x2fv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glProgramUniformMatrix4x2fv";
+    }
     glProgramUniformMatrix3x4fv = (PFNGLPROGRAMUNIFORMMATRIX3X4FVPROC) sogl_loadOpenGLFunction("glProgramUniformMatrix3x4fv");
+    if (!glProgramUniformMatrix3x4fv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glProgramUniformMatrix3x4fv";
+    }
     glProgramUniformMatrix4x3fv = (PFNGLPROGRAMUNIFORMMATRIX4X3FVPROC) sogl_loadOpenGLFunction("glProgramUniformMatrix4x3fv");
+    if (!glProgramUniformMatrix4x3fv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glProgramUniformMatrix4x3fv";
+    }
     glProgramUniformMatrix2x3dv = (PFNGLPROGRAMUNIFORMMATRIX2X3DVPROC) sogl_loadOpenGLFunction("glProgramUniformMatrix2x3dv");
+    if (!glProgramUniformMatrix2x3dv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glProgramUniformMatrix2x3dv";
+    }
     glProgramUniformMatrix3x2dv = (PFNGLPROGRAMUNIFORMMATRIX3X2DVPROC) sogl_loadOpenGLFunction("glProgramUniformMatrix3x2dv");
+    if (!glProgramUniformMatrix3x2dv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glProgramUniformMatrix3x2dv";
+    }
     glProgramUniformMatrix2x4dv = (PFNGLPROGRAMUNIFORMMATRIX2X4DVPROC) sogl_loadOpenGLFunction("glProgramUniformMatrix2x4dv");
+    if (!glProgramUniformMatrix2x4dv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glProgramUniformMatrix2x4dv";
+    }
     glProgramUniformMatrix4x2dv = (PFNGLPROGRAMUNIFORMMATRIX4X2DVPROC) sogl_loadOpenGLFunction("glProgramUniformMatrix4x2dv");
+    if (!glProgramUniformMatrix4x2dv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glProgramUniformMatrix4x2dv";
+    }
     glProgramUniformMatrix3x4dv = (PFNGLPROGRAMUNIFORMMATRIX3X4DVPROC) sogl_loadOpenGLFunction("glProgramUniformMatrix3x4dv");
+    if (!glProgramUniformMatrix3x4dv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glProgramUniformMatrix3x4dv";
+    }
     glProgramUniformMatrix4x3dv = (PFNGLPROGRAMUNIFORMMATRIX4X3DVPROC) sogl_loadOpenGLFunction("glProgramUniformMatrix4x3dv");
+    if (!glProgramUniformMatrix4x3dv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glProgramUniformMatrix4x3dv";
+    }
     glValidateProgramPipeline = (PFNGLVALIDATEPROGRAMPIPELINEPROC) sogl_loadOpenGLFunction("glValidateProgramPipeline");
+    if (!glValidateProgramPipeline && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glValidateProgramPipeline";
+    }
     glGetProgramPipelineInfoLog = (PFNGLGETPROGRAMPIPELINEINFOLOGPROC) sogl_loadOpenGLFunction("glGetProgramPipelineInfoLog");
+    if (!glGetProgramPipelineInfoLog && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glGetProgramPipelineInfoLog";
+    }
     glVertexAttribL1d = (PFNGLVERTEXATTRIBL1DPROC) sogl_loadOpenGLFunction("glVertexAttribL1d");
+    if (!glVertexAttribL1d && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glVertexAttribL1d";
+    }
     glVertexAttribL2d = (PFNGLVERTEXATTRIBL2DPROC) sogl_loadOpenGLFunction("glVertexAttribL2d");
+    if (!glVertexAttribL2d && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glVertexAttribL2d";
+    }
     glVertexAttribL3d = (PFNGLVERTEXATTRIBL3DPROC) sogl_loadOpenGLFunction("glVertexAttribL3d");
+    if (!glVertexAttribL3d && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glVertexAttribL3d";
+    }
     glVertexAttribL4d = (PFNGLVERTEXATTRIBL4DPROC) sogl_loadOpenGLFunction("glVertexAttribL4d");
+    if (!glVertexAttribL4d && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glVertexAttribL4d";
+    }
     glVertexAttribL1dv = (PFNGLVERTEXATTRIBL1DVPROC) sogl_loadOpenGLFunction("glVertexAttribL1dv");
+    if (!glVertexAttribL1dv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glVertexAttribL1dv";
+    }
     glVertexAttribL2dv = (PFNGLVERTEXATTRIBL2DVPROC) sogl_loadOpenGLFunction("glVertexAttribL2dv");
+    if (!glVertexAttribL2dv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glVertexAttribL2dv";
+    }
     glVertexAttribL3dv = (PFNGLVERTEXATTRIBL3DVPROC) sogl_loadOpenGLFunction("glVertexAttribL3dv");
+    if (!glVertexAttribL3dv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glVertexAttribL3dv";
+    }
     glVertexAttribL4dv = (PFNGLVERTEXATTRIBL4DVPROC) sogl_loadOpenGLFunction("glVertexAttribL4dv");
+    if (!glVertexAttribL4dv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glVertexAttribL4dv";
+    }
     glVertexAttribLPointer = (PFNGLVERTEXATTRIBLPOINTERPROC) sogl_loadOpenGLFunction("glVertexAttribLPointer");
+    if (!glVertexAttribLPointer && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glVertexAttribLPointer";
+    }
     glGetVertexAttribLdv = (PFNGLGETVERTEXATTRIBLDVPROC) sogl_loadOpenGLFunction("glGetVertexAttribLdv");
+    if (!glGetVertexAttribLdv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glGetVertexAttribLdv";
+    }
     glViewportArrayv = (PFNGLVIEWPORTARRAYVPROC) sogl_loadOpenGLFunction("glViewportArrayv");
+    if (!glViewportArrayv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glViewportArrayv";
+    }
     glViewportIndexedf = (PFNGLVIEWPORTINDEXEDFPROC) sogl_loadOpenGLFunction("glViewportIndexedf");
+    if (!glViewportIndexedf && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glViewportIndexedf";
+    }
     glViewportIndexedfv = (PFNGLVIEWPORTINDEXEDFVPROC) sogl_loadOpenGLFunction("glViewportIndexedfv");
+    if (!glViewportIndexedfv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glViewportIndexedfv";
+    }
     glScissorArrayv = (PFNGLSCISSORARRAYVPROC) sogl_loadOpenGLFunction("glScissorArrayv");
+    if (!glScissorArrayv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glScissorArrayv";
+    }
     glScissorIndexed = (PFNGLSCISSORINDEXEDPROC) sogl_loadOpenGLFunction("glScissorIndexed");
+    if (!glScissorIndexed && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glScissorIndexed";
+    }
     glScissorIndexedv = (PFNGLSCISSORINDEXEDVPROC) sogl_loadOpenGLFunction("glScissorIndexedv");
+    if (!glScissorIndexedv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glScissorIndexedv";
+    }
     glDepthRangeArrayv = (PFNGLDEPTHRANGEARRAYVPROC) sogl_loadOpenGLFunction("glDepthRangeArrayv");
+    if (!glDepthRangeArrayv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glDepthRangeArrayv";
+    }
     glDepthRangeIndexed = (PFNGLDEPTHRANGEINDEXEDPROC) sogl_loadOpenGLFunction("glDepthRangeIndexed");
+    if (!glDepthRangeIndexed && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glDepthRangeIndexed";
+    }
     glGetFloati_v = (PFNGLGETFLOATI_VPROC) sogl_loadOpenGLFunction("glGetFloati_v");
+    if (!glGetFloati_v && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glGetFloati_v";
+    }
     glGetDoublei_v = (PFNGLGETDOUBLEI_VPROC) sogl_loadOpenGLFunction("glGetDoublei_v");
+    if (!glGetDoublei_v && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glGetDoublei_v";
+    }
 #endif /* GL_VERSION_4_1 */
 
 #if SOGL_TEST_VERSION(4, 2)
     glDrawArraysInstancedBaseInstance = (PFNGLDRAWARRAYSINSTANCEDBASEINSTANCEPROC) sogl_loadOpenGLFunction("glDrawArraysInstancedBaseInstance");
+    if (!glDrawArraysInstancedBaseInstance && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glDrawArraysInstancedBaseInstance";
+    }
     glDrawElementsInstancedBaseInstance = (PFNGLDRAWELEMENTSINSTANCEDBASEINSTANCEPROC) sogl_loadOpenGLFunction("glDrawElementsInstancedBaseInstance");
+    if (!glDrawElementsInstancedBaseInstance && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glDrawElementsInstancedBaseInstance";
+    }
     glDrawElementsInstancedBaseVertexBaseInstance = (PFNGLDRAWELEMENTSINSTANCEDBASEVERTEXBASEINSTANCEPROC) sogl_loadOpenGLFunction("glDrawElementsInstancedBaseVertexBaseInstance");
+    if (!glDrawElementsInstancedBaseVertexBaseInstance && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glDrawElementsInstancedBaseVertexBaseInstance";
+    }
     glGetInternalformativ = (PFNGLGETINTERNALFORMATIVPROC) sogl_loadOpenGLFunction("glGetInternalformativ");
+    if (!glGetInternalformativ && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glGetInternalformativ";
+    }
     glGetActiveAtomicCounterBufferiv = (PFNGLGETACTIVEATOMICCOUNTERBUFFERIVPROC) sogl_loadOpenGLFunction("glGetActiveAtomicCounterBufferiv");
+    if (!glGetActiveAtomicCounterBufferiv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glGetActiveAtomicCounterBufferiv";
+    }
     glBindImageTexture = (PFNGLBINDIMAGETEXTUREPROC) sogl_loadOpenGLFunction("glBindImageTexture");
+    if (!glBindImageTexture && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glBindImageTexture";
+    }
     glMemoryBarrier = (PFNGLMEMORYBARRIERPROC) sogl_loadOpenGLFunction("glMemoryBarrier");
+    if (!glMemoryBarrier && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glMemoryBarrier";
+    }
     glTexStorage1D = (PFNGLTEXSTORAGE1DPROC) sogl_loadOpenGLFunction("glTexStorage1D");
+    if (!glTexStorage1D && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glTexStorage1D";
+    }
     glTexStorage2D = (PFNGLTEXSTORAGE2DPROC) sogl_loadOpenGLFunction("glTexStorage2D");
+    if (!glTexStorage2D && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glTexStorage2D";
+    }
     glTexStorage3D = (PFNGLTEXSTORAGE3DPROC) sogl_loadOpenGLFunction("glTexStorage3D");
+    if (!glTexStorage3D && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glTexStorage3D";
+    }
     glDrawTransformFeedbackInstanced = (PFNGLDRAWTRANSFORMFEEDBACKINSTANCEDPROC) sogl_loadOpenGLFunction("glDrawTransformFeedbackInstanced");
+    if (!glDrawTransformFeedbackInstanced && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glDrawTransformFeedbackInstanced";
+    }
     glDrawTransformFeedbackStreamInstanced = (PFNGLDRAWTRANSFORMFEEDBACKSTREAMINSTANCEDPROC) sogl_loadOpenGLFunction("glDrawTransformFeedbackStreamInstanced");
+    if (!glDrawTransformFeedbackStreamInstanced && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glDrawTransformFeedbackStreamInstanced";
+    }
 #endif /* GL_VERSION_4_2 */
 
 #if SOGL_TEST_VERSION(4, 3)
     glClearBufferData = (PFNGLCLEARBUFFERDATAPROC) sogl_loadOpenGLFunction("glClearBufferData");
+    if (!glClearBufferData && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glClearBufferData";
+    }
     glClearBufferSubData = (PFNGLCLEARBUFFERSUBDATAPROC) sogl_loadOpenGLFunction("glClearBufferSubData");
+    if (!glClearBufferSubData && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glClearBufferSubData";
+    }
     glDispatchCompute = (PFNGLDISPATCHCOMPUTEPROC) sogl_loadOpenGLFunction("glDispatchCompute");
+    if (!glDispatchCompute && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glDispatchCompute";
+    }
     glDispatchComputeIndirect = (PFNGLDISPATCHCOMPUTEINDIRECTPROC) sogl_loadOpenGLFunction("glDispatchComputeIndirect");
+    if (!glDispatchComputeIndirect && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glDispatchComputeIndirect";
+    }
     glCopyImageSubData = (PFNGLCOPYIMAGESUBDATAPROC) sogl_loadOpenGLFunction("glCopyImageSubData");
+    if (!glCopyImageSubData && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glCopyImageSubData";
+    }
     glFramebufferParameteri = (PFNGLFRAMEBUFFERPARAMETERIPROC) sogl_loadOpenGLFunction("glFramebufferParameteri");
+    if (!glFramebufferParameteri && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glFramebufferParameteri";
+    }
     glGetFramebufferParameteriv = (PFNGLGETFRAMEBUFFERPARAMETERIVPROC) sogl_loadOpenGLFunction("glGetFramebufferParameteriv");
+    if (!glGetFramebufferParameteriv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glGetFramebufferParameteriv";
+    }
     glGetInternalformati64v = (PFNGLGETINTERNALFORMATI64VPROC) sogl_loadOpenGLFunction("glGetInternalformati64v");
+    if (!glGetInternalformati64v && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glGetInternalformati64v";
+    }
     glInvalidateTexSubImage = (PFNGLINVALIDATETEXSUBIMAGEPROC) sogl_loadOpenGLFunction("glInvalidateTexSubImage");
+    if (!glInvalidateTexSubImage && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glInvalidateTexSubImage";
+    }
     glInvalidateTexImage = (PFNGLINVALIDATETEXIMAGEPROC) sogl_loadOpenGLFunction("glInvalidateTexImage");
+    if (!glInvalidateTexImage && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glInvalidateTexImage";
+    }
     glInvalidateBufferSubData = (PFNGLINVALIDATEBUFFERSUBDATAPROC) sogl_loadOpenGLFunction("glInvalidateBufferSubData");
+    if (!glInvalidateBufferSubData && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glInvalidateBufferSubData";
+    }
     glInvalidateBufferData = (PFNGLINVALIDATEBUFFERDATAPROC) sogl_loadOpenGLFunction("glInvalidateBufferData");
+    if (!glInvalidateBufferData && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glInvalidateBufferData";
+    }
     glInvalidateFramebuffer = (PFNGLINVALIDATEFRAMEBUFFERPROC) sogl_loadOpenGLFunction("glInvalidateFramebuffer");
+    if (!glInvalidateFramebuffer && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glInvalidateFramebuffer";
+    }
     glInvalidateSubFramebuffer = (PFNGLINVALIDATESUBFRAMEBUFFERPROC) sogl_loadOpenGLFunction("glInvalidateSubFramebuffer");
+    if (!glInvalidateSubFramebuffer && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glInvalidateSubFramebuffer";
+    }
     glMultiDrawArraysIndirect = (PFNGLMULTIDRAWARRAYSINDIRECTPROC) sogl_loadOpenGLFunction("glMultiDrawArraysIndirect");
+    if (!glMultiDrawArraysIndirect && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glMultiDrawArraysIndirect";
+    }
     glMultiDrawElementsIndirect = (PFNGLMULTIDRAWELEMENTSINDIRECTPROC) sogl_loadOpenGLFunction("glMultiDrawElementsIndirect");
+    if (!glMultiDrawElementsIndirect && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glMultiDrawElementsIndirect";
+    }
     glGetProgramInterfaceiv = (PFNGLGETPROGRAMINTERFACEIVPROC) sogl_loadOpenGLFunction("glGetProgramInterfaceiv");
+    if (!glGetProgramInterfaceiv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glGetProgramInterfaceiv";
+    }
     glGetProgramResourceIndex = (PFNGLGETPROGRAMRESOURCEINDEXPROC) sogl_loadOpenGLFunction("glGetProgramResourceIndex");
+    if (!glGetProgramResourceIndex && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glGetProgramResourceIndex";
+    }
     glGetProgramResourceName = (PFNGLGETPROGRAMRESOURCENAMEPROC) sogl_loadOpenGLFunction("glGetProgramResourceName");
+    if (!glGetProgramResourceName && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glGetProgramResourceName";
+    }
     glGetProgramResourceiv = (PFNGLGETPROGRAMRESOURCEIVPROC) sogl_loadOpenGLFunction("glGetProgramResourceiv");
+    if (!glGetProgramResourceiv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glGetProgramResourceiv";
+    }
     glGetProgramResourceLocation = (PFNGLGETPROGRAMRESOURCELOCATIONPROC) sogl_loadOpenGLFunction("glGetProgramResourceLocation");
+    if (!glGetProgramResourceLocation && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glGetProgramResourceLocation";
+    }
     glGetProgramResourceLocationIndex = (PFNGLGETPROGRAMRESOURCELOCATIONINDEXPROC) sogl_loadOpenGLFunction("glGetProgramResourceLocationIndex");
+    if (!glGetProgramResourceLocationIndex && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glGetProgramResourceLocationIndex";
+    }
     glShaderStorageBlockBinding = (PFNGLSHADERSTORAGEBLOCKBINDINGPROC) sogl_loadOpenGLFunction("glShaderStorageBlockBinding");
+    if (!glShaderStorageBlockBinding && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glShaderStorageBlockBinding";
+    }
     glTexBufferRange = (PFNGLTEXBUFFERRANGEPROC) sogl_loadOpenGLFunction("glTexBufferRange");
+    if (!glTexBufferRange && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glTexBufferRange";
+    }
     glTexStorage2DMultisample = (PFNGLTEXSTORAGE2DMULTISAMPLEPROC) sogl_loadOpenGLFunction("glTexStorage2DMultisample");
+    if (!glTexStorage2DMultisample && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glTexStorage2DMultisample";
+    }
     glTexStorage3DMultisample = (PFNGLTEXSTORAGE3DMULTISAMPLEPROC) sogl_loadOpenGLFunction("glTexStorage3DMultisample");
+    if (!glTexStorage3DMultisample && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glTexStorage3DMultisample";
+    }
     glTextureView = (PFNGLTEXTUREVIEWPROC) sogl_loadOpenGLFunction("glTextureView");
+    if (!glTextureView && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glTextureView";
+    }
     glBindVertexBuffer = (PFNGLBINDVERTEXBUFFERPROC) sogl_loadOpenGLFunction("glBindVertexBuffer");
+    if (!glBindVertexBuffer && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glBindVertexBuffer";
+    }
     glVertexAttribFormat = (PFNGLVERTEXATTRIBFORMATPROC) sogl_loadOpenGLFunction("glVertexAttribFormat");
+    if (!glVertexAttribFormat && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glVertexAttribFormat";
+    }
     glVertexAttribIFormat = (PFNGLVERTEXATTRIBIFORMATPROC) sogl_loadOpenGLFunction("glVertexAttribIFormat");
+    if (!glVertexAttribIFormat && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glVertexAttribIFormat";
+    }
     glVertexAttribLFormat = (PFNGLVERTEXATTRIBLFORMATPROC) sogl_loadOpenGLFunction("glVertexAttribLFormat");
+    if (!glVertexAttribLFormat && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glVertexAttribLFormat";
+    }
     glVertexAttribBinding = (PFNGLVERTEXATTRIBBINDINGPROC) sogl_loadOpenGLFunction("glVertexAttribBinding");
+    if (!glVertexAttribBinding && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glVertexAttribBinding";
+    }
     glVertexBindingDivisor = (PFNGLVERTEXBINDINGDIVISORPROC) sogl_loadOpenGLFunction("glVertexBindingDivisor");
+    if (!glVertexBindingDivisor && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glVertexBindingDivisor";
+    }
     glDebugMessageControl = (PFNGLDEBUGMESSAGECONTROLPROC) sogl_loadOpenGLFunction("glDebugMessageControl");
+    if (!glDebugMessageControl && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glDebugMessageControl";
+    }
     glDebugMessageInsert = (PFNGLDEBUGMESSAGEINSERTPROC) sogl_loadOpenGLFunction("glDebugMessageInsert");
+    if (!glDebugMessageInsert && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glDebugMessageInsert";
+    }
     glDebugMessageCallback = (PFNGLDEBUGMESSAGECALLBACKPROC) sogl_loadOpenGLFunction("glDebugMessageCallback");
+    if (!glDebugMessageCallback && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glDebugMessageCallback";
+    }
     glGetDebugMessageLog = (PFNGLGETDEBUGMESSAGELOGPROC) sogl_loadOpenGLFunction("glGetDebugMessageLog");
+    if (!glGetDebugMessageLog && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glGetDebugMessageLog";
+    }
     glPushDebugGroup = (PFNGLPUSHDEBUGGROUPPROC) sogl_loadOpenGLFunction("glPushDebugGroup");
+    if (!glPushDebugGroup && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glPushDebugGroup";
+    }
     glPopDebugGroup = (PFNGLPOPDEBUGGROUPPROC) sogl_loadOpenGLFunction("glPopDebugGroup");
+    if (!glPopDebugGroup && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glPopDebugGroup";
+    }
     glObjectLabel = (PFNGLOBJECTLABELPROC) sogl_loadOpenGLFunction("glObjectLabel");
+    if (!glObjectLabel && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glObjectLabel";
+    }
     glGetObjectLabel = (PFNGLGETOBJECTLABELPROC) sogl_loadOpenGLFunction("glGetObjectLabel");
+    if (!glGetObjectLabel && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glGetObjectLabel";
+    }
     glObjectPtrLabel = (PFNGLOBJECTPTRLABELPROC) sogl_loadOpenGLFunction("glObjectPtrLabel");
+    if (!glObjectPtrLabel && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glObjectPtrLabel";
+    }
     glGetObjectPtrLabel = (PFNGLGETOBJECTPTRLABELPROC) sogl_loadOpenGLFunction("glGetObjectPtrLabel");
+    if (!glGetObjectPtrLabel && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glGetObjectPtrLabel";
+    }
 #endif /* GL_VERSION_4_3 */
 
 #if SOGL_TEST_VERSION(4, 4)
     glBufferStorage = (PFNGLBUFFERSTORAGEPROC) sogl_loadOpenGLFunction("glBufferStorage");
+    if (!glBufferStorage && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glBufferStorage";
+    }
     glClearTexImage = (PFNGLCLEARTEXIMAGEPROC) sogl_loadOpenGLFunction("glClearTexImage");
+    if (!glClearTexImage && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glClearTexImage";
+    }
     glClearTexSubImage = (PFNGLCLEARTEXSUBIMAGEPROC) sogl_loadOpenGLFunction("glClearTexSubImage");
+    if (!glClearTexSubImage && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glClearTexSubImage";
+    }
     glBindBuffersBase = (PFNGLBINDBUFFERSBASEPROC) sogl_loadOpenGLFunction("glBindBuffersBase");
+    if (!glBindBuffersBase && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glBindBuffersBase";
+    }
     glBindBuffersRange = (PFNGLBINDBUFFERSRANGEPROC) sogl_loadOpenGLFunction("glBindBuffersRange");
+    if (!glBindBuffersRange && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glBindBuffersRange";
+    }
     glBindTextures = (PFNGLBINDTEXTURESPROC) sogl_loadOpenGLFunction("glBindTextures");
+    if (!glBindTextures && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glBindTextures";
+    }
     glBindSamplers = (PFNGLBINDSAMPLERSPROC) sogl_loadOpenGLFunction("glBindSamplers");
+    if (!glBindSamplers && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glBindSamplers";
+    }
     glBindImageTextures = (PFNGLBINDIMAGETEXTURESPROC) sogl_loadOpenGLFunction("glBindImageTextures");
+    if (!glBindImageTextures && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glBindImageTextures";
+    }
     glBindVertexBuffers = (PFNGLBINDVERTEXBUFFERSPROC) sogl_loadOpenGLFunction("glBindVertexBuffers");
+    if (!glBindVertexBuffers && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glBindVertexBuffers";
+    }
 #endif /* GL_VERSION_4_4 */
 
 #if SOGL_TEST_VERSION(4, 5)
     glClipControl = (PFNGLCLIPCONTROLPROC) sogl_loadOpenGLFunction("glClipControl");
+    if (!glClipControl && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glClipControl";
+    }
     glCreateTransformFeedbacks = (PFNGLCREATETRANSFORMFEEDBACKSPROC) sogl_loadOpenGLFunction("glCreateTransformFeedbacks");
+    if (!glCreateTransformFeedbacks && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glCreateTransformFeedbacks";
+    }
     glTransformFeedbackBufferBase = (PFNGLTRANSFORMFEEDBACKBUFFERBASEPROC) sogl_loadOpenGLFunction("glTransformFeedbackBufferBase");
+    if (!glTransformFeedbackBufferBase && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glTransformFeedbackBufferBase";
+    }
     glTransformFeedbackBufferRange = (PFNGLTRANSFORMFEEDBACKBUFFERRANGEPROC) sogl_loadOpenGLFunction("glTransformFeedbackBufferRange");
+    if (!glTransformFeedbackBufferRange && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glTransformFeedbackBufferRange";
+    }
     glGetTransformFeedbackiv = (PFNGLGETTRANSFORMFEEDBACKIVPROC) sogl_loadOpenGLFunction("glGetTransformFeedbackiv");
+    if (!glGetTransformFeedbackiv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glGetTransformFeedbackiv";
+    }
     glGetTransformFeedbacki_v = (PFNGLGETTRANSFORMFEEDBACKI_VPROC) sogl_loadOpenGLFunction("glGetTransformFeedbacki_v");
+    if (!glGetTransformFeedbacki_v && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glGetTransformFeedbacki_v";
+    }
     glGetTransformFeedbacki64_v = (PFNGLGETTRANSFORMFEEDBACKI64_VPROC) sogl_loadOpenGLFunction("glGetTransformFeedbacki64_v");
+    if (!glGetTransformFeedbacki64_v && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glGetTransformFeedbacki64_v";
+    }
     glCreateBuffers = (PFNGLCREATEBUFFERSPROC) sogl_loadOpenGLFunction("glCreateBuffers");
+    if (!glCreateBuffers && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glCreateBuffers";
+    }
     glNamedBufferStorage = (PFNGLNAMEDBUFFERSTORAGEPROC) sogl_loadOpenGLFunction("glNamedBufferStorage");
+    if (!glNamedBufferStorage && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glNamedBufferStorage";
+    }
     glNamedBufferData = (PFNGLNAMEDBUFFERDATAPROC) sogl_loadOpenGLFunction("glNamedBufferData");
+    if (!glNamedBufferData && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glNamedBufferData";
+    }
     glNamedBufferSubData = (PFNGLNAMEDBUFFERSUBDATAPROC) sogl_loadOpenGLFunction("glNamedBufferSubData");
+    if (!glNamedBufferSubData && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glNamedBufferSubData";
+    }
     glCopyNamedBufferSubData = (PFNGLCOPYNAMEDBUFFERSUBDATAPROC) sogl_loadOpenGLFunction("glCopyNamedBufferSubData");
+    if (!glCopyNamedBufferSubData && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glCopyNamedBufferSubData";
+    }
     glClearNamedBufferData = (PFNGLCLEARNAMEDBUFFERDATAPROC) sogl_loadOpenGLFunction("glClearNamedBufferData");
+    if (!glClearNamedBufferData && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glClearNamedBufferData";
+    }
     glClearNamedBufferSubData = (PFNGLCLEARNAMEDBUFFERSUBDATAPROC) sogl_loadOpenGLFunction("glClearNamedBufferSubData");
+    if (!glClearNamedBufferSubData && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glClearNamedBufferSubData";
+    }
     glMapNamedBuffer = (PFNGLMAPNAMEDBUFFERPROC) sogl_loadOpenGLFunction("glMapNamedBuffer");
+    if (!glMapNamedBuffer && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glMapNamedBuffer";
+    }
     glMapNamedBufferRange = (PFNGLMAPNAMEDBUFFERRANGEPROC) sogl_loadOpenGLFunction("glMapNamedBufferRange");
+    if (!glMapNamedBufferRange && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glMapNamedBufferRange";
+    }
     glUnmapNamedBuffer = (PFNGLUNMAPNAMEDBUFFERPROC) sogl_loadOpenGLFunction("glUnmapNamedBuffer");
+    if (!glUnmapNamedBuffer && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glUnmapNamedBuffer";
+    }
     glFlushMappedNamedBufferRange = (PFNGLFLUSHMAPPEDNAMEDBUFFERRANGEPROC) sogl_loadOpenGLFunction("glFlushMappedNamedBufferRange");
+    if (!glFlushMappedNamedBufferRange && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glFlushMappedNamedBufferRange";
+    }
     glGetNamedBufferParameteriv = (PFNGLGETNAMEDBUFFERPARAMETERIVPROC) sogl_loadOpenGLFunction("glGetNamedBufferParameteriv");
+    if (!glGetNamedBufferParameteriv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glGetNamedBufferParameteriv";
+    }
     glGetNamedBufferParameteri64v = (PFNGLGETNAMEDBUFFERPARAMETERI64VPROC) sogl_loadOpenGLFunction("glGetNamedBufferParameteri64v");
+    if (!glGetNamedBufferParameteri64v && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glGetNamedBufferParameteri64v";
+    }
     glGetNamedBufferPointerv = (PFNGLGETNAMEDBUFFERPOINTERVPROC) sogl_loadOpenGLFunction("glGetNamedBufferPointerv");
+    if (!glGetNamedBufferPointerv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glGetNamedBufferPointerv";
+    }
     glGetNamedBufferSubData = (PFNGLGETNAMEDBUFFERSUBDATAPROC) sogl_loadOpenGLFunction("glGetNamedBufferSubData");
+    if (!glGetNamedBufferSubData && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glGetNamedBufferSubData";
+    }
     glCreateFramebuffers = (PFNGLCREATEFRAMEBUFFERSPROC) sogl_loadOpenGLFunction("glCreateFramebuffers");
+    if (!glCreateFramebuffers && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glCreateFramebuffers";
+    }
     glNamedFramebufferRenderbuffer = (PFNGLNAMEDFRAMEBUFFERRENDERBUFFERPROC) sogl_loadOpenGLFunction("glNamedFramebufferRenderbuffer");
+    if (!glNamedFramebufferRenderbuffer && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glNamedFramebufferRenderbuffer";
+    }
     glNamedFramebufferParameteri = (PFNGLNAMEDFRAMEBUFFERPARAMETERIPROC) sogl_loadOpenGLFunction("glNamedFramebufferParameteri");
+    if (!glNamedFramebufferParameteri && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glNamedFramebufferParameteri";
+    }
     glNamedFramebufferTexture = (PFNGLNAMEDFRAMEBUFFERTEXTUREPROC) sogl_loadOpenGLFunction("glNamedFramebufferTexture");
+    if (!glNamedFramebufferTexture && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glNamedFramebufferTexture";
+    }
     glNamedFramebufferTextureLayer = (PFNGLNAMEDFRAMEBUFFERTEXTURELAYERPROC) sogl_loadOpenGLFunction("glNamedFramebufferTextureLayer");
+    if (!glNamedFramebufferTextureLayer && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glNamedFramebufferTextureLayer";
+    }
     glNamedFramebufferDrawBuffer = (PFNGLNAMEDFRAMEBUFFERDRAWBUFFERPROC) sogl_loadOpenGLFunction("glNamedFramebufferDrawBuffer");
+    if (!glNamedFramebufferDrawBuffer && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glNamedFramebufferDrawBuffer";
+    }
     glNamedFramebufferDrawBuffers = (PFNGLNAMEDFRAMEBUFFERDRAWBUFFERSPROC) sogl_loadOpenGLFunction("glNamedFramebufferDrawBuffers");
+    if (!glNamedFramebufferDrawBuffers && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glNamedFramebufferDrawBuffers";
+    }
     glNamedFramebufferReadBuffer = (PFNGLNAMEDFRAMEBUFFERREADBUFFERPROC) sogl_loadOpenGLFunction("glNamedFramebufferReadBuffer");
+    if (!glNamedFramebufferReadBuffer && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glNamedFramebufferReadBuffer";
+    }
     glInvalidateNamedFramebufferData = (PFNGLINVALIDATENAMEDFRAMEBUFFERDATAPROC) sogl_loadOpenGLFunction("glInvalidateNamedFramebufferData");
+    if (!glInvalidateNamedFramebufferData && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glInvalidateNamedFramebufferData";
+    }
     glInvalidateNamedFramebufferSubData = (PFNGLINVALIDATENAMEDFRAMEBUFFERSUBDATAPROC) sogl_loadOpenGLFunction("glInvalidateNamedFramebufferSubData");
+    if (!glInvalidateNamedFramebufferSubData && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glInvalidateNamedFramebufferSubData";
+    }
     glClearNamedFramebufferiv = (PFNGLCLEARNAMEDFRAMEBUFFERIVPROC) sogl_loadOpenGLFunction("glClearNamedFramebufferiv");
+    if (!glClearNamedFramebufferiv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glClearNamedFramebufferiv";
+    }
     glClearNamedFramebufferuiv = (PFNGLCLEARNAMEDFRAMEBUFFERUIVPROC) sogl_loadOpenGLFunction("glClearNamedFramebufferuiv");
+    if (!glClearNamedFramebufferuiv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glClearNamedFramebufferuiv";
+    }
     glClearNamedFramebufferfv = (PFNGLCLEARNAMEDFRAMEBUFFERFVPROC) sogl_loadOpenGLFunction("glClearNamedFramebufferfv");
+    if (!glClearNamedFramebufferfv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glClearNamedFramebufferfv";
+    }
     glClearNamedFramebufferfi = (PFNGLCLEARNAMEDFRAMEBUFFERFIPROC) sogl_loadOpenGLFunction("glClearNamedFramebufferfi");
+    if (!glClearNamedFramebufferfi && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glClearNamedFramebufferfi";
+    }
     glBlitNamedFramebuffer = (PFNGLBLITNAMEDFRAMEBUFFERPROC) sogl_loadOpenGLFunction("glBlitNamedFramebuffer");
+    if (!glBlitNamedFramebuffer && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glBlitNamedFramebuffer";
+    }
     glCheckNamedFramebufferStatus = (PFNGLCHECKNAMEDFRAMEBUFFERSTATUSPROC) sogl_loadOpenGLFunction("glCheckNamedFramebufferStatus");
+    if (!glCheckNamedFramebufferStatus && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glCheckNamedFramebufferStatus";
+    }
     glGetNamedFramebufferParameteriv = (PFNGLGETNAMEDFRAMEBUFFERPARAMETERIVPROC) sogl_loadOpenGLFunction("glGetNamedFramebufferParameteriv");
+    if (!glGetNamedFramebufferParameteriv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glGetNamedFramebufferParameteriv";
+    }
     glGetNamedFramebufferAttachmentParameteriv = (PFNGLGETNAMEDFRAMEBUFFERATTACHMENTPARAMETERIVPROC) sogl_loadOpenGLFunction("glGetNamedFramebufferAttachmentParameteriv");
+    if (!glGetNamedFramebufferAttachmentParameteriv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glGetNamedFramebufferAttachmentParameteriv";
+    }
     glCreateRenderbuffers = (PFNGLCREATERENDERBUFFERSPROC) sogl_loadOpenGLFunction("glCreateRenderbuffers");
+    if (!glCreateRenderbuffers && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glCreateRenderbuffers";
+    }
     glNamedRenderbufferStorage = (PFNGLNAMEDRENDERBUFFERSTORAGEPROC) sogl_loadOpenGLFunction("glNamedRenderbufferStorage");
+    if (!glNamedRenderbufferStorage && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glNamedRenderbufferStorage";
+    }
     glNamedRenderbufferStorageMultisample = (PFNGLNAMEDRENDERBUFFERSTORAGEMULTISAMPLEPROC) sogl_loadOpenGLFunction("glNamedRenderbufferStorageMultisample");
+    if (!glNamedRenderbufferStorageMultisample && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glNamedRenderbufferStorageMultisample";
+    }
     glGetNamedRenderbufferParameteriv = (PFNGLGETNAMEDRENDERBUFFERPARAMETERIVPROC) sogl_loadOpenGLFunction("glGetNamedRenderbufferParameteriv");
+    if (!glGetNamedRenderbufferParameteriv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glGetNamedRenderbufferParameteriv";
+    }
     glCreateTextures = (PFNGLCREATETEXTURESPROC) sogl_loadOpenGLFunction("glCreateTextures");
+    if (!glCreateTextures && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glCreateTextures";
+    }
     glTextureBuffer = (PFNGLTEXTUREBUFFERPROC) sogl_loadOpenGLFunction("glTextureBuffer");
+    if (!glTextureBuffer && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glTextureBuffer";
+    }
     glTextureBufferRange = (PFNGLTEXTUREBUFFERRANGEPROC) sogl_loadOpenGLFunction("glTextureBufferRange");
+    if (!glTextureBufferRange && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glTextureBufferRange";
+    }
     glTextureStorage1D = (PFNGLTEXTURESTORAGE1DPROC) sogl_loadOpenGLFunction("glTextureStorage1D");
+    if (!glTextureStorage1D && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glTextureStorage1D";
+    }
     glTextureStorage2D = (PFNGLTEXTURESTORAGE2DPROC) sogl_loadOpenGLFunction("glTextureStorage2D");
+    if (!glTextureStorage2D && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glTextureStorage2D";
+    }
     glTextureStorage3D = (PFNGLTEXTURESTORAGE3DPROC) sogl_loadOpenGLFunction("glTextureStorage3D");
+    if (!glTextureStorage3D && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glTextureStorage3D";
+    }
     glTextureStorage2DMultisample = (PFNGLTEXTURESTORAGE2DMULTISAMPLEPROC) sogl_loadOpenGLFunction("glTextureStorage2DMultisample");
+    if (!glTextureStorage2DMultisample && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glTextureStorage2DMultisample";
+    }
     glTextureStorage3DMultisample = (PFNGLTEXTURESTORAGE3DMULTISAMPLEPROC) sogl_loadOpenGLFunction("glTextureStorage3DMultisample");
+    if (!glTextureStorage3DMultisample && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glTextureStorage3DMultisample";
+    }
     glTextureSubImage1D = (PFNGLTEXTURESUBIMAGE1DPROC) sogl_loadOpenGLFunction("glTextureSubImage1D");
+    if (!glTextureSubImage1D && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glTextureSubImage1D";
+    }
     glTextureSubImage2D = (PFNGLTEXTURESUBIMAGE2DPROC) sogl_loadOpenGLFunction("glTextureSubImage2D");
+    if (!glTextureSubImage2D && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glTextureSubImage2D";
+    }
     glTextureSubImage3D = (PFNGLTEXTURESUBIMAGE3DPROC) sogl_loadOpenGLFunction("glTextureSubImage3D");
+    if (!glTextureSubImage3D && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glTextureSubImage3D";
+    }
     glCompressedTextureSubImage1D = (PFNGLCOMPRESSEDTEXTURESUBIMAGE1DPROC) sogl_loadOpenGLFunction("glCompressedTextureSubImage1D");
+    if (!glCompressedTextureSubImage1D && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glCompressedTextureSubImage1D";
+    }
     glCompressedTextureSubImage2D = (PFNGLCOMPRESSEDTEXTURESUBIMAGE2DPROC) sogl_loadOpenGLFunction("glCompressedTextureSubImage2D");
+    if (!glCompressedTextureSubImage2D && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glCompressedTextureSubImage2D";
+    }
     glCompressedTextureSubImage3D = (PFNGLCOMPRESSEDTEXTURESUBIMAGE3DPROC) sogl_loadOpenGLFunction("glCompressedTextureSubImage3D");
+    if (!glCompressedTextureSubImage3D && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glCompressedTextureSubImage3D";
+    }
     glCopyTextureSubImage1D = (PFNGLCOPYTEXTURESUBIMAGE1DPROC) sogl_loadOpenGLFunction("glCopyTextureSubImage1D");
+    if (!glCopyTextureSubImage1D && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glCopyTextureSubImage1D";
+    }
     glCopyTextureSubImage2D = (PFNGLCOPYTEXTURESUBIMAGE2DPROC) sogl_loadOpenGLFunction("glCopyTextureSubImage2D");
+    if (!glCopyTextureSubImage2D && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glCopyTextureSubImage2D";
+    }
     glCopyTextureSubImage3D = (PFNGLCOPYTEXTURESUBIMAGE3DPROC) sogl_loadOpenGLFunction("glCopyTextureSubImage3D");
+    if (!glCopyTextureSubImage3D && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glCopyTextureSubImage3D";
+    }
     glTextureParameterf = (PFNGLTEXTUREPARAMETERFPROC) sogl_loadOpenGLFunction("glTextureParameterf");
+    if (!glTextureParameterf && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glTextureParameterf";
+    }
     glTextureParameterfv = (PFNGLTEXTUREPARAMETERFVPROC) sogl_loadOpenGLFunction("glTextureParameterfv");
+    if (!glTextureParameterfv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glTextureParameterfv";
+    }
     glTextureParameteri = (PFNGLTEXTUREPARAMETERIPROC) sogl_loadOpenGLFunction("glTextureParameteri");
+    if (!glTextureParameteri && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glTextureParameteri";
+    }
     glTextureParameterIiv = (PFNGLTEXTUREPARAMETERIIVPROC) sogl_loadOpenGLFunction("glTextureParameterIiv");
+    if (!glTextureParameterIiv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glTextureParameterIiv";
+    }
     glTextureParameterIuiv = (PFNGLTEXTUREPARAMETERIUIVPROC) sogl_loadOpenGLFunction("glTextureParameterIuiv");
+    if (!glTextureParameterIuiv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glTextureParameterIuiv";
+    }
     glTextureParameteriv = (PFNGLTEXTUREPARAMETERIVPROC) sogl_loadOpenGLFunction("glTextureParameteriv");
+    if (!glTextureParameteriv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glTextureParameteriv";
+    }
     glGenerateTextureMipmap = (PFNGLGENERATETEXTUREMIPMAPPROC) sogl_loadOpenGLFunction("glGenerateTextureMipmap");
+    if (!glGenerateTextureMipmap && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glGenerateTextureMipmap";
+    }
     glBindTextureUnit = (PFNGLBINDTEXTUREUNITPROC) sogl_loadOpenGLFunction("glBindTextureUnit");
+    if (!glBindTextureUnit && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glBindTextureUnit";
+    }
     glGetTextureImage = (PFNGLGETTEXTUREIMAGEPROC) sogl_loadOpenGLFunction("glGetTextureImage");
+    if (!glGetTextureImage && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glGetTextureImage";
+    }
     glGetCompressedTextureImage = (PFNGLGETCOMPRESSEDTEXTUREIMAGEPROC) sogl_loadOpenGLFunction("glGetCompressedTextureImage");
+    if (!glGetCompressedTextureImage && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glGetCompressedTextureImage";
+    }
     glGetTextureLevelParameterfv = (PFNGLGETTEXTURELEVELPARAMETERFVPROC) sogl_loadOpenGLFunction("glGetTextureLevelParameterfv");
+    if (!glGetTextureLevelParameterfv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glGetTextureLevelParameterfv";
+    }
     glGetTextureLevelParameteriv = (PFNGLGETTEXTURELEVELPARAMETERIVPROC) sogl_loadOpenGLFunction("glGetTextureLevelParameteriv");
+    if (!glGetTextureLevelParameteriv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glGetTextureLevelParameteriv";
+    }
     glGetTextureParameterfv = (PFNGLGETTEXTUREPARAMETERFVPROC) sogl_loadOpenGLFunction("glGetTextureParameterfv");
+    if (!glGetTextureParameterfv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glGetTextureParameterfv";
+    }
     glGetTextureParameterIiv = (PFNGLGETTEXTUREPARAMETERIIVPROC) sogl_loadOpenGLFunction("glGetTextureParameterIiv");
+    if (!glGetTextureParameterIiv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glGetTextureParameterIiv";
+    }
     glGetTextureParameterIuiv = (PFNGLGETTEXTUREPARAMETERIUIVPROC) sogl_loadOpenGLFunction("glGetTextureParameterIuiv");
+    if (!glGetTextureParameterIuiv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glGetTextureParameterIuiv";
+    }
     glGetTextureParameteriv = (PFNGLGETTEXTUREPARAMETERIVPROC) sogl_loadOpenGLFunction("glGetTextureParameteriv");
+    if (!glGetTextureParameteriv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glGetTextureParameteriv";
+    }
     glCreateVertexArrays = (PFNGLCREATEVERTEXARRAYSPROC) sogl_loadOpenGLFunction("glCreateVertexArrays");
+    if (!glCreateVertexArrays && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glCreateVertexArrays";
+    }
     glDisableVertexArrayAttrib = (PFNGLDISABLEVERTEXARRAYATTRIBPROC) sogl_loadOpenGLFunction("glDisableVertexArrayAttrib");
+    if (!glDisableVertexArrayAttrib && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glDisableVertexArrayAttrib";
+    }
     glEnableVertexArrayAttrib = (PFNGLENABLEVERTEXARRAYATTRIBPROC) sogl_loadOpenGLFunction("glEnableVertexArrayAttrib");
+    if (!glEnableVertexArrayAttrib && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glEnableVertexArrayAttrib";
+    }
     glVertexArrayElementBuffer = (PFNGLVERTEXARRAYELEMENTBUFFERPROC) sogl_loadOpenGLFunction("glVertexArrayElementBuffer");
+    if (!glVertexArrayElementBuffer && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glVertexArrayElementBuffer";
+    }
     glVertexArrayVertexBuffer = (PFNGLVERTEXARRAYVERTEXBUFFERPROC) sogl_loadOpenGLFunction("glVertexArrayVertexBuffer");
+    if (!glVertexArrayVertexBuffer && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glVertexArrayVertexBuffer";
+    }
     glVertexArrayVertexBuffers = (PFNGLVERTEXARRAYVERTEXBUFFERSPROC) sogl_loadOpenGLFunction("glVertexArrayVertexBuffers");
+    if (!glVertexArrayVertexBuffers && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glVertexArrayVertexBuffers";
+    }
     glVertexArrayAttribBinding = (PFNGLVERTEXARRAYATTRIBBINDINGPROC) sogl_loadOpenGLFunction("glVertexArrayAttribBinding");
+    if (!glVertexArrayAttribBinding && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glVertexArrayAttribBinding";
+    }
     glVertexArrayAttribFormat = (PFNGLVERTEXARRAYATTRIBFORMATPROC) sogl_loadOpenGLFunction("glVertexArrayAttribFormat");
+    if (!glVertexArrayAttribFormat && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glVertexArrayAttribFormat";
+    }
     glVertexArrayAttribIFormat = (PFNGLVERTEXARRAYATTRIBIFORMATPROC) sogl_loadOpenGLFunction("glVertexArrayAttribIFormat");
+    if (!glVertexArrayAttribIFormat && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glVertexArrayAttribIFormat";
+    }
     glVertexArrayAttribLFormat = (PFNGLVERTEXARRAYATTRIBLFORMATPROC) sogl_loadOpenGLFunction("glVertexArrayAttribLFormat");
+    if (!glVertexArrayAttribLFormat && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glVertexArrayAttribLFormat";
+    }
     glVertexArrayBindingDivisor = (PFNGLVERTEXARRAYBINDINGDIVISORPROC) sogl_loadOpenGLFunction("glVertexArrayBindingDivisor");
+    if (!glVertexArrayBindingDivisor && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glVertexArrayBindingDivisor";
+    }
     glGetVertexArrayiv = (PFNGLGETVERTEXARRAYIVPROC) sogl_loadOpenGLFunction("glGetVertexArrayiv");
+    if (!glGetVertexArrayiv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glGetVertexArrayiv";
+    }
     glGetVertexArrayIndexediv = (PFNGLGETVERTEXARRAYINDEXEDIVPROC) sogl_loadOpenGLFunction("glGetVertexArrayIndexediv");
+    if (!glGetVertexArrayIndexediv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glGetVertexArrayIndexediv";
+    }
     glGetVertexArrayIndexed64iv = (PFNGLGETVERTEXARRAYINDEXED64IVPROC) sogl_loadOpenGLFunction("glGetVertexArrayIndexed64iv");
+    if (!glGetVertexArrayIndexed64iv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glGetVertexArrayIndexed64iv";
+    }
     glCreateSamplers = (PFNGLCREATESAMPLERSPROC) sogl_loadOpenGLFunction("glCreateSamplers");
+    if (!glCreateSamplers && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glCreateSamplers";
+    }
     glCreateProgramPipelines = (PFNGLCREATEPROGRAMPIPELINESPROC) sogl_loadOpenGLFunction("glCreateProgramPipelines");
+    if (!glCreateProgramPipelines && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glCreateProgramPipelines";
+    }
     glCreateQueries = (PFNGLCREATEQUERIESPROC) sogl_loadOpenGLFunction("glCreateQueries");
+    if (!glCreateQueries && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glCreateQueries";
+    }
     glGetQueryBufferObjecti64v = (PFNGLGETQUERYBUFFEROBJECTI64VPROC) sogl_loadOpenGLFunction("glGetQueryBufferObjecti64v");
+    if (!glGetQueryBufferObjecti64v && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glGetQueryBufferObjecti64v";
+    }
     glGetQueryBufferObjectiv = (PFNGLGETQUERYBUFFEROBJECTIVPROC) sogl_loadOpenGLFunction("glGetQueryBufferObjectiv");
+    if (!glGetQueryBufferObjectiv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glGetQueryBufferObjectiv";
+    }
     glGetQueryBufferObjectui64v = (PFNGLGETQUERYBUFFEROBJECTUI64VPROC) sogl_loadOpenGLFunction("glGetQueryBufferObjectui64v");
+    if (!glGetQueryBufferObjectui64v && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glGetQueryBufferObjectui64v";
+    }
     glGetQueryBufferObjectuiv = (PFNGLGETQUERYBUFFEROBJECTUIVPROC) sogl_loadOpenGLFunction("glGetQueryBufferObjectuiv");
+    if (!glGetQueryBufferObjectuiv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glGetQueryBufferObjectuiv";
+    }
     glMemoryBarrierByRegion = (PFNGLMEMORYBARRIERBYREGIONPROC) sogl_loadOpenGLFunction("glMemoryBarrierByRegion");
+    if (!glMemoryBarrierByRegion && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glMemoryBarrierByRegion";
+    }
     glGetTextureSubImage = (PFNGLGETTEXTURESUBIMAGEPROC) sogl_loadOpenGLFunction("glGetTextureSubImage");
+    if (!glGetTextureSubImage && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glGetTextureSubImage";
+    }
     glGetCompressedTextureSubImage = (PFNGLGETCOMPRESSEDTEXTURESUBIMAGEPROC) sogl_loadOpenGLFunction("glGetCompressedTextureSubImage");
+    if (!glGetCompressedTextureSubImage && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glGetCompressedTextureSubImage";
+    }
     glGetGraphicsResetStatus = (PFNGLGETGRAPHICSRESETSTATUSPROC) sogl_loadOpenGLFunction("glGetGraphicsResetStatus");
+    if (!glGetGraphicsResetStatus && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glGetGraphicsResetStatus";
+    }
     glGetnCompressedTexImage = (PFNGLGETNCOMPRESSEDTEXIMAGEPROC) sogl_loadOpenGLFunction("glGetnCompressedTexImage");
+    if (!glGetnCompressedTexImage && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glGetnCompressedTexImage";
+    }
     glGetnTexImage = (PFNGLGETNTEXIMAGEPROC) sogl_loadOpenGLFunction("glGetnTexImage");
+    if (!glGetnTexImage && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glGetnTexImage";
+    }
     glGetnUniformdv = (PFNGLGETNUNIFORMDVPROC) sogl_loadOpenGLFunction("glGetnUniformdv");
+    if (!glGetnUniformdv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glGetnUniformdv";
+    }
     glGetnUniformfv = (PFNGLGETNUNIFORMFVPROC) sogl_loadOpenGLFunction("glGetnUniformfv");
+    if (!glGetnUniformfv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glGetnUniformfv";
+    }
     glGetnUniformiv = (PFNGLGETNUNIFORMIVPROC) sogl_loadOpenGLFunction("glGetnUniformiv");
+    if (!glGetnUniformiv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glGetnUniformiv";
+    }
     glGetnUniformuiv = (PFNGLGETNUNIFORMUIVPROC) sogl_loadOpenGLFunction("glGetnUniformuiv");
+    if (!glGetnUniformuiv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glGetnUniformuiv";
+    }
     glReadnPixels = (PFNGLREADNPIXELSPROC) sogl_loadOpenGLFunction("glReadnPixels");
+    if (!glReadnPixels && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glReadnPixels";
+    }
     glTextureBarrier = (PFNGLTEXTUREBARRIERPROC) sogl_loadOpenGLFunction("glTextureBarrier");
+    if (!glTextureBarrier && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glTextureBarrier";
+    }
 #endif /* GL_VERSION_4_5 */
 
 #if SOGL_TEST_VERSION(4, 6)
     glSpecializeShader = (PFNGLSPECIALIZESHADERPROC) sogl_loadOpenGLFunction("glSpecializeShader");
+    if (!glSpecializeShader && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glSpecializeShader";
+    }
     glMultiDrawArraysIndirectCount = (PFNGLMULTIDRAWARRAYSINDIRECTCOUNTPROC) sogl_loadOpenGLFunction("glMultiDrawArraysIndirectCount");
+    if (!glMultiDrawArraysIndirectCount && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glMultiDrawArraysIndirectCount";
+    }
     glMultiDrawElementsIndirectCount = (PFNGLMULTIDRAWELEMENTSINDIRECTCOUNTPROC) sogl_loadOpenGLFunction("glMultiDrawElementsIndirectCount");
+    if (!glMultiDrawElementsIndirectCount && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glMultiDrawElementsIndirectCount";
+    }
     glPolygonOffsetClamp = (PFNGLPOLYGONOFFSETCLAMPPROC) sogl_loadOpenGLFunction("glPolygonOffsetClamp");
+    if (!glPolygonOffsetClamp && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glPolygonOffsetClamp";
+    }
 #endif /* GL_VERSION_4_6 */	
 
     /* LOAD EXTENSIONS */
 
 #ifdef SOGL_ARB_ES3_2_compatibility
     glPrimitiveBoundingBoxARB = (PFNGLPRIMITIVEBOUNDINGBOXARBPROC) sogl_loadOpenGLFunction("glPrimitiveBoundingBoxARB");
+    if (!glPrimitiveBoundingBoxARB && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glPrimitiveBoundingBoxARB";
+    }
 #endif /* SOGL_ARB_ES3_2_compatibility */
 
 #ifdef SOGL_ARB_bindless_texture
     glGetTextureHandleARB = (PFNGLGETTEXTUREHANDLEARBPROC) sogl_loadOpenGLFunction("glGetTextureHandleARB");
+    if (!glGetTextureHandleARB && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glGetTextureHandleARB";
+    }
     glGetTextureSamplerHandleARB = (PFNGLGETTEXTURESAMPLERHANDLEARBPROC) sogl_loadOpenGLFunction("glGetTextureSamplerHandleARB");
+    if (!glGetTextureSamplerHandleARB && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glGetTextureSamplerHandleARB";
+    }
     glMakeTextureHandleResidentARB = (PFNGLMAKETEXTUREHANDLERESIDENTARBPROC) sogl_loadOpenGLFunction("glMakeTextureHandleResidentARB");
+    if (!glMakeTextureHandleResidentARB && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glMakeTextureHandleResidentARB";
+    }
     glMakeTextureHandleNonResidentARB = (PFNGLMAKETEXTUREHANDLENONRESIDENTARBPROC) sogl_loadOpenGLFunction("glMakeTextureHandleNonResidentARB");
+    if (!glMakeTextureHandleNonResidentARB && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glMakeTextureHandleNonResidentARB";
+    }
     glGetImageHandleARB = (PFNGLGETIMAGEHANDLEARBPROC) sogl_loadOpenGLFunction("glGetImageHandleARB");
+    if (!glGetImageHandleARB && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glGetImageHandleARB";
+    }
     glMakeImageHandleResidentARB = (PFNGLMAKEIMAGEHANDLERESIDENTARBPROC) sogl_loadOpenGLFunction("glMakeImageHandleResidentARB");
+    if (!glMakeImageHandleResidentARB && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glMakeImageHandleResidentARB";
+    }
     glMakeImageHandleNonResidentARB = (PFNGLMAKEIMAGEHANDLENONRESIDENTARBPROC) sogl_loadOpenGLFunction("glMakeImageHandleNonResidentARB");
+    if (!glMakeImageHandleNonResidentARB && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glMakeImageHandleNonResidentARB";
+    }
     glUniformHandleui64ARB = (PFNGLUNIFORMHANDLEUI64ARBPROC) sogl_loadOpenGLFunction("glUniformHandleui64ARB");
+    if (!glUniformHandleui64ARB && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glUniformHandleui64ARB";
+    }
     glUniformHandleui64vARB = (PFNGLUNIFORMHANDLEUI64VARBPROC) sogl_loadOpenGLFunction("glUniformHandleui64vARB");
+    if (!glUniformHandleui64vARB && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glUniformHandleui64vARB";
+    }
     glProgramUniformHandleui64ARB = (PFNGLPROGRAMUNIFORMHANDLEUI64ARBPROC) sogl_loadOpenGLFunction("glProgramUniformHandleui64ARB");
+    if (!glProgramUniformHandleui64ARB && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glProgramUniformHandleui64ARB";
+    }
     glProgramUniformHandleui64vARB = (PFNGLPROGRAMUNIFORMHANDLEUI64VARBPROC) sogl_loadOpenGLFunction("glProgramUniformHandleui64vARB");
+    if (!glProgramUniformHandleui64vARB && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glProgramUniformHandleui64vARB";
+    }
     glIsTextureHandleResidentARB = (PFNGLISTEXTUREHANDLERESIDENTARBPROC) sogl_loadOpenGLFunction("glIsTextureHandleResidentARB");
+    if (!glIsTextureHandleResidentARB && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glIsTextureHandleResidentARB";
+    }
     glIsImageHandleResidentARB = (PFNGLISIMAGEHANDLERESIDENTARBPROC) sogl_loadOpenGLFunction("glIsImageHandleResidentARB");
+    if (!glIsImageHandleResidentARB && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glIsImageHandleResidentARB";
+    }
     glVertexAttribL1ui64ARB = (PFNGLVERTEXATTRIBL1UI64ARBPROC) sogl_loadOpenGLFunction("glVertexAttribL1ui64ARB");
+    if (!glVertexAttribL1ui64ARB && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glVertexAttribL1ui64ARB";
+    }
     glVertexAttribL1ui64vARB = (PFNGLVERTEXATTRIBL1UI64VARBPROC) sogl_loadOpenGLFunction("glVertexAttribL1ui64vARB");
+    if (!glVertexAttribL1ui64vARB && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glVertexAttribL1ui64vARB";
+    }
     glGetVertexAttribLui64vARB = (PFNGLGETVERTEXATTRIBLUI64VARBPROC) sogl_loadOpenGLFunction("glGetVertexAttribLui64vARB");
+    if (!glGetVertexAttribLui64vARB && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glGetVertexAttribLui64vARB";
+    }
 #endif /* SOGL_ARB_bindless_texture */
 
 #ifdef SOGL_ARB_cl_event
     glCreateSyncFromCLeventARB = (PFNGLCREATESYNCFROMCLEVENTARBPROC) sogl_loadOpenGLFunction("glCreateSyncFromCLeventARB");
+    if (!glCreateSyncFromCLeventARB && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glCreateSyncFromCLeventARB";
+    }
 #endif /* SOGL_ARB_cl_event */
 
 #ifdef SOGL_ARB_compute_variable_group_size
     glDispatchComputeGroupSizeARB = (PFNGLDISPATCHCOMPUTEGROUPSIZEARBPROC) sogl_loadOpenGLFunction("glDispatchComputeGroupSizeARB");
+    if (!glDispatchComputeGroupSizeARB && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glDispatchComputeGroupSizeARB";
+    }
 #endif /* SOGL_ARB_compute_variable_group_size */
 
 #ifdef SOGL_ARB_debug_output
     glDebugMessageControlARB = (PFNGLDEBUGMESSAGECONTROLARBPROC) sogl_loadOpenGLFunction("glDebugMessageControlARB");
+    if (!glDebugMessageControlARB && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glDebugMessageControlARB";
+    }
     glDebugMessageInsertARB = (PFNGLDEBUGMESSAGEINSERTARBPROC) sogl_loadOpenGLFunction("glDebugMessageInsertARB");
+    if (!glDebugMessageInsertARB && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glDebugMessageInsertARB";
+    }
     glDebugMessageCallbackARB = (PFNGLDEBUGMESSAGECALLBACKARBPROC) sogl_loadOpenGLFunction("glDebugMessageCallbackARB");
+    if (!glDebugMessageCallbackARB && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glDebugMessageCallbackARB";
+    }
     glGetDebugMessageLogARB = (PFNGLGETDEBUGMESSAGELOGARBPROC) sogl_loadOpenGLFunction("glGetDebugMessageLogARB");
+    if (!glGetDebugMessageLogARB && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glGetDebugMessageLogARB";
+    }
 #endif /* SOGL_ARB_debug_output */
 
 #ifdef SOGL_ARB_draw_buffers_blend
     glBlendEquationiARB = (PFNGLBLENDEQUATIONIARBPROC) sogl_loadOpenGLFunction("glBlendEquationiARB");
+    if (!glBlendEquationiARB && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glBlendEquationiARB";
+    }
     glBlendEquationSeparateiARB = (PFNGLBLENDEQUATIONSEPARATEIARBPROC) sogl_loadOpenGLFunction("glBlendEquationSeparateiARB");
+    if (!glBlendEquationSeparateiARB && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glBlendEquationSeparateiARB";
+    }
     glBlendFunciARB = (PFNGLBLENDFUNCIARBPROC) sogl_loadOpenGLFunction("glBlendFunciARB");
+    if (!glBlendFunciARB && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glBlendFunciARB";
+    }
     glBlendFuncSeparateiARB = (PFNGLBLENDFUNCSEPARATEIARBPROC) sogl_loadOpenGLFunction("glBlendFuncSeparateiARB");
+    if (!glBlendFuncSeparateiARB && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glBlendFuncSeparateiARB";
+    }
 #endif /* SOGL_ARB_draw_buffers_blend */
 
 #ifdef SOGL_ARB_draw_instanced
     glDrawArraysInstancedARB = (PFNGLDRAWARRAYSINSTANCEDARBPROC) sogl_loadOpenGLFunction("glDrawArraysInstancedARB");
+    if (!glDrawArraysInstancedARB && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glDrawArraysInstancedARB";
+    }
     glDrawElementsInstancedARB = (PFNGLDRAWELEMENTSINSTANCEDARBPROC) sogl_loadOpenGLFunction("glDrawElementsInstancedARB");
+    if (!glDrawElementsInstancedARB && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glDrawElementsInstancedARB";
+    }
 #endif /* SOGL_ARB_draw_instanced */
 
 #ifdef SOGL_ARB_geometry_shader4
     glProgramParameteriARB = (PFNGLPROGRAMPARAMETERIARBPROC) sogl_loadOpenGLFunction("glProgramParameteriARB");
+    if (!glProgramParameteriARB && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glProgramParameteriARB";
+    }
     glFramebufferTextureARB = (PFNGLFRAMEBUFFERTEXTUREARBPROC) sogl_loadOpenGLFunction("glFramebufferTextureARB");
+    if (!glFramebufferTextureARB && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glFramebufferTextureARB";
+    }
     glFramebufferTextureLayerARB = (PFNGLFRAMEBUFFERTEXTURELAYERARBPROC) sogl_loadOpenGLFunction("glFramebufferTextureLayerARB");
+    if (!glFramebufferTextureLayerARB && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glFramebufferTextureLayerARB";
+    }
     glFramebufferTextureFaceARB = (PFNGLFRAMEBUFFERTEXTUREFACEARBPROC) sogl_loadOpenGLFunction("glFramebufferTextureFaceARB");
+    if (!glFramebufferTextureFaceARB && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glFramebufferTextureFaceARB";
+    }
 #endif /* SOGL_ARB_geometry_shader4 */
 
 #ifdef SOGL_ARB_gl_spirv
     glSpecializeShaderARB = (PFNGLSPECIALIZESHADERARBPROC) sogl_loadOpenGLFunction("glSpecializeShaderARB");
+    if (!glSpecializeShaderARB && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glSpecializeShaderARB";
+    }
 #endif /* SOGL_ARB_gl_spirv */
 
 #ifdef SOGL_ARB_gpu_shader_int64
     glUniform1i64ARB = (PFNGLUNIFORM1I64ARBPROC) sogl_loadOpenGLFunction("glUniform1i64ARB");
+    if (!glUniform1i64ARB && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glUniform1i64ARB";
+    }
     glUniform2i64ARB = (PFNGLUNIFORM2I64ARBPROC) sogl_loadOpenGLFunction("glUniform2i64ARB");
+    if (!glUniform2i64ARB && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glUniform2i64ARB";
+    }
     glUniform3i64ARB = (PFNGLUNIFORM3I64ARBPROC) sogl_loadOpenGLFunction("glUniform3i64ARB");
+    if (!glUniform3i64ARB && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glUniform3i64ARB";
+    }
     glUniform4i64ARB = (PFNGLUNIFORM4I64ARBPROC) sogl_loadOpenGLFunction("glUniform4i64ARB");
+    if (!glUniform4i64ARB && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glUniform4i64ARB";
+    }
     glUniform1i64vARB = (PFNGLUNIFORM1I64VARBPROC) sogl_loadOpenGLFunction("glUniform1i64vARB");
+    if (!glUniform1i64vARB && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glUniform1i64vARB";
+    }
     glUniform2i64vARB = (PFNGLUNIFORM2I64VARBPROC) sogl_loadOpenGLFunction("glUniform2i64vARB");
+    if (!glUniform2i64vARB && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glUniform2i64vARB";
+    }
     glUniform3i64vARB = (PFNGLUNIFORM3I64VARBPROC) sogl_loadOpenGLFunction("glUniform3i64vARB");
+    if (!glUniform3i64vARB && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glUniform3i64vARB";
+    }
     glUniform4i64vARB = (PFNGLUNIFORM4I64VARBPROC) sogl_loadOpenGLFunction("glUniform4i64vARB");
+    if (!glUniform4i64vARB && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glUniform4i64vARB";
+    }
     glUniform1ui64ARB = (PFNGLUNIFORM1UI64ARBPROC) sogl_loadOpenGLFunction("glUniform1ui64ARB");
+    if (!glUniform1ui64ARB && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glUniform1ui64ARB";
+    }
     glUniform2ui64ARB = (PFNGLUNIFORM2UI64ARBPROC) sogl_loadOpenGLFunction("glUniform2ui64ARB");
+    if (!glUniform2ui64ARB && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glUniform2ui64ARB";
+    }
     glUniform3ui64ARB = (PFNGLUNIFORM3UI64ARBPROC) sogl_loadOpenGLFunction("glUniform3ui64ARB");
+    if (!glUniform3ui64ARB && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glUniform3ui64ARB";
+    }
     glUniform4ui64ARB = (PFNGLUNIFORM4UI64ARBPROC) sogl_loadOpenGLFunction("glUniform4ui64ARB");
+    if (!glUniform4ui64ARB && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glUniform4ui64ARB";
+    }
     glUniform1ui64vARB = (PFNGLUNIFORM1UI64VARBPROC) sogl_loadOpenGLFunction("glUniform1ui64vARB");
+    if (!glUniform1ui64vARB && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glUniform1ui64vARB";
+    }
     glUniform2ui64vARB = (PFNGLUNIFORM2UI64VARBPROC) sogl_loadOpenGLFunction("glUniform2ui64vARB");
+    if (!glUniform2ui64vARB && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glUniform2ui64vARB";
+    }
     glUniform3ui64vARB = (PFNGLUNIFORM3UI64VARBPROC) sogl_loadOpenGLFunction("glUniform3ui64vARB");
+    if (!glUniform3ui64vARB && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glUniform3ui64vARB";
+    }
     glUniform4ui64vARB = (PFNGLUNIFORM4UI64VARBPROC) sogl_loadOpenGLFunction("glUniform4ui64vARB");
+    if (!glUniform4ui64vARB && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glUniform4ui64vARB";
+    }
     glGetUniformi64vARB = (PFNGLGETUNIFORMI64VARBPROC) sogl_loadOpenGLFunction("glGetUniformi64vARB");
+    if (!glGetUniformi64vARB && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glGetUniformi64vARB";
+    }
     glGetUniformui64vARB = (PFNGLGETUNIFORMUI64VARBPROC) sogl_loadOpenGLFunction("glGetUniformui64vARB");
+    if (!glGetUniformui64vARB && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glGetUniformui64vARB";
+    }
     glGetnUniformi64vARB = (PFNGLGETNUNIFORMI64VARBPROC) sogl_loadOpenGLFunction("glGetnUniformi64vARB");
+    if (!glGetnUniformi64vARB && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glGetnUniformi64vARB";
+    }
     glGetnUniformui64vARB = (PFNGLGETNUNIFORMUI64VARBPROC) sogl_loadOpenGLFunction("glGetnUniformui64vARB");
+    if (!glGetnUniformui64vARB && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glGetnUniformui64vARB";
+    }
     glProgramUniform1i64ARB = (PFNGLPROGRAMUNIFORM1I64ARBPROC) sogl_loadOpenGLFunction("glProgramUniform1i64ARB");
+    if (!glProgramUniform1i64ARB && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glProgramUniform1i64ARB";
+    }
     glProgramUniform2i64ARB = (PFNGLPROGRAMUNIFORM2I64ARBPROC) sogl_loadOpenGLFunction("glProgramUniform2i64ARB");
+    if (!glProgramUniform2i64ARB && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glProgramUniform2i64ARB";
+    }
     glProgramUniform3i64ARB = (PFNGLPROGRAMUNIFORM3I64ARBPROC) sogl_loadOpenGLFunction("glProgramUniform3i64ARB");
+    if (!glProgramUniform3i64ARB && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glProgramUniform3i64ARB";
+    }
     glProgramUniform4i64ARB = (PFNGLPROGRAMUNIFORM4I64ARBPROC) sogl_loadOpenGLFunction("glProgramUniform4i64ARB");
+    if (!glProgramUniform4i64ARB && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glProgramUniform4i64ARB";
+    }
     glProgramUniform1i64vARB = (PFNGLPROGRAMUNIFORM1I64VARBPROC) sogl_loadOpenGLFunction("glProgramUniform1i64vARB");
+    if (!glProgramUniform1i64vARB && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glProgramUniform1i64vARB";
+    }
     glProgramUniform2i64vARB = (PFNGLPROGRAMUNIFORM2I64VARBPROC) sogl_loadOpenGLFunction("glProgramUniform2i64vARB");
+    if (!glProgramUniform2i64vARB && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glProgramUniform2i64vARB";
+    }
     glProgramUniform3i64vARB = (PFNGLPROGRAMUNIFORM3I64VARBPROC) sogl_loadOpenGLFunction("glProgramUniform3i64vARB");
+    if (!glProgramUniform3i64vARB && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glProgramUniform3i64vARB";
+    }
     glProgramUniform4i64vARB = (PFNGLPROGRAMUNIFORM4I64VARBPROC) sogl_loadOpenGLFunction("glProgramUniform4i64vARB");
+    if (!glProgramUniform4i64vARB && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glProgramUniform4i64vARB";
+    }
     glProgramUniform1ui64ARB = (PFNGLPROGRAMUNIFORM1UI64ARBPROC) sogl_loadOpenGLFunction("glProgramUniform1ui64ARB");
+    if (!glProgramUniform1ui64ARB && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glProgramUniform1ui64ARB";
+    }
     glProgramUniform2ui64ARB = (PFNGLPROGRAMUNIFORM2UI64ARBPROC) sogl_loadOpenGLFunction("glProgramUniform2ui64ARB");
+    if (!glProgramUniform2ui64ARB && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glProgramUniform2ui64ARB";
+    }
     glProgramUniform3ui64ARB = (PFNGLPROGRAMUNIFORM3UI64ARBPROC) sogl_loadOpenGLFunction("glProgramUniform3ui64ARB");
+    if (!glProgramUniform3ui64ARB && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glProgramUniform3ui64ARB";
+    }
     glProgramUniform4ui64ARB = (PFNGLPROGRAMUNIFORM4UI64ARBPROC) sogl_loadOpenGLFunction("glProgramUniform4ui64ARB");
+    if (!glProgramUniform4ui64ARB && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glProgramUniform4ui64ARB";
+    }
     glProgramUniform1ui64vARB = (PFNGLPROGRAMUNIFORM1UI64VARBPROC) sogl_loadOpenGLFunction("glProgramUniform1ui64vARB");
+    if (!glProgramUniform1ui64vARB && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glProgramUniform1ui64vARB";
+    }
     glProgramUniform2ui64vARB = (PFNGLPROGRAMUNIFORM2UI64VARBPROC) sogl_loadOpenGLFunction("glProgramUniform2ui64vARB");
+    if (!glProgramUniform2ui64vARB && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glProgramUniform2ui64vARB";
+    }
     glProgramUniform3ui64vARB = (PFNGLPROGRAMUNIFORM3UI64VARBPROC) sogl_loadOpenGLFunction("glProgramUniform3ui64vARB");
+    if (!glProgramUniform3ui64vARB && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glProgramUniform3ui64vARB";
+    }
     glProgramUniform4ui64vARB = (PFNGLPROGRAMUNIFORM4UI64VARBPROC) sogl_loadOpenGLFunction("glProgramUniform4ui64vARB");
+    if (!glProgramUniform4ui64vARB && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glProgramUniform4ui64vARB";
+    }
 #endif /* SOGL_ARB_gpu_shader_int64 */
 
 #ifdef SOGL_ARB_indirect_parameters
     glMultiDrawArraysIndirectCountARB = (PFNGLMULTIDRAWARRAYSINDIRECTCOUNTARBPROC) sogl_loadOpenGLFunction("glMultiDrawArraysIndirectCountARB");
+    if (!glMultiDrawArraysIndirectCountARB && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glMultiDrawArraysIndirectCountARB";
+    }
     glMultiDrawElementsIndirectCountARB = (PFNGLMULTIDRAWELEMENTSINDIRECTCOUNTARBPROC) sogl_loadOpenGLFunction("glMultiDrawElementsIndirectCountARB");
+    if (!glMultiDrawElementsIndirectCountARB && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glMultiDrawElementsIndirectCountARB";
+    }
 #endif /* SOGL_ARB_indirect_parameters */
 
 #ifdef SOGL_ARB_instanced_arrays
     glVertexAttribDivisorARB = (PFNGLVERTEXATTRIBDIVISORARBPROC) sogl_loadOpenGLFunction("glVertexAttribDivisorARB");
+    if (!glVertexAttribDivisorARB && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glVertexAttribDivisorARB";
+    }
 #endif /* SOGL_ARB_instanced_arrays */
 
 #ifdef SOGL_ARB_parallel_shader_compile
     glMaxShaderCompilerThreadsARB = (PFNGLMAXSHADERCOMPILERTHREADSARBPROC) sogl_loadOpenGLFunction("glMaxShaderCompilerThreadsARB");
+    if (!glMaxShaderCompilerThreadsARB && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glMaxShaderCompilerThreadsARB";
+    }
 #endif /* SOGL_ARB_parallel_shader_compile */
 
 #ifdef SOGL_ARB_robustness
     glGetGraphicsResetStatusARB = (PFNGLGETGRAPHICSRESETSTATUSARBPROC) sogl_loadOpenGLFunction("glGetGraphicsResetStatusARB");
+    if (!glGetGraphicsResetStatusARB && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glGetGraphicsResetStatusARB";
+    }
     glGetnTexImageARB = (PFNGLGETNTEXIMAGEARBPROC) sogl_loadOpenGLFunction("glGetnTexImageARB");
+    if (!glGetnTexImageARB && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glGetnTexImageARB";
+    }
     glReadnPixelsARB = (PFNGLREADNPIXELSARBPROC) sogl_loadOpenGLFunction("glReadnPixelsARB");
+    if (!glReadnPixelsARB && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glReadnPixelsARB";
+    }
     glGetnCompressedTexImageARB = (PFNGLGETNCOMPRESSEDTEXIMAGEARBPROC) sogl_loadOpenGLFunction("glGetnCompressedTexImageARB");
+    if (!glGetnCompressedTexImageARB && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glGetnCompressedTexImageARB";
+    }
     glGetnUniformfvARB = (PFNGLGETNUNIFORMFVARBPROC) sogl_loadOpenGLFunction("glGetnUniformfvARB");
+    if (!glGetnUniformfvARB && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glGetnUniformfvARB";
+    }
     glGetnUniformivARB = (PFNGLGETNUNIFORMIVARBPROC) sogl_loadOpenGLFunction("glGetnUniformivARB");
+    if (!glGetnUniformivARB && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glGetnUniformivARB";
+    }
     glGetnUniformuivARB = (PFNGLGETNUNIFORMUIVARBPROC) sogl_loadOpenGLFunction("glGetnUniformuivARB");
+    if (!glGetnUniformuivARB && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glGetnUniformuivARB";
+    }
     glGetnUniformdvARB = (PFNGLGETNUNIFORMDVARBPROC) sogl_loadOpenGLFunction("glGetnUniformdvARB");
+    if (!glGetnUniformdvARB && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glGetnUniformdvARB";
+    }
 #endif /* SOGL_ARB_robustness */
 
 #ifdef SOGL_ARB_sample_locations
     glFramebufferSampleLocationsfvARB = (PFNGLFRAMEBUFFERSAMPLELOCATIONSFVARBPROC) sogl_loadOpenGLFunction("glFramebufferSampleLocationsfvARB");
+    if (!glFramebufferSampleLocationsfvARB && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glFramebufferSampleLocationsfvARB";
+    }
     glNamedFramebufferSampleLocationsfvARB = (PFNGLNAMEDFRAMEBUFFERSAMPLELOCATIONSFVARBPROC) sogl_loadOpenGLFunction("glNamedFramebufferSampleLocationsfvARB");
+    if (!glNamedFramebufferSampleLocationsfvARB && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glNamedFramebufferSampleLocationsfvARB";
+    }
     glEvaluateDepthValuesARB = (PFNGLEVALUATEDEPTHVALUESARBPROC) sogl_loadOpenGLFunction("glEvaluateDepthValuesARB");
+    if (!glEvaluateDepthValuesARB && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glEvaluateDepthValuesARB";
+    }
 #endif /* SOGL_ARB_sample_locations */
 
 #ifdef SOGL_ARB_sample_shading
     glMinSampleShadingARB = (PFNGLMINSAMPLESHADINGARBPROC) sogl_loadOpenGLFunction("glMinSampleShadingARB");
+    if (!glMinSampleShadingARB && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glMinSampleShadingARB";
+    }
 #endif /* SOGL_ARB_sample_shading */
 
 #ifdef SOGL_ARB_shading_language_include
     glNamedStringARB = (PFNGLNAMEDSTRINGARBPROC) sogl_loadOpenGLFunction("glNamedStringARB");
+    if (!glNamedStringARB && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glNamedStringARB";
+    }
     glDeleteNamedStringARB = (PFNGLDELETENAMEDSTRINGARBPROC) sogl_loadOpenGLFunction("glDeleteNamedStringARB");
+    if (!glDeleteNamedStringARB && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glDeleteNamedStringARB";
+    }
     glCompileShaderIncludeARB = (PFNGLCOMPILESHADERINCLUDEARBPROC) sogl_loadOpenGLFunction("glCompileShaderIncludeARB");
+    if (!glCompileShaderIncludeARB && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glCompileShaderIncludeARB";
+    }
     glIsNamedStringARB = (PFNGLISNAMEDSTRINGARBPROC) sogl_loadOpenGLFunction("glIsNamedStringARB");
+    if (!glIsNamedStringARB && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glIsNamedStringARB";
+    }
     glGetNamedStringARB = (PFNGLGETNAMEDSTRINGARBPROC) sogl_loadOpenGLFunction("glGetNamedStringARB");
+    if (!glGetNamedStringARB && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glGetNamedStringARB";
+    }
     glGetNamedStringivARB = (PFNGLGETNAMEDSTRINGIVARBPROC) sogl_loadOpenGLFunction("glGetNamedStringivARB");
+    if (!glGetNamedStringivARB && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glGetNamedStringivARB";
+    }
 #endif /* SOGL_ARB_shading_language_include */
 
 #ifdef SOGL_ARB_sparse_buffer
     glBufferPageCommitmentARB = (PFNGLBUFFERPAGECOMMITMENTARBPROC) sogl_loadOpenGLFunction("glBufferPageCommitmentARB");
+    if (!glBufferPageCommitmentARB && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glBufferPageCommitmentARB";
+    }
     glNamedBufferPageCommitmentEXT = (PFNGLNAMEDBUFFERPAGECOMMITMENTEXTPROC) sogl_loadOpenGLFunction("glNamedBufferPageCommitmentEXT");
+    if (!glNamedBufferPageCommitmentEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glNamedBufferPageCommitmentEXT";
+    }
     glNamedBufferPageCommitmentARB = (PFNGLNAMEDBUFFERPAGECOMMITMENTARBPROC) sogl_loadOpenGLFunction("glNamedBufferPageCommitmentARB");
+    if (!glNamedBufferPageCommitmentARB && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glNamedBufferPageCommitmentARB";
+    }
 #endif /* SOGL_ARB_sparse_buffer */
 
 #ifdef SOGL_ARB_sparse_texture
     glTexPageCommitmentARB = (PFNGLTEXPAGECOMMITMENTARBPROC) sogl_loadOpenGLFunction("glTexPageCommitmentARB");
+    if (!glTexPageCommitmentARB && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glTexPageCommitmentARB";
+    }
 #endif /* SOGL_ARB_sparse_texture */
 
 #ifdef SOGL_ARB_texture_buffer_object
     glTexBufferARB = (PFNGLTEXBUFFERARBPROC) sogl_loadOpenGLFunction("glTexBufferARB");
+    if (!glTexBufferARB && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glTexBufferARB";
+    }
 #endif /* SOGL_ARB_texture_buffer_object */
 
 #ifdef SOGL_ARB_viewport_array
     glDepthRangeArraydvNV = (PFNGLDEPTHRANGEARRAYDVNVPROC) sogl_loadOpenGLFunction("glDepthRangeArraydvNV");
+    if (!glDepthRangeArraydvNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glDepthRangeArraydvNV";
+    }
     glDepthRangeIndexeddNV = (PFNGLDEPTHRANGEINDEXEDDNVPROC) sogl_loadOpenGLFunction("glDepthRangeIndexeddNV");
+    if (!glDepthRangeIndexeddNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glDepthRangeIndexeddNV";
+    }
 #endif /* SOGL_ARB_viewport_array */
 
 #ifdef SOGL_KHR_blend_equation_advanced
     glBlendBarrierKHR = (PFNGLBLENDBARRIERKHRPROC) sogl_loadOpenGLFunction("glBlendBarrierKHR");
+    if (!glBlendBarrierKHR && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glBlendBarrierKHR";
+    }
 #endif /* SOGL_KHR_blend_equation_advanced */
 
 #ifdef SOGL_KHR_parallel_shader_compile
     glMaxShaderCompilerThreadsKHR = (PFNGLMAXSHADERCOMPILERTHREADSKHRPROC) sogl_loadOpenGLFunction("glMaxShaderCompilerThreadsKHR");
+    if (!glMaxShaderCompilerThreadsKHR && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glMaxShaderCompilerThreadsKHR";
+    }
 #endif /* SOGL_KHR_parallel_shader_compile */
 
 #ifdef SOGL_AMD_framebuffer_multisample_advanced
     glRenderbufferStorageMultisampleAdvancedAMD = (PFNGLRENDERBUFFERSTORAGEMULTISAMPLEADVANCEDAMDPROC) sogl_loadOpenGLFunction("glRenderbufferStorageMultisampleAdvancedAMD");
+    if (!glRenderbufferStorageMultisampleAdvancedAMD && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glRenderbufferStorageMultisampleAdvancedAMD";
+    }
     glNamedRenderbufferStorageMultisampleAdvancedAMD = (PFNGLNAMEDRENDERBUFFERSTORAGEMULTISAMPLEADVANCEDAMDPROC) sogl_loadOpenGLFunction("glNamedRenderbufferStorageMultisampleAdvancedAMD");
+    if (!glNamedRenderbufferStorageMultisampleAdvancedAMD && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glNamedRenderbufferStorageMultisampleAdvancedAMD";
+    }
 #endif /* SOGL_AMD_framebuffer_multisample_advanced */
 
 #ifdef SOGL_AMD_performance_monitor
     glGetPerfMonitorGroupsAMD = (PFNGLGETPERFMONITORGROUPSAMDPROC) sogl_loadOpenGLFunction("glGetPerfMonitorGroupsAMD");
+    if (!glGetPerfMonitorGroupsAMD && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glGetPerfMonitorGroupsAMD";
+    }
     glGetPerfMonitorCountersAMD = (PFNGLGETPERFMONITORCOUNTERSAMDPROC) sogl_loadOpenGLFunction("glGetPerfMonitorCountersAMD");
+    if (!glGetPerfMonitorCountersAMD && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glGetPerfMonitorCountersAMD";
+    }
     glGetPerfMonitorGroupStringAMD = (PFNGLGETPERFMONITORGROUPSTRINGAMDPROC) sogl_loadOpenGLFunction("glGetPerfMonitorGroupStringAMD");
+    if (!glGetPerfMonitorGroupStringAMD && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glGetPerfMonitorGroupStringAMD";
+    }
     glGetPerfMonitorCounterStringAMD = (PFNGLGETPERFMONITORCOUNTERSTRINGAMDPROC) sogl_loadOpenGLFunction("glGetPerfMonitorCounterStringAMD");
+    if (!glGetPerfMonitorCounterStringAMD && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glGetPerfMonitorCounterStringAMD";
+    }
     glGetPerfMonitorCounterInfoAMD = (PFNGLGETPERFMONITORCOUNTERINFOAMDPROC) sogl_loadOpenGLFunction("glGetPerfMonitorCounterInfoAMD");
+    if (!glGetPerfMonitorCounterInfoAMD && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glGetPerfMonitorCounterInfoAMD";
+    }
     glGenPerfMonitorsAMD = (PFNGLGENPERFMONITORSAMDPROC) sogl_loadOpenGLFunction("glGenPerfMonitorsAMD");
+    if (!glGenPerfMonitorsAMD && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glGenPerfMonitorsAMD";
+    }
     glDeletePerfMonitorsAMD = (PFNGLDELETEPERFMONITORSAMDPROC) sogl_loadOpenGLFunction("glDeletePerfMonitorsAMD");
+    if (!glDeletePerfMonitorsAMD && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glDeletePerfMonitorsAMD";
+    }
     glSelectPerfMonitorCountersAMD = (PFNGLSELECTPERFMONITORCOUNTERSAMDPROC) sogl_loadOpenGLFunction("glSelectPerfMonitorCountersAMD");
+    if (!glSelectPerfMonitorCountersAMD && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glSelectPerfMonitorCountersAMD";
+    }
     glBeginPerfMonitorAMD = (PFNGLBEGINPERFMONITORAMDPROC) sogl_loadOpenGLFunction("glBeginPerfMonitorAMD");
+    if (!glBeginPerfMonitorAMD && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glBeginPerfMonitorAMD";
+    }
     glEndPerfMonitorAMD = (PFNGLENDPERFMONITORAMDPROC) sogl_loadOpenGLFunction("glEndPerfMonitorAMD");
+    if (!glEndPerfMonitorAMD && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glEndPerfMonitorAMD";
+    }
     glGetPerfMonitorCounterDataAMD = (PFNGLGETPERFMONITORCOUNTERDATAAMDPROC) sogl_loadOpenGLFunction("glGetPerfMonitorCounterDataAMD");
+    if (!glGetPerfMonitorCounterDataAMD && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glGetPerfMonitorCounterDataAMD";
+    }
 #endif /* SOGL_AMD_performance_monitor */
 
 #ifdef SOGL_EXT_EGL_image_storage
     glEGLImageTargetTexStorageEXT = (PFNGLEGLIMAGETARGETTEXSTORAGEEXTPROC) sogl_loadOpenGLFunction("glEGLImageTargetTexStorageEXT");
+    if (!glEGLImageTargetTexStorageEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glEGLImageTargetTexStorageEXT";
+    }
     glEGLImageTargetTextureStorageEXT = (PFNGLEGLIMAGETARGETTEXTURESTORAGEEXTPROC) sogl_loadOpenGLFunction("glEGLImageTargetTextureStorageEXT");
+    if (!glEGLImageTargetTextureStorageEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glEGLImageTargetTextureStorageEXT";
+    }
 #endif /* SOGL_EXT_EGL_image_storage */
 
 #ifdef SOGL_EXT_debug_label
     glLabelObjectEXT = (PFNGLLABELOBJECTEXTPROC) sogl_loadOpenGLFunction("glLabelObjectEXT");
+    if (!glLabelObjectEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glLabelObjectEXT";
+    }
     glGetObjectLabelEXT = (PFNGLGETOBJECTLABELEXTPROC) sogl_loadOpenGLFunction("glGetObjectLabelEXT");
+    if (!glGetObjectLabelEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glGetObjectLabelEXT";
+    }
 #endif /* SOGL_EXT_debug_label */
 
 #ifdef SOGL_EXT_debug_marker
     glInsertEventMarkerEXT = (PFNGLINSERTEVENTMARKEREXTPROC) sogl_loadOpenGLFunction("glInsertEventMarkerEXT");
+    if (!glInsertEventMarkerEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glInsertEventMarkerEXT";
+    }
     glPushGroupMarkerEXT = (PFNGLPUSHGROUPMARKEREXTPROC) sogl_loadOpenGLFunction("glPushGroupMarkerEXT");
+    if (!glPushGroupMarkerEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glPushGroupMarkerEXT";
+    }
     glPopGroupMarkerEXT = (PFNGLPOPGROUPMARKEREXTPROC) sogl_loadOpenGLFunction("glPopGroupMarkerEXT");
+    if (!glPopGroupMarkerEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glPopGroupMarkerEXT";
+    }
 #endif /* SOGL_EXT_debug_marker */
 
 #ifdef SOGL_EXT_direct_state_access
     glMatrixLoadfEXT = (PFNGLMATRIXLOADFEXTPROC) sogl_loadOpenGLFunction("glMatrixLoadfEXT");
+    if (!glMatrixLoadfEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glMatrixLoadfEXT";
+    }
     glMatrixLoaddEXT = (PFNGLMATRIXLOADDEXTPROC) sogl_loadOpenGLFunction("glMatrixLoaddEXT");
+    if (!glMatrixLoaddEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glMatrixLoaddEXT";
+    }
     glMatrixMultfEXT = (PFNGLMATRIXMULTFEXTPROC) sogl_loadOpenGLFunction("glMatrixMultfEXT");
+    if (!glMatrixMultfEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glMatrixMultfEXT";
+    }
     glMatrixMultdEXT = (PFNGLMATRIXMULTDEXTPROC) sogl_loadOpenGLFunction("glMatrixMultdEXT");
+    if (!glMatrixMultdEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glMatrixMultdEXT";
+    }
     glMatrixLoadIdentityEXT = (PFNGLMATRIXLOADIDENTITYEXTPROC) sogl_loadOpenGLFunction("glMatrixLoadIdentityEXT");
+    if (!glMatrixLoadIdentityEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glMatrixLoadIdentityEXT";
+    }
     glMatrixRotatefEXT = (PFNGLMATRIXROTATEFEXTPROC) sogl_loadOpenGLFunction("glMatrixRotatefEXT");
+    if (!glMatrixRotatefEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glMatrixRotatefEXT";
+    }
     glMatrixRotatedEXT = (PFNGLMATRIXROTATEDEXTPROC) sogl_loadOpenGLFunction("glMatrixRotatedEXT");
+    if (!glMatrixRotatedEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glMatrixRotatedEXT";
+    }
     glMatrixScalefEXT = (PFNGLMATRIXSCALEFEXTPROC) sogl_loadOpenGLFunction("glMatrixScalefEXT");
+    if (!glMatrixScalefEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glMatrixScalefEXT";
+    }
     glMatrixScaledEXT = (PFNGLMATRIXSCALEDEXTPROC) sogl_loadOpenGLFunction("glMatrixScaledEXT");
+    if (!glMatrixScaledEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glMatrixScaledEXT";
+    }
     glMatrixTranslatefEXT = (PFNGLMATRIXTRANSLATEFEXTPROC) sogl_loadOpenGLFunction("glMatrixTranslatefEXT");
+    if (!glMatrixTranslatefEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glMatrixTranslatefEXT";
+    }
     glMatrixTranslatedEXT = (PFNGLMATRIXTRANSLATEDEXTPROC) sogl_loadOpenGLFunction("glMatrixTranslatedEXT");
+    if (!glMatrixTranslatedEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glMatrixTranslatedEXT";
+    }
     glMatrixFrustumEXT = (PFNGLMATRIXFRUSTUMEXTPROC) sogl_loadOpenGLFunction("glMatrixFrustumEXT");
+    if (!glMatrixFrustumEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glMatrixFrustumEXT";
+    }
     glMatrixOrthoEXT = (PFNGLMATRIXORTHOEXTPROC) sogl_loadOpenGLFunction("glMatrixOrthoEXT");
+    if (!glMatrixOrthoEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glMatrixOrthoEXT";
+    }
     glMatrixPopEXT = (PFNGLMATRIXPOPEXTPROC) sogl_loadOpenGLFunction("glMatrixPopEXT");
+    if (!glMatrixPopEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glMatrixPopEXT";
+    }
     glMatrixPushEXT = (PFNGLMATRIXPUSHEXTPROC) sogl_loadOpenGLFunction("glMatrixPushEXT");
+    if (!glMatrixPushEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glMatrixPushEXT";
+    }
     glClientAttribDefaultEXT = (PFNGLCLIENTATTRIBDEFAULTEXTPROC) sogl_loadOpenGLFunction("glClientAttribDefaultEXT");
+    if (!glClientAttribDefaultEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glClientAttribDefaultEXT";
+    }
     glPushClientAttribDefaultEXT = (PFNGLPUSHCLIENTATTRIBDEFAULTEXTPROC) sogl_loadOpenGLFunction("glPushClientAttribDefaultEXT");
+    if (!glPushClientAttribDefaultEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glPushClientAttribDefaultEXT";
+    }
     glTextureParameterfEXT = (PFNGLTEXTUREPARAMETERFEXTPROC) sogl_loadOpenGLFunction("glTextureParameterfEXT");
+    if (!glTextureParameterfEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glTextureParameterfEXT";
+    }
     glTextureParameterfvEXT = (PFNGLTEXTUREPARAMETERFVEXTPROC) sogl_loadOpenGLFunction("glTextureParameterfvEXT");
+    if (!glTextureParameterfvEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glTextureParameterfvEXT";
+    }
     glTextureParameteriEXT = (PFNGLTEXTUREPARAMETERIEXTPROC) sogl_loadOpenGLFunction("glTextureParameteriEXT");
+    if (!glTextureParameteriEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glTextureParameteriEXT";
+    }
     glTextureParameterivEXT = (PFNGLTEXTUREPARAMETERIVEXTPROC) sogl_loadOpenGLFunction("glTextureParameterivEXT");
+    if (!glTextureParameterivEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glTextureParameterivEXT";
+    }
     glTextureImage1DEXT = (PFNGLTEXTUREIMAGE1DEXTPROC) sogl_loadOpenGLFunction("glTextureImage1DEXT");
+    if (!glTextureImage1DEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glTextureImage1DEXT";
+    }
     glTextureImage2DEXT = (PFNGLTEXTUREIMAGE2DEXTPROC) sogl_loadOpenGLFunction("glTextureImage2DEXT");
+    if (!glTextureImage2DEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glTextureImage2DEXT";
+    }
     glTextureSubImage1DEXT = (PFNGLTEXTURESUBIMAGE1DEXTPROC) sogl_loadOpenGLFunction("glTextureSubImage1DEXT");
+    if (!glTextureSubImage1DEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glTextureSubImage1DEXT";
+    }
     glTextureSubImage2DEXT = (PFNGLTEXTURESUBIMAGE2DEXTPROC) sogl_loadOpenGLFunction("glTextureSubImage2DEXT");
+    if (!glTextureSubImage2DEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glTextureSubImage2DEXT";
+    }
     glCopyTextureImage1DEXT = (PFNGLCOPYTEXTUREIMAGE1DEXTPROC) sogl_loadOpenGLFunction("glCopyTextureImage1DEXT");
+    if (!glCopyTextureImage1DEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glCopyTextureImage1DEXT";
+    }
     glCopyTextureImage2DEXT = (PFNGLCOPYTEXTUREIMAGE2DEXTPROC) sogl_loadOpenGLFunction("glCopyTextureImage2DEXT");
+    if (!glCopyTextureImage2DEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glCopyTextureImage2DEXT";
+    }
     glCopyTextureSubImage1DEXT = (PFNGLCOPYTEXTURESUBIMAGE1DEXTPROC) sogl_loadOpenGLFunction("glCopyTextureSubImage1DEXT");
+    if (!glCopyTextureSubImage1DEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glCopyTextureSubImage1DEXT";
+    }
     glCopyTextureSubImage2DEXT = (PFNGLCOPYTEXTURESUBIMAGE2DEXTPROC) sogl_loadOpenGLFunction("glCopyTextureSubImage2DEXT");
+    if (!glCopyTextureSubImage2DEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glCopyTextureSubImage2DEXT";
+    }
     glGetTextureImageEXT = (PFNGLGETTEXTUREIMAGEEXTPROC) sogl_loadOpenGLFunction("glGetTextureImageEXT");
+    if (!glGetTextureImageEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glGetTextureImageEXT";
+    }
     glGetTextureParameterfvEXT = (PFNGLGETTEXTUREPARAMETERFVEXTPROC) sogl_loadOpenGLFunction("glGetTextureParameterfvEXT");
+    if (!glGetTextureParameterfvEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glGetTextureParameterfvEXT";
+    }
     glGetTextureParameterivEXT = (PFNGLGETTEXTUREPARAMETERIVEXTPROC) sogl_loadOpenGLFunction("glGetTextureParameterivEXT");
+    if (!glGetTextureParameterivEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glGetTextureParameterivEXT";
+    }
     glGetTextureLevelParameterfvEXT = (PFNGLGETTEXTURELEVELPARAMETERFVEXTPROC) sogl_loadOpenGLFunction("glGetTextureLevelParameterfvEXT");
+    if (!glGetTextureLevelParameterfvEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glGetTextureLevelParameterfvEXT";
+    }
     glGetTextureLevelParameterivEXT = (PFNGLGETTEXTURELEVELPARAMETERIVEXTPROC) sogl_loadOpenGLFunction("glGetTextureLevelParameterivEXT");
+    if (!glGetTextureLevelParameterivEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glGetTextureLevelParameterivEXT";
+    }
     glTextureImage3DEXT = (PFNGLTEXTUREIMAGE3DEXTPROC) sogl_loadOpenGLFunction("glTextureImage3DEXT");
+    if (!glTextureImage3DEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glTextureImage3DEXT";
+    }
     glTextureSubImage3DEXT = (PFNGLTEXTURESUBIMAGE3DEXTPROC) sogl_loadOpenGLFunction("glTextureSubImage3DEXT");
+    if (!glTextureSubImage3DEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glTextureSubImage3DEXT";
+    }
     glCopyTextureSubImage3DEXT = (PFNGLCOPYTEXTURESUBIMAGE3DEXTPROC) sogl_loadOpenGLFunction("glCopyTextureSubImage3DEXT");
+    if (!glCopyTextureSubImage3DEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glCopyTextureSubImage3DEXT";
+    }
     glBindMultiTextureEXT = (PFNGLBINDMULTITEXTUREEXTPROC) sogl_loadOpenGLFunction("glBindMultiTextureEXT");
+    if (!glBindMultiTextureEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glBindMultiTextureEXT";
+    }
     glMultiTexCoordPointerEXT = (PFNGLMULTITEXCOORDPOINTEREXTPROC) sogl_loadOpenGLFunction("glMultiTexCoordPointerEXT");
+    if (!glMultiTexCoordPointerEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glMultiTexCoordPointerEXT";
+    }
     glMultiTexEnvfEXT = (PFNGLMULTITEXENVFEXTPROC) sogl_loadOpenGLFunction("glMultiTexEnvfEXT");
+    if (!glMultiTexEnvfEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glMultiTexEnvfEXT";
+    }
     glMultiTexEnvfvEXT = (PFNGLMULTITEXENVFVEXTPROC) sogl_loadOpenGLFunction("glMultiTexEnvfvEXT");
+    if (!glMultiTexEnvfvEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glMultiTexEnvfvEXT";
+    }
     glMultiTexEnviEXT = (PFNGLMULTITEXENVIEXTPROC) sogl_loadOpenGLFunction("glMultiTexEnviEXT");
+    if (!glMultiTexEnviEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glMultiTexEnviEXT";
+    }
     glMultiTexEnvivEXT = (PFNGLMULTITEXENVIVEXTPROC) sogl_loadOpenGLFunction("glMultiTexEnvivEXT");
+    if (!glMultiTexEnvivEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glMultiTexEnvivEXT";
+    }
     glMultiTexGendEXT = (PFNGLMULTITEXGENDEXTPROC) sogl_loadOpenGLFunction("glMultiTexGendEXT");
+    if (!glMultiTexGendEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glMultiTexGendEXT";
+    }
     glMultiTexGendvEXT = (PFNGLMULTITEXGENDVEXTPROC) sogl_loadOpenGLFunction("glMultiTexGendvEXT");
+    if (!glMultiTexGendvEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glMultiTexGendvEXT";
+    }
     glMultiTexGenfEXT = (PFNGLMULTITEXGENFEXTPROC) sogl_loadOpenGLFunction("glMultiTexGenfEXT");
+    if (!glMultiTexGenfEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glMultiTexGenfEXT";
+    }
     glMultiTexGenfvEXT = (PFNGLMULTITEXGENFVEXTPROC) sogl_loadOpenGLFunction("glMultiTexGenfvEXT");
+    if (!glMultiTexGenfvEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glMultiTexGenfvEXT";
+    }
     glMultiTexGeniEXT = (PFNGLMULTITEXGENIEXTPROC) sogl_loadOpenGLFunction("glMultiTexGeniEXT");
+    if (!glMultiTexGeniEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glMultiTexGeniEXT";
+    }
     glMultiTexGenivEXT = (PFNGLMULTITEXGENIVEXTPROC) sogl_loadOpenGLFunction("glMultiTexGenivEXT");
+    if (!glMultiTexGenivEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glMultiTexGenivEXT";
+    }
     glGetMultiTexEnvfvEXT = (PFNGLGETMULTITEXENVFVEXTPROC) sogl_loadOpenGLFunction("glGetMultiTexEnvfvEXT");
+    if (!glGetMultiTexEnvfvEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glGetMultiTexEnvfvEXT";
+    }
     glGetMultiTexEnvivEXT = (PFNGLGETMULTITEXENVIVEXTPROC) sogl_loadOpenGLFunction("glGetMultiTexEnvivEXT");
+    if (!glGetMultiTexEnvivEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glGetMultiTexEnvivEXT";
+    }
     glGetMultiTexGendvEXT = (PFNGLGETMULTITEXGENDVEXTPROC) sogl_loadOpenGLFunction("glGetMultiTexGendvEXT");
+    if (!glGetMultiTexGendvEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glGetMultiTexGendvEXT";
+    }
     glGetMultiTexGenfvEXT = (PFNGLGETMULTITEXGENFVEXTPROC) sogl_loadOpenGLFunction("glGetMultiTexGenfvEXT");
+    if (!glGetMultiTexGenfvEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glGetMultiTexGenfvEXT";
+    }
     glGetMultiTexGenivEXT = (PFNGLGETMULTITEXGENIVEXTPROC) sogl_loadOpenGLFunction("glGetMultiTexGenivEXT");
+    if (!glGetMultiTexGenivEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glGetMultiTexGenivEXT";
+    }
     glMultiTexParameteriEXT = (PFNGLMULTITEXPARAMETERIEXTPROC) sogl_loadOpenGLFunction("glMultiTexParameteriEXT");
+    if (!glMultiTexParameteriEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glMultiTexParameteriEXT";
+    }
     glMultiTexParameterivEXT = (PFNGLMULTITEXPARAMETERIVEXTPROC) sogl_loadOpenGLFunction("glMultiTexParameterivEXT");
+    if (!glMultiTexParameterivEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glMultiTexParameterivEXT";
+    }
     glMultiTexParameterfEXT = (PFNGLMULTITEXPARAMETERFEXTPROC) sogl_loadOpenGLFunction("glMultiTexParameterfEXT");
+    if (!glMultiTexParameterfEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glMultiTexParameterfEXT";
+    }
     glMultiTexParameterfvEXT = (PFNGLMULTITEXPARAMETERFVEXTPROC) sogl_loadOpenGLFunction("glMultiTexParameterfvEXT");
+    if (!glMultiTexParameterfvEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glMultiTexParameterfvEXT";
+    }
     glMultiTexImage1DEXT = (PFNGLMULTITEXIMAGE1DEXTPROC) sogl_loadOpenGLFunction("glMultiTexImage1DEXT");
+    if (!glMultiTexImage1DEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glMultiTexImage1DEXT";
+    }
     glMultiTexImage2DEXT = (PFNGLMULTITEXIMAGE2DEXTPROC) sogl_loadOpenGLFunction("glMultiTexImage2DEXT");
+    if (!glMultiTexImage2DEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glMultiTexImage2DEXT";
+    }
     glMultiTexSubImage1DEXT = (PFNGLMULTITEXSUBIMAGE1DEXTPROC) sogl_loadOpenGLFunction("glMultiTexSubImage1DEXT");
+    if (!glMultiTexSubImage1DEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glMultiTexSubImage1DEXT";
+    }
     glMultiTexSubImage2DEXT = (PFNGLMULTITEXSUBIMAGE2DEXTPROC) sogl_loadOpenGLFunction("glMultiTexSubImage2DEXT");
+    if (!glMultiTexSubImage2DEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glMultiTexSubImage2DEXT";
+    }
     glCopyMultiTexImage1DEXT = (PFNGLCOPYMULTITEXIMAGE1DEXTPROC) sogl_loadOpenGLFunction("glCopyMultiTexImage1DEXT");
+    if (!glCopyMultiTexImage1DEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glCopyMultiTexImage1DEXT";
+    }
     glCopyMultiTexImage2DEXT = (PFNGLCOPYMULTITEXIMAGE2DEXTPROC) sogl_loadOpenGLFunction("glCopyMultiTexImage2DEXT");
+    if (!glCopyMultiTexImage2DEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glCopyMultiTexImage2DEXT";
+    }
     glCopyMultiTexSubImage1DEXT = (PFNGLCOPYMULTITEXSUBIMAGE1DEXTPROC) sogl_loadOpenGLFunction("glCopyMultiTexSubImage1DEXT");
+    if (!glCopyMultiTexSubImage1DEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glCopyMultiTexSubImage1DEXT";
+    }
     glCopyMultiTexSubImage2DEXT = (PFNGLCOPYMULTITEXSUBIMAGE2DEXTPROC) sogl_loadOpenGLFunction("glCopyMultiTexSubImage2DEXT");
+    if (!glCopyMultiTexSubImage2DEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glCopyMultiTexSubImage2DEXT";
+    }
     glGetMultiTexImageEXT = (PFNGLGETMULTITEXIMAGEEXTPROC) sogl_loadOpenGLFunction("glGetMultiTexImageEXT");
+    if (!glGetMultiTexImageEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glGetMultiTexImageEXT";
+    }
     glGetMultiTexParameterfvEXT = (PFNGLGETMULTITEXPARAMETERFVEXTPROC) sogl_loadOpenGLFunction("glGetMultiTexParameterfvEXT");
+    if (!glGetMultiTexParameterfvEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glGetMultiTexParameterfvEXT";
+    }
     glGetMultiTexParameterivEXT = (PFNGLGETMULTITEXPARAMETERIVEXTPROC) sogl_loadOpenGLFunction("glGetMultiTexParameterivEXT");
+    if (!glGetMultiTexParameterivEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glGetMultiTexParameterivEXT";
+    }
     glGetMultiTexLevelParameterfvEXT = (PFNGLGETMULTITEXLEVELPARAMETERFVEXTPROC) sogl_loadOpenGLFunction("glGetMultiTexLevelParameterfvEXT");
+    if (!glGetMultiTexLevelParameterfvEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glGetMultiTexLevelParameterfvEXT";
+    }
     glGetMultiTexLevelParameterivEXT = (PFNGLGETMULTITEXLEVELPARAMETERIVEXTPROC) sogl_loadOpenGLFunction("glGetMultiTexLevelParameterivEXT");
+    if (!glGetMultiTexLevelParameterivEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glGetMultiTexLevelParameterivEXT";
+    }
     glMultiTexImage3DEXT = (PFNGLMULTITEXIMAGE3DEXTPROC) sogl_loadOpenGLFunction("glMultiTexImage3DEXT");
+    if (!glMultiTexImage3DEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glMultiTexImage3DEXT";
+    }
     glMultiTexSubImage3DEXT = (PFNGLMULTITEXSUBIMAGE3DEXTPROC) sogl_loadOpenGLFunction("glMultiTexSubImage3DEXT");
+    if (!glMultiTexSubImage3DEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glMultiTexSubImage3DEXT";
+    }
     glCopyMultiTexSubImage3DEXT = (PFNGLCOPYMULTITEXSUBIMAGE3DEXTPROC) sogl_loadOpenGLFunction("glCopyMultiTexSubImage3DEXT");
+    if (!glCopyMultiTexSubImage3DEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glCopyMultiTexSubImage3DEXT";
+    }
     glEnableClientStateIndexedEXT = (PFNGLENABLECLIENTSTATEINDEXEDEXTPROC) sogl_loadOpenGLFunction("glEnableClientStateIndexedEXT");
+    if (!glEnableClientStateIndexedEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glEnableClientStateIndexedEXT";
+    }
     glDisableClientStateIndexedEXT = (PFNGLDISABLECLIENTSTATEINDEXEDEXTPROC) sogl_loadOpenGLFunction("glDisableClientStateIndexedEXT");
+    if (!glDisableClientStateIndexedEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glDisableClientStateIndexedEXT";
+    }
     glGetFloatIndexedvEXT = (PFNGLGETFLOATINDEXEDVEXTPROC) sogl_loadOpenGLFunction("glGetFloatIndexedvEXT");
+    if (!glGetFloatIndexedvEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glGetFloatIndexedvEXT";
+    }
     glGetDoubleIndexedvEXT = (PFNGLGETDOUBLEINDEXEDVEXTPROC) sogl_loadOpenGLFunction("glGetDoubleIndexedvEXT");
+    if (!glGetDoubleIndexedvEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glGetDoubleIndexedvEXT";
+    }
     glGetPointerIndexedvEXT = (PFNGLGETPOINTERINDEXEDVEXTPROC) sogl_loadOpenGLFunction("glGetPointerIndexedvEXT");
+    if (!glGetPointerIndexedvEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glGetPointerIndexedvEXT";
+    }
     glEnableIndexedEXT = (PFNGLENABLEINDEXEDEXTPROC) sogl_loadOpenGLFunction("glEnableIndexedEXT");
+    if (!glEnableIndexedEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glEnableIndexedEXT";
+    }
     glDisableIndexedEXT = (PFNGLDISABLEINDEXEDEXTPROC) sogl_loadOpenGLFunction("glDisableIndexedEXT");
+    if (!glDisableIndexedEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glDisableIndexedEXT";
+    }
     glIsEnabledIndexedEXT = (PFNGLISENABLEDINDEXEDEXTPROC) sogl_loadOpenGLFunction("glIsEnabledIndexedEXT");
+    if (!glIsEnabledIndexedEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glIsEnabledIndexedEXT";
+    }
     glGetIntegerIndexedvEXT = (PFNGLGETINTEGERINDEXEDVEXTPROC) sogl_loadOpenGLFunction("glGetIntegerIndexedvEXT");
+    if (!glGetIntegerIndexedvEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glGetIntegerIndexedvEXT";
+    }
     glGetBooleanIndexedvEXT = (PFNGLGETBOOLEANINDEXEDVEXTPROC) sogl_loadOpenGLFunction("glGetBooleanIndexedvEXT");
+    if (!glGetBooleanIndexedvEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glGetBooleanIndexedvEXT";
+    }
     glCompressedTextureImage3DEXT = (PFNGLCOMPRESSEDTEXTUREIMAGE3DEXTPROC) sogl_loadOpenGLFunction("glCompressedTextureImage3DEXT");
+    if (!glCompressedTextureImage3DEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glCompressedTextureImage3DEXT";
+    }
     glCompressedTextureImage2DEXT = (PFNGLCOMPRESSEDTEXTUREIMAGE2DEXTPROC) sogl_loadOpenGLFunction("glCompressedTextureImage2DEXT");
+    if (!glCompressedTextureImage2DEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glCompressedTextureImage2DEXT";
+    }
     glCompressedTextureImage1DEXT = (PFNGLCOMPRESSEDTEXTUREIMAGE1DEXTPROC) sogl_loadOpenGLFunction("glCompressedTextureImage1DEXT");
+    if (!glCompressedTextureImage1DEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glCompressedTextureImage1DEXT";
+    }
     glCompressedTextureSubImage3DEXT = (PFNGLCOMPRESSEDTEXTURESUBIMAGE3DEXTPROC) sogl_loadOpenGLFunction("glCompressedTextureSubImage3DEXT");
+    if (!glCompressedTextureSubImage3DEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glCompressedTextureSubImage3DEXT";
+    }
     glCompressedTextureSubImage2DEXT = (PFNGLCOMPRESSEDTEXTURESUBIMAGE2DEXTPROC) sogl_loadOpenGLFunction("glCompressedTextureSubImage2DEXT");
+    if (!glCompressedTextureSubImage2DEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glCompressedTextureSubImage2DEXT";
+    }
     glCompressedTextureSubImage1DEXT = (PFNGLCOMPRESSEDTEXTURESUBIMAGE1DEXTPROC) sogl_loadOpenGLFunction("glCompressedTextureSubImage1DEXT");
+    if (!glCompressedTextureSubImage1DEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glCompressedTextureSubImage1DEXT";
+    }
     glGetCompressedTextureImageEXT = (PFNGLGETCOMPRESSEDTEXTUREIMAGEEXTPROC) sogl_loadOpenGLFunction("glGetCompressedTextureImageEXT");
+    if (!glGetCompressedTextureImageEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glGetCompressedTextureImageEXT";
+    }
     glCompressedMultiTexImage3DEXT = (PFNGLCOMPRESSEDMULTITEXIMAGE3DEXTPROC) sogl_loadOpenGLFunction("glCompressedMultiTexImage3DEXT");
+    if (!glCompressedMultiTexImage3DEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glCompressedMultiTexImage3DEXT";
+    }
     glCompressedMultiTexImage2DEXT = (PFNGLCOMPRESSEDMULTITEXIMAGE2DEXTPROC) sogl_loadOpenGLFunction("glCompressedMultiTexImage2DEXT");
+    if (!glCompressedMultiTexImage2DEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glCompressedMultiTexImage2DEXT";
+    }
     glCompressedMultiTexImage1DEXT = (PFNGLCOMPRESSEDMULTITEXIMAGE1DEXTPROC) sogl_loadOpenGLFunction("glCompressedMultiTexImage1DEXT");
+    if (!glCompressedMultiTexImage1DEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glCompressedMultiTexImage1DEXT";
+    }
     glCompressedMultiTexSubImage3DEXT = (PFNGLCOMPRESSEDMULTITEXSUBIMAGE3DEXTPROC) sogl_loadOpenGLFunction("glCompressedMultiTexSubImage3DEXT");
+    if (!glCompressedMultiTexSubImage3DEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glCompressedMultiTexSubImage3DEXT";
+    }
     glCompressedMultiTexSubImage2DEXT = (PFNGLCOMPRESSEDMULTITEXSUBIMAGE2DEXTPROC) sogl_loadOpenGLFunction("glCompressedMultiTexSubImage2DEXT");
+    if (!glCompressedMultiTexSubImage2DEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glCompressedMultiTexSubImage2DEXT";
+    }
     glCompressedMultiTexSubImage1DEXT = (PFNGLCOMPRESSEDMULTITEXSUBIMAGE1DEXTPROC) sogl_loadOpenGLFunction("glCompressedMultiTexSubImage1DEXT");
+    if (!glCompressedMultiTexSubImage1DEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glCompressedMultiTexSubImage1DEXT";
+    }
     glGetCompressedMultiTexImageEXT = (PFNGLGETCOMPRESSEDMULTITEXIMAGEEXTPROC) sogl_loadOpenGLFunction("glGetCompressedMultiTexImageEXT");
+    if (!glGetCompressedMultiTexImageEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glGetCompressedMultiTexImageEXT";
+    }
     glMatrixLoadTransposefEXT = (PFNGLMATRIXLOADTRANSPOSEFEXTPROC) sogl_loadOpenGLFunction("glMatrixLoadTransposefEXT");
+    if (!glMatrixLoadTransposefEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glMatrixLoadTransposefEXT";
+    }
     glMatrixLoadTransposedEXT = (PFNGLMATRIXLOADTRANSPOSEDEXTPROC) sogl_loadOpenGLFunction("glMatrixLoadTransposedEXT");
+    if (!glMatrixLoadTransposedEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glMatrixLoadTransposedEXT";
+    }
     glMatrixMultTransposefEXT = (PFNGLMATRIXMULTTRANSPOSEFEXTPROC) sogl_loadOpenGLFunction("glMatrixMultTransposefEXT");
+    if (!glMatrixMultTransposefEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glMatrixMultTransposefEXT";
+    }
     glMatrixMultTransposedEXT = (PFNGLMATRIXMULTTRANSPOSEDEXTPROC) sogl_loadOpenGLFunction("glMatrixMultTransposedEXT");
+    if (!glMatrixMultTransposedEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glMatrixMultTransposedEXT";
+    }
     glNamedBufferDataEXT = (PFNGLNAMEDBUFFERDATAEXTPROC) sogl_loadOpenGLFunction("glNamedBufferDataEXT");
+    if (!glNamedBufferDataEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glNamedBufferDataEXT";
+    }
     glNamedBufferSubDataEXT = (PFNGLNAMEDBUFFERSUBDATAEXTPROC) sogl_loadOpenGLFunction("glNamedBufferSubDataEXT");
+    if (!glNamedBufferSubDataEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glNamedBufferSubDataEXT";
+    }
     glMapNamedBufferEXT = (PFNGLMAPNAMEDBUFFEREXTPROC) sogl_loadOpenGLFunction("glMapNamedBufferEXT");
+    if (!glMapNamedBufferEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glMapNamedBufferEXT";
+    }
     glUnmapNamedBufferEXT = (PFNGLUNMAPNAMEDBUFFEREXTPROC) sogl_loadOpenGLFunction("glUnmapNamedBufferEXT");
+    if (!glUnmapNamedBufferEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glUnmapNamedBufferEXT";
+    }
     glGetNamedBufferParameterivEXT = (PFNGLGETNAMEDBUFFERPARAMETERIVEXTPROC) sogl_loadOpenGLFunction("glGetNamedBufferParameterivEXT");
+    if (!glGetNamedBufferParameterivEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glGetNamedBufferParameterivEXT";
+    }
     glGetNamedBufferPointervEXT = (PFNGLGETNAMEDBUFFERPOINTERVEXTPROC) sogl_loadOpenGLFunction("glGetNamedBufferPointervEXT");
+    if (!glGetNamedBufferPointervEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glGetNamedBufferPointervEXT";
+    }
     glGetNamedBufferSubDataEXT = (PFNGLGETNAMEDBUFFERSUBDATAEXTPROC) sogl_loadOpenGLFunction("glGetNamedBufferSubDataEXT");
+    if (!glGetNamedBufferSubDataEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glGetNamedBufferSubDataEXT";
+    }
     glProgramUniform1fEXT = (PFNGLPROGRAMUNIFORM1FEXTPROC) sogl_loadOpenGLFunction("glProgramUniform1fEXT");
+    if (!glProgramUniform1fEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glProgramUniform1fEXT";
+    }
     glProgramUniform2fEXT = (PFNGLPROGRAMUNIFORM2FEXTPROC) sogl_loadOpenGLFunction("glProgramUniform2fEXT");
+    if (!glProgramUniform2fEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glProgramUniform2fEXT";
+    }
     glProgramUniform3fEXT = (PFNGLPROGRAMUNIFORM3FEXTPROC) sogl_loadOpenGLFunction("glProgramUniform3fEXT");
+    if (!glProgramUniform3fEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glProgramUniform3fEXT";
+    }
     glProgramUniform4fEXT = (PFNGLPROGRAMUNIFORM4FEXTPROC) sogl_loadOpenGLFunction("glProgramUniform4fEXT");
+    if (!glProgramUniform4fEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glProgramUniform4fEXT";
+    }
     glProgramUniform1iEXT = (PFNGLPROGRAMUNIFORM1IEXTPROC) sogl_loadOpenGLFunction("glProgramUniform1iEXT");
+    if (!glProgramUniform1iEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glProgramUniform1iEXT";
+    }
     glProgramUniform2iEXT = (PFNGLPROGRAMUNIFORM2IEXTPROC) sogl_loadOpenGLFunction("glProgramUniform2iEXT");
+    if (!glProgramUniform2iEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glProgramUniform2iEXT";
+    }
     glProgramUniform3iEXT = (PFNGLPROGRAMUNIFORM3IEXTPROC) sogl_loadOpenGLFunction("glProgramUniform3iEXT");
+    if (!glProgramUniform3iEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glProgramUniform3iEXT";
+    }
     glProgramUniform4iEXT = (PFNGLPROGRAMUNIFORM4IEXTPROC) sogl_loadOpenGLFunction("glProgramUniform4iEXT");
+    if (!glProgramUniform4iEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glProgramUniform4iEXT";
+    }
     glProgramUniform1fvEXT = (PFNGLPROGRAMUNIFORM1FVEXTPROC) sogl_loadOpenGLFunction("glProgramUniform1fvEXT");
+    if (!glProgramUniform1fvEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glProgramUniform1fvEXT";
+    }
     glProgramUniform2fvEXT = (PFNGLPROGRAMUNIFORM2FVEXTPROC) sogl_loadOpenGLFunction("glProgramUniform2fvEXT");
+    if (!glProgramUniform2fvEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glProgramUniform2fvEXT";
+    }
     glProgramUniform3fvEXT = (PFNGLPROGRAMUNIFORM3FVEXTPROC) sogl_loadOpenGLFunction("glProgramUniform3fvEXT");
+    if (!glProgramUniform3fvEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glProgramUniform3fvEXT";
+    }
     glProgramUniform4fvEXT = (PFNGLPROGRAMUNIFORM4FVEXTPROC) sogl_loadOpenGLFunction("glProgramUniform4fvEXT");
+    if (!glProgramUniform4fvEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glProgramUniform4fvEXT";
+    }
     glProgramUniform1ivEXT = (PFNGLPROGRAMUNIFORM1IVEXTPROC) sogl_loadOpenGLFunction("glProgramUniform1ivEXT");
+    if (!glProgramUniform1ivEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glProgramUniform1ivEXT";
+    }
     glProgramUniform2ivEXT = (PFNGLPROGRAMUNIFORM2IVEXTPROC) sogl_loadOpenGLFunction("glProgramUniform2ivEXT");
+    if (!glProgramUniform2ivEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glProgramUniform2ivEXT";
+    }
     glProgramUniform3ivEXT = (PFNGLPROGRAMUNIFORM3IVEXTPROC) sogl_loadOpenGLFunction("glProgramUniform3ivEXT");
+    if (!glProgramUniform3ivEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glProgramUniform3ivEXT";
+    }
     glProgramUniform4ivEXT = (PFNGLPROGRAMUNIFORM4IVEXTPROC) sogl_loadOpenGLFunction("glProgramUniform4ivEXT");
+    if (!glProgramUniform4ivEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glProgramUniform4ivEXT";
+    }
     glProgramUniformMatrix2fvEXT = (PFNGLPROGRAMUNIFORMMATRIX2FVEXTPROC) sogl_loadOpenGLFunction("glProgramUniformMatrix2fvEXT");
+    if (!glProgramUniformMatrix2fvEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glProgramUniformMatrix2fvEXT";
+    }
     glProgramUniformMatrix3fvEXT = (PFNGLPROGRAMUNIFORMMATRIX3FVEXTPROC) sogl_loadOpenGLFunction("glProgramUniformMatrix3fvEXT");
+    if (!glProgramUniformMatrix3fvEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glProgramUniformMatrix3fvEXT";
+    }
     glProgramUniformMatrix4fvEXT = (PFNGLPROGRAMUNIFORMMATRIX4FVEXTPROC) sogl_loadOpenGLFunction("glProgramUniformMatrix4fvEXT");
+    if (!glProgramUniformMatrix4fvEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glProgramUniformMatrix4fvEXT";
+    }
     glProgramUniformMatrix2x3fvEXT = (PFNGLPROGRAMUNIFORMMATRIX2X3FVEXTPROC) sogl_loadOpenGLFunction("glProgramUniformMatrix2x3fvEXT");
+    if (!glProgramUniformMatrix2x3fvEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glProgramUniformMatrix2x3fvEXT";
+    }
     glProgramUniformMatrix3x2fvEXT = (PFNGLPROGRAMUNIFORMMATRIX3X2FVEXTPROC) sogl_loadOpenGLFunction("glProgramUniformMatrix3x2fvEXT");
+    if (!glProgramUniformMatrix3x2fvEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glProgramUniformMatrix3x2fvEXT";
+    }
     glProgramUniformMatrix2x4fvEXT = (PFNGLPROGRAMUNIFORMMATRIX2X4FVEXTPROC) sogl_loadOpenGLFunction("glProgramUniformMatrix2x4fvEXT");
+    if (!glProgramUniformMatrix2x4fvEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glProgramUniformMatrix2x4fvEXT";
+    }
     glProgramUniformMatrix4x2fvEXT = (PFNGLPROGRAMUNIFORMMATRIX4X2FVEXTPROC) sogl_loadOpenGLFunction("glProgramUniformMatrix4x2fvEXT");
+    if (!glProgramUniformMatrix4x2fvEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glProgramUniformMatrix4x2fvEXT";
+    }
     glProgramUniformMatrix3x4fvEXT = (PFNGLPROGRAMUNIFORMMATRIX3X4FVEXTPROC) sogl_loadOpenGLFunction("glProgramUniformMatrix3x4fvEXT");
+    if (!glProgramUniformMatrix3x4fvEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glProgramUniformMatrix3x4fvEXT";
+    }
     glProgramUniformMatrix4x3fvEXT = (PFNGLPROGRAMUNIFORMMATRIX4X3FVEXTPROC) sogl_loadOpenGLFunction("glProgramUniformMatrix4x3fvEXT");
+    if (!glProgramUniformMatrix4x3fvEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glProgramUniformMatrix4x3fvEXT";
+    }
     glTextureBufferEXT = (PFNGLTEXTUREBUFFEREXTPROC) sogl_loadOpenGLFunction("glTextureBufferEXT");
+    if (!glTextureBufferEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glTextureBufferEXT";
+    }
     glMultiTexBufferEXT = (PFNGLMULTITEXBUFFEREXTPROC) sogl_loadOpenGLFunction("glMultiTexBufferEXT");
+    if (!glMultiTexBufferEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glMultiTexBufferEXT";
+    }
     glTextureParameterIivEXT = (PFNGLTEXTUREPARAMETERIIVEXTPROC) sogl_loadOpenGLFunction("glTextureParameterIivEXT");
+    if (!glTextureParameterIivEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glTextureParameterIivEXT";
+    }
     glTextureParameterIuivEXT = (PFNGLTEXTUREPARAMETERIUIVEXTPROC) sogl_loadOpenGLFunction("glTextureParameterIuivEXT");
+    if (!glTextureParameterIuivEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glTextureParameterIuivEXT";
+    }
     glGetTextureParameterIivEXT = (PFNGLGETTEXTUREPARAMETERIIVEXTPROC) sogl_loadOpenGLFunction("glGetTextureParameterIivEXT");
+    if (!glGetTextureParameterIivEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glGetTextureParameterIivEXT";
+    }
     glGetTextureParameterIuivEXT = (PFNGLGETTEXTUREPARAMETERIUIVEXTPROC) sogl_loadOpenGLFunction("glGetTextureParameterIuivEXT");
+    if (!glGetTextureParameterIuivEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glGetTextureParameterIuivEXT";
+    }
     glMultiTexParameterIivEXT = (PFNGLMULTITEXPARAMETERIIVEXTPROC) sogl_loadOpenGLFunction("glMultiTexParameterIivEXT");
+    if (!glMultiTexParameterIivEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glMultiTexParameterIivEXT";
+    }
     glMultiTexParameterIuivEXT = (PFNGLMULTITEXPARAMETERIUIVEXTPROC) sogl_loadOpenGLFunction("glMultiTexParameterIuivEXT");
+    if (!glMultiTexParameterIuivEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glMultiTexParameterIuivEXT";
+    }
     glGetMultiTexParameterIivEXT = (PFNGLGETMULTITEXPARAMETERIIVEXTPROC) sogl_loadOpenGLFunction("glGetMultiTexParameterIivEXT");
+    if (!glGetMultiTexParameterIivEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glGetMultiTexParameterIivEXT";
+    }
     glGetMultiTexParameterIuivEXT = (PFNGLGETMULTITEXPARAMETERIUIVEXTPROC) sogl_loadOpenGLFunction("glGetMultiTexParameterIuivEXT");
+    if (!glGetMultiTexParameterIuivEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glGetMultiTexParameterIuivEXT";
+    }
     glProgramUniform1uiEXT = (PFNGLPROGRAMUNIFORM1UIEXTPROC) sogl_loadOpenGLFunction("glProgramUniform1uiEXT");
+    if (!glProgramUniform1uiEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glProgramUniform1uiEXT";
+    }
     glProgramUniform2uiEXT = (PFNGLPROGRAMUNIFORM2UIEXTPROC) sogl_loadOpenGLFunction("glProgramUniform2uiEXT");
+    if (!glProgramUniform2uiEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glProgramUniform2uiEXT";
+    }
     glProgramUniform3uiEXT = (PFNGLPROGRAMUNIFORM3UIEXTPROC) sogl_loadOpenGLFunction("glProgramUniform3uiEXT");
+    if (!glProgramUniform3uiEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glProgramUniform3uiEXT";
+    }
     glProgramUniform4uiEXT = (PFNGLPROGRAMUNIFORM4UIEXTPROC) sogl_loadOpenGLFunction("glProgramUniform4uiEXT");
+    if (!glProgramUniform4uiEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glProgramUniform4uiEXT";
+    }
     glProgramUniform1uivEXT = (PFNGLPROGRAMUNIFORM1UIVEXTPROC) sogl_loadOpenGLFunction("glProgramUniform1uivEXT");
+    if (!glProgramUniform1uivEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glProgramUniform1uivEXT";
+    }
     glProgramUniform2uivEXT = (PFNGLPROGRAMUNIFORM2UIVEXTPROC) sogl_loadOpenGLFunction("glProgramUniform2uivEXT");
+    if (!glProgramUniform2uivEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glProgramUniform2uivEXT";
+    }
     glProgramUniform3uivEXT = (PFNGLPROGRAMUNIFORM3UIVEXTPROC) sogl_loadOpenGLFunction("glProgramUniform3uivEXT");
+    if (!glProgramUniform3uivEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glProgramUniform3uivEXT";
+    }
     glProgramUniform4uivEXT = (PFNGLPROGRAMUNIFORM4UIVEXTPROC) sogl_loadOpenGLFunction("glProgramUniform4uivEXT");
+    if (!glProgramUniform4uivEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glProgramUniform4uivEXT";
+    }
     glNamedProgramLocalParameters4fvEXT = (PFNGLNAMEDPROGRAMLOCALPARAMETERS4FVEXTPROC) sogl_loadOpenGLFunction("glNamedProgramLocalParameters4fvEXT");
+    if (!glNamedProgramLocalParameters4fvEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glNamedProgramLocalParameters4fvEXT";
+    }
     glNamedProgramLocalParameterI4iEXT = (PFNGLNAMEDPROGRAMLOCALPARAMETERI4IEXTPROC) sogl_loadOpenGLFunction("glNamedProgramLocalParameterI4iEXT");
+    if (!glNamedProgramLocalParameterI4iEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glNamedProgramLocalParameterI4iEXT";
+    }
     glNamedProgramLocalParameterI4ivEXT = (PFNGLNAMEDPROGRAMLOCALPARAMETERI4IVEXTPROC) sogl_loadOpenGLFunction("glNamedProgramLocalParameterI4ivEXT");
+    if (!glNamedProgramLocalParameterI4ivEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glNamedProgramLocalParameterI4ivEXT";
+    }
     glNamedProgramLocalParametersI4ivEXT = (PFNGLNAMEDPROGRAMLOCALPARAMETERSI4IVEXTPROC) sogl_loadOpenGLFunction("glNamedProgramLocalParametersI4ivEXT");
+    if (!glNamedProgramLocalParametersI4ivEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glNamedProgramLocalParametersI4ivEXT";
+    }
     glNamedProgramLocalParameterI4uiEXT = (PFNGLNAMEDPROGRAMLOCALPARAMETERI4UIEXTPROC) sogl_loadOpenGLFunction("glNamedProgramLocalParameterI4uiEXT");
+    if (!glNamedProgramLocalParameterI4uiEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glNamedProgramLocalParameterI4uiEXT";
+    }
     glNamedProgramLocalParameterI4uivEXT = (PFNGLNAMEDPROGRAMLOCALPARAMETERI4UIVEXTPROC) sogl_loadOpenGLFunction("glNamedProgramLocalParameterI4uivEXT");
+    if (!glNamedProgramLocalParameterI4uivEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glNamedProgramLocalParameterI4uivEXT";
+    }
     glNamedProgramLocalParametersI4uivEXT = (PFNGLNAMEDPROGRAMLOCALPARAMETERSI4UIVEXTPROC) sogl_loadOpenGLFunction("glNamedProgramLocalParametersI4uivEXT");
+    if (!glNamedProgramLocalParametersI4uivEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glNamedProgramLocalParametersI4uivEXT";
+    }
     glGetNamedProgramLocalParameterIivEXT = (PFNGLGETNAMEDPROGRAMLOCALPARAMETERIIVEXTPROC) sogl_loadOpenGLFunction("glGetNamedProgramLocalParameterIivEXT");
+    if (!glGetNamedProgramLocalParameterIivEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glGetNamedProgramLocalParameterIivEXT";
+    }
     glGetNamedProgramLocalParameterIuivEXT = (PFNGLGETNAMEDPROGRAMLOCALPARAMETERIUIVEXTPROC) sogl_loadOpenGLFunction("glGetNamedProgramLocalParameterIuivEXT");
+    if (!glGetNamedProgramLocalParameterIuivEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glGetNamedProgramLocalParameterIuivEXT";
+    }
     glEnableClientStateiEXT = (PFNGLENABLECLIENTSTATEIEXTPROC) sogl_loadOpenGLFunction("glEnableClientStateiEXT");
+    if (!glEnableClientStateiEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glEnableClientStateiEXT";
+    }
     glDisableClientStateiEXT = (PFNGLDISABLECLIENTSTATEIEXTPROC) sogl_loadOpenGLFunction("glDisableClientStateiEXT");
+    if (!glDisableClientStateiEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glDisableClientStateiEXT";
+    }
     glGetFloati_vEXT = (PFNGLGETFLOATI_VEXTPROC) sogl_loadOpenGLFunction("glGetFloati_vEXT");
+    if (!glGetFloati_vEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glGetFloati_vEXT";
+    }
     glGetDoublei_vEXT = (PFNGLGETDOUBLEI_VEXTPROC) sogl_loadOpenGLFunction("glGetDoublei_vEXT");
+    if (!glGetDoublei_vEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glGetDoublei_vEXT";
+    }
     glGetPointeri_vEXT = (PFNGLGETPOINTERI_VEXTPROC) sogl_loadOpenGLFunction("glGetPointeri_vEXT");
+    if (!glGetPointeri_vEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glGetPointeri_vEXT";
+    }
     glNamedProgramStringEXT = (PFNGLNAMEDPROGRAMSTRINGEXTPROC) sogl_loadOpenGLFunction("glNamedProgramStringEXT");
+    if (!glNamedProgramStringEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glNamedProgramStringEXT";
+    }
     glNamedProgramLocalParameter4dEXT = (PFNGLNAMEDPROGRAMLOCALPARAMETER4DEXTPROC) sogl_loadOpenGLFunction("glNamedProgramLocalParameter4dEXT");
+    if (!glNamedProgramLocalParameter4dEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glNamedProgramLocalParameter4dEXT";
+    }
     glNamedProgramLocalParameter4dvEXT = (PFNGLNAMEDPROGRAMLOCALPARAMETER4DVEXTPROC) sogl_loadOpenGLFunction("glNamedProgramLocalParameter4dvEXT");
+    if (!glNamedProgramLocalParameter4dvEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glNamedProgramLocalParameter4dvEXT";
+    }
     glNamedProgramLocalParameter4fEXT = (PFNGLNAMEDPROGRAMLOCALPARAMETER4FEXTPROC) sogl_loadOpenGLFunction("glNamedProgramLocalParameter4fEXT");
+    if (!glNamedProgramLocalParameter4fEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glNamedProgramLocalParameter4fEXT";
+    }
     glNamedProgramLocalParameter4fvEXT = (PFNGLNAMEDPROGRAMLOCALPARAMETER4FVEXTPROC) sogl_loadOpenGLFunction("glNamedProgramLocalParameter4fvEXT");
+    if (!glNamedProgramLocalParameter4fvEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glNamedProgramLocalParameter4fvEXT";
+    }
     glGetNamedProgramLocalParameterdvEXT = (PFNGLGETNAMEDPROGRAMLOCALPARAMETERDVEXTPROC) sogl_loadOpenGLFunction("glGetNamedProgramLocalParameterdvEXT");
+    if (!glGetNamedProgramLocalParameterdvEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glGetNamedProgramLocalParameterdvEXT";
+    }
     glGetNamedProgramLocalParameterfvEXT = (PFNGLGETNAMEDPROGRAMLOCALPARAMETERFVEXTPROC) sogl_loadOpenGLFunction("glGetNamedProgramLocalParameterfvEXT");
+    if (!glGetNamedProgramLocalParameterfvEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glGetNamedProgramLocalParameterfvEXT";
+    }
     glGetNamedProgramivEXT = (PFNGLGETNAMEDPROGRAMIVEXTPROC) sogl_loadOpenGLFunction("glGetNamedProgramivEXT");
+    if (!glGetNamedProgramivEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glGetNamedProgramivEXT";
+    }
     glGetNamedProgramStringEXT = (PFNGLGETNAMEDPROGRAMSTRINGEXTPROC) sogl_loadOpenGLFunction("glGetNamedProgramStringEXT");
+    if (!glGetNamedProgramStringEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glGetNamedProgramStringEXT";
+    }
     glNamedRenderbufferStorageEXT = (PFNGLNAMEDRENDERBUFFERSTORAGEEXTPROC) sogl_loadOpenGLFunction("glNamedRenderbufferStorageEXT");
+    if (!glNamedRenderbufferStorageEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glNamedRenderbufferStorageEXT";
+    }
     glGetNamedRenderbufferParameterivEXT = (PFNGLGETNAMEDRENDERBUFFERPARAMETERIVEXTPROC) sogl_loadOpenGLFunction("glGetNamedRenderbufferParameterivEXT");
+    if (!glGetNamedRenderbufferParameterivEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glGetNamedRenderbufferParameterivEXT";
+    }
     glNamedRenderbufferStorageMultisampleEXT = (PFNGLNAMEDRENDERBUFFERSTORAGEMULTISAMPLEEXTPROC) sogl_loadOpenGLFunction("glNamedRenderbufferStorageMultisampleEXT");
+    if (!glNamedRenderbufferStorageMultisampleEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glNamedRenderbufferStorageMultisampleEXT";
+    }
     glNamedRenderbufferStorageMultisampleCoverageEXT = (PFNGLNAMEDRENDERBUFFERSTORAGEMULTISAMPLECOVERAGEEXTPROC) sogl_loadOpenGLFunction("glNamedRenderbufferStorageMultisampleCoverageEXT");
+    if (!glNamedRenderbufferStorageMultisampleCoverageEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glNamedRenderbufferStorageMultisampleCoverageEXT";
+    }
     glCheckNamedFramebufferStatusEXT = (PFNGLCHECKNAMEDFRAMEBUFFERSTATUSEXTPROC) sogl_loadOpenGLFunction("glCheckNamedFramebufferStatusEXT");
+    if (!glCheckNamedFramebufferStatusEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glCheckNamedFramebufferStatusEXT";
+    }
     glNamedFramebufferTexture1DEXT = (PFNGLNAMEDFRAMEBUFFERTEXTURE1DEXTPROC) sogl_loadOpenGLFunction("glNamedFramebufferTexture1DEXT");
+    if (!glNamedFramebufferTexture1DEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glNamedFramebufferTexture1DEXT";
+    }
     glNamedFramebufferTexture2DEXT = (PFNGLNAMEDFRAMEBUFFERTEXTURE2DEXTPROC) sogl_loadOpenGLFunction("glNamedFramebufferTexture2DEXT");
+    if (!glNamedFramebufferTexture2DEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glNamedFramebufferTexture2DEXT";
+    }
     glNamedFramebufferTexture3DEXT = (PFNGLNAMEDFRAMEBUFFERTEXTURE3DEXTPROC) sogl_loadOpenGLFunction("glNamedFramebufferTexture3DEXT");
+    if (!glNamedFramebufferTexture3DEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glNamedFramebufferTexture3DEXT";
+    }
     glNamedFramebufferRenderbufferEXT = (PFNGLNAMEDFRAMEBUFFERRENDERBUFFEREXTPROC) sogl_loadOpenGLFunction("glNamedFramebufferRenderbufferEXT");
+    if (!glNamedFramebufferRenderbufferEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glNamedFramebufferRenderbufferEXT";
+    }
     glGetNamedFramebufferAttachmentParameterivEXT = (PFNGLGETNAMEDFRAMEBUFFERATTACHMENTPARAMETERIVEXTPROC) sogl_loadOpenGLFunction("glGetNamedFramebufferAttachmentParameterivEXT");
+    if (!glGetNamedFramebufferAttachmentParameterivEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glGetNamedFramebufferAttachmentParameterivEXT";
+    }
     glGenerateTextureMipmapEXT = (PFNGLGENERATETEXTUREMIPMAPEXTPROC) sogl_loadOpenGLFunction("glGenerateTextureMipmapEXT");
+    if (!glGenerateTextureMipmapEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glGenerateTextureMipmapEXT";
+    }
     glGenerateMultiTexMipmapEXT = (PFNGLGENERATEMULTITEXMIPMAPEXTPROC) sogl_loadOpenGLFunction("glGenerateMultiTexMipmapEXT");
+    if (!glGenerateMultiTexMipmapEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glGenerateMultiTexMipmapEXT";
+    }
     glFramebufferDrawBufferEXT = (PFNGLFRAMEBUFFERDRAWBUFFEREXTPROC) sogl_loadOpenGLFunction("glFramebufferDrawBufferEXT");
+    if (!glFramebufferDrawBufferEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glFramebufferDrawBufferEXT";
+    }
     glFramebufferDrawBuffersEXT = (PFNGLFRAMEBUFFERDRAWBUFFERSEXTPROC) sogl_loadOpenGLFunction("glFramebufferDrawBuffersEXT");
+    if (!glFramebufferDrawBuffersEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glFramebufferDrawBuffersEXT";
+    }
     glFramebufferReadBufferEXT = (PFNGLFRAMEBUFFERREADBUFFEREXTPROC) sogl_loadOpenGLFunction("glFramebufferReadBufferEXT");
+    if (!glFramebufferReadBufferEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glFramebufferReadBufferEXT";
+    }
     glGetFramebufferParameterivEXT = (PFNGLGETFRAMEBUFFERPARAMETERIVEXTPROC) sogl_loadOpenGLFunction("glGetFramebufferParameterivEXT");
+    if (!glGetFramebufferParameterivEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glGetFramebufferParameterivEXT";
+    }
     glNamedCopyBufferSubDataEXT = (PFNGLNAMEDCOPYBUFFERSUBDATAEXTPROC) sogl_loadOpenGLFunction("glNamedCopyBufferSubDataEXT");
+    if (!glNamedCopyBufferSubDataEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glNamedCopyBufferSubDataEXT";
+    }
     glNamedFramebufferTextureEXT = (PFNGLNAMEDFRAMEBUFFERTEXTUREEXTPROC) sogl_loadOpenGLFunction("glNamedFramebufferTextureEXT");
+    if (!glNamedFramebufferTextureEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glNamedFramebufferTextureEXT";
+    }
     glNamedFramebufferTextureLayerEXT = (PFNGLNAMEDFRAMEBUFFERTEXTURELAYEREXTPROC) sogl_loadOpenGLFunction("glNamedFramebufferTextureLayerEXT");
+    if (!glNamedFramebufferTextureLayerEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glNamedFramebufferTextureLayerEXT";
+    }
     glNamedFramebufferTextureFaceEXT = (PFNGLNAMEDFRAMEBUFFERTEXTUREFACEEXTPROC) sogl_loadOpenGLFunction("glNamedFramebufferTextureFaceEXT");
+    if (!glNamedFramebufferTextureFaceEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glNamedFramebufferTextureFaceEXT";
+    }
     glTextureRenderbufferEXT = (PFNGLTEXTURERENDERBUFFEREXTPROC) sogl_loadOpenGLFunction("glTextureRenderbufferEXT");
+    if (!glTextureRenderbufferEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glTextureRenderbufferEXT";
+    }
     glMultiTexRenderbufferEXT = (PFNGLMULTITEXRENDERBUFFEREXTPROC) sogl_loadOpenGLFunction("glMultiTexRenderbufferEXT");
+    if (!glMultiTexRenderbufferEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glMultiTexRenderbufferEXT";
+    }
     glVertexArrayVertexOffsetEXT = (PFNGLVERTEXARRAYVERTEXOFFSETEXTPROC) sogl_loadOpenGLFunction("glVertexArrayVertexOffsetEXT");
+    if (!glVertexArrayVertexOffsetEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glVertexArrayVertexOffsetEXT";
+    }
     glVertexArrayColorOffsetEXT = (PFNGLVERTEXARRAYCOLOROFFSETEXTPROC) sogl_loadOpenGLFunction("glVertexArrayColorOffsetEXT");
+    if (!glVertexArrayColorOffsetEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glVertexArrayColorOffsetEXT";
+    }
     glVertexArrayEdgeFlagOffsetEXT = (PFNGLVERTEXARRAYEDGEFLAGOFFSETEXTPROC) sogl_loadOpenGLFunction("glVertexArrayEdgeFlagOffsetEXT");
+    if (!glVertexArrayEdgeFlagOffsetEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glVertexArrayEdgeFlagOffsetEXT";
+    }
     glVertexArrayIndexOffsetEXT = (PFNGLVERTEXARRAYINDEXOFFSETEXTPROC) sogl_loadOpenGLFunction("glVertexArrayIndexOffsetEXT");
+    if (!glVertexArrayIndexOffsetEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glVertexArrayIndexOffsetEXT";
+    }
     glVertexArrayNormalOffsetEXT = (PFNGLVERTEXARRAYNORMALOFFSETEXTPROC) sogl_loadOpenGLFunction("glVertexArrayNormalOffsetEXT");
+    if (!glVertexArrayNormalOffsetEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glVertexArrayNormalOffsetEXT";
+    }
     glVertexArrayTexCoordOffsetEXT = (PFNGLVERTEXARRAYTEXCOORDOFFSETEXTPROC) sogl_loadOpenGLFunction("glVertexArrayTexCoordOffsetEXT");
+    if (!glVertexArrayTexCoordOffsetEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glVertexArrayTexCoordOffsetEXT";
+    }
     glVertexArrayMultiTexCoordOffsetEXT = (PFNGLVERTEXARRAYMULTITEXCOORDOFFSETEXTPROC) sogl_loadOpenGLFunction("glVertexArrayMultiTexCoordOffsetEXT");
+    if (!glVertexArrayMultiTexCoordOffsetEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glVertexArrayMultiTexCoordOffsetEXT";
+    }
     glVertexArrayFogCoordOffsetEXT = (PFNGLVERTEXARRAYFOGCOORDOFFSETEXTPROC) sogl_loadOpenGLFunction("glVertexArrayFogCoordOffsetEXT");
+    if (!glVertexArrayFogCoordOffsetEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glVertexArrayFogCoordOffsetEXT";
+    }
     glVertexArraySecondaryColorOffsetEXT = (PFNGLVERTEXARRAYSECONDARYCOLOROFFSETEXTPROC) sogl_loadOpenGLFunction("glVertexArraySecondaryColorOffsetEXT");
+    if (!glVertexArraySecondaryColorOffsetEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glVertexArraySecondaryColorOffsetEXT";
+    }
     glVertexArrayVertexAttribOffsetEXT = (PFNGLVERTEXARRAYVERTEXATTRIBOFFSETEXTPROC) sogl_loadOpenGLFunction("glVertexArrayVertexAttribOffsetEXT");
+    if (!glVertexArrayVertexAttribOffsetEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glVertexArrayVertexAttribOffsetEXT";
+    }
     glVertexArrayVertexAttribIOffsetEXT = (PFNGLVERTEXARRAYVERTEXATTRIBIOFFSETEXTPROC) sogl_loadOpenGLFunction("glVertexArrayVertexAttribIOffsetEXT");
+    if (!glVertexArrayVertexAttribIOffsetEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glVertexArrayVertexAttribIOffsetEXT";
+    }
     glEnableVertexArrayEXT = (PFNGLENABLEVERTEXARRAYEXTPROC) sogl_loadOpenGLFunction("glEnableVertexArrayEXT");
+    if (!glEnableVertexArrayEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glEnableVertexArrayEXT";
+    }
     glDisableVertexArrayEXT = (PFNGLDISABLEVERTEXARRAYEXTPROC) sogl_loadOpenGLFunction("glDisableVertexArrayEXT");
+    if (!glDisableVertexArrayEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glDisableVertexArrayEXT";
+    }
     glEnableVertexArrayAttribEXT = (PFNGLENABLEVERTEXARRAYATTRIBEXTPROC) sogl_loadOpenGLFunction("glEnableVertexArrayAttribEXT");
+    if (!glEnableVertexArrayAttribEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glEnableVertexArrayAttribEXT";
+    }
     glDisableVertexArrayAttribEXT = (PFNGLDISABLEVERTEXARRAYATTRIBEXTPROC) sogl_loadOpenGLFunction("glDisableVertexArrayAttribEXT");
+    if (!glDisableVertexArrayAttribEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glDisableVertexArrayAttribEXT";
+    }
     glGetVertexArrayIntegervEXT = (PFNGLGETVERTEXARRAYINTEGERVEXTPROC) sogl_loadOpenGLFunction("glGetVertexArrayIntegervEXT");
+    if (!glGetVertexArrayIntegervEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glGetVertexArrayIntegervEXT";
+    }
     glGetVertexArrayPointervEXT = (PFNGLGETVERTEXARRAYPOINTERVEXTPROC) sogl_loadOpenGLFunction("glGetVertexArrayPointervEXT");
+    if (!glGetVertexArrayPointervEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glGetVertexArrayPointervEXT";
+    }
     glGetVertexArrayIntegeri_vEXT = (PFNGLGETVERTEXARRAYINTEGERI_VEXTPROC) sogl_loadOpenGLFunction("glGetVertexArrayIntegeri_vEXT");
+    if (!glGetVertexArrayIntegeri_vEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glGetVertexArrayIntegeri_vEXT";
+    }
     glGetVertexArrayPointeri_vEXT = (PFNGLGETVERTEXARRAYPOINTERI_VEXTPROC) sogl_loadOpenGLFunction("glGetVertexArrayPointeri_vEXT");
+    if (!glGetVertexArrayPointeri_vEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glGetVertexArrayPointeri_vEXT";
+    }
     glMapNamedBufferRangeEXT = (PFNGLMAPNAMEDBUFFERRANGEEXTPROC) sogl_loadOpenGLFunction("glMapNamedBufferRangeEXT");
+    if (!glMapNamedBufferRangeEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glMapNamedBufferRangeEXT";
+    }
     glFlushMappedNamedBufferRangeEXT = (PFNGLFLUSHMAPPEDNAMEDBUFFERRANGEEXTPROC) sogl_loadOpenGLFunction("glFlushMappedNamedBufferRangeEXT");
+    if (!glFlushMappedNamedBufferRangeEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glFlushMappedNamedBufferRangeEXT";
+    }
     glNamedBufferStorageEXT = (PFNGLNAMEDBUFFERSTORAGEEXTPROC) sogl_loadOpenGLFunction("glNamedBufferStorageEXT");
+    if (!glNamedBufferStorageEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glNamedBufferStorageEXT";
+    }
     glClearNamedBufferDataEXT = (PFNGLCLEARNAMEDBUFFERDATAEXTPROC) sogl_loadOpenGLFunction("glClearNamedBufferDataEXT");
+    if (!glClearNamedBufferDataEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glClearNamedBufferDataEXT";
+    }
     glClearNamedBufferSubDataEXT = (PFNGLCLEARNAMEDBUFFERSUBDATAEXTPROC) sogl_loadOpenGLFunction("glClearNamedBufferSubDataEXT");
+    if (!glClearNamedBufferSubDataEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glClearNamedBufferSubDataEXT";
+    }
     glNamedFramebufferParameteriEXT = (PFNGLNAMEDFRAMEBUFFERPARAMETERIEXTPROC) sogl_loadOpenGLFunction("glNamedFramebufferParameteriEXT");
+    if (!glNamedFramebufferParameteriEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glNamedFramebufferParameteriEXT";
+    }
     glGetNamedFramebufferParameterivEXT = (PFNGLGETNAMEDFRAMEBUFFERPARAMETERIVEXTPROC) sogl_loadOpenGLFunction("glGetNamedFramebufferParameterivEXT");
+    if (!glGetNamedFramebufferParameterivEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glGetNamedFramebufferParameterivEXT";
+    }
     glProgramUniform1dEXT = (PFNGLPROGRAMUNIFORM1DEXTPROC) sogl_loadOpenGLFunction("glProgramUniform1dEXT");
+    if (!glProgramUniform1dEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glProgramUniform1dEXT";
+    }
     glProgramUniform2dEXT = (PFNGLPROGRAMUNIFORM2DEXTPROC) sogl_loadOpenGLFunction("glProgramUniform2dEXT");
+    if (!glProgramUniform2dEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glProgramUniform2dEXT";
+    }
     glProgramUniform3dEXT = (PFNGLPROGRAMUNIFORM3DEXTPROC) sogl_loadOpenGLFunction("glProgramUniform3dEXT");
+    if (!glProgramUniform3dEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glProgramUniform3dEXT";
+    }
     glProgramUniform4dEXT = (PFNGLPROGRAMUNIFORM4DEXTPROC) sogl_loadOpenGLFunction("glProgramUniform4dEXT");
+    if (!glProgramUniform4dEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glProgramUniform4dEXT";
+    }
     glProgramUniform1dvEXT = (PFNGLPROGRAMUNIFORM1DVEXTPROC) sogl_loadOpenGLFunction("glProgramUniform1dvEXT");
+    if (!glProgramUniform1dvEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glProgramUniform1dvEXT";
+    }
     glProgramUniform2dvEXT = (PFNGLPROGRAMUNIFORM2DVEXTPROC) sogl_loadOpenGLFunction("glProgramUniform2dvEXT");
+    if (!glProgramUniform2dvEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glProgramUniform2dvEXT";
+    }
     glProgramUniform3dvEXT = (PFNGLPROGRAMUNIFORM3DVEXTPROC) sogl_loadOpenGLFunction("glProgramUniform3dvEXT");
+    if (!glProgramUniform3dvEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glProgramUniform3dvEXT";
+    }
     glProgramUniform4dvEXT = (PFNGLPROGRAMUNIFORM4DVEXTPROC) sogl_loadOpenGLFunction("glProgramUniform4dvEXT");
+    if (!glProgramUniform4dvEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glProgramUniform4dvEXT";
+    }
     glProgramUniformMatrix2dvEXT = (PFNGLPROGRAMUNIFORMMATRIX2DVEXTPROC) sogl_loadOpenGLFunction("glProgramUniformMatrix2dvEXT");
+    if (!glProgramUniformMatrix2dvEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glProgramUniformMatrix2dvEXT";
+    }
     glProgramUniformMatrix3dvEXT = (PFNGLPROGRAMUNIFORMMATRIX3DVEXTPROC) sogl_loadOpenGLFunction("glProgramUniformMatrix3dvEXT");
+    if (!glProgramUniformMatrix3dvEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glProgramUniformMatrix3dvEXT";
+    }
     glProgramUniformMatrix4dvEXT = (PFNGLPROGRAMUNIFORMMATRIX4DVEXTPROC) sogl_loadOpenGLFunction("glProgramUniformMatrix4dvEXT");
+    if (!glProgramUniformMatrix4dvEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glProgramUniformMatrix4dvEXT";
+    }
     glProgramUniformMatrix2x3dvEXT = (PFNGLPROGRAMUNIFORMMATRIX2X3DVEXTPROC) sogl_loadOpenGLFunction("glProgramUniformMatrix2x3dvEXT");
+    if (!glProgramUniformMatrix2x3dvEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glProgramUniformMatrix2x3dvEXT";
+    }
     glProgramUniformMatrix2x4dvEXT = (PFNGLPROGRAMUNIFORMMATRIX2X4DVEXTPROC) sogl_loadOpenGLFunction("glProgramUniformMatrix2x4dvEXT");
+    if (!glProgramUniformMatrix2x4dvEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glProgramUniformMatrix2x4dvEXT";
+    }
     glProgramUniformMatrix3x2dvEXT = (PFNGLPROGRAMUNIFORMMATRIX3X2DVEXTPROC) sogl_loadOpenGLFunction("glProgramUniformMatrix3x2dvEXT");
+    if (!glProgramUniformMatrix3x2dvEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glProgramUniformMatrix3x2dvEXT";
+    }
     glProgramUniformMatrix3x4dvEXT = (PFNGLPROGRAMUNIFORMMATRIX3X4DVEXTPROC) sogl_loadOpenGLFunction("glProgramUniformMatrix3x4dvEXT");
+    if (!glProgramUniformMatrix3x4dvEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glProgramUniformMatrix3x4dvEXT";
+    }
     glProgramUniformMatrix4x2dvEXT = (PFNGLPROGRAMUNIFORMMATRIX4X2DVEXTPROC) sogl_loadOpenGLFunction("glProgramUniformMatrix4x2dvEXT");
+    if (!glProgramUniformMatrix4x2dvEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glProgramUniformMatrix4x2dvEXT";
+    }
     glProgramUniformMatrix4x3dvEXT = (PFNGLPROGRAMUNIFORMMATRIX4X3DVEXTPROC) sogl_loadOpenGLFunction("glProgramUniformMatrix4x3dvEXT");
+    if (!glProgramUniformMatrix4x3dvEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glProgramUniformMatrix4x3dvEXT";
+    }
     glTextureBufferRangeEXT = (PFNGLTEXTUREBUFFERRANGEEXTPROC) sogl_loadOpenGLFunction("glTextureBufferRangeEXT");
+    if (!glTextureBufferRangeEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glTextureBufferRangeEXT";
+    }
     glTextureStorage1DEXT = (PFNGLTEXTURESTORAGE1DEXTPROC) sogl_loadOpenGLFunction("glTextureStorage1DEXT");
+    if (!glTextureStorage1DEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glTextureStorage1DEXT";
+    }
     glTextureStorage2DEXT = (PFNGLTEXTURESTORAGE2DEXTPROC) sogl_loadOpenGLFunction("glTextureStorage2DEXT");
+    if (!glTextureStorage2DEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glTextureStorage2DEXT";
+    }
     glTextureStorage3DEXT = (PFNGLTEXTURESTORAGE3DEXTPROC) sogl_loadOpenGLFunction("glTextureStorage3DEXT");
+    if (!glTextureStorage3DEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glTextureStorage3DEXT";
+    }
     glTextureStorage2DMultisampleEXT = (PFNGLTEXTURESTORAGE2DMULTISAMPLEEXTPROC) sogl_loadOpenGLFunction("glTextureStorage2DMultisampleEXT");
+    if (!glTextureStorage2DMultisampleEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glTextureStorage2DMultisampleEXT";
+    }
     glTextureStorage3DMultisampleEXT = (PFNGLTEXTURESTORAGE3DMULTISAMPLEEXTPROC) sogl_loadOpenGLFunction("glTextureStorage3DMultisampleEXT");
+    if (!glTextureStorage3DMultisampleEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glTextureStorage3DMultisampleEXT";
+    }
     glVertexArrayBindVertexBufferEXT = (PFNGLVERTEXARRAYBINDVERTEXBUFFEREXTPROC) sogl_loadOpenGLFunction("glVertexArrayBindVertexBufferEXT");
+    if (!glVertexArrayBindVertexBufferEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glVertexArrayBindVertexBufferEXT";
+    }
     glVertexArrayVertexAttribFormatEXT = (PFNGLVERTEXARRAYVERTEXATTRIBFORMATEXTPROC) sogl_loadOpenGLFunction("glVertexArrayVertexAttribFormatEXT");
+    if (!glVertexArrayVertexAttribFormatEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glVertexArrayVertexAttribFormatEXT";
+    }
     glVertexArrayVertexAttribIFormatEXT = (PFNGLVERTEXARRAYVERTEXATTRIBIFORMATEXTPROC) sogl_loadOpenGLFunction("glVertexArrayVertexAttribIFormatEXT");
+    if (!glVertexArrayVertexAttribIFormatEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glVertexArrayVertexAttribIFormatEXT";
+    }
     glVertexArrayVertexAttribLFormatEXT = (PFNGLVERTEXARRAYVERTEXATTRIBLFORMATEXTPROC) sogl_loadOpenGLFunction("glVertexArrayVertexAttribLFormatEXT");
+    if (!glVertexArrayVertexAttribLFormatEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glVertexArrayVertexAttribLFormatEXT";
+    }
     glVertexArrayVertexAttribBindingEXT = (PFNGLVERTEXARRAYVERTEXATTRIBBINDINGEXTPROC) sogl_loadOpenGLFunction("glVertexArrayVertexAttribBindingEXT");
+    if (!glVertexArrayVertexAttribBindingEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glVertexArrayVertexAttribBindingEXT";
+    }
     glVertexArrayVertexBindingDivisorEXT = (PFNGLVERTEXARRAYVERTEXBINDINGDIVISOREXTPROC) sogl_loadOpenGLFunction("glVertexArrayVertexBindingDivisorEXT");
+    if (!glVertexArrayVertexBindingDivisorEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glVertexArrayVertexBindingDivisorEXT";
+    }
     glVertexArrayVertexAttribLOffsetEXT = (PFNGLVERTEXARRAYVERTEXATTRIBLOFFSETEXTPROC) sogl_loadOpenGLFunction("glVertexArrayVertexAttribLOffsetEXT");
+    if (!glVertexArrayVertexAttribLOffsetEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glVertexArrayVertexAttribLOffsetEXT";
+    }
     glTexturePageCommitmentEXT = (PFNGLTEXTUREPAGECOMMITMENTEXTPROC) sogl_loadOpenGLFunction("glTexturePageCommitmentEXT");
+    if (!glTexturePageCommitmentEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glTexturePageCommitmentEXT";
+    }
     glVertexArrayVertexAttribDivisorEXT = (PFNGLVERTEXARRAYVERTEXATTRIBDIVISOREXTPROC) sogl_loadOpenGLFunction("glVertexArrayVertexAttribDivisorEXT");
+    if (!glVertexArrayVertexAttribDivisorEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glVertexArrayVertexAttribDivisorEXT";
+    }
 #endif /* SOGL_EXT_direct_state_access */
 
 #ifdef SOGL_EXT_draw_instanced
     glDrawArraysInstancedEXT = (PFNGLDRAWARRAYSINSTANCEDEXTPROC) sogl_loadOpenGLFunction("glDrawArraysInstancedEXT");
+    if (!glDrawArraysInstancedEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glDrawArraysInstancedEXT";
+    }
     glDrawElementsInstancedEXT = (PFNGLDRAWELEMENTSINSTANCEDEXTPROC) sogl_loadOpenGLFunction("glDrawElementsInstancedEXT");
+    if (!glDrawElementsInstancedEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glDrawElementsInstancedEXT";
+    }
 #endif /* SOGL_EXT_draw_instanced */
 
 #ifdef SOGL_EXT_polygon_offset_clamp
     glPolygonOffsetClampEXT = (PFNGLPOLYGONOFFSETCLAMPEXTPROC) sogl_loadOpenGLFunction("glPolygonOffsetClampEXT");
+    if (!glPolygonOffsetClampEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glPolygonOffsetClampEXT";
+    }
 #endif /* SOGL_EXT_polygon_offset_clamp */
 
 #ifdef SOGL_EXT_raster_multisample
     glRasterSamplesEXT = (PFNGLRASTERSAMPLESEXTPROC) sogl_loadOpenGLFunction("glRasterSamplesEXT");
+    if (!glRasterSamplesEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glRasterSamplesEXT";
+    }
 #endif /* SOGL_EXT_raster_multisample */
 
 #ifdef SOGL_EXT_separate_shader_objects
     glUseShaderProgramEXT = (PFNGLUSESHADERPROGRAMEXTPROC) sogl_loadOpenGLFunction("glUseShaderProgramEXT");
+    if (!glUseShaderProgramEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glUseShaderProgramEXT";
+    }
     glActiveProgramEXT = (PFNGLACTIVEPROGRAMEXTPROC) sogl_loadOpenGLFunction("glActiveProgramEXT");
+    if (!glActiveProgramEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glActiveProgramEXT";
+    }
     glCreateShaderProgramEXT = (PFNGLCREATESHADERPROGRAMEXTPROC) sogl_loadOpenGLFunction("glCreateShaderProgramEXT");
+    if (!glCreateShaderProgramEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glCreateShaderProgramEXT";
+    }
 #endif /* SOGL_EXT_separate_shader_objects */
 
 #ifdef SOGL_EXT_shader_framebuffer_fetch_non_coherent
     glFramebufferFetchBarrierEXT = (PFNGLFRAMEBUFFERFETCHBARRIEREXTPROC) sogl_loadOpenGLFunction("glFramebufferFetchBarrierEXT");
+    if (!glFramebufferFetchBarrierEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glFramebufferFetchBarrierEXT";
+    }
 #endif /* SOGL_EXT_shader_framebuffer_fetch_non_coherent */
 
 #ifdef SOGL_EXT_window_rectangles
     glWindowRectanglesEXT = (PFNGLWINDOWRECTANGLESEXTPROC) sogl_loadOpenGLFunction("glWindowRectanglesEXT");
+    if (!glWindowRectanglesEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glWindowRectanglesEXT";
+    }
 #endif /* SOGL_EXT_window_rectangles */
 
 #ifdef SOGL_INTEL_framebuffer_CMAA
     glApplyFramebufferAttachmentCMAAINTEL = (PFNGLAPPLYFRAMEBUFFERATTACHMENTCMAAINTELPROC) sogl_loadOpenGLFunction("glApplyFramebufferAttachmentCMAAINTEL");
+    if (!glApplyFramebufferAttachmentCMAAINTEL && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glApplyFramebufferAttachmentCMAAINTEL";
+    }
 #endif /* SOGL_INTEL_framebuffer_CMAA */
 
 #ifdef SOGL_INTEL_performance_query
     glBeginPerfQueryINTEL = (PFNGLBEGINPERFQUERYINTELPROC) sogl_loadOpenGLFunction("glBeginPerfQueryINTEL");
+    if (!glBeginPerfQueryINTEL && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glBeginPerfQueryINTEL";
+    }
     glCreatePerfQueryINTEL = (PFNGLCREATEPERFQUERYINTELPROC) sogl_loadOpenGLFunction("glCreatePerfQueryINTEL");
+    if (!glCreatePerfQueryINTEL && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glCreatePerfQueryINTEL";
+    }
     glDeletePerfQueryINTEL = (PFNGLDELETEPERFQUERYINTELPROC) sogl_loadOpenGLFunction("glDeletePerfQueryINTEL");
+    if (!glDeletePerfQueryINTEL && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glDeletePerfQueryINTEL";
+    }
     glEndPerfQueryINTEL = (PFNGLENDPERFQUERYINTELPROC) sogl_loadOpenGLFunction("glEndPerfQueryINTEL");
+    if (!glEndPerfQueryINTEL && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glEndPerfQueryINTEL";
+    }
     glGetFirstPerfQueryIdINTEL = (PFNGLGETFIRSTPERFQUERYIDINTELPROC) sogl_loadOpenGLFunction("glGetFirstPerfQueryIdINTEL");
+    if (!glGetFirstPerfQueryIdINTEL && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glGetFirstPerfQueryIdINTEL";
+    }
     glGetNextPerfQueryIdINTEL = (PFNGLGETNEXTPERFQUERYIDINTELPROC) sogl_loadOpenGLFunction("glGetNextPerfQueryIdINTEL");
+    if (!glGetNextPerfQueryIdINTEL && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glGetNextPerfQueryIdINTEL";
+    }
     glGetPerfCounterInfoINTEL = (PFNGLGETPERFCOUNTERINFOINTELPROC) sogl_loadOpenGLFunction("glGetPerfCounterInfoINTEL");
+    if (!glGetPerfCounterInfoINTEL && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glGetPerfCounterInfoINTEL";
+    }
     glGetPerfQueryDataINTEL = (PFNGLGETPERFQUERYDATAINTELPROC) sogl_loadOpenGLFunction("glGetPerfQueryDataINTEL");
+    if (!glGetPerfQueryDataINTEL && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glGetPerfQueryDataINTEL";
+    }
     glGetPerfQueryIdByNameINTEL = (PFNGLGETPERFQUERYIDBYNAMEINTELPROC) sogl_loadOpenGLFunction("glGetPerfQueryIdByNameINTEL");
+    if (!glGetPerfQueryIdByNameINTEL && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glGetPerfQueryIdByNameINTEL";
+    }
     glGetPerfQueryInfoINTEL = (PFNGLGETPERFQUERYINFOINTELPROC) sogl_loadOpenGLFunction("glGetPerfQueryInfoINTEL");
+    if (!glGetPerfQueryInfoINTEL && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glGetPerfQueryInfoINTEL";
+    }
 #endif /* SOGL_INTEL_performance_query */
 
 #ifdef SOGL_MESA_framebuffer_flip_y
     glFramebufferParameteriMESA = (PFNGLFRAMEBUFFERPARAMETERIMESAPROC) sogl_loadOpenGLFunction("glFramebufferParameteriMESA");
+    if (!glFramebufferParameteriMESA && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glFramebufferParameteriMESA";
+    }
     glGetFramebufferParameterivMESA = (PFNGLGETFRAMEBUFFERPARAMETERIVMESAPROC) sogl_loadOpenGLFunction("glGetFramebufferParameterivMESA");
+    if (!glGetFramebufferParameterivMESA && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glGetFramebufferParameterivMESA";
+    }
 #endif /* SOGL_MESA_framebuffer_flip_y */
 
 #ifdef SOGL_NV_bindless_multi_draw_indirect
     glMultiDrawArraysIndirectBindlessNV = (PFNGLMULTIDRAWARRAYSINDIRECTBINDLESSNVPROC) sogl_loadOpenGLFunction("glMultiDrawArraysIndirectBindlessNV");
+    if (!glMultiDrawArraysIndirectBindlessNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glMultiDrawArraysIndirectBindlessNV";
+    }
     glMultiDrawElementsIndirectBindlessNV = (PFNGLMULTIDRAWELEMENTSINDIRECTBINDLESSNVPROC) sogl_loadOpenGLFunction("glMultiDrawElementsIndirectBindlessNV");
+    if (!glMultiDrawElementsIndirectBindlessNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glMultiDrawElementsIndirectBindlessNV";
+    }
 #endif /* SOGL_NV_bindless_multi_draw_indirect */
 
 #ifdef SOGL_NV_bindless_multi_draw_indirect_count
     glMultiDrawArraysIndirectBindlessCountNV = (PFNGLMULTIDRAWARRAYSINDIRECTBINDLESSCOUNTNVPROC) sogl_loadOpenGLFunction("glMultiDrawArraysIndirectBindlessCountNV");
+    if (!glMultiDrawArraysIndirectBindlessCountNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glMultiDrawArraysIndirectBindlessCountNV";
+    }
     glMultiDrawElementsIndirectBindlessCountNV = (PFNGLMULTIDRAWELEMENTSINDIRECTBINDLESSCOUNTNVPROC) sogl_loadOpenGLFunction("glMultiDrawElementsIndirectBindlessCountNV");
+    if (!glMultiDrawElementsIndirectBindlessCountNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glMultiDrawElementsIndirectBindlessCountNV";
+    }
 #endif /* SOGL_NV_bindless_multi_draw_indirect_count */
 
 #ifdef SOGL_NV_bindless_texture
     glGetTextureHandleNV = (PFNGLGETTEXTUREHANDLENVPROC) sogl_loadOpenGLFunction("glGetTextureHandleNV");
+    if (!glGetTextureHandleNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glGetTextureHandleNV";
+    }
     glGetTextureSamplerHandleNV = (PFNGLGETTEXTURESAMPLERHANDLENVPROC) sogl_loadOpenGLFunction("glGetTextureSamplerHandleNV");
+    if (!glGetTextureSamplerHandleNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glGetTextureSamplerHandleNV";
+    }
     glMakeTextureHandleResidentNV = (PFNGLMAKETEXTUREHANDLERESIDENTNVPROC) sogl_loadOpenGLFunction("glMakeTextureHandleResidentNV");
+    if (!glMakeTextureHandleResidentNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glMakeTextureHandleResidentNV";
+    }
     glMakeTextureHandleNonResidentNV = (PFNGLMAKETEXTUREHANDLENONRESIDENTNVPROC) sogl_loadOpenGLFunction("glMakeTextureHandleNonResidentNV");
+    if (!glMakeTextureHandleNonResidentNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glMakeTextureHandleNonResidentNV";
+    }
     glGetImageHandleNV = (PFNGLGETIMAGEHANDLENVPROC) sogl_loadOpenGLFunction("glGetImageHandleNV");
+    if (!glGetImageHandleNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glGetImageHandleNV";
+    }
     glMakeImageHandleResidentNV = (PFNGLMAKEIMAGEHANDLERESIDENTNVPROC) sogl_loadOpenGLFunction("glMakeImageHandleResidentNV");
+    if (!glMakeImageHandleResidentNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glMakeImageHandleResidentNV";
+    }
     glMakeImageHandleNonResidentNV = (PFNGLMAKEIMAGEHANDLENONRESIDENTNVPROC) sogl_loadOpenGLFunction("glMakeImageHandleNonResidentNV");
+    if (!glMakeImageHandleNonResidentNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glMakeImageHandleNonResidentNV";
+    }
     glUniformHandleui64NV = (PFNGLUNIFORMHANDLEUI64NVPROC) sogl_loadOpenGLFunction("glUniformHandleui64NV");
+    if (!glUniformHandleui64NV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glUniformHandleui64NV";
+    }
     glUniformHandleui64vNV = (PFNGLUNIFORMHANDLEUI64VNVPROC) sogl_loadOpenGLFunction("glUniformHandleui64vNV");
+    if (!glUniformHandleui64vNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glUniformHandleui64vNV";
+    }
     glProgramUniformHandleui64NV = (PFNGLPROGRAMUNIFORMHANDLEUI64NVPROC) sogl_loadOpenGLFunction("glProgramUniformHandleui64NV");
+    if (!glProgramUniformHandleui64NV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glProgramUniformHandleui64NV";
+    }
     glProgramUniformHandleui64vNV = (PFNGLPROGRAMUNIFORMHANDLEUI64VNVPROC) sogl_loadOpenGLFunction("glProgramUniformHandleui64vNV");
+    if (!glProgramUniformHandleui64vNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glProgramUniformHandleui64vNV";
+    }
     glIsTextureHandleResidentNV = (PFNGLISTEXTUREHANDLERESIDENTNVPROC) sogl_loadOpenGLFunction("glIsTextureHandleResidentNV");
+    if (!glIsTextureHandleResidentNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glIsTextureHandleResidentNV";
+    }
     glIsImageHandleResidentNV = (PFNGLISIMAGEHANDLERESIDENTNVPROC) sogl_loadOpenGLFunction("glIsImageHandleResidentNV");
+    if (!glIsImageHandleResidentNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glIsImageHandleResidentNV";
+    }
 #endif /* SOGL_NV_bindless_texture */
 
 #ifdef SOGL_NV_blend_equation_advanced
     glBlendParameteriNV = (PFNGLBLENDPARAMETERINVPROC) sogl_loadOpenGLFunction("glBlendParameteriNV");
+    if (!glBlendParameteriNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glBlendParameteriNV";
+    }
     glBlendBarrierNV = (PFNGLBLENDBARRIERNVPROC) sogl_loadOpenGLFunction("glBlendBarrierNV");
+    if (!glBlendBarrierNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glBlendBarrierNV";
+    }
 #endif /* SOGL_NV_blend_equation_advanced */
 
 #ifdef SOGL_NV_clip_space_w_scaling
     glViewportPositionWScaleNV = (PFNGLVIEWPORTPOSITIONWSCALENVPROC) sogl_loadOpenGLFunction("glViewportPositionWScaleNV");
+    if (!glViewportPositionWScaleNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glViewportPositionWScaleNV";
+    }
 #endif /* SOGL_NV_clip_space_w_scaling */
 
 #ifdef SOGL_NV_command_list
     glCreateStatesNV = (PFNGLCREATESTATESNVPROC) sogl_loadOpenGLFunction("glCreateStatesNV");
+    if (!glCreateStatesNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glCreateStatesNV";
+    }
     glDeleteStatesNV = (PFNGLDELETESTATESNVPROC) sogl_loadOpenGLFunction("glDeleteStatesNV");
+    if (!glDeleteStatesNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glDeleteStatesNV";
+    }
     glIsStateNV = (PFNGLISSTATENVPROC) sogl_loadOpenGLFunction("glIsStateNV");
+    if (!glIsStateNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glIsStateNV";
+    }
     glStateCaptureNV = (PFNGLSTATECAPTURENVPROC) sogl_loadOpenGLFunction("glStateCaptureNV");
+    if (!glStateCaptureNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glStateCaptureNV";
+    }
     glGetCommandHeaderNV = (PFNGLGETCOMMANDHEADERNVPROC) sogl_loadOpenGLFunction("glGetCommandHeaderNV");
+    if (!glGetCommandHeaderNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glGetCommandHeaderNV";
+    }
     glGetStageIndexNV = (PFNGLGETSTAGEINDEXNVPROC) sogl_loadOpenGLFunction("glGetStageIndexNV");
+    if (!glGetStageIndexNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glGetStageIndexNV";
+    }
     glDrawCommandsNV = (PFNGLDRAWCOMMANDSNVPROC) sogl_loadOpenGLFunction("glDrawCommandsNV");
+    if (!glDrawCommandsNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glDrawCommandsNV";
+    }
     glDrawCommandsAddressNV = (PFNGLDRAWCOMMANDSADDRESSNVPROC) sogl_loadOpenGLFunction("glDrawCommandsAddressNV");
+    if (!glDrawCommandsAddressNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glDrawCommandsAddressNV";
+    }
     glDrawCommandsStatesNV = (PFNGLDRAWCOMMANDSSTATESNVPROC) sogl_loadOpenGLFunction("glDrawCommandsStatesNV");
+    if (!glDrawCommandsStatesNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glDrawCommandsStatesNV";
+    }
     glDrawCommandsStatesAddressNV = (PFNGLDRAWCOMMANDSSTATESADDRESSNVPROC) sogl_loadOpenGLFunction("glDrawCommandsStatesAddressNV");
+    if (!glDrawCommandsStatesAddressNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glDrawCommandsStatesAddressNV";
+    }
     glCreateCommandListsNV = (PFNGLCREATECOMMANDLISTSNVPROC) sogl_loadOpenGLFunction("glCreateCommandListsNV");
+    if (!glCreateCommandListsNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glCreateCommandListsNV";
+    }
     glDeleteCommandListsNV = (PFNGLDELETECOMMANDLISTSNVPROC) sogl_loadOpenGLFunction("glDeleteCommandListsNV");
+    if (!glDeleteCommandListsNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glDeleteCommandListsNV";
+    }
     glIsCommandListNV = (PFNGLISCOMMANDLISTNVPROC) sogl_loadOpenGLFunction("glIsCommandListNV");
+    if (!glIsCommandListNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glIsCommandListNV";
+    }
     glListDrawCommandsStatesClientNV = (PFNGLLISTDRAWCOMMANDSSTATESCLIENTNVPROC) sogl_loadOpenGLFunction("glListDrawCommandsStatesClientNV");
+    if (!glListDrawCommandsStatesClientNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glListDrawCommandsStatesClientNV";
+    }
     glCommandListSegmentsNV = (PFNGLCOMMANDLISTSEGMENTSNVPROC) sogl_loadOpenGLFunction("glCommandListSegmentsNV");
+    if (!glCommandListSegmentsNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glCommandListSegmentsNV";
+    }
     glCompileCommandListNV = (PFNGLCOMPILECOMMANDLISTNVPROC) sogl_loadOpenGLFunction("glCompileCommandListNV");
+    if (!glCompileCommandListNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glCompileCommandListNV";
+    }
     glCallCommandListNV = (PFNGLCALLCOMMANDLISTNVPROC) sogl_loadOpenGLFunction("glCallCommandListNV");
+    if (!glCallCommandListNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glCallCommandListNV";
+    }
 #endif /* SOGL_NV_command_list */
 
 #ifdef SOGL_NV_conditional_render
     glBeginConditionalRenderNV = (PFNGLBEGINCONDITIONALRENDERNVPROC) sogl_loadOpenGLFunction("glBeginConditionalRenderNV");
+    if (!glBeginConditionalRenderNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glBeginConditionalRenderNV";
+    }
     glEndConditionalRenderNV = (PFNGLENDCONDITIONALRENDERNVPROC) sogl_loadOpenGLFunction("glEndConditionalRenderNV");
+    if (!glEndConditionalRenderNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glEndConditionalRenderNV";
+    }
 #endif /* SOGL_NV_conditional_render */
 
 #ifdef SOGL_NV_conservative_raster
     glSubpixelPrecisionBiasNV = (PFNGLSUBPIXELPRECISIONBIASNVPROC) sogl_loadOpenGLFunction("glSubpixelPrecisionBiasNV");
+    if (!glSubpixelPrecisionBiasNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glSubpixelPrecisionBiasNV";
+    }
 #endif /* SOGL_NV_conservative_raster */
 
 #ifdef SOGL_NV_conservative_raster_dilate
     glConservativeRasterParameterfNV = (PFNGLCONSERVATIVERASTERPARAMETERFNVPROC) sogl_loadOpenGLFunction("glConservativeRasterParameterfNV");
+    if (!glConservativeRasterParameterfNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glConservativeRasterParameterfNV";
+    }
 #endif /* SOGL_NV_conservative_raster_dilate */
 
 #ifdef SOGL_NV_conservative_raster_pre_snap_triangles
     glConservativeRasterParameteriNV = (PFNGLCONSERVATIVERASTERPARAMETERINVPROC) sogl_loadOpenGLFunction("glConservativeRasterParameteriNV");
+    if (!glConservativeRasterParameteriNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glConservativeRasterParameteriNV";
+    }
 #endif /* SOGL_NV_conservative_raster_pre_snap_triangles */
 
 #ifdef SOGL_NV_depth_buffer_float
     glDepthRangedNV = (PFNGLDEPTHRANGEDNVPROC) sogl_loadOpenGLFunction("glDepthRangedNV");
+    if (!glDepthRangedNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glDepthRangedNV";
+    }
     glClearDepthdNV = (PFNGLCLEARDEPTHDNVPROC) sogl_loadOpenGLFunction("glClearDepthdNV");
+    if (!glClearDepthdNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glClearDepthdNV";
+    }
     glDepthBoundsdNV = (PFNGLDEPTHBOUNDSDNVPROC) sogl_loadOpenGLFunction("glDepthBoundsdNV");
+    if (!glDepthBoundsdNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glDepthBoundsdNV";
+    }
 #endif /* SOGL_NV_depth_buffer_float */
 
 #ifdef SOGL_NV_draw_vulkan_image
     glDrawVkImageNV = (PFNGLDRAWVKIMAGENVPROC) sogl_loadOpenGLFunction("glDrawVkImageNV");
+    if (!glDrawVkImageNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glDrawVkImageNV";
+    }
     glGetVkProcAddrNV = (PFNGLGETVKPROCADDRNVPROC) sogl_loadOpenGLFunction("glGetVkProcAddrNV");
+    if (!glGetVkProcAddrNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glGetVkProcAddrNV";
+    }
     glWaitVkSemaphoreNV = (PFNGLWAITVKSEMAPHORENVPROC) sogl_loadOpenGLFunction("glWaitVkSemaphoreNV");
+    if (!glWaitVkSemaphoreNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glWaitVkSemaphoreNV";
+    }
     glSignalVkSemaphoreNV = (PFNGLSIGNALVKSEMAPHORENVPROC) sogl_loadOpenGLFunction("glSignalVkSemaphoreNV");
+    if (!glSignalVkSemaphoreNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glSignalVkSemaphoreNV";
+    }
     glSignalVkFenceNV = (PFNGLSIGNALVKFENCENVPROC) sogl_loadOpenGLFunction("glSignalVkFenceNV");
+    if (!glSignalVkFenceNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glSignalVkFenceNV";
+    }
 #endif /* SOGL_NV_draw_vulkan_image */
 
 #ifdef SOGL_NV_fragment_coverage_to_color
     glFragmentCoverageColorNV = (PFNGLFRAGMENTCOVERAGECOLORNVPROC) sogl_loadOpenGLFunction("glFragmentCoverageColorNV");
+    if (!glFragmentCoverageColorNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glFragmentCoverageColorNV";
+    }
 #endif /* SOGL_NV_fragment_coverage_to_color */
 
 #ifdef SOGL_NV_framebuffer_mixed_samples
     glCoverageModulationTableNV = (PFNGLCOVERAGEMODULATIONTABLENVPROC) sogl_loadOpenGLFunction("glCoverageModulationTableNV");
+    if (!glCoverageModulationTableNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glCoverageModulationTableNV";
+    }
     glGetCoverageModulationTableNV = (PFNGLGETCOVERAGEMODULATIONTABLENVPROC) sogl_loadOpenGLFunction("glGetCoverageModulationTableNV");
+    if (!glGetCoverageModulationTableNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glGetCoverageModulationTableNV";
+    }
     glCoverageModulationNV = (PFNGLCOVERAGEMODULATIONNVPROC) sogl_loadOpenGLFunction("glCoverageModulationNV");
+    if (!glCoverageModulationNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glCoverageModulationNV";
+    }
 #endif /* SOGL_NV_framebuffer_mixed_samples */
 
 #ifdef SOGL_NV_framebuffer_multisample_coverage
     glRenderbufferStorageMultisampleCoverageNV = (PFNGLRENDERBUFFERSTORAGEMULTISAMPLECOVERAGENVPROC) sogl_loadOpenGLFunction("glRenderbufferStorageMultisampleCoverageNV");
+    if (!glRenderbufferStorageMultisampleCoverageNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glRenderbufferStorageMultisampleCoverageNV";
+    }
 #endif /* SOGL_NV_framebuffer_multisample_coverage */
 
 #ifdef SOGL_NV_gpu_shader5
     glUniform1i64NV = (PFNGLUNIFORM1I64NVPROC) sogl_loadOpenGLFunction("glUniform1i64NV");
+    if (!glUniform1i64NV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glUniform1i64NV";
+    }
     glUniform2i64NV = (PFNGLUNIFORM2I64NVPROC) sogl_loadOpenGLFunction("glUniform2i64NV");
+    if (!glUniform2i64NV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glUniform2i64NV";
+    }
     glUniform3i64NV = (PFNGLUNIFORM3I64NVPROC) sogl_loadOpenGLFunction("glUniform3i64NV");
+    if (!glUniform3i64NV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glUniform3i64NV";
+    }
     glUniform4i64NV = (PFNGLUNIFORM4I64NVPROC) sogl_loadOpenGLFunction("glUniform4i64NV");
+    if (!glUniform4i64NV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glUniform4i64NV";
+    }
     glUniform1i64vNV = (PFNGLUNIFORM1I64VNVPROC) sogl_loadOpenGLFunction("glUniform1i64vNV");
+    if (!glUniform1i64vNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glUniform1i64vNV";
+    }
     glUniform2i64vNV = (PFNGLUNIFORM2I64VNVPROC) sogl_loadOpenGLFunction("glUniform2i64vNV");
+    if (!glUniform2i64vNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glUniform2i64vNV";
+    }
     glUniform3i64vNV = (PFNGLUNIFORM3I64VNVPROC) sogl_loadOpenGLFunction("glUniform3i64vNV");
+    if (!glUniform3i64vNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glUniform3i64vNV";
+    }
     glUniform4i64vNV = (PFNGLUNIFORM4I64VNVPROC) sogl_loadOpenGLFunction("glUniform4i64vNV");
+    if (!glUniform4i64vNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glUniform4i64vNV";
+    }
     glUniform1ui64NV = (PFNGLUNIFORM1UI64NVPROC) sogl_loadOpenGLFunction("glUniform1ui64NV");
+    if (!glUniform1ui64NV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glUniform1ui64NV";
+    }
     glUniform2ui64NV = (PFNGLUNIFORM2UI64NVPROC) sogl_loadOpenGLFunction("glUniform2ui64NV");
+    if (!glUniform2ui64NV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glUniform2ui64NV";
+    }
     glUniform3ui64NV = (PFNGLUNIFORM3UI64NVPROC) sogl_loadOpenGLFunction("glUniform3ui64NV");
+    if (!glUniform3ui64NV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glUniform3ui64NV";
+    }
     glUniform4ui64NV = (PFNGLUNIFORM4UI64NVPROC) sogl_loadOpenGLFunction("glUniform4ui64NV");
+    if (!glUniform4ui64NV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glUniform4ui64NV";
+    }
     glUniform1ui64vNV = (PFNGLUNIFORM1UI64VNVPROC) sogl_loadOpenGLFunction("glUniform1ui64vNV");
+    if (!glUniform1ui64vNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glUniform1ui64vNV";
+    }
     glUniform2ui64vNV = (PFNGLUNIFORM2UI64VNVPROC) sogl_loadOpenGLFunction("glUniform2ui64vNV");
+    if (!glUniform2ui64vNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glUniform2ui64vNV";
+    }
     glUniform3ui64vNV = (PFNGLUNIFORM3UI64VNVPROC) sogl_loadOpenGLFunction("glUniform3ui64vNV");
+    if (!glUniform3ui64vNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glUniform3ui64vNV";
+    }
     glUniform4ui64vNV = (PFNGLUNIFORM4UI64VNVPROC) sogl_loadOpenGLFunction("glUniform4ui64vNV");
+    if (!glUniform4ui64vNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glUniform4ui64vNV";
+    }
     glGetUniformi64vNV = (PFNGLGETUNIFORMI64VNVPROC) sogl_loadOpenGLFunction("glGetUniformi64vNV");
+    if (!glGetUniformi64vNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glGetUniformi64vNV";
+    }
     glProgramUniform1i64NV = (PFNGLPROGRAMUNIFORM1I64NVPROC) sogl_loadOpenGLFunction("glProgramUniform1i64NV");
+    if (!glProgramUniform1i64NV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glProgramUniform1i64NV";
+    }
     glProgramUniform2i64NV = (PFNGLPROGRAMUNIFORM2I64NVPROC) sogl_loadOpenGLFunction("glProgramUniform2i64NV");
+    if (!glProgramUniform2i64NV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glProgramUniform2i64NV";
+    }
     glProgramUniform3i64NV = (PFNGLPROGRAMUNIFORM3I64NVPROC) sogl_loadOpenGLFunction("glProgramUniform3i64NV");
+    if (!glProgramUniform3i64NV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glProgramUniform3i64NV";
+    }
     glProgramUniform4i64NV = (PFNGLPROGRAMUNIFORM4I64NVPROC) sogl_loadOpenGLFunction("glProgramUniform4i64NV");
+    if (!glProgramUniform4i64NV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glProgramUniform4i64NV";
+    }
     glProgramUniform1i64vNV = (PFNGLPROGRAMUNIFORM1I64VNVPROC) sogl_loadOpenGLFunction("glProgramUniform1i64vNV");
+    if (!glProgramUniform1i64vNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glProgramUniform1i64vNV";
+    }
     glProgramUniform2i64vNV = (PFNGLPROGRAMUNIFORM2I64VNVPROC) sogl_loadOpenGLFunction("glProgramUniform2i64vNV");
+    if (!glProgramUniform2i64vNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glProgramUniform2i64vNV";
+    }
     glProgramUniform3i64vNV = (PFNGLPROGRAMUNIFORM3I64VNVPROC) sogl_loadOpenGLFunction("glProgramUniform3i64vNV");
+    if (!glProgramUniform3i64vNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glProgramUniform3i64vNV";
+    }
     glProgramUniform4i64vNV = (PFNGLPROGRAMUNIFORM4I64VNVPROC) sogl_loadOpenGLFunction("glProgramUniform4i64vNV");
+    if (!glProgramUniform4i64vNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glProgramUniform4i64vNV";
+    }
     glProgramUniform1ui64NV = (PFNGLPROGRAMUNIFORM1UI64NVPROC) sogl_loadOpenGLFunction("glProgramUniform1ui64NV");
+    if (!glProgramUniform1ui64NV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glProgramUniform1ui64NV";
+    }
     glProgramUniform2ui64NV = (PFNGLPROGRAMUNIFORM2UI64NVPROC) sogl_loadOpenGLFunction("glProgramUniform2ui64NV");
+    if (!glProgramUniform2ui64NV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glProgramUniform2ui64NV";
+    }
     glProgramUniform3ui64NV = (PFNGLPROGRAMUNIFORM3UI64NVPROC) sogl_loadOpenGLFunction("glProgramUniform3ui64NV");
+    if (!glProgramUniform3ui64NV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glProgramUniform3ui64NV";
+    }
     glProgramUniform4ui64NV = (PFNGLPROGRAMUNIFORM4UI64NVPROC) sogl_loadOpenGLFunction("glProgramUniform4ui64NV");
+    if (!glProgramUniform4ui64NV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glProgramUniform4ui64NV";
+    }
     glProgramUniform1ui64vNV = (PFNGLPROGRAMUNIFORM1UI64VNVPROC) sogl_loadOpenGLFunction("glProgramUniform1ui64vNV");
+    if (!glProgramUniform1ui64vNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glProgramUniform1ui64vNV";
+    }
     glProgramUniform2ui64vNV = (PFNGLPROGRAMUNIFORM2UI64VNVPROC) sogl_loadOpenGLFunction("glProgramUniform2ui64vNV");
+    if (!glProgramUniform2ui64vNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glProgramUniform2ui64vNV";
+    }
     glProgramUniform3ui64vNV = (PFNGLPROGRAMUNIFORM3UI64VNVPROC) sogl_loadOpenGLFunction("glProgramUniform3ui64vNV");
+    if (!glProgramUniform3ui64vNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glProgramUniform3ui64vNV";
+    }
     glProgramUniform4ui64vNV = (PFNGLPROGRAMUNIFORM4UI64VNVPROC) sogl_loadOpenGLFunction("glProgramUniform4ui64vNV");
+    if (!glProgramUniform4ui64vNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glProgramUniform4ui64vNV";
+    }
 #endif /* SOGL_NV_gpu_shader5 */
 
 #ifdef SOGL_NV_internalformat_sample_query
     glGetInternalformatSampleivNV = (PFNGLGETINTERNALFORMATSAMPLEIVNVPROC) sogl_loadOpenGLFunction("glGetInternalformatSampleivNV");
+    if (!glGetInternalformatSampleivNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glGetInternalformatSampleivNV";
+    }
 #endif /* SOGL_NV_internalformat_sample_query */
 
 #ifdef SOGL_NV_memory_attachment
     glGetMemoryObjectDetachedResourcesuivNV = (PFNGLGETMEMORYOBJECTDETACHEDRESOURCESUIVNVPROC) sogl_loadOpenGLFunction("glGetMemoryObjectDetachedResourcesuivNV");
+    if (!glGetMemoryObjectDetachedResourcesuivNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glGetMemoryObjectDetachedResourcesuivNV";
+    }
     glResetMemoryObjectParameterNV = (PFNGLRESETMEMORYOBJECTPARAMETERNVPROC) sogl_loadOpenGLFunction("glResetMemoryObjectParameterNV");
+    if (!glResetMemoryObjectParameterNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glResetMemoryObjectParameterNV";
+    }
     glTexAttachMemoryNV = (PFNGLTEXATTACHMEMORYNVPROC) sogl_loadOpenGLFunction("glTexAttachMemoryNV");
+    if (!glTexAttachMemoryNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glTexAttachMemoryNV";
+    }
     glBufferAttachMemoryNV = (PFNGLBUFFERATTACHMEMORYNVPROC) sogl_loadOpenGLFunction("glBufferAttachMemoryNV");
+    if (!glBufferAttachMemoryNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glBufferAttachMemoryNV";
+    }
     glTextureAttachMemoryNV = (PFNGLTEXTUREATTACHMEMORYNVPROC) sogl_loadOpenGLFunction("glTextureAttachMemoryNV");
+    if (!glTextureAttachMemoryNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glTextureAttachMemoryNV";
+    }
     glNamedBufferAttachMemoryNV = (PFNGLNAMEDBUFFERATTACHMEMORYNVPROC) sogl_loadOpenGLFunction("glNamedBufferAttachMemoryNV");
+    if (!glNamedBufferAttachMemoryNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glNamedBufferAttachMemoryNV";
+    }
 #endif /* SOGL_NV_memory_attachment */
 
 #ifdef SOGL_NV_memory_object_sparse
     glBufferPageCommitmentMemNV = (PFNGLBUFFERPAGECOMMITMENTMEMNVPROC) sogl_loadOpenGLFunction("glBufferPageCommitmentMemNV");
+    if (!glBufferPageCommitmentMemNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glBufferPageCommitmentMemNV";
+    }
     glTexPageCommitmentMemNV = (PFNGLTEXPAGECOMMITMENTMEMNVPROC) sogl_loadOpenGLFunction("glTexPageCommitmentMemNV");
+    if (!glTexPageCommitmentMemNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glTexPageCommitmentMemNV";
+    }
     glNamedBufferPageCommitmentMemNV = (PFNGLNAMEDBUFFERPAGECOMMITMENTMEMNVPROC) sogl_loadOpenGLFunction("glNamedBufferPageCommitmentMemNV");
+    if (!glNamedBufferPageCommitmentMemNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glNamedBufferPageCommitmentMemNV";
+    }
     glTexturePageCommitmentMemNV = (PFNGLTEXTUREPAGECOMMITMENTMEMNVPROC) sogl_loadOpenGLFunction("glTexturePageCommitmentMemNV");
+    if (!glTexturePageCommitmentMemNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glTexturePageCommitmentMemNV";
+    }
 #endif /* SOGL_NV_memory_object_sparse */
 
 #ifdef SOGL_NV_mesh_shader
     glDrawMeshTasksNV = (PFNGLDRAWMESHTASKSNVPROC) sogl_loadOpenGLFunction("glDrawMeshTasksNV");
+    if (!glDrawMeshTasksNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glDrawMeshTasksNV";
+    }
     glDrawMeshTasksIndirectNV = (PFNGLDRAWMESHTASKSINDIRECTNVPROC) sogl_loadOpenGLFunction("glDrawMeshTasksIndirectNV");
+    if (!glDrawMeshTasksIndirectNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glDrawMeshTasksIndirectNV";
+    }
     glMultiDrawMeshTasksIndirectNV = (PFNGLMULTIDRAWMESHTASKSINDIRECTNVPROC) sogl_loadOpenGLFunction("glMultiDrawMeshTasksIndirectNV");
+    if (!glMultiDrawMeshTasksIndirectNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glMultiDrawMeshTasksIndirectNV";
+    }
     glMultiDrawMeshTasksIndirectCountNV = (PFNGLMULTIDRAWMESHTASKSINDIRECTCOUNTNVPROC) sogl_loadOpenGLFunction("glMultiDrawMeshTasksIndirectCountNV");
+    if (!glMultiDrawMeshTasksIndirectCountNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glMultiDrawMeshTasksIndirectCountNV";
+    }
 #endif /* SOGL_NV_mesh_shader */
 
 #ifdef SOGL_NV_path_rendering
     glGenPathsNV = (PFNGLGENPATHSNVPROC) sogl_loadOpenGLFunction("glGenPathsNV");
+    if (!glGenPathsNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glGenPathsNV";
+    }
     glDeletePathsNV = (PFNGLDELETEPATHSNVPROC) sogl_loadOpenGLFunction("glDeletePathsNV");
+    if (!glDeletePathsNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glDeletePathsNV";
+    }
     glIsPathNV = (PFNGLISPATHNVPROC) sogl_loadOpenGLFunction("glIsPathNV");
+    if (!glIsPathNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glIsPathNV";
+    }
     glPathCommandsNV = (PFNGLPATHCOMMANDSNVPROC) sogl_loadOpenGLFunction("glPathCommandsNV");
+    if (!glPathCommandsNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glPathCommandsNV";
+    }
     glPathCoordsNV = (PFNGLPATHCOORDSNVPROC) sogl_loadOpenGLFunction("glPathCoordsNV");
+    if (!glPathCoordsNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glPathCoordsNV";
+    }
     glPathSubCommandsNV = (PFNGLPATHSUBCOMMANDSNVPROC) sogl_loadOpenGLFunction("glPathSubCommandsNV");
+    if (!glPathSubCommandsNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glPathSubCommandsNV";
+    }
     glPathSubCoordsNV = (PFNGLPATHSUBCOORDSNVPROC) sogl_loadOpenGLFunction("glPathSubCoordsNV");
+    if (!glPathSubCoordsNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glPathSubCoordsNV";
+    }
     glPathStringNV = (PFNGLPATHSTRINGNVPROC) sogl_loadOpenGLFunction("glPathStringNV");
+    if (!glPathStringNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glPathStringNV";
+    }
     glPathGlyphsNV = (PFNGLPATHGLYPHSNVPROC) sogl_loadOpenGLFunction("glPathGlyphsNV");
+    if (!glPathGlyphsNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glPathGlyphsNV";
+    }
     glPathGlyphRangeNV = (PFNGLPATHGLYPHRANGENVPROC) sogl_loadOpenGLFunction("glPathGlyphRangeNV");
+    if (!glPathGlyphRangeNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glPathGlyphRangeNV";
+    }
     glWeightPathsNV = (PFNGLWEIGHTPATHSNVPROC) sogl_loadOpenGLFunction("glWeightPathsNV");
+    if (!glWeightPathsNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glWeightPathsNV";
+    }
     glCopyPathNV = (PFNGLCOPYPATHNVPROC) sogl_loadOpenGLFunction("glCopyPathNV");
+    if (!glCopyPathNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glCopyPathNV";
+    }
     glInterpolatePathsNV = (PFNGLINTERPOLATEPATHSNVPROC) sogl_loadOpenGLFunction("glInterpolatePathsNV");
+    if (!glInterpolatePathsNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glInterpolatePathsNV";
+    }
     glTransformPathNV = (PFNGLTRANSFORMPATHNVPROC) sogl_loadOpenGLFunction("glTransformPathNV");
+    if (!glTransformPathNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glTransformPathNV";
+    }
     glPathParameterivNV = (PFNGLPATHPARAMETERIVNVPROC) sogl_loadOpenGLFunction("glPathParameterivNV");
+    if (!glPathParameterivNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glPathParameterivNV";
+    }
     glPathParameteriNV = (PFNGLPATHPARAMETERINVPROC) sogl_loadOpenGLFunction("glPathParameteriNV");
+    if (!glPathParameteriNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glPathParameteriNV";
+    }
     glPathParameterfvNV = (PFNGLPATHPARAMETERFVNVPROC) sogl_loadOpenGLFunction("glPathParameterfvNV");
+    if (!glPathParameterfvNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glPathParameterfvNV";
+    }
     glPathParameterfNV = (PFNGLPATHPARAMETERFNVPROC) sogl_loadOpenGLFunction("glPathParameterfNV");
+    if (!glPathParameterfNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glPathParameterfNV";
+    }
     glPathDashArrayNV = (PFNGLPATHDASHARRAYNVPROC) sogl_loadOpenGLFunction("glPathDashArrayNV");
+    if (!glPathDashArrayNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glPathDashArrayNV";
+    }
     glPathStencilFuncNV = (PFNGLPATHSTENCILFUNCNVPROC) sogl_loadOpenGLFunction("glPathStencilFuncNV");
+    if (!glPathStencilFuncNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glPathStencilFuncNV";
+    }
     glPathStencilDepthOffsetNV = (PFNGLPATHSTENCILDEPTHOFFSETNVPROC) sogl_loadOpenGLFunction("glPathStencilDepthOffsetNV");
+    if (!glPathStencilDepthOffsetNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glPathStencilDepthOffsetNV";
+    }
     glStencilFillPathNV = (PFNGLSTENCILFILLPATHNVPROC) sogl_loadOpenGLFunction("glStencilFillPathNV");
+    if (!glStencilFillPathNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glStencilFillPathNV";
+    }
     glStencilStrokePathNV = (PFNGLSTENCILSTROKEPATHNVPROC) sogl_loadOpenGLFunction("glStencilStrokePathNV");
+    if (!glStencilStrokePathNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glStencilStrokePathNV";
+    }
     glStencilFillPathInstancedNV = (PFNGLSTENCILFILLPATHINSTANCEDNVPROC) sogl_loadOpenGLFunction("glStencilFillPathInstancedNV");
+    if (!glStencilFillPathInstancedNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glStencilFillPathInstancedNV";
+    }
     glStencilStrokePathInstancedNV = (PFNGLSTENCILSTROKEPATHINSTANCEDNVPROC) sogl_loadOpenGLFunction("glStencilStrokePathInstancedNV");
+    if (!glStencilStrokePathInstancedNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glStencilStrokePathInstancedNV";
+    }
     glPathCoverDepthFuncNV = (PFNGLPATHCOVERDEPTHFUNCNVPROC) sogl_loadOpenGLFunction("glPathCoverDepthFuncNV");
+    if (!glPathCoverDepthFuncNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glPathCoverDepthFuncNV";
+    }
     glCoverFillPathNV = (PFNGLCOVERFILLPATHNVPROC) sogl_loadOpenGLFunction("glCoverFillPathNV");
+    if (!glCoverFillPathNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glCoverFillPathNV";
+    }
     glCoverStrokePathNV = (PFNGLCOVERSTROKEPATHNVPROC) sogl_loadOpenGLFunction("glCoverStrokePathNV");
+    if (!glCoverStrokePathNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glCoverStrokePathNV";
+    }
     glCoverFillPathInstancedNV = (PFNGLCOVERFILLPATHINSTANCEDNVPROC) sogl_loadOpenGLFunction("glCoverFillPathInstancedNV");
+    if (!glCoverFillPathInstancedNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glCoverFillPathInstancedNV";
+    }
     glCoverStrokePathInstancedNV = (PFNGLCOVERSTROKEPATHINSTANCEDNVPROC) sogl_loadOpenGLFunction("glCoverStrokePathInstancedNV");
+    if (!glCoverStrokePathInstancedNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glCoverStrokePathInstancedNV";
+    }
     glGetPathParameterivNV = (PFNGLGETPATHPARAMETERIVNVPROC) sogl_loadOpenGLFunction("glGetPathParameterivNV");
+    if (!glGetPathParameterivNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glGetPathParameterivNV";
+    }
     glGetPathParameterfvNV = (PFNGLGETPATHPARAMETERFVNVPROC) sogl_loadOpenGLFunction("glGetPathParameterfvNV");
+    if (!glGetPathParameterfvNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glGetPathParameterfvNV";
+    }
     glGetPathCommandsNV = (PFNGLGETPATHCOMMANDSNVPROC) sogl_loadOpenGLFunction("glGetPathCommandsNV");
+    if (!glGetPathCommandsNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glGetPathCommandsNV";
+    }
     glGetPathCoordsNV = (PFNGLGETPATHCOORDSNVPROC) sogl_loadOpenGLFunction("glGetPathCoordsNV");
+    if (!glGetPathCoordsNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glGetPathCoordsNV";
+    }
     glGetPathDashArrayNV = (PFNGLGETPATHDASHARRAYNVPROC) sogl_loadOpenGLFunction("glGetPathDashArrayNV");
+    if (!glGetPathDashArrayNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glGetPathDashArrayNV";
+    }
     glGetPathMetricsNV = (PFNGLGETPATHMETRICSNVPROC) sogl_loadOpenGLFunction("glGetPathMetricsNV");
+    if (!glGetPathMetricsNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glGetPathMetricsNV";
+    }
     glGetPathMetricRangeNV = (PFNGLGETPATHMETRICRANGENVPROC) sogl_loadOpenGLFunction("glGetPathMetricRangeNV");
+    if (!glGetPathMetricRangeNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glGetPathMetricRangeNV";
+    }
     glGetPathSpacingNV = (PFNGLGETPATHSPACINGNVPROC) sogl_loadOpenGLFunction("glGetPathSpacingNV");
+    if (!glGetPathSpacingNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glGetPathSpacingNV";
+    }
     glIsPointInFillPathNV = (PFNGLISPOINTINFILLPATHNVPROC) sogl_loadOpenGLFunction("glIsPointInFillPathNV");
+    if (!glIsPointInFillPathNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glIsPointInFillPathNV";
+    }
     glIsPointInStrokePathNV = (PFNGLISPOINTINSTROKEPATHNVPROC) sogl_loadOpenGLFunction("glIsPointInStrokePathNV");
+    if (!glIsPointInStrokePathNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glIsPointInStrokePathNV";
+    }
     glGetPathLengthNV = (PFNGLGETPATHLENGTHNVPROC) sogl_loadOpenGLFunction("glGetPathLengthNV");
+    if (!glGetPathLengthNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glGetPathLengthNV";
+    }
     glPointAlongPathNV = (PFNGLPOINTALONGPATHNVPROC) sogl_loadOpenGLFunction("glPointAlongPathNV");
+    if (!glPointAlongPathNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glPointAlongPathNV";
+    }
     glMatrixLoad3x2fNV = (PFNGLMATRIXLOAD3X2FNVPROC) sogl_loadOpenGLFunction("glMatrixLoad3x2fNV");
+    if (!glMatrixLoad3x2fNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glMatrixLoad3x2fNV";
+    }
     glMatrixLoad3x3fNV = (PFNGLMATRIXLOAD3X3FNVPROC) sogl_loadOpenGLFunction("glMatrixLoad3x3fNV");
+    if (!glMatrixLoad3x3fNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glMatrixLoad3x3fNV";
+    }
     glMatrixLoadTranspose3x3fNV = (PFNGLMATRIXLOADTRANSPOSE3X3FNVPROC) sogl_loadOpenGLFunction("glMatrixLoadTranspose3x3fNV");
+    if (!glMatrixLoadTranspose3x3fNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glMatrixLoadTranspose3x3fNV";
+    }
     glMatrixMult3x2fNV = (PFNGLMATRIXMULT3X2FNVPROC) sogl_loadOpenGLFunction("glMatrixMult3x2fNV");
+    if (!glMatrixMult3x2fNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glMatrixMult3x2fNV";
+    }
     glMatrixMult3x3fNV = (PFNGLMATRIXMULT3X3FNVPROC) sogl_loadOpenGLFunction("glMatrixMult3x3fNV");
+    if (!glMatrixMult3x3fNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glMatrixMult3x3fNV";
+    }
     glMatrixMultTranspose3x3fNV = (PFNGLMATRIXMULTTRANSPOSE3X3FNVPROC) sogl_loadOpenGLFunction("glMatrixMultTranspose3x3fNV");
+    if (!glMatrixMultTranspose3x3fNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glMatrixMultTranspose3x3fNV";
+    }
     glStencilThenCoverFillPathNV = (PFNGLSTENCILTHENCOVERFILLPATHNVPROC) sogl_loadOpenGLFunction("glStencilThenCoverFillPathNV");
+    if (!glStencilThenCoverFillPathNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glStencilThenCoverFillPathNV";
+    }
     glStencilThenCoverStrokePathNV = (PFNGLSTENCILTHENCOVERSTROKEPATHNVPROC) sogl_loadOpenGLFunction("glStencilThenCoverStrokePathNV");
+    if (!glStencilThenCoverStrokePathNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glStencilThenCoverStrokePathNV";
+    }
     glStencilThenCoverFillPathInstancedNV = (PFNGLSTENCILTHENCOVERFILLPATHINSTANCEDNVPROC) sogl_loadOpenGLFunction("glStencilThenCoverFillPathInstancedNV");
+    if (!glStencilThenCoverFillPathInstancedNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glStencilThenCoverFillPathInstancedNV";
+    }
     glStencilThenCoverStrokePathInstancedNV = (PFNGLSTENCILTHENCOVERSTROKEPATHINSTANCEDNVPROC) sogl_loadOpenGLFunction("glStencilThenCoverStrokePathInstancedNV");
+    if (!glStencilThenCoverStrokePathInstancedNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glStencilThenCoverStrokePathInstancedNV";
+    }
     glPathGlyphIndexRangeNV = (PFNGLPATHGLYPHINDEXRANGENVPROC) sogl_loadOpenGLFunction("glPathGlyphIndexRangeNV");
+    if (!glPathGlyphIndexRangeNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glPathGlyphIndexRangeNV";
+    }
     glPathGlyphIndexArrayNV = (PFNGLPATHGLYPHINDEXARRAYNVPROC) sogl_loadOpenGLFunction("glPathGlyphIndexArrayNV");
+    if (!glPathGlyphIndexArrayNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glPathGlyphIndexArrayNV";
+    }
     glPathMemoryGlyphIndexArrayNV = (PFNGLPATHMEMORYGLYPHINDEXARRAYNVPROC) sogl_loadOpenGLFunction("glPathMemoryGlyphIndexArrayNV");
+    if (!glPathMemoryGlyphIndexArrayNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glPathMemoryGlyphIndexArrayNV";
+    }
     glProgramPathFragmentInputGenNV = (PFNGLPROGRAMPATHFRAGMENTINPUTGENNVPROC) sogl_loadOpenGLFunction("glProgramPathFragmentInputGenNV");
+    if (!glProgramPathFragmentInputGenNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glProgramPathFragmentInputGenNV";
+    }
     glGetProgramResourcefvNV = (PFNGLGETPROGRAMRESOURCEFVNVPROC) sogl_loadOpenGLFunction("glGetProgramResourcefvNV");
+    if (!glGetProgramResourcefvNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glGetProgramResourcefvNV";
+    }
 #endif /* SOGL_NV_path_rendering */
 
 #ifdef SOGL_NV_sample_locations
     glFramebufferSampleLocationsfvNV = (PFNGLFRAMEBUFFERSAMPLELOCATIONSFVNVPROC) sogl_loadOpenGLFunction("glFramebufferSampleLocationsfvNV");
+    if (!glFramebufferSampleLocationsfvNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glFramebufferSampleLocationsfvNV";
+    }
     glNamedFramebufferSampleLocationsfvNV = (PFNGLNAMEDFRAMEBUFFERSAMPLELOCATIONSFVNVPROC) sogl_loadOpenGLFunction("glNamedFramebufferSampleLocationsfvNV");
+    if (!glNamedFramebufferSampleLocationsfvNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glNamedFramebufferSampleLocationsfvNV";
+    }
     glResolveDepthValuesNV = (PFNGLRESOLVEDEPTHVALUESNVPROC) sogl_loadOpenGLFunction("glResolveDepthValuesNV");
+    if (!glResolveDepthValuesNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glResolveDepthValuesNV";
+    }
 #endif /* SOGL_NV_sample_locations */
 
 #ifdef SOGL_NV_scissor_exclusive
     glScissorExclusiveNV = (PFNGLSCISSOREXCLUSIVENVPROC) sogl_loadOpenGLFunction("glScissorExclusiveNV");
+    if (!glScissorExclusiveNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glScissorExclusiveNV";
+    }
     glScissorExclusiveArrayvNV = (PFNGLSCISSOREXCLUSIVEARRAYVNVPROC) sogl_loadOpenGLFunction("glScissorExclusiveArrayvNV");
+    if (!glScissorExclusiveArrayvNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glScissorExclusiveArrayvNV";
+    }
 #endif /* SOGL_NV_scissor_exclusive */
 
 #ifdef SOGL_NV_shader_buffer_load
     glMakeBufferResidentNV = (PFNGLMAKEBUFFERRESIDENTNVPROC) sogl_loadOpenGLFunction("glMakeBufferResidentNV");
+    if (!glMakeBufferResidentNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glMakeBufferResidentNV";
+    }
     glMakeBufferNonResidentNV = (PFNGLMAKEBUFFERNONRESIDENTNVPROC) sogl_loadOpenGLFunction("glMakeBufferNonResidentNV");
+    if (!glMakeBufferNonResidentNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glMakeBufferNonResidentNV";
+    }
     glIsBufferResidentNV = (PFNGLISBUFFERRESIDENTNVPROC) sogl_loadOpenGLFunction("glIsBufferResidentNV");
+    if (!glIsBufferResidentNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glIsBufferResidentNV";
+    }
     glMakeNamedBufferResidentNV = (PFNGLMAKENAMEDBUFFERRESIDENTNVPROC) sogl_loadOpenGLFunction("glMakeNamedBufferResidentNV");
+    if (!glMakeNamedBufferResidentNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glMakeNamedBufferResidentNV";
+    }
     glMakeNamedBufferNonResidentNV = (PFNGLMAKENAMEDBUFFERNONRESIDENTNVPROC) sogl_loadOpenGLFunction("glMakeNamedBufferNonResidentNV");
+    if (!glMakeNamedBufferNonResidentNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glMakeNamedBufferNonResidentNV";
+    }
     glIsNamedBufferResidentNV = (PFNGLISNAMEDBUFFERRESIDENTNVPROC) sogl_loadOpenGLFunction("glIsNamedBufferResidentNV");
+    if (!glIsNamedBufferResidentNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glIsNamedBufferResidentNV";
+    }
     glGetBufferParameterui64vNV = (PFNGLGETBUFFERPARAMETERUI64VNVPROC) sogl_loadOpenGLFunction("glGetBufferParameterui64vNV");
+    if (!glGetBufferParameterui64vNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glGetBufferParameterui64vNV";
+    }
     glGetNamedBufferParameterui64vNV = (PFNGLGETNAMEDBUFFERPARAMETERUI64VNVPROC) sogl_loadOpenGLFunction("glGetNamedBufferParameterui64vNV");
+    if (!glGetNamedBufferParameterui64vNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glGetNamedBufferParameterui64vNV";
+    }
     glGetIntegerui64vNV = (PFNGLGETINTEGERUI64VNVPROC) sogl_loadOpenGLFunction("glGetIntegerui64vNV");
+    if (!glGetIntegerui64vNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glGetIntegerui64vNV";
+    }
     glUniformui64NV = (PFNGLUNIFORMUI64NVPROC) sogl_loadOpenGLFunction("glUniformui64NV");
+    if (!glUniformui64NV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glUniformui64NV";
+    }
     glUniformui64vNV = (PFNGLUNIFORMUI64VNVPROC) sogl_loadOpenGLFunction("glUniformui64vNV");
+    if (!glUniformui64vNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glUniformui64vNV";
+    }
     glGetUniformui64vNV = (PFNGLGETUNIFORMUI64VNVPROC) sogl_loadOpenGLFunction("glGetUniformui64vNV");
+    if (!glGetUniformui64vNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glGetUniformui64vNV";
+    }
     glProgramUniformui64NV = (PFNGLPROGRAMUNIFORMUI64NVPROC) sogl_loadOpenGLFunction("glProgramUniformui64NV");
+    if (!glProgramUniformui64NV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glProgramUniformui64NV";
+    }
     glProgramUniformui64vNV = (PFNGLPROGRAMUNIFORMUI64VNVPROC) sogl_loadOpenGLFunction("glProgramUniformui64vNV");
+    if (!glProgramUniformui64vNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glProgramUniformui64vNV";
+    }
 #endif /* SOGL_NV_shader_buffer_load */
 
 #ifdef SOGL_NV_shading_rate_image
     glBindShadingRateImageNV = (PFNGLBINDSHADINGRATEIMAGENVPROC) sogl_loadOpenGLFunction("glBindShadingRateImageNV");
+    if (!glBindShadingRateImageNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glBindShadingRateImageNV";
+    }
     glGetShadingRateImagePaletteNV = (PFNGLGETSHADINGRATEIMAGEPALETTENVPROC) sogl_loadOpenGLFunction("glGetShadingRateImagePaletteNV");
+    if (!glGetShadingRateImagePaletteNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glGetShadingRateImagePaletteNV";
+    }
     glGetShadingRateSampleLocationivNV = (PFNGLGETSHADINGRATESAMPLELOCATIONIVNVPROC) sogl_loadOpenGLFunction("glGetShadingRateSampleLocationivNV");
+    if (!glGetShadingRateSampleLocationivNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glGetShadingRateSampleLocationivNV";
+    }
     glShadingRateImageBarrierNV = (PFNGLSHADINGRATEIMAGEBARRIERNVPROC) sogl_loadOpenGLFunction("glShadingRateImageBarrierNV");
+    if (!glShadingRateImageBarrierNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glShadingRateImageBarrierNV";
+    }
     glShadingRateImagePaletteNV = (PFNGLSHADINGRATEIMAGEPALETTENVPROC) sogl_loadOpenGLFunction("glShadingRateImagePaletteNV");
+    if (!glShadingRateImagePaletteNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glShadingRateImagePaletteNV";
+    }
     glShadingRateSampleOrderNV = (PFNGLSHADINGRATESAMPLEORDERNVPROC) sogl_loadOpenGLFunction("glShadingRateSampleOrderNV");
+    if (!glShadingRateSampleOrderNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glShadingRateSampleOrderNV";
+    }
     glShadingRateSampleOrderCustomNV = (PFNGLSHADINGRATESAMPLEORDERCUSTOMNVPROC) sogl_loadOpenGLFunction("glShadingRateSampleOrderCustomNV");
+    if (!glShadingRateSampleOrderCustomNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glShadingRateSampleOrderCustomNV";
+    }
 #endif /* SOGL_NV_shading_rate_image */
 
 #ifdef SOGL_NV_texture_barrier
     glTextureBarrierNV = (PFNGLTEXTUREBARRIERNVPROC) sogl_loadOpenGLFunction("glTextureBarrierNV");
+    if (!glTextureBarrierNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glTextureBarrierNV";
+    }
 #endif /* SOGL_NV_texture_barrier */
 
 #ifdef SOGL_NV_vertex_attrib_integer_64bit
     glVertexAttribL1i64NV = (PFNGLVERTEXATTRIBL1I64NVPROC) sogl_loadOpenGLFunction("glVertexAttribL1i64NV");
+    if (!glVertexAttribL1i64NV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glVertexAttribL1i64NV";
+    }
     glVertexAttribL2i64NV = (PFNGLVERTEXATTRIBL2I64NVPROC) sogl_loadOpenGLFunction("glVertexAttribL2i64NV");
+    if (!glVertexAttribL2i64NV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glVertexAttribL2i64NV";
+    }
     glVertexAttribL3i64NV = (PFNGLVERTEXATTRIBL3I64NVPROC) sogl_loadOpenGLFunction("glVertexAttribL3i64NV");
+    if (!glVertexAttribL3i64NV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glVertexAttribL3i64NV";
+    }
     glVertexAttribL4i64NV = (PFNGLVERTEXATTRIBL4I64NVPROC) sogl_loadOpenGLFunction("glVertexAttribL4i64NV");
+    if (!glVertexAttribL4i64NV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glVertexAttribL4i64NV";
+    }
     glVertexAttribL1i64vNV = (PFNGLVERTEXATTRIBL1I64VNVPROC) sogl_loadOpenGLFunction("glVertexAttribL1i64vNV");
+    if (!glVertexAttribL1i64vNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glVertexAttribL1i64vNV";
+    }
     glVertexAttribL2i64vNV = (PFNGLVERTEXATTRIBL2I64VNVPROC) sogl_loadOpenGLFunction("glVertexAttribL2i64vNV");
+    if (!glVertexAttribL2i64vNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glVertexAttribL2i64vNV";
+    }
     glVertexAttribL3i64vNV = (PFNGLVERTEXATTRIBL3I64VNVPROC) sogl_loadOpenGLFunction("glVertexAttribL3i64vNV");
+    if (!glVertexAttribL3i64vNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glVertexAttribL3i64vNV";
+    }
     glVertexAttribL4i64vNV = (PFNGLVERTEXATTRIBL4I64VNVPROC) sogl_loadOpenGLFunction("glVertexAttribL4i64vNV");
+    if (!glVertexAttribL4i64vNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glVertexAttribL4i64vNV";
+    }
     glVertexAttribL1ui64NV = (PFNGLVERTEXATTRIBL1UI64NVPROC) sogl_loadOpenGLFunction("glVertexAttribL1ui64NV");
+    if (!glVertexAttribL1ui64NV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glVertexAttribL1ui64NV";
+    }
     glVertexAttribL2ui64NV = (PFNGLVERTEXATTRIBL2UI64NVPROC) sogl_loadOpenGLFunction("glVertexAttribL2ui64NV");
+    if (!glVertexAttribL2ui64NV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glVertexAttribL2ui64NV";
+    }
     glVertexAttribL3ui64NV = (PFNGLVERTEXATTRIBL3UI64NVPROC) sogl_loadOpenGLFunction("glVertexAttribL3ui64NV");
+    if (!glVertexAttribL3ui64NV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glVertexAttribL3ui64NV";
+    }
     glVertexAttribL4ui64NV = (PFNGLVERTEXATTRIBL4UI64NVPROC) sogl_loadOpenGLFunction("glVertexAttribL4ui64NV");
+    if (!glVertexAttribL4ui64NV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glVertexAttribL4ui64NV";
+    }
     glVertexAttribL1ui64vNV = (PFNGLVERTEXATTRIBL1UI64VNVPROC) sogl_loadOpenGLFunction("glVertexAttribL1ui64vNV");
+    if (!glVertexAttribL1ui64vNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glVertexAttribL1ui64vNV";
+    }
     glVertexAttribL2ui64vNV = (PFNGLVERTEXATTRIBL2UI64VNVPROC) sogl_loadOpenGLFunction("glVertexAttribL2ui64vNV");
+    if (!glVertexAttribL2ui64vNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glVertexAttribL2ui64vNV";
+    }
     glVertexAttribL3ui64vNV = (PFNGLVERTEXATTRIBL3UI64VNVPROC) sogl_loadOpenGLFunction("glVertexAttribL3ui64vNV");
+    if (!glVertexAttribL3ui64vNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glVertexAttribL3ui64vNV";
+    }
     glVertexAttribL4ui64vNV = (PFNGLVERTEXATTRIBL4UI64VNVPROC) sogl_loadOpenGLFunction("glVertexAttribL4ui64vNV");
+    if (!glVertexAttribL4ui64vNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glVertexAttribL4ui64vNV";
+    }
     glGetVertexAttribLi64vNV = (PFNGLGETVERTEXATTRIBLI64VNVPROC) sogl_loadOpenGLFunction("glGetVertexAttribLi64vNV");
+    if (!glGetVertexAttribLi64vNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glGetVertexAttribLi64vNV";
+    }
     glGetVertexAttribLui64vNV = (PFNGLGETVERTEXATTRIBLUI64VNVPROC) sogl_loadOpenGLFunction("glGetVertexAttribLui64vNV");
+    if (!glGetVertexAttribLui64vNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glGetVertexAttribLui64vNV";
+    }
     glVertexAttribLFormatNV = (PFNGLVERTEXATTRIBLFORMATNVPROC) sogl_loadOpenGLFunction("glVertexAttribLFormatNV");
+    if (!glVertexAttribLFormatNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glVertexAttribLFormatNV";
+    }
 #endif /* SOGL_NV_vertex_attrib_integer_64bit */
 
 #ifdef SOGL_NV_vertex_buffer_unified_memory
     glBufferAddressRangeNV = (PFNGLBUFFERADDRESSRANGENVPROC) sogl_loadOpenGLFunction("glBufferAddressRangeNV");
+    if (!glBufferAddressRangeNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glBufferAddressRangeNV";
+    }
     glVertexFormatNV = (PFNGLVERTEXFORMATNVPROC) sogl_loadOpenGLFunction("glVertexFormatNV");
+    if (!glVertexFormatNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glVertexFormatNV";
+    }
     glNormalFormatNV = (PFNGLNORMALFORMATNVPROC) sogl_loadOpenGLFunction("glNormalFormatNV");
+    if (!glNormalFormatNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glNormalFormatNV";
+    }
     glColorFormatNV = (PFNGLCOLORFORMATNVPROC) sogl_loadOpenGLFunction("glColorFormatNV");
+    if (!glColorFormatNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glColorFormatNV";
+    }
     glIndexFormatNV = (PFNGLINDEXFORMATNVPROC) sogl_loadOpenGLFunction("glIndexFormatNV");
+    if (!glIndexFormatNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glIndexFormatNV";
+    }
     glTexCoordFormatNV = (PFNGLTEXCOORDFORMATNVPROC) sogl_loadOpenGLFunction("glTexCoordFormatNV");
+    if (!glTexCoordFormatNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glTexCoordFormatNV";
+    }
     glEdgeFlagFormatNV = (PFNGLEDGEFLAGFORMATNVPROC) sogl_loadOpenGLFunction("glEdgeFlagFormatNV");
+    if (!glEdgeFlagFormatNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glEdgeFlagFormatNV";
+    }
     glSecondaryColorFormatNV = (PFNGLSECONDARYCOLORFORMATNVPROC) sogl_loadOpenGLFunction("glSecondaryColorFormatNV");
+    if (!glSecondaryColorFormatNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glSecondaryColorFormatNV";
+    }
     glFogCoordFormatNV = (PFNGLFOGCOORDFORMATNVPROC) sogl_loadOpenGLFunction("glFogCoordFormatNV");
+    if (!glFogCoordFormatNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glFogCoordFormatNV";
+    }
     glVertexAttribFormatNV = (PFNGLVERTEXATTRIBFORMATNVPROC) sogl_loadOpenGLFunction("glVertexAttribFormatNV");
+    if (!glVertexAttribFormatNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glVertexAttribFormatNV";
+    }
     glVertexAttribIFormatNV = (PFNGLVERTEXATTRIBIFORMATNVPROC) sogl_loadOpenGLFunction("glVertexAttribIFormatNV");
+    if (!glVertexAttribIFormatNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glVertexAttribIFormatNV";
+    }
     glGetIntegerui64i_vNV = (PFNGLGETINTEGERUI64I_VNVPROC) sogl_loadOpenGLFunction("glGetIntegerui64i_vNV");
+    if (!glGetIntegerui64i_vNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glGetIntegerui64i_vNV";
+    }
 #endif /* SOGL_NV_vertex_buffer_unified_memory */
 
 #ifdef SOGL_NV_viewport_swizzle
     glViewportSwizzleNV = (PFNGLVIEWPORTSWIZZLENVPROC) sogl_loadOpenGLFunction("glViewportSwizzleNV");
+    if (!glViewportSwizzleNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glViewportSwizzleNV";
+    }
 #endif /* SOGL_NV_viewport_swizzle */
 
 #ifdef SOGL_OVR_multiview
     glFramebufferTextureMultiviewOVR = (PFNGLFRAMEBUFFERTEXTUREMULTIVIEWOVRPROC) sogl_loadOpenGLFunction("glFramebufferTextureMultiviewOVR");
+    if (!glFramebufferTextureMultiviewOVR && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
+        sogl_failedLoads[failedLoads++] = "glFramebufferTextureMultiviewOVR";
+    }
 #endif /* SOGL_OVR_multiview */
 
+    sogl_failedLoads[failedLoads] = SOGL_NULL;
     sogl_cleanup();
+
+    return failedLoads == 0;
+}
+
+const char** sogl_getFailures() {
+	return sogl_failedLoads;
 }
 
 #endif /* SOGL_IMPLEMENTATION */
