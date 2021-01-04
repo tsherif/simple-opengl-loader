@@ -55,6 +55,26 @@ const WCHAR WIN_CLASS_NAME[] = L"OPENGL_WINDOW_CLASS";
 
 LRESULT CALLBACK winProc(HWND window, UINT message, WPARAM wParam, LPARAM lParam) {
     switch (message) {
+        case WM_SIZING: {
+            if (glViewport) {
+                RECT* bounds = (RECT *) lParam;
+                UINT width = bounds->right - bounds->left;
+                UINT height = bounds->bottom - bounds->top;
+                glViewport(0, 0, width, height);
+            }
+            return 0;
+        } break;
+        case WM_PAINT: {
+            if (glClear) {
+                HDC deviceContext = GetDC(window);
+                glClear(GL_COLOR_BUFFER_BIT);
+                glDrawArrays(GL_TRIANGLES, 0, 3);
+                SwapBuffers(deviceContext);
+            }
+        };
+        case WM_ERASEBKGND: {
+            return 0;
+        } break;
         case WM_CLOSE: {
             PostQuitMessage(0);
             return 0;
