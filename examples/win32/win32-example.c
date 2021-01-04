@@ -71,9 +71,6 @@ LRESULT CALLBACK winProc(HWND window, UINT message, WPARAM wParam, LPARAM lParam
                 glDrawArrays(GL_TRIANGLES, 0, 3);
                 SwapBuffers(deviceContext);
             }
-        };
-        case WM_ERASEBKGND: {
-            return 0;
         } break;
         case WM_CLOSE: {
             PostQuitMessage(0);
