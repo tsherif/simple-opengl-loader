@@ -25,7 +25,7 @@
 #define SIMPLE_OPENGL_LOADER 1
 
 /* 
-	Prevent other OpenGL headers from loading.
+    Prevent other OpenGL headers from loading.
 */
 #define __gl_glcorearb_h_ 1  /* Khronos core */
 #define __gl_glext_h_ 1      /* Khronos compatibility */
@@ -635,54 +635,6 @@ typedef void (APIENTRYP PFNGLGETTEXLEVELPARAMETERIVPROC) (GLenum target, GLint l
 typedef GLboolean (APIENTRYP PFNGLISENABLEDPROC) (GLenum cap);
 typedef void (APIENTRYP PFNGLDEPTHRANGEPROC) (GLdouble n, GLdouble f);
 typedef void (APIENTRYP PFNGLVIEWPORTPROC) (GLint x, GLint y, GLsizei width, GLsizei height);
-extern PFNGLCULLFACEPROC glCullFace;
-extern PFNGLFRONTFACEPROC glFrontFace;
-extern PFNGLHINTPROC glHint;
-extern PFNGLLINEWIDTHPROC glLineWidth;
-extern PFNGLPOINTSIZEPROC glPointSize;
-extern PFNGLPOLYGONMODEPROC glPolygonMode;
-extern PFNGLSCISSORPROC glScissor;
-extern PFNGLTEXPARAMETERFPROC glTexParameterf;
-extern PFNGLTEXPARAMETERFVPROC glTexParameterfv;
-extern PFNGLTEXPARAMETERIPROC glTexParameteri;
-extern PFNGLTEXPARAMETERIVPROC glTexParameteriv;
-extern PFNGLTEXIMAGE1DPROC glTexImage1D;
-extern PFNGLTEXIMAGE2DPROC glTexImage2D;
-extern PFNGLDRAWBUFFERPROC glDrawBuffer;
-extern PFNGLCLEARPROC glClear;
-extern PFNGLCLEARCOLORPROC glClearColor;
-extern PFNGLCLEARSTENCILPROC glClearStencil;
-extern PFNGLCLEARDEPTHPROC glClearDepth;
-extern PFNGLSTENCILMASKPROC glStencilMask;
-extern PFNGLCOLORMASKPROC glColorMask;
-extern PFNGLDEPTHMASKPROC glDepthMask;
-extern PFNGLDISABLEPROC glDisable;
-extern PFNGLENABLEPROC glEnable;
-extern PFNGLFINISHPROC glFinish;
-extern PFNGLFLUSHPROC glFlush;
-extern PFNGLBLENDFUNCPROC glBlendFunc;
-extern PFNGLLOGICOPPROC glLogicOp;
-extern PFNGLSTENCILFUNCPROC glStencilFunc;
-extern PFNGLSTENCILOPPROC glStencilOp;
-extern PFNGLDEPTHFUNCPROC glDepthFunc;
-extern PFNGLPIXELSTOREFPROC glPixelStoref;
-extern PFNGLPIXELSTOREIPROC glPixelStorei;
-extern PFNGLREADBUFFERPROC glReadBuffer;
-extern PFNGLREADPIXELSPROC glReadPixels;
-extern PFNGLGETBOOLEANVPROC glGetBooleanv;
-extern PFNGLGETDOUBLEVPROC glGetDoublev;
-extern PFNGLGETERRORPROC glGetError;
-extern PFNGLGETFLOATVPROC glGetFloatv;
-extern PFNGLGETINTEGERVPROC glGetIntegerv;
-extern PFNGLGETSTRINGPROC glGetString;
-extern PFNGLGETTEXIMAGEPROC glGetTexImage;
-extern PFNGLGETTEXPARAMETERFVPROC glGetTexParameterfv;
-extern PFNGLGETTEXPARAMETERIVPROC glGetTexParameteriv;
-extern PFNGLGETTEXLEVELPARAMETERFVPROC glGetTexLevelParameterfv;
-extern PFNGLGETTEXLEVELPARAMETERIVPROC glGetTexLevelParameteriv;
-extern PFNGLISENABLEDPROC glIsEnabled;
-extern PFNGLDEPTHRANGEPROC glDepthRange;
-extern PFNGLVIEWPORTPROC glViewport;
 #endif /* GL_VERSION_1_0 */
 
 #if SOGL_TEST_VERSION(1, 1)
@@ -733,20 +685,6 @@ typedef void (APIENTRYP PFNGLBINDTEXTUREPROC) (GLenum target, GLuint texture);
 typedef void (APIENTRYP PFNGLDELETETEXTURESPROC) (GLsizei n, const GLuint *textures);
 typedef void (APIENTRYP PFNGLGENTEXTURESPROC) (GLsizei n, GLuint *textures);
 typedef GLboolean (APIENTRYP PFNGLISTEXTUREPROC) (GLuint texture);
-extern PFNGLDRAWARRAYSPROC glDrawArrays;
-extern PFNGLDRAWELEMENTSPROC glDrawElements;
-extern PFNGLGETPOINTERVPROC glGetPointerv;
-extern PFNGLPOLYGONOFFSETPROC glPolygonOffset;
-extern PFNGLCOPYTEXIMAGE1DPROC glCopyTexImage1D;
-extern PFNGLCOPYTEXIMAGE2DPROC glCopyTexImage2D;
-extern PFNGLCOPYTEXSUBIMAGE1DPROC glCopyTexSubImage1D;
-extern PFNGLCOPYTEXSUBIMAGE2DPROC glCopyTexSubImage2D;
-extern PFNGLTEXSUBIMAGE1DPROC glTexSubImage1D;
-extern PFNGLTEXSUBIMAGE2DPROC glTexSubImage2D;
-extern PFNGLBINDTEXTUREPROC glBindTexture;
-extern PFNGLDELETETEXTURESPROC glDeleteTextures;
-extern PFNGLGENTEXTURESPROC glGenTextures;
-extern PFNGLISTEXTUREPROC glIsTexture;
 #endif /* GL_VERSION_1_1 */
 
 #if SOGL_TEST_VERSION(1, 2)
@@ -790,10 +728,6 @@ typedef void (APIENTRYP PFNGLDRAWRANGEELEMENTSPROC) (GLenum mode, GLuint start, 
 typedef void (APIENTRYP PFNGLTEXIMAGE3DPROC) (GLenum target, GLint level, GLint internalformat, GLsizei width, GLsizei height, GLsizei depth, GLint border, GLenum format, GLenum type, const void *pixels);
 typedef void (APIENTRYP PFNGLTEXSUBIMAGE3DPROC) (GLenum target, GLint level, GLint xoffset, GLint yoffset, GLint zoffset, GLsizei width, GLsizei height, GLsizei depth, GLenum format, GLenum type, const void *pixels);
 typedef void (APIENTRYP PFNGLCOPYTEXSUBIMAGE3DPROC) (GLenum target, GLint level, GLint xoffset, GLint yoffset, GLint zoffset, GLint x, GLint y, GLsizei width, GLsizei height);
-extern PFNGLDRAWRANGEELEMENTSPROC glDrawRangeElements;
-extern PFNGLTEXIMAGE3DPROC glTexImage3D;
-extern PFNGLTEXSUBIMAGE3DPROC glTexSubImage3D;
-extern PFNGLCOPYTEXSUBIMAGE3DPROC glCopyTexSubImage3D;
 #endif /* GL_VERSION_1_2 */
 
 #if SOGL_TEST_VERSION(1, 3)
@@ -865,15 +799,6 @@ typedef void (APIENTRYP PFNGLCOMPRESSEDTEXSUBIMAGE3DPROC) (GLenum target, GLint 
 typedef void (APIENTRYP PFNGLCOMPRESSEDTEXSUBIMAGE2DPROC) (GLenum target, GLint level, GLint xoffset, GLint yoffset, GLsizei width, GLsizei height, GLenum format, GLsizei imageSize, const void *data);
 typedef void (APIENTRYP PFNGLCOMPRESSEDTEXSUBIMAGE1DPROC) (GLenum target, GLint level, GLint xoffset, GLsizei width, GLenum format, GLsizei imageSize, const void *data);
 typedef void (APIENTRYP PFNGLGETCOMPRESSEDTEXIMAGEPROC) (GLenum target, GLint level, void *img);
-extern PFNGLACTIVETEXTUREPROC glActiveTexture;
-extern PFNGLSAMPLECOVERAGEPROC glSampleCoverage;
-extern PFNGLCOMPRESSEDTEXIMAGE3DPROC glCompressedTexImage3D;
-extern PFNGLCOMPRESSEDTEXIMAGE2DPROC glCompressedTexImage2D;
-extern PFNGLCOMPRESSEDTEXIMAGE1DPROC glCompressedTexImage1D;
-extern PFNGLCOMPRESSEDTEXSUBIMAGE3DPROC glCompressedTexSubImage3D;
-extern PFNGLCOMPRESSEDTEXSUBIMAGE2DPROC glCompressedTexSubImage2D;
-extern PFNGLCOMPRESSEDTEXSUBIMAGE1DPROC glCompressedTexSubImage1D;
-extern PFNGLGETCOMPRESSEDTEXIMAGEPROC glGetCompressedTexImage;
 #endif /* GL_VERSION_1_3 */
 
 #if SOGL_TEST_VERSION(1, 4)
@@ -913,15 +838,6 @@ typedef void (APIENTRYP PFNGLPOINTPARAMETERIPROC) (GLenum pname, GLint param);
 typedef void (APIENTRYP PFNGLPOINTPARAMETERIVPROC) (GLenum pname, const GLint *params);
 typedef void (APIENTRYP PFNGLBLENDCOLORPROC) (GLfloat red, GLfloat green, GLfloat blue, GLfloat alpha);
 typedef void (APIENTRYP PFNGLBLENDEQUATIONPROC) (GLenum mode);
-extern PFNGLBLENDFUNCSEPARATEPROC glBlendFuncSeparate;
-extern PFNGLMULTIDRAWARRAYSPROC glMultiDrawArrays;
-extern PFNGLMULTIDRAWELEMENTSPROC glMultiDrawElements;
-extern PFNGLPOINTPARAMETERFPROC glPointParameterf;
-extern PFNGLPOINTPARAMETERFVPROC glPointParameterfv;
-extern PFNGLPOINTPARAMETERIPROC glPointParameteri;
-extern PFNGLPOINTPARAMETERIVPROC glPointParameteriv;
-extern PFNGLBLENDCOLORPROC glBlendColor;
-extern PFNGLBLENDEQUATIONPROC glBlendEquation;
 #endif /* GL_VERSION_1_4 */
 
 #if SOGL_TEST_VERSION(1, 5)
@@ -974,25 +890,6 @@ typedef void *(APIENTRYP PFNGLMAPBUFFERPROC) (GLenum target, GLenum access);
 typedef GLboolean (APIENTRYP PFNGLUNMAPBUFFERPROC) (GLenum target);
 typedef void (APIENTRYP PFNGLGETBUFFERPARAMETERIVPROC) (GLenum target, GLenum pname, GLint *params);
 typedef void (APIENTRYP PFNGLGETBUFFERPOINTERVPROC) (GLenum target, GLenum pname, void **params);
-extern PFNGLGENQUERIESPROC glGenQueries;
-extern PFNGLDELETEQUERIESPROC glDeleteQueries;
-extern PFNGLISQUERYPROC glIsQuery;
-extern PFNGLBEGINQUERYPROC glBeginQuery;
-extern PFNGLENDQUERYPROC glEndQuery;
-extern PFNGLGETQUERYIVPROC glGetQueryiv;
-extern PFNGLGETQUERYOBJECTIVPROC glGetQueryObjectiv;
-extern PFNGLGETQUERYOBJECTUIVPROC glGetQueryObjectuiv;
-extern PFNGLBINDBUFFERPROC glBindBuffer;
-extern PFNGLDELETEBUFFERSPROC glDeleteBuffers;
-extern PFNGLGENBUFFERSPROC glGenBuffers;
-extern PFNGLISBUFFERPROC glIsBuffer;
-extern PFNGLBUFFERDATAPROC glBufferData;
-extern PFNGLBUFFERSUBDATAPROC glBufferSubData;
-extern PFNGLGETBUFFERSUBDATAPROC glGetBufferSubData;
-extern PFNGLMAPBUFFERPROC glMapBuffer;
-extern PFNGLUNMAPBUFFERPROC glUnmapBuffer;
-extern PFNGLGETBUFFERPARAMETERIVPROC glGetBufferParameteriv;
-extern PFNGLGETBUFFERPOINTERVPROC glGetBufferPointerv;
 #endif /* GL_VERSION_1_5 */
 
 #if SOGL_TEST_VERSION(2, 0)
@@ -1173,99 +1070,6 @@ typedef void (APIENTRYP PFNGLVERTEXATTRIB4UBVPROC) (GLuint index, const GLubyte 
 typedef void (APIENTRYP PFNGLVERTEXATTRIB4UIVPROC) (GLuint index, const GLuint *v);
 typedef void (APIENTRYP PFNGLVERTEXATTRIB4USVPROC) (GLuint index, const GLushort *v);
 typedef void (APIENTRYP PFNGLVERTEXATTRIBPOINTERPROC) (GLuint index, GLint size, GLenum type, GLboolean normalized, GLsizei stride, const void *pointer);
-extern PFNGLBLENDEQUATIONSEPARATEPROC glBlendEquationSeparate;
-extern PFNGLDRAWBUFFERSPROC glDrawBuffers;
-extern PFNGLSTENCILOPSEPARATEPROC glStencilOpSeparate;
-extern PFNGLSTENCILFUNCSEPARATEPROC glStencilFuncSeparate;
-extern PFNGLSTENCILMASKSEPARATEPROC glStencilMaskSeparate;
-extern PFNGLATTACHSHADERPROC glAttachShader;
-extern PFNGLBINDATTRIBLOCATIONPROC glBindAttribLocation;
-extern PFNGLCOMPILESHADERPROC glCompileShader;
-extern PFNGLCREATEPROGRAMPROC glCreateProgram;
-extern PFNGLCREATESHADERPROC glCreateShader;
-extern PFNGLDELETEPROGRAMPROC glDeleteProgram;
-extern PFNGLDELETESHADERPROC glDeleteShader;
-extern PFNGLDETACHSHADERPROC glDetachShader;
-extern PFNGLDISABLEVERTEXATTRIBARRAYPROC glDisableVertexAttribArray;
-extern PFNGLENABLEVERTEXATTRIBARRAYPROC glEnableVertexAttribArray;
-extern PFNGLGETACTIVEATTRIBPROC glGetActiveAttrib;
-extern PFNGLGETACTIVEUNIFORMPROC glGetActiveUniform;
-extern PFNGLGETATTACHEDSHADERSPROC glGetAttachedShaders;
-extern PFNGLGETATTRIBLOCATIONPROC glGetAttribLocation;
-extern PFNGLGETPROGRAMIVPROC glGetProgramiv;
-extern PFNGLGETPROGRAMINFOLOGPROC glGetProgramInfoLog;
-extern PFNGLGETSHADERIVPROC glGetShaderiv;
-extern PFNGLGETSHADERINFOLOGPROC glGetShaderInfoLog;
-extern PFNGLGETSHADERSOURCEPROC glGetShaderSource;
-extern PFNGLGETUNIFORMLOCATIONPROC glGetUniformLocation;
-extern PFNGLGETUNIFORMFVPROC glGetUniformfv;
-extern PFNGLGETUNIFORMIVPROC glGetUniformiv;
-extern PFNGLGETVERTEXATTRIBDVPROC glGetVertexAttribdv;
-extern PFNGLGETVERTEXATTRIBFVPROC glGetVertexAttribfv;
-extern PFNGLGETVERTEXATTRIBIVPROC glGetVertexAttribiv;
-extern PFNGLGETVERTEXATTRIBPOINTERVPROC glGetVertexAttribPointerv;
-extern PFNGLISPROGRAMPROC glIsProgram;
-extern PFNGLISSHADERPROC glIsShader;
-extern PFNGLLINKPROGRAMPROC glLinkProgram;
-extern PFNGLSHADERSOURCEPROC glShaderSource;
-extern PFNGLUSEPROGRAMPROC glUseProgram;
-extern PFNGLUNIFORM1FPROC glUniform1f;
-extern PFNGLUNIFORM2FPROC glUniform2f;
-extern PFNGLUNIFORM3FPROC glUniform3f;
-extern PFNGLUNIFORM4FPROC glUniform4f;
-extern PFNGLUNIFORM1IPROC glUniform1i;
-extern PFNGLUNIFORM2IPROC glUniform2i;
-extern PFNGLUNIFORM3IPROC glUniform3i;
-extern PFNGLUNIFORM4IPROC glUniform4i;
-extern PFNGLUNIFORM1FVPROC glUniform1fv;
-extern PFNGLUNIFORM2FVPROC glUniform2fv;
-extern PFNGLUNIFORM3FVPROC glUniform3fv;
-extern PFNGLUNIFORM4FVPROC glUniform4fv;
-extern PFNGLUNIFORM1IVPROC glUniform1iv;
-extern PFNGLUNIFORM2IVPROC glUniform2iv;
-extern PFNGLUNIFORM3IVPROC glUniform3iv;
-extern PFNGLUNIFORM4IVPROC glUniform4iv;
-extern PFNGLUNIFORMMATRIX2FVPROC glUniformMatrix2fv;
-extern PFNGLUNIFORMMATRIX3FVPROC glUniformMatrix3fv;
-extern PFNGLUNIFORMMATRIX4FVPROC glUniformMatrix4fv;
-extern PFNGLVALIDATEPROGRAMPROC glValidateProgram;
-extern PFNGLVERTEXATTRIB1DPROC glVertexAttrib1d;
-extern PFNGLVERTEXATTRIB1DVPROC glVertexAttrib1dv;
-extern PFNGLVERTEXATTRIB1FPROC glVertexAttrib1f;
-extern PFNGLVERTEXATTRIB1FVPROC glVertexAttrib1fv;
-extern PFNGLVERTEXATTRIB1SPROC glVertexAttrib1s;
-extern PFNGLVERTEXATTRIB1SVPROC glVertexAttrib1sv;
-extern PFNGLVERTEXATTRIB2DPROC glVertexAttrib2d;
-extern PFNGLVERTEXATTRIB2DVPROC glVertexAttrib2dv;
-extern PFNGLVERTEXATTRIB2FPROC glVertexAttrib2f;
-extern PFNGLVERTEXATTRIB2FVPROC glVertexAttrib2fv;
-extern PFNGLVERTEXATTRIB2SPROC glVertexAttrib2s;
-extern PFNGLVERTEXATTRIB2SVPROC glVertexAttrib2sv;
-extern PFNGLVERTEXATTRIB3DPROC glVertexAttrib3d;
-extern PFNGLVERTEXATTRIB3DVPROC glVertexAttrib3dv;
-extern PFNGLVERTEXATTRIB3FPROC glVertexAttrib3f;
-extern PFNGLVERTEXATTRIB3FVPROC glVertexAttrib3fv;
-extern PFNGLVERTEXATTRIB3SPROC glVertexAttrib3s;
-extern PFNGLVERTEXATTRIB3SVPROC glVertexAttrib3sv;
-extern PFNGLVERTEXATTRIB4NBVPROC glVertexAttrib4Nbv;
-extern PFNGLVERTEXATTRIB4NIVPROC glVertexAttrib4Niv;
-extern PFNGLVERTEXATTRIB4NSVPROC glVertexAttrib4Nsv;
-extern PFNGLVERTEXATTRIB4NUBPROC glVertexAttrib4Nub;
-extern PFNGLVERTEXATTRIB4NUBVPROC glVertexAttrib4Nubv;
-extern PFNGLVERTEXATTRIB4NUIVPROC glVertexAttrib4Nuiv;
-extern PFNGLVERTEXATTRIB4NUSVPROC glVertexAttrib4Nusv;
-extern PFNGLVERTEXATTRIB4BVPROC glVertexAttrib4bv;
-extern PFNGLVERTEXATTRIB4DPROC glVertexAttrib4d;
-extern PFNGLVERTEXATTRIB4DVPROC glVertexAttrib4dv;
-extern PFNGLVERTEXATTRIB4FPROC glVertexAttrib4f;
-extern PFNGLVERTEXATTRIB4FVPROC glVertexAttrib4fv;
-extern PFNGLVERTEXATTRIB4IVPROC glVertexAttrib4iv;
-extern PFNGLVERTEXATTRIB4SPROC glVertexAttrib4s;
-extern PFNGLVERTEXATTRIB4SVPROC glVertexAttrib4sv;
-extern PFNGLVERTEXATTRIB4UBVPROC glVertexAttrib4ubv;
-extern PFNGLVERTEXATTRIB4UIVPROC glVertexAttrib4uiv;
-extern PFNGLVERTEXATTRIB4USVPROC glVertexAttrib4usv;
-extern PFNGLVERTEXATTRIBPOINTERPROC glVertexAttribPointer;
 #endif /* GL_VERSION_2_0 */
 
 #if SOGL_TEST_VERSION(2, 1)
@@ -1291,12 +1095,6 @@ typedef void (APIENTRYP PFNGLUNIFORMMATRIX2X4FVPROC) (GLint location, GLsizei co
 typedef void (APIENTRYP PFNGLUNIFORMMATRIX4X2FVPROC) (GLint location, GLsizei count, GLboolean transpose, const GLfloat *value);
 typedef void (APIENTRYP PFNGLUNIFORMMATRIX3X4FVPROC) (GLint location, GLsizei count, GLboolean transpose, const GLfloat *value);
 typedef void (APIENTRYP PFNGLUNIFORMMATRIX4X3FVPROC) (GLint location, GLsizei count, GLboolean transpose, const GLfloat *value);
-extern PFNGLUNIFORMMATRIX2X3FVPROC glUniformMatrix2x3fv;
-extern PFNGLUNIFORMMATRIX3X2FVPROC glUniformMatrix3x2fv;
-extern PFNGLUNIFORMMATRIX2X4FVPROC glUniformMatrix2x4fv;
-extern PFNGLUNIFORMMATRIX4X2FVPROC glUniformMatrix4x2fv;
-extern PFNGLUNIFORMMATRIX3X4FVPROC glUniformMatrix3x4fv;
-extern PFNGLUNIFORMMATRIX4X3FVPROC glUniformMatrix4x3fv;
 #endif /* GL_VERSION_2_1 */
 
 #if SOGL_TEST_VERSION(3, 0)
@@ -1616,90 +1414,6 @@ typedef void (APIENTRYP PFNGLBINDVERTEXARRAYPROC) (GLuint array);
 typedef void (APIENTRYP PFNGLDELETEVERTEXARRAYSPROC) (GLsizei n, const GLuint *arrays);
 typedef void (APIENTRYP PFNGLGENVERTEXARRAYSPROC) (GLsizei n, GLuint *arrays);
 typedef GLboolean (APIENTRYP PFNGLISVERTEXARRAYPROC) (GLuint array);
-extern PFNGLCOLORMASKIPROC glColorMaski;
-extern PFNGLGETBOOLEANI_VPROC glGetBooleani_v;
-extern PFNGLGETINTEGERI_VPROC glGetIntegeri_v;
-extern PFNGLENABLEIPROC glEnablei;
-extern PFNGLDISABLEIPROC glDisablei;
-extern PFNGLISENABLEDIPROC glIsEnabledi;
-extern PFNGLBEGINTRANSFORMFEEDBACKPROC glBeginTransformFeedback;
-extern PFNGLENDTRANSFORMFEEDBACKPROC glEndTransformFeedback;
-extern PFNGLBINDBUFFERRANGEPROC glBindBufferRange;
-extern PFNGLBINDBUFFERBASEPROC glBindBufferBase;
-extern PFNGLTRANSFORMFEEDBACKVARYINGSPROC glTransformFeedbackVaryings;
-extern PFNGLGETTRANSFORMFEEDBACKVARYINGPROC glGetTransformFeedbackVarying;
-extern PFNGLCLAMPCOLORPROC glClampColor;
-extern PFNGLBEGINCONDITIONALRENDERPROC glBeginConditionalRender;
-extern PFNGLENDCONDITIONALRENDERPROC glEndConditionalRender;
-extern PFNGLVERTEXATTRIBIPOINTERPROC glVertexAttribIPointer;
-extern PFNGLGETVERTEXATTRIBIIVPROC glGetVertexAttribIiv;
-extern PFNGLGETVERTEXATTRIBIUIVPROC glGetVertexAttribIuiv;
-extern PFNGLVERTEXATTRIBI1IPROC glVertexAttribI1i;
-extern PFNGLVERTEXATTRIBI2IPROC glVertexAttribI2i;
-extern PFNGLVERTEXATTRIBI3IPROC glVertexAttribI3i;
-extern PFNGLVERTEXATTRIBI4IPROC glVertexAttribI4i;
-extern PFNGLVERTEXATTRIBI1UIPROC glVertexAttribI1ui;
-extern PFNGLVERTEXATTRIBI2UIPROC glVertexAttribI2ui;
-extern PFNGLVERTEXATTRIBI3UIPROC glVertexAttribI3ui;
-extern PFNGLVERTEXATTRIBI4UIPROC glVertexAttribI4ui;
-extern PFNGLVERTEXATTRIBI1IVPROC glVertexAttribI1iv;
-extern PFNGLVERTEXATTRIBI2IVPROC glVertexAttribI2iv;
-extern PFNGLVERTEXATTRIBI3IVPROC glVertexAttribI3iv;
-extern PFNGLVERTEXATTRIBI4IVPROC glVertexAttribI4iv;
-extern PFNGLVERTEXATTRIBI1UIVPROC glVertexAttribI1uiv;
-extern PFNGLVERTEXATTRIBI2UIVPROC glVertexAttribI2uiv;
-extern PFNGLVERTEXATTRIBI3UIVPROC glVertexAttribI3uiv;
-extern PFNGLVERTEXATTRIBI4UIVPROC glVertexAttribI4uiv;
-extern PFNGLVERTEXATTRIBI4BVPROC glVertexAttribI4bv;
-extern PFNGLVERTEXATTRIBI4SVPROC glVertexAttribI4sv;
-extern PFNGLVERTEXATTRIBI4UBVPROC glVertexAttribI4ubv;
-extern PFNGLVERTEXATTRIBI4USVPROC glVertexAttribI4usv;
-extern PFNGLGETUNIFORMUIVPROC glGetUniformuiv;
-extern PFNGLBINDFRAGDATALOCATIONPROC glBindFragDataLocation;
-extern PFNGLGETFRAGDATALOCATIONPROC glGetFragDataLocation;
-extern PFNGLUNIFORM1UIPROC glUniform1ui;
-extern PFNGLUNIFORM2UIPROC glUniform2ui;
-extern PFNGLUNIFORM3UIPROC glUniform3ui;
-extern PFNGLUNIFORM4UIPROC glUniform4ui;
-extern PFNGLUNIFORM1UIVPROC glUniform1uiv;
-extern PFNGLUNIFORM2UIVPROC glUniform2uiv;
-extern PFNGLUNIFORM3UIVPROC glUniform3uiv;
-extern PFNGLUNIFORM4UIVPROC glUniform4uiv;
-extern PFNGLTEXPARAMETERIIVPROC glTexParameterIiv;
-extern PFNGLTEXPARAMETERIUIVPROC glTexParameterIuiv;
-extern PFNGLGETTEXPARAMETERIIVPROC glGetTexParameterIiv;
-extern PFNGLGETTEXPARAMETERIUIVPROC glGetTexParameterIuiv;
-extern PFNGLCLEARBUFFERIVPROC glClearBufferiv;
-extern PFNGLCLEARBUFFERUIVPROC glClearBufferuiv;
-extern PFNGLCLEARBUFFERFVPROC glClearBufferfv;
-extern PFNGLCLEARBUFFERFIPROC glClearBufferfi;
-extern PFNGLGETSTRINGIPROC glGetStringi;
-extern PFNGLISRENDERBUFFERPROC glIsRenderbuffer;
-extern PFNGLBINDRENDERBUFFERPROC glBindRenderbuffer;
-extern PFNGLDELETERENDERBUFFERSPROC glDeleteRenderbuffers;
-extern PFNGLGENRENDERBUFFERSPROC glGenRenderbuffers;
-extern PFNGLRENDERBUFFERSTORAGEPROC glRenderbufferStorage;
-extern PFNGLGETRENDERBUFFERPARAMETERIVPROC glGetRenderbufferParameteriv;
-extern PFNGLISFRAMEBUFFERPROC glIsFramebuffer;
-extern PFNGLBINDFRAMEBUFFERPROC glBindFramebuffer;
-extern PFNGLDELETEFRAMEBUFFERSPROC glDeleteFramebuffers;
-extern PFNGLGENFRAMEBUFFERSPROC glGenFramebuffers;
-extern PFNGLCHECKFRAMEBUFFERSTATUSPROC glCheckFramebufferStatus;
-extern PFNGLFRAMEBUFFERTEXTURE1DPROC glFramebufferTexture1D;
-extern PFNGLFRAMEBUFFERTEXTURE2DPROC glFramebufferTexture2D;
-extern PFNGLFRAMEBUFFERTEXTURE3DPROC glFramebufferTexture3D;
-extern PFNGLFRAMEBUFFERRENDERBUFFERPROC glFramebufferRenderbuffer;
-extern PFNGLGETFRAMEBUFFERATTACHMENTPARAMETERIVPROC glGetFramebufferAttachmentParameteriv;
-extern PFNGLGENERATEMIPMAPPROC glGenerateMipmap;
-extern PFNGLBLITFRAMEBUFFERPROC glBlitFramebuffer;
-extern PFNGLRENDERBUFFERSTORAGEMULTISAMPLEPROC glRenderbufferStorageMultisample;
-extern PFNGLFRAMEBUFFERTEXTURELAYERPROC glFramebufferTextureLayer;
-extern PFNGLMAPBUFFERRANGEPROC glMapBufferRange;
-extern PFNGLFLUSHMAPPEDBUFFERRANGEPROC glFlushMappedBufferRange;
-extern PFNGLBINDVERTEXARRAYPROC glBindVertexArray;
-extern PFNGLDELETEVERTEXARRAYSPROC glDeleteVertexArrays;
-extern PFNGLGENVERTEXARRAYSPROC glGenVertexArrays;
-extern PFNGLISVERTEXARRAYPROC glIsVertexArray;
 #endif /* GL_VERSION_3_0 */
 
 #if SOGL_TEST_VERSION(3, 1)
@@ -1776,18 +1490,6 @@ typedef GLuint (APIENTRYP PFNGLGETUNIFORMBLOCKINDEXPROC) (GLuint program, const 
 typedef void (APIENTRYP PFNGLGETACTIVEUNIFORMBLOCKIVPROC) (GLuint program, GLuint uniformBlockIndex, GLenum pname, GLint *params);
 typedef void (APIENTRYP PFNGLGETACTIVEUNIFORMBLOCKNAMEPROC) (GLuint program, GLuint uniformBlockIndex, GLsizei bufSize, GLsizei *length, GLchar *uniformBlockName);
 typedef void (APIENTRYP PFNGLUNIFORMBLOCKBINDINGPROC) (GLuint program, GLuint uniformBlockIndex, GLuint uniformBlockBinding);
-extern PFNGLDRAWARRAYSINSTANCEDPROC glDrawArraysInstanced;
-extern PFNGLDRAWELEMENTSINSTANCEDPROC glDrawElementsInstanced;
-extern PFNGLTEXBUFFERPROC glTexBuffer;
-extern PFNGLPRIMITIVERESTARTINDEXPROC glPrimitiveRestartIndex;
-extern PFNGLCOPYBUFFERSUBDATAPROC glCopyBufferSubData;
-extern PFNGLGETUNIFORMINDICESPROC glGetUniformIndices;
-extern PFNGLGETACTIVEUNIFORMSIVPROC glGetActiveUniformsiv;
-extern PFNGLGETACTIVEUNIFORMNAMEPROC glGetActiveUniformName;
-extern PFNGLGETUNIFORMBLOCKINDEXPROC glGetUniformBlockIndex;
-extern PFNGLGETACTIVEUNIFORMBLOCKIVPROC glGetActiveUniformBlockiv;
-extern PFNGLGETACTIVEUNIFORMBLOCKNAMEPROC glGetActiveUniformBlockName;
-extern PFNGLUNIFORMBLOCKBINDINGPROC glUniformBlockBinding;
 #endif /* GL_VERSION_3_1 */
 
 #if SOGL_TEST_VERSION(3, 2)
@@ -1877,25 +1579,6 @@ typedef void (APIENTRYP PFNGLTEXIMAGE2DMULTISAMPLEPROC) (GLenum target, GLsizei 
 typedef void (APIENTRYP PFNGLTEXIMAGE3DMULTISAMPLEPROC) (GLenum target, GLsizei samples, GLenum internalformat, GLsizei width, GLsizei height, GLsizei depth, GLboolean fixedsamplelocations);
 typedef void (APIENTRYP PFNGLGETMULTISAMPLEFVPROC) (GLenum pname, GLuint index, GLfloat *val);
 typedef void (APIENTRYP PFNGLSAMPLEMASKIPROC) (GLuint maskNumber, GLbitfield mask);
-extern PFNGLDRAWELEMENTSBASEVERTEXPROC glDrawElementsBaseVertex;
-extern PFNGLDRAWRANGEELEMENTSBASEVERTEXPROC glDrawRangeElementsBaseVertex;
-extern PFNGLDRAWELEMENTSINSTANCEDBASEVERTEXPROC glDrawElementsInstancedBaseVertex;
-extern PFNGLMULTIDRAWELEMENTSBASEVERTEXPROC glMultiDrawElementsBaseVertex;
-extern PFNGLPROVOKINGVERTEXPROC glProvokingVertex;
-extern PFNGLFENCESYNCPROC glFenceSync;
-extern PFNGLISSYNCPROC glIsSync;
-extern PFNGLDELETESYNCPROC glDeleteSync;
-extern PFNGLCLIENTWAITSYNCPROC glClientWaitSync;
-extern PFNGLWAITSYNCPROC glWaitSync;
-extern PFNGLGETINTEGER64VPROC glGetInteger64v;
-extern PFNGLGETSYNCIVPROC glGetSynciv;
-extern PFNGLGETINTEGER64I_VPROC glGetInteger64i_v;
-extern PFNGLGETBUFFERPARAMETERI64VPROC glGetBufferParameteri64v;
-extern PFNGLFRAMEBUFFERTEXTUREPROC glFramebufferTexture;
-extern PFNGLTEXIMAGE2DMULTISAMPLEPROC glTexImage2DMultisample;
-extern PFNGLTEXIMAGE3DMULTISAMPLEPROC glTexImage3DMultisample;
-extern PFNGLGETMULTISAMPLEFVPROC glGetMultisamplefv;
-extern PFNGLSAMPLEMASKIPROC glSampleMaski;
 #endif /* GL_VERSION_3_2 */
 
 #if SOGL_TEST_VERSION(3, 3)
@@ -1943,34 +1626,6 @@ typedef void (APIENTRYP PFNGLVERTEXATTRIBP3UIPROC) (GLuint index, GLenum type, G
 typedef void (APIENTRYP PFNGLVERTEXATTRIBP3UIVPROC) (GLuint index, GLenum type, GLboolean normalized, const GLuint *value);
 typedef void (APIENTRYP PFNGLVERTEXATTRIBP4UIPROC) (GLuint index, GLenum type, GLboolean normalized, GLuint value);
 typedef void (APIENTRYP PFNGLVERTEXATTRIBP4UIVPROC) (GLuint index, GLenum type, GLboolean normalized, const GLuint *value);
-extern PFNGLBINDFRAGDATALOCATIONINDEXEDPROC glBindFragDataLocationIndexed;
-extern PFNGLGETFRAGDATAINDEXPROC glGetFragDataIndex;
-extern PFNGLGENSAMPLERSPROC glGenSamplers;
-extern PFNGLDELETESAMPLERSPROC glDeleteSamplers;
-extern PFNGLISSAMPLERPROC glIsSampler;
-extern PFNGLBINDSAMPLERPROC glBindSampler;
-extern PFNGLSAMPLERPARAMETERIPROC glSamplerParameteri;
-extern PFNGLSAMPLERPARAMETERIVPROC glSamplerParameteriv;
-extern PFNGLSAMPLERPARAMETERFPROC glSamplerParameterf;
-extern PFNGLSAMPLERPARAMETERFVPROC glSamplerParameterfv;
-extern PFNGLSAMPLERPARAMETERIIVPROC glSamplerParameterIiv;
-extern PFNGLSAMPLERPARAMETERIUIVPROC glSamplerParameterIuiv;
-extern PFNGLGETSAMPLERPARAMETERIVPROC glGetSamplerParameteriv;
-extern PFNGLGETSAMPLERPARAMETERIIVPROC glGetSamplerParameterIiv;
-extern PFNGLGETSAMPLERPARAMETERFVPROC glGetSamplerParameterfv;
-extern PFNGLGETSAMPLERPARAMETERIUIVPROC glGetSamplerParameterIuiv;
-extern PFNGLQUERYCOUNTERPROC glQueryCounter;
-extern PFNGLGETQUERYOBJECTI64VPROC glGetQueryObjecti64v;
-extern PFNGLGETQUERYOBJECTUI64VPROC glGetQueryObjectui64v;
-extern PFNGLVERTEXATTRIBDIVISORPROC glVertexAttribDivisor;
-extern PFNGLVERTEXATTRIBP1UIPROC glVertexAttribP1ui;
-extern PFNGLVERTEXATTRIBP1UIVPROC glVertexAttribP1uiv;
-extern PFNGLVERTEXATTRIBP2UIPROC glVertexAttribP2ui;
-extern PFNGLVERTEXATTRIBP2UIVPROC glVertexAttribP2uiv;
-extern PFNGLVERTEXATTRIBP3UIPROC glVertexAttribP3ui;
-extern PFNGLVERTEXATTRIBP3UIVPROC glVertexAttribP3uiv;
-extern PFNGLVERTEXATTRIBP4UIPROC glVertexAttribP4ui;
-extern PFNGLVERTEXATTRIBP4UIVPROC glVertexAttribP4uiv;
 #endif /* GL_VERSION_3_3 */
 
 #if SOGL_TEST_VERSION(4, 0)
@@ -2097,52 +1752,6 @@ typedef void (APIENTRYP PFNGLDRAWTRANSFORMFEEDBACKSTREAMPROC) (GLenum mode, GLui
 typedef void (APIENTRYP PFNGLBEGINQUERYINDEXEDPROC) (GLenum target, GLuint index, GLuint id);
 typedef void (APIENTRYP PFNGLENDQUERYINDEXEDPROC) (GLenum target, GLuint index);
 typedef void (APIENTRYP PFNGLGETQUERYINDEXEDIVPROC) (GLenum target, GLuint index, GLenum pname, GLint *params);
-extern PFNGLMINSAMPLESHADINGPROC glMinSampleShading;
-extern PFNGLBLENDEQUATIONIPROC glBlendEquationi;
-extern PFNGLBLENDEQUATIONSEPARATEIPROC glBlendEquationSeparatei;
-extern PFNGLBLENDFUNCIPROC glBlendFunci;
-extern PFNGLBLENDFUNCSEPARATEIPROC glBlendFuncSeparatei;
-extern PFNGLDRAWARRAYSINDIRECTPROC glDrawArraysIndirect;
-extern PFNGLDRAWELEMENTSINDIRECTPROC glDrawElementsIndirect;
-extern PFNGLUNIFORM1DPROC glUniform1d;
-extern PFNGLUNIFORM2DPROC glUniform2d;
-extern PFNGLUNIFORM3DPROC glUniform3d;
-extern PFNGLUNIFORM4DPROC glUniform4d;
-extern PFNGLUNIFORM1DVPROC glUniform1dv;
-extern PFNGLUNIFORM2DVPROC glUniform2dv;
-extern PFNGLUNIFORM3DVPROC glUniform3dv;
-extern PFNGLUNIFORM4DVPROC glUniform4dv;
-extern PFNGLUNIFORMMATRIX2DVPROC glUniformMatrix2dv;
-extern PFNGLUNIFORMMATRIX3DVPROC glUniformMatrix3dv;
-extern PFNGLUNIFORMMATRIX4DVPROC glUniformMatrix4dv;
-extern PFNGLUNIFORMMATRIX2X3DVPROC glUniformMatrix2x3dv;
-extern PFNGLUNIFORMMATRIX2X4DVPROC glUniformMatrix2x4dv;
-extern PFNGLUNIFORMMATRIX3X2DVPROC glUniformMatrix3x2dv;
-extern PFNGLUNIFORMMATRIX3X4DVPROC glUniformMatrix3x4dv;
-extern PFNGLUNIFORMMATRIX4X2DVPROC glUniformMatrix4x2dv;
-extern PFNGLUNIFORMMATRIX4X3DVPROC glUniformMatrix4x3dv;
-extern PFNGLGETUNIFORMDVPROC glGetUniformdv;
-extern PFNGLGETSUBROUTINEUNIFORMLOCATIONPROC glGetSubroutineUniformLocation;
-extern PFNGLGETSUBROUTINEINDEXPROC glGetSubroutineIndex;
-extern PFNGLGETACTIVESUBROUTINEUNIFORMIVPROC glGetActiveSubroutineUniformiv;
-extern PFNGLGETACTIVESUBROUTINEUNIFORMNAMEPROC glGetActiveSubroutineUniformName;
-extern PFNGLGETACTIVESUBROUTINENAMEPROC glGetActiveSubroutineName;
-extern PFNGLUNIFORMSUBROUTINESUIVPROC glUniformSubroutinesuiv;
-extern PFNGLGETUNIFORMSUBROUTINEUIVPROC glGetUniformSubroutineuiv;
-extern PFNGLGETPROGRAMSTAGEIVPROC glGetProgramStageiv;
-extern PFNGLPATCHPARAMETERIPROC glPatchParameteri;
-extern PFNGLPATCHPARAMETERFVPROC glPatchParameterfv;
-extern PFNGLBINDTRANSFORMFEEDBACKPROC glBindTransformFeedback;
-extern PFNGLDELETETRANSFORMFEEDBACKSPROC glDeleteTransformFeedbacks;
-extern PFNGLGENTRANSFORMFEEDBACKSPROC glGenTransformFeedbacks;
-extern PFNGLISTRANSFORMFEEDBACKPROC glIsTransformFeedback;
-extern PFNGLPAUSETRANSFORMFEEDBACKPROC glPauseTransformFeedback;
-extern PFNGLRESUMETRANSFORMFEEDBACKPROC glResumeTransformFeedback;
-extern PFNGLDRAWTRANSFORMFEEDBACKPROC glDrawTransformFeedback;
-extern PFNGLDRAWTRANSFORMFEEDBACKSTREAMPROC glDrawTransformFeedbackStream;
-extern PFNGLBEGINQUERYINDEXEDPROC glBeginQueryIndexed;
-extern PFNGLENDQUERYINDEXEDPROC glEndQueryIndexed;
-extern PFNGLGETQUERYINDEXEDIVPROC glGetQueryIndexediv;
 #endif /* GL_VERSION_4_0 */
 
 #if SOGL_TEST_VERSION(4, 1)
@@ -2269,94 +1878,6 @@ typedef void (APIENTRYP PFNGLDEPTHRANGEARRAYVPROC) (GLuint first, GLsizei count,
 typedef void (APIENTRYP PFNGLDEPTHRANGEINDEXEDPROC) (GLuint index, GLdouble n, GLdouble f);
 typedef void (APIENTRYP PFNGLGETFLOATI_VPROC) (GLenum target, GLuint index, GLfloat *data);
 typedef void (APIENTRYP PFNGLGETDOUBLEI_VPROC) (GLenum target, GLuint index, GLdouble *data);
-extern PFNGLRELEASESHADERCOMPILERPROC glReleaseShaderCompiler;
-extern PFNGLSHADERBINARYPROC glShaderBinary;
-extern PFNGLGETSHADERPRECISIONFORMATPROC glGetShaderPrecisionFormat;
-extern PFNGLDEPTHRANGEFPROC glDepthRangef;
-extern PFNGLCLEARDEPTHFPROC glClearDepthf;
-extern PFNGLGETPROGRAMBINARYPROC glGetProgramBinary;
-extern PFNGLPROGRAMBINARYPROC glProgramBinary;
-extern PFNGLPROGRAMPARAMETERIPROC glProgramParameteri;
-extern PFNGLUSEPROGRAMSTAGESPROC glUseProgramStages;
-extern PFNGLACTIVESHADERPROGRAMPROC glActiveShaderProgram;
-extern PFNGLCREATESHADERPROGRAMVPROC glCreateShaderProgramv;
-extern PFNGLBINDPROGRAMPIPELINEPROC glBindProgramPipeline;
-extern PFNGLDELETEPROGRAMPIPELINESPROC glDeleteProgramPipelines;
-extern PFNGLGENPROGRAMPIPELINESPROC glGenProgramPipelines;
-extern PFNGLISPROGRAMPIPELINEPROC glIsProgramPipeline;
-extern PFNGLGETPROGRAMPIPELINEIVPROC glGetProgramPipelineiv;
-extern PFNGLPROGRAMUNIFORM1IPROC glProgramUniform1i;
-extern PFNGLPROGRAMUNIFORM1IVPROC glProgramUniform1iv;
-extern PFNGLPROGRAMUNIFORM1FPROC glProgramUniform1f;
-extern PFNGLPROGRAMUNIFORM1FVPROC glProgramUniform1fv;
-extern PFNGLPROGRAMUNIFORM1DPROC glProgramUniform1d;
-extern PFNGLPROGRAMUNIFORM1DVPROC glProgramUniform1dv;
-extern PFNGLPROGRAMUNIFORM1UIPROC glProgramUniform1ui;
-extern PFNGLPROGRAMUNIFORM1UIVPROC glProgramUniform1uiv;
-extern PFNGLPROGRAMUNIFORM2IPROC glProgramUniform2i;
-extern PFNGLPROGRAMUNIFORM2IVPROC glProgramUniform2iv;
-extern PFNGLPROGRAMUNIFORM2FPROC glProgramUniform2f;
-extern PFNGLPROGRAMUNIFORM2FVPROC glProgramUniform2fv;
-extern PFNGLPROGRAMUNIFORM2DPROC glProgramUniform2d;
-extern PFNGLPROGRAMUNIFORM2DVPROC glProgramUniform2dv;
-extern PFNGLPROGRAMUNIFORM2UIPROC glProgramUniform2ui;
-extern PFNGLPROGRAMUNIFORM2UIVPROC glProgramUniform2uiv;
-extern PFNGLPROGRAMUNIFORM3IPROC glProgramUniform3i;
-extern PFNGLPROGRAMUNIFORM3IVPROC glProgramUniform3iv;
-extern PFNGLPROGRAMUNIFORM3FPROC glProgramUniform3f;
-extern PFNGLPROGRAMUNIFORM3FVPROC glProgramUniform3fv;
-extern PFNGLPROGRAMUNIFORM3DPROC glProgramUniform3d;
-extern PFNGLPROGRAMUNIFORM3DVPROC glProgramUniform3dv;
-extern PFNGLPROGRAMUNIFORM3UIPROC glProgramUniform3ui;
-extern PFNGLPROGRAMUNIFORM3UIVPROC glProgramUniform3uiv;
-extern PFNGLPROGRAMUNIFORM4IPROC glProgramUniform4i;
-extern PFNGLPROGRAMUNIFORM4IVPROC glProgramUniform4iv;
-extern PFNGLPROGRAMUNIFORM4FPROC glProgramUniform4f;
-extern PFNGLPROGRAMUNIFORM4FVPROC glProgramUniform4fv;
-extern PFNGLPROGRAMUNIFORM4DPROC glProgramUniform4d;
-extern PFNGLPROGRAMUNIFORM4DVPROC glProgramUniform4dv;
-extern PFNGLPROGRAMUNIFORM4UIPROC glProgramUniform4ui;
-extern PFNGLPROGRAMUNIFORM4UIVPROC glProgramUniform4uiv;
-extern PFNGLPROGRAMUNIFORMMATRIX2FVPROC glProgramUniformMatrix2fv;
-extern PFNGLPROGRAMUNIFORMMATRIX3FVPROC glProgramUniformMatrix3fv;
-extern PFNGLPROGRAMUNIFORMMATRIX4FVPROC glProgramUniformMatrix4fv;
-extern PFNGLPROGRAMUNIFORMMATRIX2DVPROC glProgramUniformMatrix2dv;
-extern PFNGLPROGRAMUNIFORMMATRIX3DVPROC glProgramUniformMatrix3dv;
-extern PFNGLPROGRAMUNIFORMMATRIX4DVPROC glProgramUniformMatrix4dv;
-extern PFNGLPROGRAMUNIFORMMATRIX2X3FVPROC glProgramUniformMatrix2x3fv;
-extern PFNGLPROGRAMUNIFORMMATRIX3X2FVPROC glProgramUniformMatrix3x2fv;
-extern PFNGLPROGRAMUNIFORMMATRIX2X4FVPROC glProgramUniformMatrix2x4fv;
-extern PFNGLPROGRAMUNIFORMMATRIX4X2FVPROC glProgramUniformMatrix4x2fv;
-extern PFNGLPROGRAMUNIFORMMATRIX3X4FVPROC glProgramUniformMatrix3x4fv;
-extern PFNGLPROGRAMUNIFORMMATRIX4X3FVPROC glProgramUniformMatrix4x3fv;
-extern PFNGLPROGRAMUNIFORMMATRIX2X3DVPROC glProgramUniformMatrix2x3dv;
-extern PFNGLPROGRAMUNIFORMMATRIX3X2DVPROC glProgramUniformMatrix3x2dv;
-extern PFNGLPROGRAMUNIFORMMATRIX2X4DVPROC glProgramUniformMatrix2x4dv;
-extern PFNGLPROGRAMUNIFORMMATRIX4X2DVPROC glProgramUniformMatrix4x2dv;
-extern PFNGLPROGRAMUNIFORMMATRIX3X4DVPROC glProgramUniformMatrix3x4dv;
-extern PFNGLPROGRAMUNIFORMMATRIX4X3DVPROC glProgramUniformMatrix4x3dv;
-extern PFNGLVALIDATEPROGRAMPIPELINEPROC glValidateProgramPipeline;
-extern PFNGLGETPROGRAMPIPELINEINFOLOGPROC glGetProgramPipelineInfoLog;
-extern PFNGLVERTEXATTRIBL1DPROC glVertexAttribL1d;
-extern PFNGLVERTEXATTRIBL2DPROC glVertexAttribL2d;
-extern PFNGLVERTEXATTRIBL3DPROC glVertexAttribL3d;
-extern PFNGLVERTEXATTRIBL4DPROC glVertexAttribL4d;
-extern PFNGLVERTEXATTRIBL1DVPROC glVertexAttribL1dv;
-extern PFNGLVERTEXATTRIBL2DVPROC glVertexAttribL2dv;
-extern PFNGLVERTEXATTRIBL3DVPROC glVertexAttribL3dv;
-extern PFNGLVERTEXATTRIBL4DVPROC glVertexAttribL4dv;
-extern PFNGLVERTEXATTRIBLPOINTERPROC glVertexAttribLPointer;
-extern PFNGLGETVERTEXATTRIBLDVPROC glGetVertexAttribLdv;
-extern PFNGLVIEWPORTARRAYVPROC glViewportArrayv;
-extern PFNGLVIEWPORTINDEXEDFPROC glViewportIndexedf;
-extern PFNGLVIEWPORTINDEXEDFVPROC glViewportIndexedfv;
-extern PFNGLSCISSORARRAYVPROC glScissorArrayv;
-extern PFNGLSCISSORINDEXEDPROC glScissorIndexed;
-extern PFNGLSCISSORINDEXEDVPROC glScissorIndexedv;
-extern PFNGLDEPTHRANGEARRAYVPROC glDepthRangeArrayv;
-extern PFNGLDEPTHRANGEINDEXEDPROC glDepthRangeIndexed;
-extern PFNGLGETFLOATI_VPROC glGetFloati_v;
-extern PFNGLGETDOUBLEI_VPROC glGetDoublei_v;
 #endif /* GL_VERSION_4_1 */
 
 #if SOGL_TEST_VERSION(4, 2)
@@ -2484,18 +2005,6 @@ typedef void (APIENTRYP PFNGLTEXSTORAGE2DPROC) (GLenum target, GLsizei levels, G
 typedef void (APIENTRYP PFNGLTEXSTORAGE3DPROC) (GLenum target, GLsizei levels, GLenum internalformat, GLsizei width, GLsizei height, GLsizei depth);
 typedef void (APIENTRYP PFNGLDRAWTRANSFORMFEEDBACKINSTANCEDPROC) (GLenum mode, GLuint id, GLsizei instancecount);
 typedef void (APIENTRYP PFNGLDRAWTRANSFORMFEEDBACKSTREAMINSTANCEDPROC) (GLenum mode, GLuint id, GLuint stream, GLsizei instancecount);
-extern PFNGLDRAWARRAYSINSTANCEDBASEINSTANCEPROC glDrawArraysInstancedBaseInstance;
-extern PFNGLDRAWELEMENTSINSTANCEDBASEINSTANCEPROC glDrawElementsInstancedBaseInstance;
-extern PFNGLDRAWELEMENTSINSTANCEDBASEVERTEXBASEINSTANCEPROC glDrawElementsInstancedBaseVertexBaseInstance;
-extern PFNGLGETINTERNALFORMATIVPROC glGetInternalformativ;
-extern PFNGLGETACTIVEATOMICCOUNTERBUFFERIVPROC glGetActiveAtomicCounterBufferiv;
-extern PFNGLBINDIMAGETEXTUREPROC glBindImageTexture;
-extern PFNGLMEMORYBARRIERPROC glMemoryBarrier;
-extern PFNGLTEXSTORAGE1DPROC glTexStorage1D;
-extern PFNGLTEXSTORAGE2DPROC glTexStorage2D;
-extern PFNGLTEXSTORAGE3DPROC glTexStorage3D;
-extern PFNGLDRAWTRANSFORMFEEDBACKINSTANCEDPROC glDrawTransformFeedbackInstanced;
-extern PFNGLDRAWTRANSFORMFEEDBACKSTREAMINSTANCEDPROC glDrawTransformFeedbackStreamInstanced;
 #endif /* GL_VERSION_4_2 */
 
 #if SOGL_TEST_VERSION(4, 3)
@@ -2801,49 +2310,6 @@ typedef void (APIENTRYP PFNGLOBJECTLABELPROC) (GLenum identifier, GLuint name, G
 typedef void (APIENTRYP PFNGLGETOBJECTLABELPROC) (GLenum identifier, GLuint name, GLsizei bufSize, GLsizei *length, GLchar *label);
 typedef void (APIENTRYP PFNGLOBJECTPTRLABELPROC) (const void *ptr, GLsizei length, const GLchar *label);
 typedef void (APIENTRYP PFNGLGETOBJECTPTRLABELPROC) (const void *ptr, GLsizei bufSize, GLsizei *length, GLchar *label);
-extern PFNGLCLEARBUFFERDATAPROC glClearBufferData;
-extern PFNGLCLEARBUFFERSUBDATAPROC glClearBufferSubData;
-extern PFNGLDISPATCHCOMPUTEPROC glDispatchCompute;
-extern PFNGLDISPATCHCOMPUTEINDIRECTPROC glDispatchComputeIndirect;
-extern PFNGLCOPYIMAGESUBDATAPROC glCopyImageSubData;
-extern PFNGLFRAMEBUFFERPARAMETERIPROC glFramebufferParameteri;
-extern PFNGLGETFRAMEBUFFERPARAMETERIVPROC glGetFramebufferParameteriv;
-extern PFNGLGETINTERNALFORMATI64VPROC glGetInternalformati64v;
-extern PFNGLINVALIDATETEXSUBIMAGEPROC glInvalidateTexSubImage;
-extern PFNGLINVALIDATETEXIMAGEPROC glInvalidateTexImage;
-extern PFNGLINVALIDATEBUFFERSUBDATAPROC glInvalidateBufferSubData;
-extern PFNGLINVALIDATEBUFFERDATAPROC glInvalidateBufferData;
-extern PFNGLINVALIDATEFRAMEBUFFERPROC glInvalidateFramebuffer;
-extern PFNGLINVALIDATESUBFRAMEBUFFERPROC glInvalidateSubFramebuffer;
-extern PFNGLMULTIDRAWARRAYSINDIRECTPROC glMultiDrawArraysIndirect;
-extern PFNGLMULTIDRAWELEMENTSINDIRECTPROC glMultiDrawElementsIndirect;
-extern PFNGLGETPROGRAMINTERFACEIVPROC glGetProgramInterfaceiv;
-extern PFNGLGETPROGRAMRESOURCEINDEXPROC glGetProgramResourceIndex;
-extern PFNGLGETPROGRAMRESOURCENAMEPROC glGetProgramResourceName;
-extern PFNGLGETPROGRAMRESOURCEIVPROC glGetProgramResourceiv;
-extern PFNGLGETPROGRAMRESOURCELOCATIONPROC glGetProgramResourceLocation;
-extern PFNGLGETPROGRAMRESOURCELOCATIONINDEXPROC glGetProgramResourceLocationIndex;
-extern PFNGLSHADERSTORAGEBLOCKBINDINGPROC glShaderStorageBlockBinding;
-extern PFNGLTEXBUFFERRANGEPROC glTexBufferRange;
-extern PFNGLTEXSTORAGE2DMULTISAMPLEPROC glTexStorage2DMultisample;
-extern PFNGLTEXSTORAGE3DMULTISAMPLEPROC glTexStorage3DMultisample;
-extern PFNGLTEXTUREVIEWPROC glTextureView;
-extern PFNGLBINDVERTEXBUFFERPROC glBindVertexBuffer;
-extern PFNGLVERTEXATTRIBFORMATPROC glVertexAttribFormat;
-extern PFNGLVERTEXATTRIBIFORMATPROC glVertexAttribIFormat;
-extern PFNGLVERTEXATTRIBLFORMATPROC glVertexAttribLFormat;
-extern PFNGLVERTEXATTRIBBINDINGPROC glVertexAttribBinding;
-extern PFNGLVERTEXBINDINGDIVISORPROC glVertexBindingDivisor;
-extern PFNGLDEBUGMESSAGECONTROLPROC glDebugMessageControl;
-extern PFNGLDEBUGMESSAGEINSERTPROC glDebugMessageInsert;
-extern PFNGLDEBUGMESSAGECALLBACKPROC glDebugMessageCallback;
-extern PFNGLGETDEBUGMESSAGELOGPROC glGetDebugMessageLog;
-extern PFNGLPUSHDEBUGGROUPPROC glPushDebugGroup;
-extern PFNGLPOPDEBUGGROUPPROC glPopDebugGroup;
-extern PFNGLOBJECTLABELPROC glObjectLabel;
-extern PFNGLGETOBJECTLABELPROC glGetObjectLabel;
-extern PFNGLOBJECTPTRLABELPROC glObjectPtrLabel;
-extern PFNGLGETOBJECTPTRLABELPROC glGetObjectPtrLabel;
 #endif /* GL_VERSION_4_3 */
 
 #if SOGL_TEST_VERSION(4, 4)
@@ -2875,15 +2341,6 @@ typedef void (APIENTRYP PFNGLBINDTEXTURESPROC) (GLuint first, GLsizei count, con
 typedef void (APIENTRYP PFNGLBINDSAMPLERSPROC) (GLuint first, GLsizei count, const GLuint *samplers);
 typedef void (APIENTRYP PFNGLBINDIMAGETEXTURESPROC) (GLuint first, GLsizei count, const GLuint *textures);
 typedef void (APIENTRYP PFNGLBINDVERTEXBUFFERSPROC) (GLuint first, GLsizei count, const GLuint *buffers, const GLintptr *offsets, const GLsizei *strides);
-extern PFNGLBUFFERSTORAGEPROC glBufferStorage;
-extern PFNGLCLEARTEXIMAGEPROC glClearTexImage;
-extern PFNGLCLEARTEXSUBIMAGEPROC glClearTexSubImage;
-extern PFNGLBINDBUFFERSBASEPROC glBindBuffersBase;
-extern PFNGLBINDBUFFERSRANGEPROC glBindBuffersRange;
-extern PFNGLBINDTEXTURESPROC glBindTextures;
-extern PFNGLBINDSAMPLERSPROC glBindSamplers;
-extern PFNGLBINDIMAGETEXTURESPROC glBindImageTextures;
-extern PFNGLBINDVERTEXBUFFERSPROC glBindVertexBuffers;
 #endif /* GL_VERSION_4_4 */
 
 #if SOGL_TEST_VERSION(4, 5)
@@ -3019,116 +2476,6 @@ typedef void (APIENTRYP PFNGLGETNUNIFORMIVPROC) (GLuint program, GLint location,
 typedef void (APIENTRYP PFNGLGETNUNIFORMUIVPROC) (GLuint program, GLint location, GLsizei bufSize, GLuint *params);
 typedef void (APIENTRYP PFNGLREADNPIXELSPROC) (GLint x, GLint y, GLsizei width, GLsizei height, GLenum format, GLenum type, GLsizei bufSize, void *data);
 typedef void (APIENTRYP PFNGLTEXTUREBARRIERPROC) (void);
-extern PFNGLCLIPCONTROLPROC glClipControl;
-extern PFNGLCREATETRANSFORMFEEDBACKSPROC glCreateTransformFeedbacks;
-extern PFNGLTRANSFORMFEEDBACKBUFFERBASEPROC glTransformFeedbackBufferBase;
-extern PFNGLTRANSFORMFEEDBACKBUFFERRANGEPROC glTransformFeedbackBufferRange;
-extern PFNGLGETTRANSFORMFEEDBACKIVPROC glGetTransformFeedbackiv;
-extern PFNGLGETTRANSFORMFEEDBACKI_VPROC glGetTransformFeedbacki_v;
-extern PFNGLGETTRANSFORMFEEDBACKI64_VPROC glGetTransformFeedbacki64_v;
-extern PFNGLCREATEBUFFERSPROC glCreateBuffers;
-extern PFNGLNAMEDBUFFERSTORAGEPROC glNamedBufferStorage;
-extern PFNGLNAMEDBUFFERDATAPROC glNamedBufferData;
-extern PFNGLNAMEDBUFFERSUBDATAPROC glNamedBufferSubData;
-extern PFNGLCOPYNAMEDBUFFERSUBDATAPROC glCopyNamedBufferSubData;
-extern PFNGLCLEARNAMEDBUFFERDATAPROC glClearNamedBufferData;
-extern PFNGLCLEARNAMEDBUFFERSUBDATAPROC glClearNamedBufferSubData;
-extern PFNGLMAPNAMEDBUFFERPROC glMapNamedBuffer;
-extern PFNGLMAPNAMEDBUFFERRANGEPROC glMapNamedBufferRange;
-extern PFNGLUNMAPNAMEDBUFFERPROC glUnmapNamedBuffer;
-extern PFNGLFLUSHMAPPEDNAMEDBUFFERRANGEPROC glFlushMappedNamedBufferRange;
-extern PFNGLGETNAMEDBUFFERPARAMETERIVPROC glGetNamedBufferParameteriv;
-extern PFNGLGETNAMEDBUFFERPARAMETERI64VPROC glGetNamedBufferParameteri64v;
-extern PFNGLGETNAMEDBUFFERPOINTERVPROC glGetNamedBufferPointerv;
-extern PFNGLGETNAMEDBUFFERSUBDATAPROC glGetNamedBufferSubData;
-extern PFNGLCREATEFRAMEBUFFERSPROC glCreateFramebuffers;
-extern PFNGLNAMEDFRAMEBUFFERRENDERBUFFERPROC glNamedFramebufferRenderbuffer;
-extern PFNGLNAMEDFRAMEBUFFERPARAMETERIPROC glNamedFramebufferParameteri;
-extern PFNGLNAMEDFRAMEBUFFERTEXTUREPROC glNamedFramebufferTexture;
-extern PFNGLNAMEDFRAMEBUFFERTEXTURELAYERPROC glNamedFramebufferTextureLayer;
-extern PFNGLNAMEDFRAMEBUFFERDRAWBUFFERPROC glNamedFramebufferDrawBuffer;
-extern PFNGLNAMEDFRAMEBUFFERDRAWBUFFERSPROC glNamedFramebufferDrawBuffers;
-extern PFNGLNAMEDFRAMEBUFFERREADBUFFERPROC glNamedFramebufferReadBuffer;
-extern PFNGLINVALIDATENAMEDFRAMEBUFFERDATAPROC glInvalidateNamedFramebufferData;
-extern PFNGLINVALIDATENAMEDFRAMEBUFFERSUBDATAPROC glInvalidateNamedFramebufferSubData;
-extern PFNGLCLEARNAMEDFRAMEBUFFERIVPROC glClearNamedFramebufferiv;
-extern PFNGLCLEARNAMEDFRAMEBUFFERUIVPROC glClearNamedFramebufferuiv;
-extern PFNGLCLEARNAMEDFRAMEBUFFERFVPROC glClearNamedFramebufferfv;
-extern PFNGLCLEARNAMEDFRAMEBUFFERFIPROC glClearNamedFramebufferfi;
-extern PFNGLBLITNAMEDFRAMEBUFFERPROC glBlitNamedFramebuffer;
-extern PFNGLCHECKNAMEDFRAMEBUFFERSTATUSPROC glCheckNamedFramebufferStatus;
-extern PFNGLGETNAMEDFRAMEBUFFERPARAMETERIVPROC glGetNamedFramebufferParameteriv;
-extern PFNGLGETNAMEDFRAMEBUFFERATTACHMENTPARAMETERIVPROC glGetNamedFramebufferAttachmentParameteriv;
-extern PFNGLCREATERENDERBUFFERSPROC glCreateRenderbuffers;
-extern PFNGLNAMEDRENDERBUFFERSTORAGEPROC glNamedRenderbufferStorage;
-extern PFNGLNAMEDRENDERBUFFERSTORAGEMULTISAMPLEPROC glNamedRenderbufferStorageMultisample;
-extern PFNGLGETNAMEDRENDERBUFFERPARAMETERIVPROC glGetNamedRenderbufferParameteriv;
-extern PFNGLCREATETEXTURESPROC glCreateTextures;
-extern PFNGLTEXTUREBUFFERPROC glTextureBuffer;
-extern PFNGLTEXTUREBUFFERRANGEPROC glTextureBufferRange;
-extern PFNGLTEXTURESTORAGE1DPROC glTextureStorage1D;
-extern PFNGLTEXTURESTORAGE2DPROC glTextureStorage2D;
-extern PFNGLTEXTURESTORAGE3DPROC glTextureStorage3D;
-extern PFNGLTEXTURESTORAGE2DMULTISAMPLEPROC glTextureStorage2DMultisample;
-extern PFNGLTEXTURESTORAGE3DMULTISAMPLEPROC glTextureStorage3DMultisample;
-extern PFNGLTEXTURESUBIMAGE1DPROC glTextureSubImage1D;
-extern PFNGLTEXTURESUBIMAGE2DPROC glTextureSubImage2D;
-extern PFNGLTEXTURESUBIMAGE3DPROC glTextureSubImage3D;
-extern PFNGLCOMPRESSEDTEXTURESUBIMAGE1DPROC glCompressedTextureSubImage1D;
-extern PFNGLCOMPRESSEDTEXTURESUBIMAGE2DPROC glCompressedTextureSubImage2D;
-extern PFNGLCOMPRESSEDTEXTURESUBIMAGE3DPROC glCompressedTextureSubImage3D;
-extern PFNGLCOPYTEXTURESUBIMAGE1DPROC glCopyTextureSubImage1D;
-extern PFNGLCOPYTEXTURESUBIMAGE2DPROC glCopyTextureSubImage2D;
-extern PFNGLCOPYTEXTURESUBIMAGE3DPROC glCopyTextureSubImage3D;
-extern PFNGLTEXTUREPARAMETERFPROC glTextureParameterf;
-extern PFNGLTEXTUREPARAMETERFVPROC glTextureParameterfv;
-extern PFNGLTEXTUREPARAMETERIPROC glTextureParameteri;
-extern PFNGLTEXTUREPARAMETERIIVPROC glTextureParameterIiv;
-extern PFNGLTEXTUREPARAMETERIUIVPROC glTextureParameterIuiv;
-extern PFNGLTEXTUREPARAMETERIVPROC glTextureParameteriv;
-extern PFNGLGENERATETEXTUREMIPMAPPROC glGenerateTextureMipmap;
-extern PFNGLBINDTEXTUREUNITPROC glBindTextureUnit;
-extern PFNGLGETTEXTUREIMAGEPROC glGetTextureImage;
-extern PFNGLGETCOMPRESSEDTEXTUREIMAGEPROC glGetCompressedTextureImage;
-extern PFNGLGETTEXTURELEVELPARAMETERFVPROC glGetTextureLevelParameterfv;
-extern PFNGLGETTEXTURELEVELPARAMETERIVPROC glGetTextureLevelParameteriv;
-extern PFNGLGETTEXTUREPARAMETERFVPROC glGetTextureParameterfv;
-extern PFNGLGETTEXTUREPARAMETERIIVPROC glGetTextureParameterIiv;
-extern PFNGLGETTEXTUREPARAMETERIUIVPROC glGetTextureParameterIuiv;
-extern PFNGLGETTEXTUREPARAMETERIVPROC glGetTextureParameteriv;
-extern PFNGLCREATEVERTEXARRAYSPROC glCreateVertexArrays;
-extern PFNGLDISABLEVERTEXARRAYATTRIBPROC glDisableVertexArrayAttrib;
-extern PFNGLENABLEVERTEXARRAYATTRIBPROC glEnableVertexArrayAttrib;
-extern PFNGLVERTEXARRAYELEMENTBUFFERPROC glVertexArrayElementBuffer;
-extern PFNGLVERTEXARRAYVERTEXBUFFERPROC glVertexArrayVertexBuffer;
-extern PFNGLVERTEXARRAYVERTEXBUFFERSPROC glVertexArrayVertexBuffers;
-extern PFNGLVERTEXARRAYATTRIBBINDINGPROC glVertexArrayAttribBinding;
-extern PFNGLVERTEXARRAYATTRIBFORMATPROC glVertexArrayAttribFormat;
-extern PFNGLVERTEXARRAYATTRIBIFORMATPROC glVertexArrayAttribIFormat;
-extern PFNGLVERTEXARRAYATTRIBLFORMATPROC glVertexArrayAttribLFormat;
-extern PFNGLVERTEXARRAYBINDINGDIVISORPROC glVertexArrayBindingDivisor;
-extern PFNGLGETVERTEXARRAYIVPROC glGetVertexArrayiv;
-extern PFNGLGETVERTEXARRAYINDEXEDIVPROC glGetVertexArrayIndexediv;
-extern PFNGLGETVERTEXARRAYINDEXED64IVPROC glGetVertexArrayIndexed64iv;
-extern PFNGLCREATESAMPLERSPROC glCreateSamplers;
-extern PFNGLCREATEPROGRAMPIPELINESPROC glCreateProgramPipelines;
-extern PFNGLCREATEQUERIESPROC glCreateQueries;
-extern PFNGLGETQUERYBUFFEROBJECTI64VPROC glGetQueryBufferObjecti64v;
-extern PFNGLGETQUERYBUFFEROBJECTIVPROC glGetQueryBufferObjectiv;
-extern PFNGLGETQUERYBUFFEROBJECTUI64VPROC glGetQueryBufferObjectui64v;
-extern PFNGLGETQUERYBUFFEROBJECTUIVPROC glGetQueryBufferObjectuiv;
-extern PFNGLMEMORYBARRIERBYREGIONPROC glMemoryBarrierByRegion;
-extern PFNGLGETTEXTURESUBIMAGEPROC glGetTextureSubImage;
-extern PFNGLGETCOMPRESSEDTEXTURESUBIMAGEPROC glGetCompressedTextureSubImage;
-extern PFNGLGETGRAPHICSRESETSTATUSPROC glGetGraphicsResetStatus;
-extern PFNGLGETNCOMPRESSEDTEXIMAGEPROC glGetnCompressedTexImage;
-extern PFNGLGETNTEXIMAGEPROC glGetnTexImage;
-extern PFNGLGETNUNIFORMDVPROC glGetnUniformdv;
-extern PFNGLGETNUNIFORMFVPROC glGetnUniformfv;
-extern PFNGLGETNUNIFORMIVPROC glGetnUniformiv;
-extern PFNGLGETNUNIFORMUIVPROC glGetnUniformuiv;
-extern PFNGLREADNPIXELSPROC glReadnPixels;
-extern PFNGLTEXTUREBARRIERPROC glTextureBarrier;
 #endif /* GL_VERSION_4_5 */
 
 #if SOGL_TEST_VERSION(4, 6)
@@ -3158,10 +2505,6 @@ typedef void (APIENTRYP PFNGLSPECIALIZESHADERPROC) (GLuint shader, const GLchar 
 typedef void (APIENTRYP PFNGLMULTIDRAWARRAYSINDIRECTCOUNTPROC) (GLenum mode, const void *indirect, GLintptr drawcount, GLsizei maxdrawcount, GLsizei stride);
 typedef void (APIENTRYP PFNGLMULTIDRAWELEMENTSINDIRECTCOUNTPROC) (GLenum mode, GLenum type, const void *indirect, GLintptr drawcount, GLsizei maxdrawcount, GLsizei stride);
 typedef void (APIENTRYP PFNGLPOLYGONOFFSETCLAMPPROC) (GLfloat factor, GLfloat units, GLfloat clamp);
-extern PFNGLSPECIALIZESHADERPROC glSpecializeShader;
-extern PFNGLMULTIDRAWARRAYSINDIRECTCOUNTPROC glMultiDrawArraysIndirectCount;
-extern PFNGLMULTIDRAWELEMENTSINDIRECTCOUNTPROC glMultiDrawElementsIndirectCount;
-extern PFNGLPOLYGONOFFSETCLAMPPROC glPolygonOffsetClamp;
 #endif /* GL_VERSION_4_6 */
 
 /* EXTENSIONS */
@@ -3171,7 +2514,6 @@ extern PFNGLPOLYGONOFFSETCLAMPPROC glPolygonOffsetClamp;
 #define GL_MULTISAMPLE_LINE_WIDTH_RANGE_ARB 0x9381
 #define GL_MULTISAMPLE_LINE_WIDTH_GRANULARITY_ARB 0x9382
 typedef void (APIENTRYP PFNGLPRIMITIVEBOUNDINGBOXARBPROC) (GLfloat minX, GLfloat minY, GLfloat minZ, GLfloat minW, GLfloat maxX, GLfloat maxY, GLfloat maxZ, GLfloat maxW);
-extern PFNGLPRIMITIVEBOUNDINGBOXARBPROC glPrimitiveBoundingBoxARB;
 #endif /* SOGL_ARB_ES3_2_compatibility */
 
 #ifdef SOGL_ARB_bindless_texture
@@ -3193,22 +2535,6 @@ typedef GLboolean (APIENTRYP PFNGLISIMAGEHANDLERESIDENTARBPROC) (GLuint64 handle
 typedef void (APIENTRYP PFNGLVERTEXATTRIBL1UI64ARBPROC) (GLuint index, GLuint64EXT x);
 typedef void (APIENTRYP PFNGLVERTEXATTRIBL1UI64VARBPROC) (GLuint index, const GLuint64EXT *v);
 typedef void (APIENTRYP PFNGLGETVERTEXATTRIBLUI64VARBPROC) (GLuint index, GLenum pname, GLuint64EXT *params);
-extern PFNGLGETTEXTUREHANDLEARBPROC glGetTextureHandleARB;
-extern PFNGLGETTEXTURESAMPLERHANDLEARBPROC glGetTextureSamplerHandleARB;
-extern PFNGLMAKETEXTUREHANDLERESIDENTARBPROC glMakeTextureHandleResidentARB;
-extern PFNGLMAKETEXTUREHANDLENONRESIDENTARBPROC glMakeTextureHandleNonResidentARB;
-extern PFNGLGETIMAGEHANDLEARBPROC glGetImageHandleARB;
-extern PFNGLMAKEIMAGEHANDLERESIDENTARBPROC glMakeImageHandleResidentARB;
-extern PFNGLMAKEIMAGEHANDLENONRESIDENTARBPROC glMakeImageHandleNonResidentARB;
-extern PFNGLUNIFORMHANDLEUI64ARBPROC glUniformHandleui64ARB;
-extern PFNGLUNIFORMHANDLEUI64VARBPROC glUniformHandleui64vARB;
-extern PFNGLPROGRAMUNIFORMHANDLEUI64ARBPROC glProgramUniformHandleui64ARB;
-extern PFNGLPROGRAMUNIFORMHANDLEUI64VARBPROC glProgramUniformHandleui64vARB;
-extern PFNGLISTEXTUREHANDLERESIDENTARBPROC glIsTextureHandleResidentARB;
-extern PFNGLISIMAGEHANDLERESIDENTARBPROC glIsImageHandleResidentARB;
-extern PFNGLVERTEXATTRIBL1UI64ARBPROC glVertexAttribL1ui64ARB;
-extern PFNGLVERTEXATTRIBL1UI64VARBPROC glVertexAttribL1ui64vARB;
-extern PFNGLGETVERTEXATTRIBLUI64VARBPROC glGetVertexAttribLui64vARB;
 #endif /* SOGL_ARB_bindless_texture */
 
 #ifdef SOGL_ARB_cl_event
@@ -3217,7 +2543,6 @@ struct _cl_event;
 #define GL_SYNC_CL_EVENT_ARB              0x8240
 #define GL_SYNC_CL_EVENT_COMPLETE_ARB     0x8241
 typedef GLsync (APIENTRYP PFNGLCREATESYNCFROMCLEVENTARBPROC) (struct _cl_context *context, struct _cl_event *event, GLbitfield flags);
-extern PFNGLCREATESYNCFROMCLEVENTARBPROC glCreateSyncFromCLeventARB;
 #endif /* SOGL_ARB_cl_event */
 
 #ifdef SOGL_ARB_compute_variable_group_size
@@ -3226,7 +2551,6 @@ extern PFNGLCREATESYNCFROMCLEVENTARBPROC glCreateSyncFromCLeventARB;
 #define GL_MAX_COMPUTE_VARIABLE_GROUP_SIZE_ARB 0x9345
 #define GL_MAX_COMPUTE_FIXED_GROUP_SIZE_ARB 0x91BF
 typedef void (APIENTRYP PFNGLDISPATCHCOMPUTEGROUPSIZEARBPROC) (GLuint num_groups_x, GLuint num_groups_y, GLuint num_groups_z, GLuint group_size_x, GLuint group_size_y, GLuint group_size_z);
-extern PFNGLDISPATCHCOMPUTEGROUPSIZEARBPROC glDispatchComputeGroupSizeARB;
 #endif /* SOGL_ARB_compute_variable_group_size */
 
 #ifdef SOGL_ARB_debug_output
@@ -3257,10 +2581,6 @@ typedef void (APIENTRYP PFNGLDEBUGMESSAGECONTROLARBPROC) (GLenum source, GLenum 
 typedef void (APIENTRYP PFNGLDEBUGMESSAGEINSERTARBPROC) (GLenum source, GLenum type, GLuint id, GLenum severity, GLsizei length, const GLchar *buf);
 typedef void (APIENTRYP PFNGLDEBUGMESSAGECALLBACKARBPROC) (GLDEBUGPROCARB callback, const void *userParam);
 typedef GLuint (APIENTRYP PFNGLGETDEBUGMESSAGELOGARBPROC) (GLuint count, GLsizei bufSize, GLenum *sources, GLenum *types, GLuint *ids, GLenum *severities, GLsizei *lengths, GLchar *messageLog);
-extern PFNGLDEBUGMESSAGECONTROLARBPROC glDebugMessageControlARB;
-extern PFNGLDEBUGMESSAGEINSERTARBPROC glDebugMessageInsertARB;
-extern PFNGLDEBUGMESSAGECALLBACKARBPROC glDebugMessageCallbackARB;
-extern PFNGLGETDEBUGMESSAGELOGARBPROC glGetDebugMessageLogARB;
 #endif /* SOGL_ARB_debug_output */
 
 #ifdef SOGL_ARB_draw_buffers_blend
@@ -3268,17 +2588,11 @@ typedef void (APIENTRYP PFNGLBLENDEQUATIONIARBPROC) (GLuint buf, GLenum mode);
 typedef void (APIENTRYP PFNGLBLENDEQUATIONSEPARATEIARBPROC) (GLuint buf, GLenum modeRGB, GLenum modeAlpha);
 typedef void (APIENTRYP PFNGLBLENDFUNCIARBPROC) (GLuint buf, GLenum src, GLenum dst);
 typedef void (APIENTRYP PFNGLBLENDFUNCSEPARATEIARBPROC) (GLuint buf, GLenum srcRGB, GLenum dstRGB, GLenum srcAlpha, GLenum dstAlpha);
-extern PFNGLBLENDEQUATIONIARBPROC glBlendEquationiARB;
-extern PFNGLBLENDEQUATIONSEPARATEIARBPROC glBlendEquationSeparateiARB;
-extern PFNGLBLENDFUNCIARBPROC glBlendFunciARB;
-extern PFNGLBLENDFUNCSEPARATEIARBPROC glBlendFuncSeparateiARB;
 #endif /* SOGL_ARB_draw_buffers_blend */
 
 #ifdef SOGL_ARB_draw_instanced
 typedef void (APIENTRYP PFNGLDRAWARRAYSINSTANCEDARBPROC) (GLenum mode, GLint first, GLsizei count, GLsizei primcount);
 typedef void (APIENTRYP PFNGLDRAWELEMENTSINSTANCEDARBPROC) (GLenum mode, GLsizei count, GLenum type, const void *indices, GLsizei primcount);
-extern PFNGLDRAWARRAYSINSTANCEDARBPROC glDrawArraysInstancedARB;
-extern PFNGLDRAWELEMENTSINSTANCEDARBPROC glDrawElementsInstancedARB;
 #endif /* SOGL_ARB_draw_instanced */
 
 #ifdef SOGL_ARB_geometry_shader4
@@ -3304,17 +2618,12 @@ typedef void (APIENTRYP PFNGLPROGRAMPARAMETERIARBPROC) (GLuint program, GLenum p
 typedef void (APIENTRYP PFNGLFRAMEBUFFERTEXTUREARBPROC) (GLenum target, GLenum attachment, GLuint texture, GLint level);
 typedef void (APIENTRYP PFNGLFRAMEBUFFERTEXTURELAYERARBPROC) (GLenum target, GLenum attachment, GLuint texture, GLint level, GLint layer);
 typedef void (APIENTRYP PFNGLFRAMEBUFFERTEXTUREFACEARBPROC) (GLenum target, GLenum attachment, GLuint texture, GLint level, GLenum face);
-extern PFNGLPROGRAMPARAMETERIARBPROC glProgramParameteriARB;
-extern PFNGLFRAMEBUFFERTEXTUREARBPROC glFramebufferTextureARB;
-extern PFNGLFRAMEBUFFERTEXTURELAYERARBPROC glFramebufferTextureLayerARB;
-extern PFNGLFRAMEBUFFERTEXTUREFACEARBPROC glFramebufferTextureFaceARB;
 #endif /* SOGL_ARB_geometry_shader4 */
 
 #ifdef SOGL_ARB_gl_spirv
 #define GL_SHADER_BINARY_FORMAT_SPIR_V_ARB 0x9551
 #define GL_SPIR_V_BINARY_ARB              0x9552
 typedef void (APIENTRYP PFNGLSPECIALIZESHADERARBPROC) (GLuint shader, const GLchar *pEntryPoint, GLuint numSpecializationConstants, const GLuint *pConstantIndex, const GLuint *pConstantValue);
-extern PFNGLSPECIALIZESHADERARBPROC glSpecializeShaderARB;
 #endif /* SOGL_ARB_gl_spirv */
 
 #ifdef SOGL_ARB_gpu_shader_int64
@@ -3361,42 +2670,6 @@ typedef void (APIENTRYP PFNGLPROGRAMUNIFORM1UI64VARBPROC) (GLuint program, GLint
 typedef void (APIENTRYP PFNGLPROGRAMUNIFORM2UI64VARBPROC) (GLuint program, GLint location, GLsizei count, const GLuint64 *value);
 typedef void (APIENTRYP PFNGLPROGRAMUNIFORM3UI64VARBPROC) (GLuint program, GLint location, GLsizei count, const GLuint64 *value);
 typedef void (APIENTRYP PFNGLPROGRAMUNIFORM4UI64VARBPROC) (GLuint program, GLint location, GLsizei count, const GLuint64 *value);
-extern PFNGLUNIFORM1I64ARBPROC glUniform1i64ARB;
-extern PFNGLUNIFORM2I64ARBPROC glUniform2i64ARB;
-extern PFNGLUNIFORM3I64ARBPROC glUniform3i64ARB;
-extern PFNGLUNIFORM4I64ARBPROC glUniform4i64ARB;
-extern PFNGLUNIFORM1I64VARBPROC glUniform1i64vARB;
-extern PFNGLUNIFORM2I64VARBPROC glUniform2i64vARB;
-extern PFNGLUNIFORM3I64VARBPROC glUniform3i64vARB;
-extern PFNGLUNIFORM4I64VARBPROC glUniform4i64vARB;
-extern PFNGLUNIFORM1UI64ARBPROC glUniform1ui64ARB;
-extern PFNGLUNIFORM2UI64ARBPROC glUniform2ui64ARB;
-extern PFNGLUNIFORM3UI64ARBPROC glUniform3ui64ARB;
-extern PFNGLUNIFORM4UI64ARBPROC glUniform4ui64ARB;
-extern PFNGLUNIFORM1UI64VARBPROC glUniform1ui64vARB;
-extern PFNGLUNIFORM2UI64VARBPROC glUniform2ui64vARB;
-extern PFNGLUNIFORM3UI64VARBPROC glUniform3ui64vARB;
-extern PFNGLUNIFORM4UI64VARBPROC glUniform4ui64vARB;
-extern PFNGLGETUNIFORMI64VARBPROC glGetUniformi64vARB;
-extern PFNGLGETUNIFORMUI64VARBPROC glGetUniformui64vARB;
-extern PFNGLGETNUNIFORMI64VARBPROC glGetnUniformi64vARB;
-extern PFNGLGETNUNIFORMUI64VARBPROC glGetnUniformui64vARB;
-extern PFNGLPROGRAMUNIFORM1I64ARBPROC glProgramUniform1i64ARB;
-extern PFNGLPROGRAMUNIFORM2I64ARBPROC glProgramUniform2i64ARB;
-extern PFNGLPROGRAMUNIFORM3I64ARBPROC glProgramUniform3i64ARB;
-extern PFNGLPROGRAMUNIFORM4I64ARBPROC glProgramUniform4i64ARB;
-extern PFNGLPROGRAMUNIFORM1I64VARBPROC glProgramUniform1i64vARB;
-extern PFNGLPROGRAMUNIFORM2I64VARBPROC glProgramUniform2i64vARB;
-extern PFNGLPROGRAMUNIFORM3I64VARBPROC glProgramUniform3i64vARB;
-extern PFNGLPROGRAMUNIFORM4I64VARBPROC glProgramUniform4i64vARB;
-extern PFNGLPROGRAMUNIFORM1UI64ARBPROC glProgramUniform1ui64ARB;
-extern PFNGLPROGRAMUNIFORM2UI64ARBPROC glProgramUniform2ui64ARB;
-extern PFNGLPROGRAMUNIFORM3UI64ARBPROC glProgramUniform3ui64ARB;
-extern PFNGLPROGRAMUNIFORM4UI64ARBPROC glProgramUniform4ui64ARB;
-extern PFNGLPROGRAMUNIFORM1UI64VARBPROC glProgramUniform1ui64vARB;
-extern PFNGLPROGRAMUNIFORM2UI64VARBPROC glProgramUniform2ui64vARB;
-extern PFNGLPROGRAMUNIFORM3UI64VARBPROC glProgramUniform3ui64vARB;
-extern PFNGLPROGRAMUNIFORM4UI64VARBPROC glProgramUniform4ui64vARB;
 #endif /* SOGL_ARB_gpu_shader_int64 */
 
 #ifdef SOGL_ARB_indirect_parameters
@@ -3404,14 +2677,11 @@ extern PFNGLPROGRAMUNIFORM4UI64VARBPROC glProgramUniform4ui64vARB;
 #define GL_PARAMETER_BUFFER_BINDING_ARB   0x80EF
 typedef void (APIENTRYP PFNGLMULTIDRAWARRAYSINDIRECTCOUNTARBPROC) (GLenum mode, const void *indirect, GLintptr drawcount, GLsizei maxdrawcount, GLsizei stride);
 typedef void (APIENTRYP PFNGLMULTIDRAWELEMENTSINDIRECTCOUNTARBPROC) (GLenum mode, GLenum type, const void *indirect, GLintptr drawcount, GLsizei maxdrawcount, GLsizei stride);
-extern PFNGLMULTIDRAWARRAYSINDIRECTCOUNTARBPROC glMultiDrawArraysIndirectCountARB;
-extern PFNGLMULTIDRAWELEMENTSINDIRECTCOUNTARBPROC glMultiDrawElementsIndirectCountARB;
 #endif /* SOGL_ARB_indirect_parameters */
 
 #ifdef SOGL_ARB_instanced_arrays
 #define GL_VERTEX_ATTRIB_ARRAY_DIVISOR_ARB 0x88FE
 typedef void (APIENTRYP PFNGLVERTEXATTRIBDIVISORARBPROC) (GLuint index, GLuint divisor);
-extern PFNGLVERTEXATTRIBDIVISORARBPROC glVertexAttribDivisorARB;
 #endif /* SOGL_ARB_instanced_arrays */
 
 #ifdef SOGL_ARB_internalformat_query2
@@ -3441,7 +2711,6 @@ extern PFNGLVERTEXATTRIBDIVISORARBPROC glVertexAttribDivisorARB;
 #define GL_MAX_SHADER_COMPILER_THREADS_ARB 0x91B0
 #define GL_COMPLETION_STATUS_ARB          0x91B1
 typedef void (APIENTRYP PFNGLMAXSHADERCOMPILERTHREADSARBPROC) (GLuint count);
-extern PFNGLMAXSHADERCOMPILERTHREADSARBPROC glMaxShaderCompilerThreadsARB;
 #endif /* SOGL_ARB_parallel_shader_compile */
 
 #ifdef SOGL_ARB_pipeline_statistics_query
@@ -3480,14 +2749,6 @@ typedef void (APIENTRYP PFNGLGETNUNIFORMFVARBPROC) (GLuint program, GLint locati
 typedef void (APIENTRYP PFNGLGETNUNIFORMIVARBPROC) (GLuint program, GLint location, GLsizei bufSize, GLint *params);
 typedef void (APIENTRYP PFNGLGETNUNIFORMUIVARBPROC) (GLuint program, GLint location, GLsizei bufSize, GLuint *params);
 typedef void (APIENTRYP PFNGLGETNUNIFORMDVARBPROC) (GLuint program, GLint location, GLsizei bufSize, GLdouble *params);
-extern PFNGLGETGRAPHICSRESETSTATUSARBPROC glGetGraphicsResetStatusARB;
-extern PFNGLGETNTEXIMAGEARBPROC glGetnTexImageARB;
-extern PFNGLREADNPIXELSARBPROC glReadnPixelsARB;
-extern PFNGLGETNCOMPRESSEDTEXIMAGEARBPROC glGetnCompressedTexImageARB;
-extern PFNGLGETNUNIFORMFVARBPROC glGetnUniformfvARB;
-extern PFNGLGETNUNIFORMIVARBPROC glGetnUniformivARB;
-extern PFNGLGETNUNIFORMUIVARBPROC glGetnUniformuivARB;
-extern PFNGLGETNUNIFORMDVARBPROC glGetnUniformdvARB;
 #endif /* SOGL_ARB_robustness */
 
 #ifdef SOGL_ARB_sample_locations
@@ -3502,16 +2763,12 @@ extern PFNGLGETNUNIFORMDVARBPROC glGetnUniformdvARB;
 typedef void (APIENTRYP PFNGLFRAMEBUFFERSAMPLELOCATIONSFVARBPROC) (GLenum target, GLuint start, GLsizei count, const GLfloat *v);
 typedef void (APIENTRYP PFNGLNAMEDFRAMEBUFFERSAMPLELOCATIONSFVARBPROC) (GLuint framebuffer, GLuint start, GLsizei count, const GLfloat *v);
 typedef void (APIENTRYP PFNGLEVALUATEDEPTHVALUESARBPROC) (void);
-extern PFNGLFRAMEBUFFERSAMPLELOCATIONSFVARBPROC glFramebufferSampleLocationsfvARB;
-extern PFNGLNAMEDFRAMEBUFFERSAMPLELOCATIONSFVARBPROC glNamedFramebufferSampleLocationsfvARB;
-extern PFNGLEVALUATEDEPTHVALUESARBPROC glEvaluateDepthValuesARB;
 #endif /* SOGL_ARB_sample_locations */
 
 #ifdef SOGL_ARB_sample_shading
 #define GL_SAMPLE_SHADING_ARB             0x8C36
 #define GL_MIN_SAMPLE_SHADING_VALUE_ARB   0x8C37
 typedef void (APIENTRYP PFNGLMINSAMPLESHADINGARBPROC) (GLfloat value);
-extern PFNGLMINSAMPLESHADINGARBPROC glMinSampleShadingARB;
 #endif /* SOGL_ARB_sample_shading */
 
 #ifdef SOGL_ARB_shading_language_include
@@ -3524,12 +2781,6 @@ typedef void (APIENTRYP PFNGLCOMPILESHADERINCLUDEARBPROC) (GLuint shader, GLsize
 typedef GLboolean (APIENTRYP PFNGLISNAMEDSTRINGARBPROC) (GLint namelen, const GLchar *name);
 typedef void (APIENTRYP PFNGLGETNAMEDSTRINGARBPROC) (GLint namelen, const GLchar *name, GLsizei bufSize, GLint *stringlen, GLchar *string);
 typedef void (APIENTRYP PFNGLGETNAMEDSTRINGIVARBPROC) (GLint namelen, const GLchar *name, GLenum pname, GLint *params);
-extern PFNGLNAMEDSTRINGARBPROC glNamedStringARB;
-extern PFNGLDELETENAMEDSTRINGARBPROC glDeleteNamedStringARB;
-extern PFNGLCOMPILESHADERINCLUDEARBPROC glCompileShaderIncludeARB;
-extern PFNGLISNAMEDSTRINGARBPROC glIsNamedStringARB;
-extern PFNGLGETNAMEDSTRINGARBPROC glGetNamedStringARB;
-extern PFNGLGETNAMEDSTRINGIVARBPROC glGetNamedStringivARB;
 #endif /* SOGL_ARB_shading_language_include */
 
 #ifdef SOGL_ARB_sparse_buffer
@@ -3538,9 +2789,6 @@ extern PFNGLGETNAMEDSTRINGIVARBPROC glGetNamedStringivARB;
 typedef void (APIENTRYP PFNGLBUFFERPAGECOMMITMENTARBPROC) (GLenum target, GLintptr offset, GLsizeiptr size, GLboolean commit);
 typedef void (APIENTRYP PFNGLNAMEDBUFFERPAGECOMMITMENTEXTPROC) (GLuint buffer, GLintptr offset, GLsizeiptr size, GLboolean commit);
 typedef void (APIENTRYP PFNGLNAMEDBUFFERPAGECOMMITMENTARBPROC) (GLuint buffer, GLintptr offset, GLsizeiptr size, GLboolean commit);
-extern PFNGLBUFFERPAGECOMMITMENTARBPROC glBufferPageCommitmentARB;
-extern PFNGLNAMEDBUFFERPAGECOMMITMENTEXTPROC glNamedBufferPageCommitmentEXT;
-extern PFNGLNAMEDBUFFERPAGECOMMITMENTARBPROC glNamedBufferPageCommitmentARB;
 #endif /* SOGL_ARB_sparse_buffer */
 
 #ifdef SOGL_ARB_sparse_texture
@@ -3556,7 +2804,6 @@ extern PFNGLNAMEDBUFFERPAGECOMMITMENTARBPROC glNamedBufferPageCommitmentARB;
 #define GL_MAX_SPARSE_ARRAY_TEXTURE_LAYERS_ARB 0x919A
 #define GL_SPARSE_TEXTURE_FULL_ARRAY_CUBE_MIPMAPS_ARB 0x91A9
 typedef void (APIENTRYP PFNGLTEXPAGECOMMITMENTARBPROC) (GLenum target, GLint level, GLint xoffset, GLint yoffset, GLint zoffset, GLsizei width, GLsizei height, GLsizei depth, GLboolean commit);
-extern PFNGLTEXPAGECOMMITMENTARBPROC glTexPageCommitmentARB;
 #endif /* SOGL_ARB_sparse_texture */
 
 #ifdef SOGL_ARB_texture_border_clamp
@@ -3570,7 +2817,6 @@ extern PFNGLTEXPAGECOMMITMENTARBPROC glTexPageCommitmentARB;
 #define GL_TEXTURE_BUFFER_DATA_STORE_BINDING_ARB 0x8C2D
 #define GL_TEXTURE_BUFFER_FORMAT_ARB      0x8C2E
 typedef void (APIENTRYP PFNGLTEXBUFFERARBPROC) (GLenum target, GLenum internalformat, GLuint buffer);
-extern PFNGLTEXBUFFERARBPROC glTexBufferARB;
 #endif /* SOGL_ARB_texture_buffer_object */
 
 #ifdef SOGL_ARB_texture_compression_bptc
@@ -3613,8 +2859,6 @@ extern PFNGLTEXBUFFERARBPROC glTexBufferARB;
 #ifdef SOGL_ARB_viewport_array
 typedef void (APIENTRYP PFNGLDEPTHRANGEARRAYDVNVPROC) (GLuint first, GLsizei count, const GLdouble *v);
 typedef void (APIENTRYP PFNGLDEPTHRANGEINDEXEDDNVPROC) (GLuint index, GLdouble n, GLdouble f);
-extern PFNGLDEPTHRANGEARRAYDVNVPROC glDepthRangeArraydvNV;
-extern PFNGLDEPTHRANGEINDEXEDDNVPROC glDepthRangeIndexeddNV;
 #endif /* SOGL_ARB_viewport_array */
 
 #ifdef SOGL_KHR_blend_equation_advanced
@@ -3634,7 +2878,6 @@ extern PFNGLDEPTHRANGEINDEXEDDNVPROC glDepthRangeIndexeddNV;
 #define GL_HSL_COLOR_KHR                  0x92AF
 #define GL_HSL_LUMINOSITY_KHR             0x92B0
 typedef void (APIENTRYP PFNGLBLENDBARRIERKHRPROC) (void);
-extern PFNGLBLENDBARRIERKHRPROC glBlendBarrierKHR;
 #endif /* SOGL_KHR_blend_equation_advanced */
 
 #ifdef SOGL_KHR_blend_equation_advanced_coherent
@@ -3649,7 +2892,6 @@ extern PFNGLBLENDBARRIERKHRPROC glBlendBarrierKHR;
 #define GL_MAX_SHADER_COMPILER_THREADS_KHR 0x91B0
 #define GL_COMPLETION_STATUS_KHR          0x91B1
 typedef void (APIENTRYP PFNGLMAXSHADERCOMPILERTHREADSKHRPROC) (GLuint count);
-extern PFNGLMAXSHADERCOMPILERTHREADSKHRPROC glMaxShaderCompilerThreadsKHR;
 #endif /* SOGL_KHR_parallel_shader_compile */
 
 #ifdef SOGL_KHR_robustness
@@ -3711,8 +2953,6 @@ extern PFNGLMAXSHADERCOMPILERTHREADSKHRPROC glMaxShaderCompilerThreadsKHR;
 #define GL_SUPPORTED_MULTISAMPLE_MODES_AMD 0x91B7
 typedef void (APIENTRYP PFNGLRENDERBUFFERSTORAGEMULTISAMPLEADVANCEDAMDPROC) (GLenum target, GLsizei samples, GLsizei storageSamples, GLenum internalformat, GLsizei width, GLsizei height);
 typedef void (APIENTRYP PFNGLNAMEDRENDERBUFFERSTORAGEMULTISAMPLEADVANCEDAMDPROC) (GLuint renderbuffer, GLsizei samples, GLsizei storageSamples, GLenum internalformat, GLsizei width, GLsizei height);
-extern PFNGLRENDERBUFFERSTORAGEMULTISAMPLEADVANCEDAMDPROC glRenderbufferStorageMultisampleAdvancedAMD;
-extern PFNGLNAMEDRENDERBUFFERSTORAGEMULTISAMPLEADVANCEDAMDPROC glNamedRenderbufferStorageMultisampleAdvancedAMD;
 #endif /* SOGL_AMD_framebuffer_multisample_advanced */
 
 #ifdef SOGL_AMD_performance_monitor
@@ -3734,17 +2974,6 @@ typedef void (APIENTRYP PFNGLSELECTPERFMONITORCOUNTERSAMDPROC) (GLuint monitor, 
 typedef void (APIENTRYP PFNGLBEGINPERFMONITORAMDPROC) (GLuint monitor);
 typedef void (APIENTRYP PFNGLENDPERFMONITORAMDPROC) (GLuint monitor);
 typedef void (APIENTRYP PFNGLGETPERFMONITORCOUNTERDATAAMDPROC) (GLuint monitor, GLenum pname, GLsizei dataSize, GLuint *data, GLint *bytesWritten);
-extern PFNGLGETPERFMONITORGROUPSAMDPROC glGetPerfMonitorGroupsAMD;
-extern PFNGLGETPERFMONITORCOUNTERSAMDPROC glGetPerfMonitorCountersAMD;
-extern PFNGLGETPERFMONITORGROUPSTRINGAMDPROC glGetPerfMonitorGroupStringAMD;
-extern PFNGLGETPERFMONITORCOUNTERSTRINGAMDPROC glGetPerfMonitorCounterStringAMD;
-extern PFNGLGETPERFMONITORCOUNTERINFOAMDPROC glGetPerfMonitorCounterInfoAMD;
-extern PFNGLGENPERFMONITORSAMDPROC glGenPerfMonitorsAMD;
-extern PFNGLDELETEPERFMONITORSAMDPROC glDeletePerfMonitorsAMD;
-extern PFNGLSELECTPERFMONITORCOUNTERSAMDPROC glSelectPerfMonitorCountersAMD;
-extern PFNGLBEGINPERFMONITORAMDPROC glBeginPerfMonitorAMD;
-extern PFNGLENDPERFMONITORAMDPROC glEndPerfMonitorAMD;
-extern PFNGLGETPERFMONITORCOUNTERDATAAMDPROC glGetPerfMonitorCounterDataAMD;
 #endif /* SOGL_AMD_performance_monitor */
 
 #ifdef SOGL_APPLE_rgb_422
@@ -3758,8 +2987,6 @@ extern PFNGLGETPERFMONITORCOUNTERDATAAMDPROC glGetPerfMonitorCounterDataAMD;
 typedef void *GLeglImageOES;
 typedef void (APIENTRYP PFNGLEGLIMAGETARGETTEXSTORAGEEXTPROC) (GLenum target, GLeglImageOES image, const GLint* attrib_list);
 typedef void (APIENTRYP PFNGLEGLIMAGETARGETTEXTURESTORAGEEXTPROC) (GLuint texture, GLeglImageOES image, const GLint* attrib_list);
-extern PFNGLEGLIMAGETARGETTEXSTORAGEEXTPROC glEGLImageTargetTexStorageEXT;
-extern PFNGLEGLIMAGETARGETTEXTURESTORAGEEXTPROC glEGLImageTargetTextureStorageEXT;
 #endif /* SOGL_EXT_EGL_image_storage */
 
 #ifdef SOGL_EXT_debug_label
@@ -3771,17 +2998,12 @@ extern PFNGLEGLIMAGETARGETTEXTURESTORAGEEXTPROC glEGLImageTargetTextureStorageEX
 #define GL_VERTEX_ARRAY_OBJECT_EXT        0x9154
 typedef void (APIENTRYP PFNGLLABELOBJECTEXTPROC) (GLenum type, GLuint object, GLsizei length, const GLchar *label);
 typedef void (APIENTRYP PFNGLGETOBJECTLABELEXTPROC) (GLenum type, GLuint object, GLsizei bufSize, GLsizei *length, GLchar *label);
-extern PFNGLLABELOBJECTEXTPROC glLabelObjectEXT;
-extern PFNGLGETOBJECTLABELEXTPROC glGetObjectLabelEXT;
 #endif /* SOGL_EXT_debug_label */
 
 #ifdef SOGL_EXT_debug_marker
 typedef void (APIENTRYP PFNGLINSERTEVENTMARKEREXTPROC) (GLsizei length, const GLchar *marker);
 typedef void (APIENTRYP PFNGLPUSHGROUPMARKEREXTPROC) (GLsizei length, const GLchar *marker);
 typedef void (APIENTRYP PFNGLPOPGROUPMARKEREXTPROC) (void);
-extern PFNGLINSERTEVENTMARKEREXTPROC glInsertEventMarkerEXT;
-extern PFNGLPUSHGROUPMARKEREXTPROC glPushGroupMarkerEXT;
-extern PFNGLPOPGROUPMARKEREXTPROC glPopGroupMarkerEXT;
 #endif /* SOGL_EXT_debug_marker */
 
 #ifdef SOGL_EXT_direct_state_access
@@ -4043,274 +3265,16 @@ typedef void (APIENTRYP PFNGLVERTEXARRAYVERTEXBINDINGDIVISOREXTPROC) (GLuint vao
 typedef void (APIENTRYP PFNGLVERTEXARRAYVERTEXATTRIBLOFFSETEXTPROC) (GLuint vaobj, GLuint buffer, GLuint index, GLint size, GLenum type, GLsizei stride, GLintptr offset);
 typedef void (APIENTRYP PFNGLTEXTUREPAGECOMMITMENTEXTPROC) (GLuint texture, GLint level, GLint xoffset, GLint yoffset, GLint zoffset, GLsizei width, GLsizei height, GLsizei depth, GLboolean commit);
 typedef void (APIENTRYP PFNGLVERTEXARRAYVERTEXATTRIBDIVISOREXTPROC) (GLuint vaobj, GLuint index, GLuint divisor);
-extern PFNGLMATRIXLOADFEXTPROC glMatrixLoadfEXT;
-extern PFNGLMATRIXLOADDEXTPROC glMatrixLoaddEXT;
-extern PFNGLMATRIXMULTFEXTPROC glMatrixMultfEXT;
-extern PFNGLMATRIXMULTDEXTPROC glMatrixMultdEXT;
-extern PFNGLMATRIXLOADIDENTITYEXTPROC glMatrixLoadIdentityEXT;
-extern PFNGLMATRIXROTATEFEXTPROC glMatrixRotatefEXT;
-extern PFNGLMATRIXROTATEDEXTPROC glMatrixRotatedEXT;
-extern PFNGLMATRIXSCALEFEXTPROC glMatrixScalefEXT;
-extern PFNGLMATRIXSCALEDEXTPROC glMatrixScaledEXT;
-extern PFNGLMATRIXTRANSLATEFEXTPROC glMatrixTranslatefEXT;
-extern PFNGLMATRIXTRANSLATEDEXTPROC glMatrixTranslatedEXT;
-extern PFNGLMATRIXFRUSTUMEXTPROC glMatrixFrustumEXT;
-extern PFNGLMATRIXORTHOEXTPROC glMatrixOrthoEXT;
-extern PFNGLMATRIXPOPEXTPROC glMatrixPopEXT;
-extern PFNGLMATRIXPUSHEXTPROC glMatrixPushEXT;
-extern PFNGLCLIENTATTRIBDEFAULTEXTPROC glClientAttribDefaultEXT;
-extern PFNGLPUSHCLIENTATTRIBDEFAULTEXTPROC glPushClientAttribDefaultEXT;
-extern PFNGLTEXTUREPARAMETERFEXTPROC glTextureParameterfEXT;
-extern PFNGLTEXTUREPARAMETERFVEXTPROC glTextureParameterfvEXT;
-extern PFNGLTEXTUREPARAMETERIEXTPROC glTextureParameteriEXT;
-extern PFNGLTEXTUREPARAMETERIVEXTPROC glTextureParameterivEXT;
-extern PFNGLTEXTUREIMAGE1DEXTPROC glTextureImage1DEXT;
-extern PFNGLTEXTUREIMAGE2DEXTPROC glTextureImage2DEXT;
-extern PFNGLTEXTURESUBIMAGE1DEXTPROC glTextureSubImage1DEXT;
-extern PFNGLTEXTURESUBIMAGE2DEXTPROC glTextureSubImage2DEXT;
-extern PFNGLCOPYTEXTUREIMAGE1DEXTPROC glCopyTextureImage1DEXT;
-extern PFNGLCOPYTEXTUREIMAGE2DEXTPROC glCopyTextureImage2DEXT;
-extern PFNGLCOPYTEXTURESUBIMAGE1DEXTPROC glCopyTextureSubImage1DEXT;
-extern PFNGLCOPYTEXTURESUBIMAGE2DEXTPROC glCopyTextureSubImage2DEXT;
-extern PFNGLGETTEXTUREIMAGEEXTPROC glGetTextureImageEXT;
-extern PFNGLGETTEXTUREPARAMETERFVEXTPROC glGetTextureParameterfvEXT;
-extern PFNGLGETTEXTUREPARAMETERIVEXTPROC glGetTextureParameterivEXT;
-extern PFNGLGETTEXTURELEVELPARAMETERFVEXTPROC glGetTextureLevelParameterfvEXT;
-extern PFNGLGETTEXTURELEVELPARAMETERIVEXTPROC glGetTextureLevelParameterivEXT;
-extern PFNGLTEXTUREIMAGE3DEXTPROC glTextureImage3DEXT;
-extern PFNGLTEXTURESUBIMAGE3DEXTPROC glTextureSubImage3DEXT;
-extern PFNGLCOPYTEXTURESUBIMAGE3DEXTPROC glCopyTextureSubImage3DEXT;
-extern PFNGLBINDMULTITEXTUREEXTPROC glBindMultiTextureEXT;
-extern PFNGLMULTITEXCOORDPOINTEREXTPROC glMultiTexCoordPointerEXT;
-extern PFNGLMULTITEXENVFEXTPROC glMultiTexEnvfEXT;
-extern PFNGLMULTITEXENVFVEXTPROC glMultiTexEnvfvEXT;
-extern PFNGLMULTITEXENVIEXTPROC glMultiTexEnviEXT;
-extern PFNGLMULTITEXENVIVEXTPROC glMultiTexEnvivEXT;
-extern PFNGLMULTITEXGENDEXTPROC glMultiTexGendEXT;
-extern PFNGLMULTITEXGENDVEXTPROC glMultiTexGendvEXT;
-extern PFNGLMULTITEXGENFEXTPROC glMultiTexGenfEXT;
-extern PFNGLMULTITEXGENFVEXTPROC glMultiTexGenfvEXT;
-extern PFNGLMULTITEXGENIEXTPROC glMultiTexGeniEXT;
-extern PFNGLMULTITEXGENIVEXTPROC glMultiTexGenivEXT;
-extern PFNGLGETMULTITEXENVFVEXTPROC glGetMultiTexEnvfvEXT;
-extern PFNGLGETMULTITEXENVIVEXTPROC glGetMultiTexEnvivEXT;
-extern PFNGLGETMULTITEXGENDVEXTPROC glGetMultiTexGendvEXT;
-extern PFNGLGETMULTITEXGENFVEXTPROC glGetMultiTexGenfvEXT;
-extern PFNGLGETMULTITEXGENIVEXTPROC glGetMultiTexGenivEXT;
-extern PFNGLMULTITEXPARAMETERIEXTPROC glMultiTexParameteriEXT;
-extern PFNGLMULTITEXPARAMETERIVEXTPROC glMultiTexParameterivEXT;
-extern PFNGLMULTITEXPARAMETERFEXTPROC glMultiTexParameterfEXT;
-extern PFNGLMULTITEXPARAMETERFVEXTPROC glMultiTexParameterfvEXT;
-extern PFNGLMULTITEXIMAGE1DEXTPROC glMultiTexImage1DEXT;
-extern PFNGLMULTITEXIMAGE2DEXTPROC glMultiTexImage2DEXT;
-extern PFNGLMULTITEXSUBIMAGE1DEXTPROC glMultiTexSubImage1DEXT;
-extern PFNGLMULTITEXSUBIMAGE2DEXTPROC glMultiTexSubImage2DEXT;
-extern PFNGLCOPYMULTITEXIMAGE1DEXTPROC glCopyMultiTexImage1DEXT;
-extern PFNGLCOPYMULTITEXIMAGE2DEXTPROC glCopyMultiTexImage2DEXT;
-extern PFNGLCOPYMULTITEXSUBIMAGE1DEXTPROC glCopyMultiTexSubImage1DEXT;
-extern PFNGLCOPYMULTITEXSUBIMAGE2DEXTPROC glCopyMultiTexSubImage2DEXT;
-extern PFNGLGETMULTITEXIMAGEEXTPROC glGetMultiTexImageEXT;
-extern PFNGLGETMULTITEXPARAMETERFVEXTPROC glGetMultiTexParameterfvEXT;
-extern PFNGLGETMULTITEXPARAMETERIVEXTPROC glGetMultiTexParameterivEXT;
-extern PFNGLGETMULTITEXLEVELPARAMETERFVEXTPROC glGetMultiTexLevelParameterfvEXT;
-extern PFNGLGETMULTITEXLEVELPARAMETERIVEXTPROC glGetMultiTexLevelParameterivEXT;
-extern PFNGLMULTITEXIMAGE3DEXTPROC glMultiTexImage3DEXT;
-extern PFNGLMULTITEXSUBIMAGE3DEXTPROC glMultiTexSubImage3DEXT;
-extern PFNGLCOPYMULTITEXSUBIMAGE3DEXTPROC glCopyMultiTexSubImage3DEXT;
-extern PFNGLENABLECLIENTSTATEINDEXEDEXTPROC glEnableClientStateIndexedEXT;
-extern PFNGLDISABLECLIENTSTATEINDEXEDEXTPROC glDisableClientStateIndexedEXT;
-extern PFNGLGETFLOATINDEXEDVEXTPROC glGetFloatIndexedvEXT;
-extern PFNGLGETDOUBLEINDEXEDVEXTPROC glGetDoubleIndexedvEXT;
-extern PFNGLGETPOINTERINDEXEDVEXTPROC glGetPointerIndexedvEXT;
-extern PFNGLENABLEINDEXEDEXTPROC glEnableIndexedEXT;
-extern PFNGLDISABLEINDEXEDEXTPROC glDisableIndexedEXT;
-extern PFNGLISENABLEDINDEXEDEXTPROC glIsEnabledIndexedEXT;
-extern PFNGLGETINTEGERINDEXEDVEXTPROC glGetIntegerIndexedvEXT;
-extern PFNGLGETBOOLEANINDEXEDVEXTPROC glGetBooleanIndexedvEXT;
-extern PFNGLCOMPRESSEDTEXTUREIMAGE3DEXTPROC glCompressedTextureImage3DEXT;
-extern PFNGLCOMPRESSEDTEXTUREIMAGE2DEXTPROC glCompressedTextureImage2DEXT;
-extern PFNGLCOMPRESSEDTEXTUREIMAGE1DEXTPROC glCompressedTextureImage1DEXT;
-extern PFNGLCOMPRESSEDTEXTURESUBIMAGE3DEXTPROC glCompressedTextureSubImage3DEXT;
-extern PFNGLCOMPRESSEDTEXTURESUBIMAGE2DEXTPROC glCompressedTextureSubImage2DEXT;
-extern PFNGLCOMPRESSEDTEXTURESUBIMAGE1DEXTPROC glCompressedTextureSubImage1DEXT;
-extern PFNGLGETCOMPRESSEDTEXTUREIMAGEEXTPROC glGetCompressedTextureImageEXT;
-extern PFNGLCOMPRESSEDMULTITEXIMAGE3DEXTPROC glCompressedMultiTexImage3DEXT;
-extern PFNGLCOMPRESSEDMULTITEXIMAGE2DEXTPROC glCompressedMultiTexImage2DEXT;
-extern PFNGLCOMPRESSEDMULTITEXIMAGE1DEXTPROC glCompressedMultiTexImage1DEXT;
-extern PFNGLCOMPRESSEDMULTITEXSUBIMAGE3DEXTPROC glCompressedMultiTexSubImage3DEXT;
-extern PFNGLCOMPRESSEDMULTITEXSUBIMAGE2DEXTPROC glCompressedMultiTexSubImage2DEXT;
-extern PFNGLCOMPRESSEDMULTITEXSUBIMAGE1DEXTPROC glCompressedMultiTexSubImage1DEXT;
-extern PFNGLGETCOMPRESSEDMULTITEXIMAGEEXTPROC glGetCompressedMultiTexImageEXT;
-extern PFNGLMATRIXLOADTRANSPOSEFEXTPROC glMatrixLoadTransposefEXT;
-extern PFNGLMATRIXLOADTRANSPOSEDEXTPROC glMatrixLoadTransposedEXT;
-extern PFNGLMATRIXMULTTRANSPOSEFEXTPROC glMatrixMultTransposefEXT;
-extern PFNGLMATRIXMULTTRANSPOSEDEXTPROC glMatrixMultTransposedEXT;
-extern PFNGLNAMEDBUFFERDATAEXTPROC glNamedBufferDataEXT;
-extern PFNGLNAMEDBUFFERSUBDATAEXTPROC glNamedBufferSubDataEXT;
-extern PFNGLMAPNAMEDBUFFEREXTPROC glMapNamedBufferEXT;
-extern PFNGLUNMAPNAMEDBUFFEREXTPROC glUnmapNamedBufferEXT;
-extern PFNGLGETNAMEDBUFFERPARAMETERIVEXTPROC glGetNamedBufferParameterivEXT;
-extern PFNGLGETNAMEDBUFFERPOINTERVEXTPROC glGetNamedBufferPointervEXT;
-extern PFNGLGETNAMEDBUFFERSUBDATAEXTPROC glGetNamedBufferSubDataEXT;
-extern PFNGLPROGRAMUNIFORM1FEXTPROC glProgramUniform1fEXT;
-extern PFNGLPROGRAMUNIFORM2FEXTPROC glProgramUniform2fEXT;
-extern PFNGLPROGRAMUNIFORM3FEXTPROC glProgramUniform3fEXT;
-extern PFNGLPROGRAMUNIFORM4FEXTPROC glProgramUniform4fEXT;
-extern PFNGLPROGRAMUNIFORM1IEXTPROC glProgramUniform1iEXT;
-extern PFNGLPROGRAMUNIFORM2IEXTPROC glProgramUniform2iEXT;
-extern PFNGLPROGRAMUNIFORM3IEXTPROC glProgramUniform3iEXT;
-extern PFNGLPROGRAMUNIFORM4IEXTPROC glProgramUniform4iEXT;
-extern PFNGLPROGRAMUNIFORM1FVEXTPROC glProgramUniform1fvEXT;
-extern PFNGLPROGRAMUNIFORM2FVEXTPROC glProgramUniform2fvEXT;
-extern PFNGLPROGRAMUNIFORM3FVEXTPROC glProgramUniform3fvEXT;
-extern PFNGLPROGRAMUNIFORM4FVEXTPROC glProgramUniform4fvEXT;
-extern PFNGLPROGRAMUNIFORM1IVEXTPROC glProgramUniform1ivEXT;
-extern PFNGLPROGRAMUNIFORM2IVEXTPROC glProgramUniform2ivEXT;
-extern PFNGLPROGRAMUNIFORM3IVEXTPROC glProgramUniform3ivEXT;
-extern PFNGLPROGRAMUNIFORM4IVEXTPROC glProgramUniform4ivEXT;
-extern PFNGLPROGRAMUNIFORMMATRIX2FVEXTPROC glProgramUniformMatrix2fvEXT;
-extern PFNGLPROGRAMUNIFORMMATRIX3FVEXTPROC glProgramUniformMatrix3fvEXT;
-extern PFNGLPROGRAMUNIFORMMATRIX4FVEXTPROC glProgramUniformMatrix4fvEXT;
-extern PFNGLPROGRAMUNIFORMMATRIX2X3FVEXTPROC glProgramUniformMatrix2x3fvEXT;
-extern PFNGLPROGRAMUNIFORMMATRIX3X2FVEXTPROC glProgramUniformMatrix3x2fvEXT;
-extern PFNGLPROGRAMUNIFORMMATRIX2X4FVEXTPROC glProgramUniformMatrix2x4fvEXT;
-extern PFNGLPROGRAMUNIFORMMATRIX4X2FVEXTPROC glProgramUniformMatrix4x2fvEXT;
-extern PFNGLPROGRAMUNIFORMMATRIX3X4FVEXTPROC glProgramUniformMatrix3x4fvEXT;
-extern PFNGLPROGRAMUNIFORMMATRIX4X3FVEXTPROC glProgramUniformMatrix4x3fvEXT;
-extern PFNGLTEXTUREBUFFEREXTPROC glTextureBufferEXT;
-extern PFNGLMULTITEXBUFFEREXTPROC glMultiTexBufferEXT;
-extern PFNGLTEXTUREPARAMETERIIVEXTPROC glTextureParameterIivEXT;
-extern PFNGLTEXTUREPARAMETERIUIVEXTPROC glTextureParameterIuivEXT;
-extern PFNGLGETTEXTUREPARAMETERIIVEXTPROC glGetTextureParameterIivEXT;
-extern PFNGLGETTEXTUREPARAMETERIUIVEXTPROC glGetTextureParameterIuivEXT;
-extern PFNGLMULTITEXPARAMETERIIVEXTPROC glMultiTexParameterIivEXT;
-extern PFNGLMULTITEXPARAMETERIUIVEXTPROC glMultiTexParameterIuivEXT;
-extern PFNGLGETMULTITEXPARAMETERIIVEXTPROC glGetMultiTexParameterIivEXT;
-extern PFNGLGETMULTITEXPARAMETERIUIVEXTPROC glGetMultiTexParameterIuivEXT;
-extern PFNGLPROGRAMUNIFORM1UIEXTPROC glProgramUniform1uiEXT;
-extern PFNGLPROGRAMUNIFORM2UIEXTPROC glProgramUniform2uiEXT;
-extern PFNGLPROGRAMUNIFORM3UIEXTPROC glProgramUniform3uiEXT;
-extern PFNGLPROGRAMUNIFORM4UIEXTPROC glProgramUniform4uiEXT;
-extern PFNGLPROGRAMUNIFORM1UIVEXTPROC glProgramUniform1uivEXT;
-extern PFNGLPROGRAMUNIFORM2UIVEXTPROC glProgramUniform2uivEXT;
-extern PFNGLPROGRAMUNIFORM3UIVEXTPROC glProgramUniform3uivEXT;
-extern PFNGLPROGRAMUNIFORM4UIVEXTPROC glProgramUniform4uivEXT;
-extern PFNGLNAMEDPROGRAMLOCALPARAMETERS4FVEXTPROC glNamedProgramLocalParameters4fvEXT;
-extern PFNGLNAMEDPROGRAMLOCALPARAMETERI4IEXTPROC glNamedProgramLocalParameterI4iEXT;
-extern PFNGLNAMEDPROGRAMLOCALPARAMETERI4IVEXTPROC glNamedProgramLocalParameterI4ivEXT;
-extern PFNGLNAMEDPROGRAMLOCALPARAMETERSI4IVEXTPROC glNamedProgramLocalParametersI4ivEXT;
-extern PFNGLNAMEDPROGRAMLOCALPARAMETERI4UIEXTPROC glNamedProgramLocalParameterI4uiEXT;
-extern PFNGLNAMEDPROGRAMLOCALPARAMETERI4UIVEXTPROC glNamedProgramLocalParameterI4uivEXT;
-extern PFNGLNAMEDPROGRAMLOCALPARAMETERSI4UIVEXTPROC glNamedProgramLocalParametersI4uivEXT;
-extern PFNGLGETNAMEDPROGRAMLOCALPARAMETERIIVEXTPROC glGetNamedProgramLocalParameterIivEXT;
-extern PFNGLGETNAMEDPROGRAMLOCALPARAMETERIUIVEXTPROC glGetNamedProgramLocalParameterIuivEXT;
-extern PFNGLENABLECLIENTSTATEIEXTPROC glEnableClientStateiEXT;
-extern PFNGLDISABLECLIENTSTATEIEXTPROC glDisableClientStateiEXT;
-extern PFNGLGETFLOATI_VEXTPROC glGetFloati_vEXT;
-extern PFNGLGETDOUBLEI_VEXTPROC glGetDoublei_vEXT;
-extern PFNGLGETPOINTERI_VEXTPROC glGetPointeri_vEXT;
-extern PFNGLNAMEDPROGRAMSTRINGEXTPROC glNamedProgramStringEXT;
-extern PFNGLNAMEDPROGRAMLOCALPARAMETER4DEXTPROC glNamedProgramLocalParameter4dEXT;
-extern PFNGLNAMEDPROGRAMLOCALPARAMETER4DVEXTPROC glNamedProgramLocalParameter4dvEXT;
-extern PFNGLNAMEDPROGRAMLOCALPARAMETER4FEXTPROC glNamedProgramLocalParameter4fEXT;
-extern PFNGLNAMEDPROGRAMLOCALPARAMETER4FVEXTPROC glNamedProgramLocalParameter4fvEXT;
-extern PFNGLGETNAMEDPROGRAMLOCALPARAMETERDVEXTPROC glGetNamedProgramLocalParameterdvEXT;
-extern PFNGLGETNAMEDPROGRAMLOCALPARAMETERFVEXTPROC glGetNamedProgramLocalParameterfvEXT;
-extern PFNGLGETNAMEDPROGRAMIVEXTPROC glGetNamedProgramivEXT;
-extern PFNGLGETNAMEDPROGRAMSTRINGEXTPROC glGetNamedProgramStringEXT;
-extern PFNGLNAMEDRENDERBUFFERSTORAGEEXTPROC glNamedRenderbufferStorageEXT;
-extern PFNGLGETNAMEDRENDERBUFFERPARAMETERIVEXTPROC glGetNamedRenderbufferParameterivEXT;
-extern PFNGLNAMEDRENDERBUFFERSTORAGEMULTISAMPLEEXTPROC glNamedRenderbufferStorageMultisampleEXT;
-extern PFNGLNAMEDRENDERBUFFERSTORAGEMULTISAMPLECOVERAGEEXTPROC glNamedRenderbufferStorageMultisampleCoverageEXT;
-extern PFNGLCHECKNAMEDFRAMEBUFFERSTATUSEXTPROC glCheckNamedFramebufferStatusEXT;
-extern PFNGLNAMEDFRAMEBUFFERTEXTURE1DEXTPROC glNamedFramebufferTexture1DEXT;
-extern PFNGLNAMEDFRAMEBUFFERTEXTURE2DEXTPROC glNamedFramebufferTexture2DEXT;
-extern PFNGLNAMEDFRAMEBUFFERTEXTURE3DEXTPROC glNamedFramebufferTexture3DEXT;
-extern PFNGLNAMEDFRAMEBUFFERRENDERBUFFEREXTPROC glNamedFramebufferRenderbufferEXT;
-extern PFNGLGETNAMEDFRAMEBUFFERATTACHMENTPARAMETERIVEXTPROC glGetNamedFramebufferAttachmentParameterivEXT;
-extern PFNGLGENERATETEXTUREMIPMAPEXTPROC glGenerateTextureMipmapEXT;
-extern PFNGLGENERATEMULTITEXMIPMAPEXTPROC glGenerateMultiTexMipmapEXT;
-extern PFNGLFRAMEBUFFERDRAWBUFFEREXTPROC glFramebufferDrawBufferEXT;
-extern PFNGLFRAMEBUFFERDRAWBUFFERSEXTPROC glFramebufferDrawBuffersEXT;
-extern PFNGLFRAMEBUFFERREADBUFFEREXTPROC glFramebufferReadBufferEXT;
-extern PFNGLGETFRAMEBUFFERPARAMETERIVEXTPROC glGetFramebufferParameterivEXT;
-extern PFNGLNAMEDCOPYBUFFERSUBDATAEXTPROC glNamedCopyBufferSubDataEXT;
-extern PFNGLNAMEDFRAMEBUFFERTEXTUREEXTPROC glNamedFramebufferTextureEXT;
-extern PFNGLNAMEDFRAMEBUFFERTEXTURELAYEREXTPROC glNamedFramebufferTextureLayerEXT;
-extern PFNGLNAMEDFRAMEBUFFERTEXTUREFACEEXTPROC glNamedFramebufferTextureFaceEXT;
-extern PFNGLTEXTURERENDERBUFFEREXTPROC glTextureRenderbufferEXT;
-extern PFNGLMULTITEXRENDERBUFFEREXTPROC glMultiTexRenderbufferEXT;
-extern PFNGLVERTEXARRAYVERTEXOFFSETEXTPROC glVertexArrayVertexOffsetEXT;
-extern PFNGLVERTEXARRAYCOLOROFFSETEXTPROC glVertexArrayColorOffsetEXT;
-extern PFNGLVERTEXARRAYEDGEFLAGOFFSETEXTPROC glVertexArrayEdgeFlagOffsetEXT;
-extern PFNGLVERTEXARRAYINDEXOFFSETEXTPROC glVertexArrayIndexOffsetEXT;
-extern PFNGLVERTEXARRAYNORMALOFFSETEXTPROC glVertexArrayNormalOffsetEXT;
-extern PFNGLVERTEXARRAYTEXCOORDOFFSETEXTPROC glVertexArrayTexCoordOffsetEXT;
-extern PFNGLVERTEXARRAYMULTITEXCOORDOFFSETEXTPROC glVertexArrayMultiTexCoordOffsetEXT;
-extern PFNGLVERTEXARRAYFOGCOORDOFFSETEXTPROC glVertexArrayFogCoordOffsetEXT;
-extern PFNGLVERTEXARRAYSECONDARYCOLOROFFSETEXTPROC glVertexArraySecondaryColorOffsetEXT;
-extern PFNGLVERTEXARRAYVERTEXATTRIBOFFSETEXTPROC glVertexArrayVertexAttribOffsetEXT;
-extern PFNGLVERTEXARRAYVERTEXATTRIBIOFFSETEXTPROC glVertexArrayVertexAttribIOffsetEXT;
-extern PFNGLENABLEVERTEXARRAYEXTPROC glEnableVertexArrayEXT;
-extern PFNGLDISABLEVERTEXARRAYEXTPROC glDisableVertexArrayEXT;
-extern PFNGLENABLEVERTEXARRAYATTRIBEXTPROC glEnableVertexArrayAttribEXT;
-extern PFNGLDISABLEVERTEXARRAYATTRIBEXTPROC glDisableVertexArrayAttribEXT;
-extern PFNGLGETVERTEXARRAYINTEGERVEXTPROC glGetVertexArrayIntegervEXT;
-extern PFNGLGETVERTEXARRAYPOINTERVEXTPROC glGetVertexArrayPointervEXT;
-extern PFNGLGETVERTEXARRAYINTEGERI_VEXTPROC glGetVertexArrayIntegeri_vEXT;
-extern PFNGLGETVERTEXARRAYPOINTERI_VEXTPROC glGetVertexArrayPointeri_vEXT;
-extern PFNGLMAPNAMEDBUFFERRANGEEXTPROC glMapNamedBufferRangeEXT;
-extern PFNGLFLUSHMAPPEDNAMEDBUFFERRANGEEXTPROC glFlushMappedNamedBufferRangeEXT;
-extern PFNGLNAMEDBUFFERSTORAGEEXTPROC glNamedBufferStorageEXT;
-extern PFNGLCLEARNAMEDBUFFERDATAEXTPROC glClearNamedBufferDataEXT;
-extern PFNGLCLEARNAMEDBUFFERSUBDATAEXTPROC glClearNamedBufferSubDataEXT;
-extern PFNGLNAMEDFRAMEBUFFERPARAMETERIEXTPROC glNamedFramebufferParameteriEXT;
-extern PFNGLGETNAMEDFRAMEBUFFERPARAMETERIVEXTPROC glGetNamedFramebufferParameterivEXT;
-extern PFNGLPROGRAMUNIFORM1DEXTPROC glProgramUniform1dEXT;
-extern PFNGLPROGRAMUNIFORM2DEXTPROC glProgramUniform2dEXT;
-extern PFNGLPROGRAMUNIFORM3DEXTPROC glProgramUniform3dEXT;
-extern PFNGLPROGRAMUNIFORM4DEXTPROC glProgramUniform4dEXT;
-extern PFNGLPROGRAMUNIFORM1DVEXTPROC glProgramUniform1dvEXT;
-extern PFNGLPROGRAMUNIFORM2DVEXTPROC glProgramUniform2dvEXT;
-extern PFNGLPROGRAMUNIFORM3DVEXTPROC glProgramUniform3dvEXT;
-extern PFNGLPROGRAMUNIFORM4DVEXTPROC glProgramUniform4dvEXT;
-extern PFNGLPROGRAMUNIFORMMATRIX2DVEXTPROC glProgramUniformMatrix2dvEXT;
-extern PFNGLPROGRAMUNIFORMMATRIX3DVEXTPROC glProgramUniformMatrix3dvEXT;
-extern PFNGLPROGRAMUNIFORMMATRIX4DVEXTPROC glProgramUniformMatrix4dvEXT;
-extern PFNGLPROGRAMUNIFORMMATRIX2X3DVEXTPROC glProgramUniformMatrix2x3dvEXT;
-extern PFNGLPROGRAMUNIFORMMATRIX2X4DVEXTPROC glProgramUniformMatrix2x4dvEXT;
-extern PFNGLPROGRAMUNIFORMMATRIX3X2DVEXTPROC glProgramUniformMatrix3x2dvEXT;
-extern PFNGLPROGRAMUNIFORMMATRIX3X4DVEXTPROC glProgramUniformMatrix3x4dvEXT;
-extern PFNGLPROGRAMUNIFORMMATRIX4X2DVEXTPROC glProgramUniformMatrix4x2dvEXT;
-extern PFNGLPROGRAMUNIFORMMATRIX4X3DVEXTPROC glProgramUniformMatrix4x3dvEXT;
-extern PFNGLTEXTUREBUFFERRANGEEXTPROC glTextureBufferRangeEXT;
-extern PFNGLTEXTURESTORAGE1DEXTPROC glTextureStorage1DEXT;
-extern PFNGLTEXTURESTORAGE2DEXTPROC glTextureStorage2DEXT;
-extern PFNGLTEXTURESTORAGE3DEXTPROC glTextureStorage3DEXT;
-extern PFNGLTEXTURESTORAGE2DMULTISAMPLEEXTPROC glTextureStorage2DMultisampleEXT;
-extern PFNGLTEXTURESTORAGE3DMULTISAMPLEEXTPROC glTextureStorage3DMultisampleEXT;
-extern PFNGLVERTEXARRAYBINDVERTEXBUFFEREXTPROC glVertexArrayBindVertexBufferEXT;
-extern PFNGLVERTEXARRAYVERTEXATTRIBFORMATEXTPROC glVertexArrayVertexAttribFormatEXT;
-extern PFNGLVERTEXARRAYVERTEXATTRIBIFORMATEXTPROC glVertexArrayVertexAttribIFormatEXT;
-extern PFNGLVERTEXARRAYVERTEXATTRIBLFORMATEXTPROC glVertexArrayVertexAttribLFormatEXT;
-extern PFNGLVERTEXARRAYVERTEXATTRIBBINDINGEXTPROC glVertexArrayVertexAttribBindingEXT;
-extern PFNGLVERTEXARRAYVERTEXBINDINGDIVISOREXTPROC glVertexArrayVertexBindingDivisorEXT;
-extern PFNGLVERTEXARRAYVERTEXATTRIBLOFFSETEXTPROC glVertexArrayVertexAttribLOffsetEXT;
-extern PFNGLTEXTUREPAGECOMMITMENTEXTPROC glTexturePageCommitmentEXT;
-extern PFNGLVERTEXARRAYVERTEXATTRIBDIVISOREXTPROC glVertexArrayVertexAttribDivisorEXT;
 #endif /* SOGL_EXT_direct_state_access */
 
 #ifdef SOGL_EXT_draw_instanced
 typedef void (APIENTRYP PFNGLDRAWARRAYSINSTANCEDEXTPROC) (GLenum mode, GLint start, GLsizei count, GLsizei primcount);
 typedef void (APIENTRYP PFNGLDRAWELEMENTSINSTANCEDEXTPROC) (GLenum mode, GLsizei count, GLenum type, const void *indices, GLsizei primcount);
-extern PFNGLDRAWARRAYSINSTANCEDEXTPROC glDrawArraysInstancedEXT;
-extern PFNGLDRAWELEMENTSINSTANCEDEXTPROC glDrawElementsInstancedEXT;
 #endif /* SOGL_EXT_draw_instanced */
 
 #ifdef SOGL_EXT_polygon_offset_clamp
 #define GL_POLYGON_OFFSET_CLAMP_EXT       0x8E1B
 typedef void (APIENTRYP PFNGLPOLYGONOFFSETCLAMPEXTPROC) (GLfloat factor, GLfloat units, GLfloat clamp);
-extern PFNGLPOLYGONOFFSETCLAMPEXTPROC glPolygonOffsetClampEXT;
 #endif /* SOGL_EXT_polygon_offset_clamp */
 
 #ifdef SOGL_EXT_raster_multisample
@@ -4321,7 +3285,6 @@ extern PFNGLPOLYGONOFFSETCLAMPEXTPROC glPolygonOffsetClampEXT;
 #define GL_MULTISAMPLE_RASTERIZATION_ALLOWED_EXT 0x932B
 #define GL_EFFECTIVE_RASTER_SAMPLES_EXT   0x932C
 typedef void (APIENTRYP PFNGLRASTERSAMPLESEXTPROC) (GLuint samples, GLboolean fixedsamplelocations);
-extern PFNGLRASTERSAMPLESEXTPROC glRasterSamplesEXT;
 #endif /* SOGL_EXT_raster_multisample */
 
 #ifdef SOGL_EXT_separate_shader_objects
@@ -4329,9 +3292,6 @@ extern PFNGLRASTERSAMPLESEXTPROC glRasterSamplesEXT;
 typedef void (APIENTRYP PFNGLUSESHADERPROGRAMEXTPROC) (GLenum type, GLuint program);
 typedef void (APIENTRYP PFNGLACTIVEPROGRAMEXTPROC) (GLuint program);
 typedef GLuint (APIENTRYP PFNGLCREATESHADERPROGRAMEXTPROC) (GLenum type, const GLchar *string);
-extern PFNGLUSESHADERPROGRAMEXTPROC glUseShaderProgramEXT;
-extern PFNGLACTIVEPROGRAMEXTPROC glActiveProgramEXT;
-extern PFNGLCREATESHADERPROGRAMEXTPROC glCreateShaderProgramEXT;
 #endif /* SOGL_EXT_separate_shader_objects */
 
 #ifdef SOGL_EXT_shader_framebuffer_fetch
@@ -4340,7 +3300,6 @@ extern PFNGLCREATESHADERPROGRAMEXTPROC glCreateShaderProgramEXT;
 
 #ifdef SOGL_EXT_shader_framebuffer_fetch_non_coherent
 typedef void (APIENTRYP PFNGLFRAMEBUFFERFETCHBARRIEREXTPROC) (void);
-extern PFNGLFRAMEBUFFERFETCHBARRIEREXTPROC glFramebufferFetchBarrierEXT;
 #endif /* SOGL_EXT_shader_framebuffer_fetch_non_coherent */
 
 #ifdef SOGL_EXT_texture_compression_s3tc
@@ -4373,7 +3332,6 @@ extern PFNGLFRAMEBUFFERFETCHBARRIEREXTPROC glFramebufferFetchBarrierEXT;
 #define GL_MAX_WINDOW_RECTANGLES_EXT      0x8F14
 #define GL_NUM_WINDOW_RECTANGLES_EXT      0x8F15
 typedef void (APIENTRYP PFNGLWINDOWRECTANGLESEXTPROC) (GLenum mode, GLsizei count, const GLint *box);
-extern PFNGLWINDOWRECTANGLESEXTPROC glWindowRectanglesEXT;
 #endif /* SOGL_EXT_window_rectangles */
 
 #ifdef SOGL_INTEL_blackhole_render
@@ -4386,7 +3344,6 @@ extern PFNGLWINDOWRECTANGLESEXTPROC glWindowRectanglesEXT;
 
 #ifdef SOGL_INTEL_framebuffer_CMAA
 typedef void (APIENTRYP PFNGLAPPLYFRAMEBUFFERATTACHMENTCMAAINTELPROC) (void);
-extern PFNGLAPPLYFRAMEBUFFERATTACHMENTCMAAINTELPROC glApplyFramebufferAttachmentCMAAINTEL;
 #endif /* SOGL_INTEL_framebuffer_CMAA */
 
 #ifdef SOGL_INTEL_performance_query
@@ -4420,16 +3377,6 @@ typedef void (APIENTRYP PFNGLGETPERFCOUNTERINFOINTELPROC) (GLuint queryId, GLuin
 typedef void (APIENTRYP PFNGLGETPERFQUERYDATAINTELPROC) (GLuint queryHandle, GLuint flags, GLsizei dataSize, void *data, GLuint *bytesWritten);
 typedef void (APIENTRYP PFNGLGETPERFQUERYIDBYNAMEINTELPROC) (GLchar *queryName, GLuint *queryId);
 typedef void (APIENTRYP PFNGLGETPERFQUERYINFOINTELPROC) (GLuint queryId, GLuint queryNameLength, GLchar *queryName, GLuint *dataSize, GLuint *noCounters, GLuint *noInstances, GLuint *capsMask);
-extern PFNGLBEGINPERFQUERYINTELPROC glBeginPerfQueryINTEL;
-extern PFNGLCREATEPERFQUERYINTELPROC glCreatePerfQueryINTEL;
-extern PFNGLDELETEPERFQUERYINTELPROC glDeletePerfQueryINTEL;
-extern PFNGLENDPERFQUERYINTELPROC glEndPerfQueryINTEL;
-extern PFNGLGETFIRSTPERFQUERYIDINTELPROC glGetFirstPerfQueryIdINTEL;
-extern PFNGLGETNEXTPERFQUERYIDINTELPROC glGetNextPerfQueryIdINTEL;
-extern PFNGLGETPERFCOUNTERINFOINTELPROC glGetPerfCounterInfoINTEL;
-extern PFNGLGETPERFQUERYDATAINTELPROC glGetPerfQueryDataINTEL;
-extern PFNGLGETPERFQUERYIDBYNAMEINTELPROC glGetPerfQueryIdByNameINTEL;
-extern PFNGLGETPERFQUERYINFOINTELPROC glGetPerfQueryInfoINTEL;
 #endif /* SOGL_INTEL_performance_query */
 
 #ifdef SOGL_MESA_framebuffer_flip_x
@@ -4440,8 +3387,6 @@ extern PFNGLGETPERFQUERYINFOINTELPROC glGetPerfQueryInfoINTEL;
 #define GL_FRAMEBUFFER_FLIP_Y_MESA        0x8BBB
 typedef void (APIENTRYP PFNGLFRAMEBUFFERPARAMETERIMESAPROC) (GLenum target, GLenum pname, GLint param);
 typedef void (APIENTRYP PFNGLGETFRAMEBUFFERPARAMETERIVMESAPROC) (GLenum target, GLenum pname, GLint *params);
-extern PFNGLFRAMEBUFFERPARAMETERIMESAPROC glFramebufferParameteriMESA;
-extern PFNGLGETFRAMEBUFFERPARAMETERIVMESAPROC glGetFramebufferParameterivMESA;
 #endif /* SOGL_MESA_framebuffer_flip_y */
 
 #ifdef SOGL_MESA_framebuffer_swap_xy
@@ -4451,15 +3396,11 @@ extern PFNGLGETFRAMEBUFFERPARAMETERIVMESAPROC glGetFramebufferParameterivMESA;
 #ifdef SOGL_NV_bindless_multi_draw_indirect
 typedef void (APIENTRYP PFNGLMULTIDRAWARRAYSINDIRECTBINDLESSNVPROC) (GLenum mode, const void *indirect, GLsizei drawCount, GLsizei stride, GLint vertexBufferCount);
 typedef void (APIENTRYP PFNGLMULTIDRAWELEMENTSINDIRECTBINDLESSNVPROC) (GLenum mode, GLenum type, const void *indirect, GLsizei drawCount, GLsizei stride, GLint vertexBufferCount);
-extern PFNGLMULTIDRAWARRAYSINDIRECTBINDLESSNVPROC glMultiDrawArraysIndirectBindlessNV;
-extern PFNGLMULTIDRAWELEMENTSINDIRECTBINDLESSNVPROC glMultiDrawElementsIndirectBindlessNV;
 #endif /* SOGL_NV_bindless_multi_draw_indirect */
 
 #ifdef SOGL_NV_bindless_multi_draw_indirect_count
 typedef void (APIENTRYP PFNGLMULTIDRAWARRAYSINDIRECTBINDLESSCOUNTNVPROC) (GLenum mode, const void *indirect, GLsizei drawCount, GLsizei maxDrawCount, GLsizei stride, GLint vertexBufferCount);
 typedef void (APIENTRYP PFNGLMULTIDRAWELEMENTSINDIRECTBINDLESSCOUNTNVPROC) (GLenum mode, GLenum type, const void *indirect, GLsizei drawCount, GLsizei maxDrawCount, GLsizei stride, GLint vertexBufferCount);
-extern PFNGLMULTIDRAWARRAYSINDIRECTBINDLESSCOUNTNVPROC glMultiDrawArraysIndirectBindlessCountNV;
-extern PFNGLMULTIDRAWELEMENTSINDIRECTBINDLESSCOUNTNVPROC glMultiDrawElementsIndirectBindlessCountNV;
 #endif /* SOGL_NV_bindless_multi_draw_indirect_count */
 
 #ifdef SOGL_NV_bindless_texture
@@ -4476,19 +3417,6 @@ typedef void (APIENTRYP PFNGLPROGRAMUNIFORMHANDLEUI64NVPROC) (GLuint program, GL
 typedef void (APIENTRYP PFNGLPROGRAMUNIFORMHANDLEUI64VNVPROC) (GLuint program, GLint location, GLsizei count, const GLuint64 *values);
 typedef GLboolean (APIENTRYP PFNGLISTEXTUREHANDLERESIDENTNVPROC) (GLuint64 handle);
 typedef GLboolean (APIENTRYP PFNGLISIMAGEHANDLERESIDENTNVPROC) (GLuint64 handle);
-extern PFNGLGETTEXTUREHANDLENVPROC glGetTextureHandleNV;
-extern PFNGLGETTEXTURESAMPLERHANDLENVPROC glGetTextureSamplerHandleNV;
-extern PFNGLMAKETEXTUREHANDLERESIDENTNVPROC glMakeTextureHandleResidentNV;
-extern PFNGLMAKETEXTUREHANDLENONRESIDENTNVPROC glMakeTextureHandleNonResidentNV;
-extern PFNGLGETIMAGEHANDLENVPROC glGetImageHandleNV;
-extern PFNGLMAKEIMAGEHANDLERESIDENTNVPROC glMakeImageHandleResidentNV;
-extern PFNGLMAKEIMAGEHANDLENONRESIDENTNVPROC glMakeImageHandleNonResidentNV;
-extern PFNGLUNIFORMHANDLEUI64NVPROC glUniformHandleui64NV;
-extern PFNGLUNIFORMHANDLEUI64VNVPROC glUniformHandleui64vNV;
-extern PFNGLPROGRAMUNIFORMHANDLEUI64NVPROC glProgramUniformHandleui64NV;
-extern PFNGLPROGRAMUNIFORMHANDLEUI64VNVPROC glProgramUniformHandleui64vNV;
-extern PFNGLISTEXTUREHANDLERESIDENTNVPROC glIsTextureHandleResidentNV;
-extern PFNGLISIMAGEHANDLERESIDENTNVPROC glIsImageHandleResidentNV;
 #endif /* SOGL_NV_bindless_texture */
 
 #ifdef SOGL_NV_blend_equation_advanced
@@ -4543,8 +3471,6 @@ extern PFNGLISIMAGEHANDLERESIDENTNVPROC glIsImageHandleResidentNV;
 #define GL_XOR_NV                         0x1506
 typedef void (APIENTRYP PFNGLBLENDPARAMETERINVPROC) (GLenum pname, GLint value);
 typedef void (APIENTRYP PFNGLBLENDBARRIERNVPROC) (void);
-extern PFNGLBLENDPARAMETERINVPROC glBlendParameteriNV;
-extern PFNGLBLENDBARRIERNVPROC glBlendBarrierNV;
 #endif /* SOGL_NV_blend_equation_advanced */
 
 #ifdef SOGL_NV_blend_equation_advanced_coherent
@@ -4561,7 +3487,6 @@ extern PFNGLBLENDBARRIERNVPROC glBlendBarrierNV;
 #define GL_VIEWPORT_POSITION_W_SCALE_X_COEFF_NV 0x937D
 #define GL_VIEWPORT_POSITION_W_SCALE_Y_COEFF_NV 0x937E
 typedef void (APIENTRYP PFNGLVIEWPORTPOSITIONWSCALENVPROC) (GLuint index, GLfloat xcoeff, GLfloat ycoeff);
-extern PFNGLVIEWPORTPOSITIONWSCALENVPROC glViewportPositionWScaleNV;
 #endif /* SOGL_NV_clip_space_w_scaling */
 
 #ifdef SOGL_NV_command_list
@@ -4601,23 +3526,6 @@ typedef void (APIENTRYP PFNGLLISTDRAWCOMMANDSSTATESCLIENTNVPROC) (GLuint list, G
 typedef void (APIENTRYP PFNGLCOMMANDLISTSEGMENTSNVPROC) (GLuint list, GLuint segments);
 typedef void (APIENTRYP PFNGLCOMPILECOMMANDLISTNVPROC) (GLuint list);
 typedef void (APIENTRYP PFNGLCALLCOMMANDLISTNVPROC) (GLuint list);
-extern PFNGLCREATESTATESNVPROC glCreateStatesNV;
-extern PFNGLDELETESTATESNVPROC glDeleteStatesNV;
-extern PFNGLISSTATENVPROC glIsStateNV;
-extern PFNGLSTATECAPTURENVPROC glStateCaptureNV;
-extern PFNGLGETCOMMANDHEADERNVPROC glGetCommandHeaderNV;
-extern PFNGLGETSTAGEINDEXNVPROC glGetStageIndexNV;
-extern PFNGLDRAWCOMMANDSNVPROC glDrawCommandsNV;
-extern PFNGLDRAWCOMMANDSADDRESSNVPROC glDrawCommandsAddressNV;
-extern PFNGLDRAWCOMMANDSSTATESNVPROC glDrawCommandsStatesNV;
-extern PFNGLDRAWCOMMANDSSTATESADDRESSNVPROC glDrawCommandsStatesAddressNV;
-extern PFNGLCREATECOMMANDLISTSNVPROC glCreateCommandListsNV;
-extern PFNGLDELETECOMMANDLISTSNVPROC glDeleteCommandListsNV;
-extern PFNGLISCOMMANDLISTNVPROC glIsCommandListNV;
-extern PFNGLLISTDRAWCOMMANDSSTATESCLIENTNVPROC glListDrawCommandsStatesClientNV;
-extern PFNGLCOMMANDLISTSEGMENTSNVPROC glCommandListSegmentsNV;
-extern PFNGLCOMPILECOMMANDLISTNVPROC glCompileCommandListNV;
-extern PFNGLCALLCOMMANDLISTNVPROC glCallCommandListNV;
 #endif /* SOGL_NV_command_list */
 
 #ifdef SOGL_NV_conditional_render
@@ -4627,8 +3535,6 @@ extern PFNGLCALLCOMMANDLISTNVPROC glCallCommandListNV;
 #define GL_QUERY_BY_REGION_NO_WAIT_NV     0x8E16
 typedef void (APIENTRYP PFNGLBEGINCONDITIONALRENDERNVPROC) (GLuint id, GLenum mode);
 typedef void (APIENTRYP PFNGLENDCONDITIONALRENDERNVPROC) (void);
-extern PFNGLBEGINCONDITIONALRENDERNVPROC glBeginConditionalRenderNV;
-extern PFNGLENDCONDITIONALRENDERNVPROC glEndConditionalRenderNV;
 #endif /* SOGL_NV_conditional_render */
 
 #ifdef SOGL_NV_conservative_raster
@@ -4637,7 +3543,6 @@ extern PFNGLENDCONDITIONALRENDERNVPROC glEndConditionalRenderNV;
 #define GL_SUBPIXEL_PRECISION_BIAS_Y_BITS_NV 0x9348
 #define GL_MAX_SUBPIXEL_PRECISION_BIAS_BITS_NV 0x9349
 typedef void (APIENTRYP PFNGLSUBPIXELPRECISIONBIASNVPROC) (GLuint xbits, GLuint ybits);
-extern PFNGLSUBPIXELPRECISIONBIASNVPROC glSubpixelPrecisionBiasNV;
 #endif /* SOGL_NV_conservative_raster */
 
 #ifdef SOGL_NV_conservative_raster_dilate
@@ -4645,7 +3550,6 @@ extern PFNGLSUBPIXELPRECISIONBIASNVPROC glSubpixelPrecisionBiasNV;
 #define GL_CONSERVATIVE_RASTER_DILATE_RANGE_NV 0x937A
 #define GL_CONSERVATIVE_RASTER_DILATE_GRANULARITY_NV 0x937B
 typedef void (APIENTRYP PFNGLCONSERVATIVERASTERPARAMETERFNVPROC) (GLenum pname, GLfloat value);
-extern PFNGLCONSERVATIVERASTERPARAMETERFNVPROC glConservativeRasterParameterfNV;
 #endif /* SOGL_NV_conservative_raster_dilate */
 
 #ifdef SOGL_NV_conservative_raster_pre_snap
@@ -4657,7 +3561,6 @@ extern PFNGLCONSERVATIVERASTERPARAMETERFNVPROC glConservativeRasterParameterfNV;
 #define GL_CONSERVATIVE_RASTER_MODE_POST_SNAP_NV 0x954E
 #define GL_CONSERVATIVE_RASTER_MODE_PRE_SNAP_TRIANGLES_NV 0x954F
 typedef void (APIENTRYP PFNGLCONSERVATIVERASTERPARAMETERINVPROC) (GLenum pname, GLint param);
-extern PFNGLCONSERVATIVERASTERPARAMETERINVPROC glConservativeRasterParameteriNV;
 #endif /* SOGL_NV_conservative_raster_pre_snap_triangles */
 
 #ifdef SOGL_NV_depth_buffer_float
@@ -4668,9 +3571,6 @@ extern PFNGLCONSERVATIVERASTERPARAMETERINVPROC glConservativeRasterParameteriNV;
 typedef void (APIENTRYP PFNGLDEPTHRANGEDNVPROC) (GLdouble zNear, GLdouble zFar);
 typedef void (APIENTRYP PFNGLCLEARDEPTHDNVPROC) (GLdouble depth);
 typedef void (APIENTRYP PFNGLDEPTHBOUNDSDNVPROC) (GLdouble zmin, GLdouble zmax);
-extern PFNGLDEPTHRANGEDNVPROC glDepthRangedNV;
-extern PFNGLCLEARDEPTHDNVPROC glClearDepthdNV;
-extern PFNGLDEPTHBOUNDSDNVPROC glDepthBoundsdNV;
 #endif /* SOGL_NV_depth_buffer_float */
 
 #ifdef SOGL_NV_draw_vulkan_image
@@ -4680,11 +3580,6 @@ typedef GLVULKANPROCNV (APIENTRYP PFNGLGETVKPROCADDRNVPROC) (const GLchar *name)
 typedef void (APIENTRYP PFNGLWAITVKSEMAPHORENVPROC) (GLuint64 vkSemaphore);
 typedef void (APIENTRYP PFNGLSIGNALVKSEMAPHORENVPROC) (GLuint64 vkSemaphore);
 typedef void (APIENTRYP PFNGLSIGNALVKFENCENVPROC) (GLuint64 vkFence);
-extern PFNGLDRAWVKIMAGENVPROC glDrawVkImageNV;
-extern PFNGLGETVKPROCADDRNVPROC glGetVkProcAddrNV;
-extern PFNGLWAITVKSEMAPHORENVPROC glWaitVkSemaphoreNV;
-extern PFNGLSIGNALVKSEMAPHORENVPROC glSignalVkSemaphoreNV;
-extern PFNGLSIGNALVKFENCENVPROC glSignalVkFenceNV;
 #endif /* SOGL_NV_draw_vulkan_image */
 
 #ifdef SOGL_NV_fill_rectangle
@@ -4695,7 +3590,6 @@ extern PFNGLSIGNALVKFENCENVPROC glSignalVkFenceNV;
 #define GL_FRAGMENT_COVERAGE_TO_COLOR_NV  0x92DD
 #define GL_FRAGMENT_COVERAGE_COLOR_NV     0x92DE
 typedef void (APIENTRYP PFNGLFRAGMENTCOVERAGECOLORNVPROC) (GLuint color);
-extern PFNGLFRAGMENTCOVERAGECOLORNVPROC glFragmentCoverageColorNV;
 #endif /* SOGL_NV_fragment_coverage_to_color */
 
 #ifdef SOGL_NV_framebuffer_mixed_samples
@@ -4710,9 +3604,6 @@ extern PFNGLFRAGMENTCOVERAGECOLORNVPROC glFragmentCoverageColorNV;
 typedef void (APIENTRYP PFNGLCOVERAGEMODULATIONTABLENVPROC) (GLsizei n, const GLfloat *v);
 typedef void (APIENTRYP PFNGLGETCOVERAGEMODULATIONTABLENVPROC) (GLsizei bufSize, GLfloat *v);
 typedef void (APIENTRYP PFNGLCOVERAGEMODULATIONNVPROC) (GLenum components);
-extern PFNGLCOVERAGEMODULATIONTABLENVPROC glCoverageModulationTableNV;
-extern PFNGLGETCOVERAGEMODULATIONTABLENVPROC glGetCoverageModulationTableNV;
-extern PFNGLCOVERAGEMODULATIONNVPROC glCoverageModulationNV;
 #endif /* SOGL_NV_framebuffer_mixed_samples */
 
 #ifdef SOGL_NV_framebuffer_multisample_coverage
@@ -4721,7 +3612,6 @@ extern PFNGLCOVERAGEMODULATIONNVPROC glCoverageModulationNV;
 #define GL_MAX_MULTISAMPLE_COVERAGE_MODES_NV 0x8E11
 #define GL_MULTISAMPLE_COVERAGE_MODES_NV  0x8E12
 typedef void (APIENTRYP PFNGLRENDERBUFFERSTORAGEMULTISAMPLECOVERAGENVPROC) (GLenum target, GLsizei coverageSamples, GLsizei colorSamples, GLenum internalformat, GLsizei width, GLsizei height);
-extern PFNGLRENDERBUFFERSTORAGEMULTISAMPLECOVERAGENVPROC glRenderbufferStorageMultisampleCoverageNV;
 #endif /* SOGL_NV_framebuffer_multisample_coverage */
 
 #ifdef SOGL_NV_gpu_shader5
@@ -4787,39 +3677,6 @@ typedef void (APIENTRYP PFNGLPROGRAMUNIFORM1UI64VNVPROC) (GLuint program, GLint 
 typedef void (APIENTRYP PFNGLPROGRAMUNIFORM2UI64VNVPROC) (GLuint program, GLint location, GLsizei count, const GLuint64EXT *value);
 typedef void (APIENTRYP PFNGLPROGRAMUNIFORM3UI64VNVPROC) (GLuint program, GLint location, GLsizei count, const GLuint64EXT *value);
 typedef void (APIENTRYP PFNGLPROGRAMUNIFORM4UI64VNVPROC) (GLuint program, GLint location, GLsizei count, const GLuint64EXT *value);
-extern PFNGLUNIFORM1I64NVPROC glUniform1i64NV;
-extern PFNGLUNIFORM2I64NVPROC glUniform2i64NV;
-extern PFNGLUNIFORM3I64NVPROC glUniform3i64NV;
-extern PFNGLUNIFORM4I64NVPROC glUniform4i64NV;
-extern PFNGLUNIFORM1I64VNVPROC glUniform1i64vNV;
-extern PFNGLUNIFORM2I64VNVPROC glUniform2i64vNV;
-extern PFNGLUNIFORM3I64VNVPROC glUniform3i64vNV;
-extern PFNGLUNIFORM4I64VNVPROC glUniform4i64vNV;
-extern PFNGLUNIFORM1UI64NVPROC glUniform1ui64NV;
-extern PFNGLUNIFORM2UI64NVPROC glUniform2ui64NV;
-extern PFNGLUNIFORM3UI64NVPROC glUniform3ui64NV;
-extern PFNGLUNIFORM4UI64NVPROC glUniform4ui64NV;
-extern PFNGLUNIFORM1UI64VNVPROC glUniform1ui64vNV;
-extern PFNGLUNIFORM2UI64VNVPROC glUniform2ui64vNV;
-extern PFNGLUNIFORM3UI64VNVPROC glUniform3ui64vNV;
-extern PFNGLUNIFORM4UI64VNVPROC glUniform4ui64vNV;
-extern PFNGLGETUNIFORMI64VNVPROC glGetUniformi64vNV;
-extern PFNGLPROGRAMUNIFORM1I64NVPROC glProgramUniform1i64NV;
-extern PFNGLPROGRAMUNIFORM2I64NVPROC glProgramUniform2i64NV;
-extern PFNGLPROGRAMUNIFORM3I64NVPROC glProgramUniform3i64NV;
-extern PFNGLPROGRAMUNIFORM4I64NVPROC glProgramUniform4i64NV;
-extern PFNGLPROGRAMUNIFORM1I64VNVPROC glProgramUniform1i64vNV;
-extern PFNGLPROGRAMUNIFORM2I64VNVPROC glProgramUniform2i64vNV;
-extern PFNGLPROGRAMUNIFORM3I64VNVPROC glProgramUniform3i64vNV;
-extern PFNGLPROGRAMUNIFORM4I64VNVPROC glProgramUniform4i64vNV;
-extern PFNGLPROGRAMUNIFORM1UI64NVPROC glProgramUniform1ui64NV;
-extern PFNGLPROGRAMUNIFORM2UI64NVPROC glProgramUniform2ui64NV;
-extern PFNGLPROGRAMUNIFORM3UI64NVPROC glProgramUniform3ui64NV;
-extern PFNGLPROGRAMUNIFORM4UI64NVPROC glProgramUniform4ui64NV;
-extern PFNGLPROGRAMUNIFORM1UI64VNVPROC glProgramUniform1ui64vNV;
-extern PFNGLPROGRAMUNIFORM2UI64VNVPROC glProgramUniform2ui64vNV;
-extern PFNGLPROGRAMUNIFORM3UI64VNVPROC glProgramUniform3ui64vNV;
-extern PFNGLPROGRAMUNIFORM4UI64VNVPROC glProgramUniform4ui64vNV;
 #endif /* SOGL_NV_gpu_shader5 */
 
 #ifdef SOGL_NV_internalformat_sample_query
@@ -4828,7 +3685,6 @@ extern PFNGLPROGRAMUNIFORM4UI64VNVPROC glProgramUniform4ui64vNV;
 #define GL_SUPERSAMPLE_SCALE_Y_NV         0x9373
 #define GL_CONFORMANT_NV                  0x9374
 typedef void (APIENTRYP PFNGLGETINTERNALFORMATSAMPLEIVNVPROC) (GLenum target, GLenum internalformat, GLsizei samples, GLenum pname, GLsizei count, GLint *params);
-extern PFNGLGETINTERNALFORMATSAMPLEIVNVPROC glGetInternalformatSampleivNV;
 #endif /* SOGL_NV_internalformat_sample_query */
 
 #ifdef SOGL_NV_memory_attachment
@@ -4848,12 +3704,6 @@ typedef void (APIENTRYP PFNGLTEXATTACHMEMORYNVPROC) (GLenum target, GLuint memor
 typedef void (APIENTRYP PFNGLBUFFERATTACHMEMORYNVPROC) (GLenum target, GLuint memory, GLuint64 offset);
 typedef void (APIENTRYP PFNGLTEXTUREATTACHMEMORYNVPROC) (GLuint texture, GLuint memory, GLuint64 offset);
 typedef void (APIENTRYP PFNGLNAMEDBUFFERATTACHMEMORYNVPROC) (GLuint buffer, GLuint memory, GLuint64 offset);
-extern PFNGLGETMEMORYOBJECTDETACHEDRESOURCESUIVNVPROC glGetMemoryObjectDetachedResourcesuivNV;
-extern PFNGLRESETMEMORYOBJECTPARAMETERNVPROC glResetMemoryObjectParameterNV;
-extern PFNGLTEXATTACHMEMORYNVPROC glTexAttachMemoryNV;
-extern PFNGLBUFFERATTACHMEMORYNVPROC glBufferAttachMemoryNV;
-extern PFNGLTEXTUREATTACHMEMORYNVPROC glTextureAttachMemoryNV;
-extern PFNGLNAMEDBUFFERATTACHMEMORYNVPROC glNamedBufferAttachMemoryNV;
 #endif /* SOGL_NV_memory_attachment */
 
 #ifdef SOGL_NV_memory_object_sparse
@@ -4861,10 +3711,6 @@ typedef void (APIENTRYP PFNGLBUFFERPAGECOMMITMENTMEMNVPROC) (GLenum target, GLin
 typedef void (APIENTRYP PFNGLTEXPAGECOMMITMENTMEMNVPROC) (GLenum target, GLint layer, GLint level, GLint xoffset, GLint yoffset, GLint zoffset, GLsizei width, GLsizei height, GLsizei depth, GLuint memory, GLuint64 offset, GLboolean commit);
 typedef void (APIENTRYP PFNGLNAMEDBUFFERPAGECOMMITMENTMEMNVPROC) (GLuint buffer, GLintptr offset, GLsizeiptr size, GLuint memory, GLuint64 memOffset, GLboolean commit);
 typedef void (APIENTRYP PFNGLTEXTUREPAGECOMMITMENTMEMNVPROC) (GLuint texture, GLint layer, GLint level, GLint xoffset, GLint yoffset, GLint zoffset, GLsizei width, GLsizei height, GLsizei depth, GLuint memory, GLuint64 offset, GLboolean commit);
-extern PFNGLBUFFERPAGECOMMITMENTMEMNVPROC glBufferPageCommitmentMemNV;
-extern PFNGLTEXPAGECOMMITMENTMEMNVPROC glTexPageCommitmentMemNV;
-extern PFNGLNAMEDBUFFERPAGECOMMITMENTMEMNVPROC glNamedBufferPageCommitmentMemNV;
-extern PFNGLTEXTUREPAGECOMMITMENTMEMNVPROC glTexturePageCommitmentMemNV;
 #endif /* SOGL_NV_memory_object_sparse */
 
 #ifdef SOGL_NV_mesh_shader
@@ -4920,10 +3766,6 @@ typedef void (APIENTRYP PFNGLDRAWMESHTASKSNVPROC) (GLuint first, GLuint count);
 typedef void (APIENTRYP PFNGLDRAWMESHTASKSINDIRECTNVPROC) (GLintptr indirect);
 typedef void (APIENTRYP PFNGLMULTIDRAWMESHTASKSINDIRECTNVPROC) (GLintptr indirect, GLsizei drawcount, GLsizei stride);
 typedef void (APIENTRYP PFNGLMULTIDRAWMESHTASKSINDIRECTCOUNTNVPROC) (GLintptr indirect, GLintptr drawcount, GLsizei maxdrawcount, GLsizei stride);
-extern PFNGLDRAWMESHTASKSNVPROC glDrawMeshTasksNV;
-extern PFNGLDRAWMESHTASKSINDIRECTNVPROC glDrawMeshTasksIndirectNV;
-extern PFNGLMULTIDRAWMESHTASKSINDIRECTNVPROC glMultiDrawMeshTasksIndirectNV;
-extern PFNGLMULTIDRAWMESHTASKSINDIRECTCOUNTNVPROC glMultiDrawMeshTasksIndirectCountNV;
 #endif /* SOGL_NV_mesh_shader */
 
 #ifdef SOGL_NV_path_rendering
@@ -5137,63 +3979,6 @@ typedef GLenum (APIENTRYP PFNGLPATHGLYPHINDEXARRAYNVPROC) (GLuint firstPathName,
 typedef GLenum (APIENTRYP PFNGLPATHMEMORYGLYPHINDEXARRAYNVPROC) (GLuint firstPathName, GLenum fontTarget, GLsizeiptr fontSize, const void *fontData, GLsizei faceIndex, GLuint firstGlyphIndex, GLsizei numGlyphs, GLuint pathParameterTemplate, GLfloat emScale);
 typedef void (APIENTRYP PFNGLPROGRAMPATHFRAGMENTINPUTGENNVPROC) (GLuint program, GLint location, GLenum genMode, GLint components, const GLfloat *coeffs);
 typedef void (APIENTRYP PFNGLGETPROGRAMRESOURCEFVNVPROC) (GLuint program, GLenum programInterface, GLuint index, GLsizei propCount, const GLenum *props, GLsizei count, GLsizei *length, GLfloat *params);
-extern PFNGLGENPATHSNVPROC glGenPathsNV;
-extern PFNGLDELETEPATHSNVPROC glDeletePathsNV;
-extern PFNGLISPATHNVPROC glIsPathNV;
-extern PFNGLPATHCOMMANDSNVPROC glPathCommandsNV;
-extern PFNGLPATHCOORDSNVPROC glPathCoordsNV;
-extern PFNGLPATHSUBCOMMANDSNVPROC glPathSubCommandsNV;
-extern PFNGLPATHSUBCOORDSNVPROC glPathSubCoordsNV;
-extern PFNGLPATHSTRINGNVPROC glPathStringNV;
-extern PFNGLPATHGLYPHSNVPROC glPathGlyphsNV;
-extern PFNGLPATHGLYPHRANGENVPROC glPathGlyphRangeNV;
-extern PFNGLWEIGHTPATHSNVPROC glWeightPathsNV;
-extern PFNGLCOPYPATHNVPROC glCopyPathNV;
-extern PFNGLINTERPOLATEPATHSNVPROC glInterpolatePathsNV;
-extern PFNGLTRANSFORMPATHNVPROC glTransformPathNV;
-extern PFNGLPATHPARAMETERIVNVPROC glPathParameterivNV;
-extern PFNGLPATHPARAMETERINVPROC glPathParameteriNV;
-extern PFNGLPATHPARAMETERFVNVPROC glPathParameterfvNV;
-extern PFNGLPATHPARAMETERFNVPROC glPathParameterfNV;
-extern PFNGLPATHDASHARRAYNVPROC glPathDashArrayNV;
-extern PFNGLPATHSTENCILFUNCNVPROC glPathStencilFuncNV;
-extern PFNGLPATHSTENCILDEPTHOFFSETNVPROC glPathStencilDepthOffsetNV;
-extern PFNGLSTENCILFILLPATHNVPROC glStencilFillPathNV;
-extern PFNGLSTENCILSTROKEPATHNVPROC glStencilStrokePathNV;
-extern PFNGLSTENCILFILLPATHINSTANCEDNVPROC glStencilFillPathInstancedNV;
-extern PFNGLSTENCILSTROKEPATHINSTANCEDNVPROC glStencilStrokePathInstancedNV;
-extern PFNGLPATHCOVERDEPTHFUNCNVPROC glPathCoverDepthFuncNV;
-extern PFNGLCOVERFILLPATHNVPROC glCoverFillPathNV;
-extern PFNGLCOVERSTROKEPATHNVPROC glCoverStrokePathNV;
-extern PFNGLCOVERFILLPATHINSTANCEDNVPROC glCoverFillPathInstancedNV;
-extern PFNGLCOVERSTROKEPATHINSTANCEDNVPROC glCoverStrokePathInstancedNV;
-extern PFNGLGETPATHPARAMETERIVNVPROC glGetPathParameterivNV;
-extern PFNGLGETPATHPARAMETERFVNVPROC glGetPathParameterfvNV;
-extern PFNGLGETPATHCOMMANDSNVPROC glGetPathCommandsNV;
-extern PFNGLGETPATHCOORDSNVPROC glGetPathCoordsNV;
-extern PFNGLGETPATHDASHARRAYNVPROC glGetPathDashArrayNV;
-extern PFNGLGETPATHMETRICSNVPROC glGetPathMetricsNV;
-extern PFNGLGETPATHMETRICRANGENVPROC glGetPathMetricRangeNV;
-extern PFNGLGETPATHSPACINGNVPROC glGetPathSpacingNV;
-extern PFNGLISPOINTINFILLPATHNVPROC glIsPointInFillPathNV;
-extern PFNGLISPOINTINSTROKEPATHNVPROC glIsPointInStrokePathNV;
-extern PFNGLGETPATHLENGTHNVPROC glGetPathLengthNV;
-extern PFNGLPOINTALONGPATHNVPROC glPointAlongPathNV;
-extern PFNGLMATRIXLOAD3X2FNVPROC glMatrixLoad3x2fNV;
-extern PFNGLMATRIXLOAD3X3FNVPROC glMatrixLoad3x3fNV;
-extern PFNGLMATRIXLOADTRANSPOSE3X3FNVPROC glMatrixLoadTranspose3x3fNV;
-extern PFNGLMATRIXMULT3X2FNVPROC glMatrixMult3x2fNV;
-extern PFNGLMATRIXMULT3X3FNVPROC glMatrixMult3x3fNV;
-extern PFNGLMATRIXMULTTRANSPOSE3X3FNVPROC glMatrixMultTranspose3x3fNV;
-extern PFNGLSTENCILTHENCOVERFILLPATHNVPROC glStencilThenCoverFillPathNV;
-extern PFNGLSTENCILTHENCOVERSTROKEPATHNVPROC glStencilThenCoverStrokePathNV;
-extern PFNGLSTENCILTHENCOVERFILLPATHINSTANCEDNVPROC glStencilThenCoverFillPathInstancedNV;
-extern PFNGLSTENCILTHENCOVERSTROKEPATHINSTANCEDNVPROC glStencilThenCoverStrokePathInstancedNV;
-extern PFNGLPATHGLYPHINDEXRANGENVPROC glPathGlyphIndexRangeNV;
-extern PFNGLPATHGLYPHINDEXARRAYNVPROC glPathGlyphIndexArrayNV;
-extern PFNGLPATHMEMORYGLYPHINDEXARRAYNVPROC glPathMemoryGlyphIndexArrayNV;
-extern PFNGLPROGRAMPATHFRAGMENTINPUTGENNVPROC glProgramPathFragmentInputGenNV;
-extern PFNGLGETPROGRAMRESOURCEFVNVPROC glGetProgramResourcefvNV;
 #endif /* SOGL_NV_path_rendering */
 
 #ifdef SOGL_NV_path_rendering_shared_edge
@@ -5221,9 +4006,6 @@ extern PFNGLGETPROGRAMRESOURCEFVNVPROC glGetProgramResourcefvNV;
 typedef void (APIENTRYP PFNGLFRAMEBUFFERSAMPLELOCATIONSFVNVPROC) (GLenum target, GLuint start, GLsizei count, const GLfloat *v);
 typedef void (APIENTRYP PFNGLNAMEDFRAMEBUFFERSAMPLELOCATIONSFVNVPROC) (GLuint framebuffer, GLuint start, GLsizei count, const GLfloat *v);
 typedef void (APIENTRYP PFNGLRESOLVEDEPTHVALUESNVPROC) (void);
-extern PFNGLFRAMEBUFFERSAMPLELOCATIONSFVNVPROC glFramebufferSampleLocationsfvNV;
-extern PFNGLNAMEDFRAMEBUFFERSAMPLELOCATIONSFVNVPROC glNamedFramebufferSampleLocationsfvNV;
-extern PFNGLRESOLVEDEPTHVALUESNVPROC glResolveDepthValuesNV;
 #endif /* SOGL_NV_sample_locations */
 
 #ifdef SOGL_NV_scissor_exclusive
@@ -5231,8 +4013,6 @@ extern PFNGLRESOLVEDEPTHVALUESNVPROC glResolveDepthValuesNV;
 #define GL_SCISSOR_BOX_EXCLUSIVE_NV       0x9556
 typedef void (APIENTRYP PFNGLSCISSOREXCLUSIVENVPROC) (GLint x, GLint y, GLsizei width, GLsizei height);
 typedef void (APIENTRYP PFNGLSCISSOREXCLUSIVEARRAYVNVPROC) (GLuint first, GLsizei count, const GLint *v);
-extern PFNGLSCISSOREXCLUSIVENVPROC glScissorExclusiveNV;
-extern PFNGLSCISSOREXCLUSIVEARRAYVNVPROC glScissorExclusiveArrayvNV;
 #endif /* SOGL_NV_scissor_exclusive */
 
 #ifdef SOGL_NV_shader_buffer_load
@@ -5253,20 +4033,6 @@ typedef void (APIENTRYP PFNGLUNIFORMUI64VNVPROC) (GLint location, GLsizei count,
 typedef void (APIENTRYP PFNGLGETUNIFORMUI64VNVPROC) (GLuint program, GLint location, GLuint64EXT *params);
 typedef void (APIENTRYP PFNGLPROGRAMUNIFORMUI64NVPROC) (GLuint program, GLint location, GLuint64EXT value);
 typedef void (APIENTRYP PFNGLPROGRAMUNIFORMUI64VNVPROC) (GLuint program, GLint location, GLsizei count, const GLuint64EXT *value);
-extern PFNGLMAKEBUFFERRESIDENTNVPROC glMakeBufferResidentNV;
-extern PFNGLMAKEBUFFERNONRESIDENTNVPROC glMakeBufferNonResidentNV;
-extern PFNGLISBUFFERRESIDENTNVPROC glIsBufferResidentNV;
-extern PFNGLMAKENAMEDBUFFERRESIDENTNVPROC glMakeNamedBufferResidentNV;
-extern PFNGLMAKENAMEDBUFFERNONRESIDENTNVPROC glMakeNamedBufferNonResidentNV;
-extern PFNGLISNAMEDBUFFERRESIDENTNVPROC glIsNamedBufferResidentNV;
-extern PFNGLGETBUFFERPARAMETERUI64VNVPROC glGetBufferParameterui64vNV;
-extern PFNGLGETNAMEDBUFFERPARAMETERUI64VNVPROC glGetNamedBufferParameterui64vNV;
-extern PFNGLGETINTEGERUI64VNVPROC glGetIntegerui64vNV;
-extern PFNGLUNIFORMUI64NVPROC glUniformui64NV;
-extern PFNGLUNIFORMUI64VNVPROC glUniformui64vNV;
-extern PFNGLGETUNIFORMUI64VNVPROC glGetUniformui64vNV;
-extern PFNGLPROGRAMUNIFORMUI64NVPROC glProgramUniformui64NV;
-extern PFNGLPROGRAMUNIFORMUI64VNVPROC glProgramUniformui64vNV;
 #endif /* SOGL_NV_shader_buffer_load */
 
 #ifdef SOGL_NV_shader_buffer_store
@@ -5312,18 +4078,10 @@ typedef void (APIENTRYP PFNGLSHADINGRATEIMAGEBARRIERNVPROC) (GLboolean synchroni
 typedef void (APIENTRYP PFNGLSHADINGRATEIMAGEPALETTENVPROC) (GLuint viewport, GLuint first, GLsizei count, const GLenum *rates);
 typedef void (APIENTRYP PFNGLSHADINGRATESAMPLEORDERNVPROC) (GLenum order);
 typedef void (APIENTRYP PFNGLSHADINGRATESAMPLEORDERCUSTOMNVPROC) (GLenum rate, GLuint samples, const GLint *locations);
-extern PFNGLBINDSHADINGRATEIMAGENVPROC glBindShadingRateImageNV;
-extern PFNGLGETSHADINGRATEIMAGEPALETTENVPROC glGetShadingRateImagePaletteNV;
-extern PFNGLGETSHADINGRATESAMPLELOCATIONIVNVPROC glGetShadingRateSampleLocationivNV;
-extern PFNGLSHADINGRATEIMAGEBARRIERNVPROC glShadingRateImageBarrierNV;
-extern PFNGLSHADINGRATEIMAGEPALETTENVPROC glShadingRateImagePaletteNV;
-extern PFNGLSHADINGRATESAMPLEORDERNVPROC glShadingRateSampleOrderNV;
-extern PFNGLSHADINGRATESAMPLEORDERCUSTOMNVPROC glShadingRateSampleOrderCustomNV;
 #endif /* SOGL_NV_shading_rate_image */
 
 #ifdef SOGL_NV_texture_barrier
 typedef void (APIENTRYP PFNGLTEXTUREBARRIERNVPROC) (void);
-extern PFNGLTEXTUREBARRIERNVPROC glTextureBarrierNV;
 #endif /* SOGL_NV_texture_barrier */
 
 #ifdef SOGL_NV_uniform_buffer_unified_memory
@@ -5352,25 +4110,6 @@ typedef void (APIENTRYP PFNGLVERTEXATTRIBL4UI64VNVPROC) (GLuint index, const GLu
 typedef void (APIENTRYP PFNGLGETVERTEXATTRIBLI64VNVPROC) (GLuint index, GLenum pname, GLint64EXT *params);
 typedef void (APIENTRYP PFNGLGETVERTEXATTRIBLUI64VNVPROC) (GLuint index, GLenum pname, GLuint64EXT *params);
 typedef void (APIENTRYP PFNGLVERTEXATTRIBLFORMATNVPROC) (GLuint index, GLint size, GLenum type, GLsizei stride);
-extern PFNGLVERTEXATTRIBL1I64NVPROC glVertexAttribL1i64NV;
-extern PFNGLVERTEXATTRIBL2I64NVPROC glVertexAttribL2i64NV;
-extern PFNGLVERTEXATTRIBL3I64NVPROC glVertexAttribL3i64NV;
-extern PFNGLVERTEXATTRIBL4I64NVPROC glVertexAttribL4i64NV;
-extern PFNGLVERTEXATTRIBL1I64VNVPROC glVertexAttribL1i64vNV;
-extern PFNGLVERTEXATTRIBL2I64VNVPROC glVertexAttribL2i64vNV;
-extern PFNGLVERTEXATTRIBL3I64VNVPROC glVertexAttribL3i64vNV;
-extern PFNGLVERTEXATTRIBL4I64VNVPROC glVertexAttribL4i64vNV;
-extern PFNGLVERTEXATTRIBL1UI64NVPROC glVertexAttribL1ui64NV;
-extern PFNGLVERTEXATTRIBL2UI64NVPROC glVertexAttribL2ui64NV;
-extern PFNGLVERTEXATTRIBL3UI64NVPROC glVertexAttribL3ui64NV;
-extern PFNGLVERTEXATTRIBL4UI64NVPROC glVertexAttribL4ui64NV;
-extern PFNGLVERTEXATTRIBL1UI64VNVPROC glVertexAttribL1ui64vNV;
-extern PFNGLVERTEXATTRIBL2UI64VNVPROC glVertexAttribL2ui64vNV;
-extern PFNGLVERTEXATTRIBL3UI64VNVPROC glVertexAttribL3ui64vNV;
-extern PFNGLVERTEXATTRIBL4UI64VNVPROC glVertexAttribL4ui64vNV;
-extern PFNGLGETVERTEXATTRIBLI64VNVPROC glGetVertexAttribLi64vNV;
-extern PFNGLGETVERTEXATTRIBLUI64VNVPROC glGetVertexAttribLui64vNV;
-extern PFNGLVERTEXATTRIBLFORMATNVPROC glVertexAttribLFormatNV;
 #endif /* SOGL_NV_vertex_attrib_integer_64bit */
 
 #ifdef SOGL_NV_vertex_buffer_unified_memory
@@ -5411,18 +4150,6 @@ typedef void (APIENTRYP PFNGLFOGCOORDFORMATNVPROC) (GLenum type, GLsizei stride)
 typedef void (APIENTRYP PFNGLVERTEXATTRIBFORMATNVPROC) (GLuint index, GLint size, GLenum type, GLboolean normalized, GLsizei stride);
 typedef void (APIENTRYP PFNGLVERTEXATTRIBIFORMATNVPROC) (GLuint index, GLint size, GLenum type, GLsizei stride);
 typedef void (APIENTRYP PFNGLGETINTEGERUI64I_VNVPROC) (GLenum value, GLuint index, GLuint64EXT *result);
-extern PFNGLBUFFERADDRESSRANGENVPROC glBufferAddressRangeNV;
-extern PFNGLVERTEXFORMATNVPROC glVertexFormatNV;
-extern PFNGLNORMALFORMATNVPROC glNormalFormatNV;
-extern PFNGLCOLORFORMATNVPROC glColorFormatNV;
-extern PFNGLINDEXFORMATNVPROC glIndexFormatNV;
-extern PFNGLTEXCOORDFORMATNVPROC glTexCoordFormatNV;
-extern PFNGLEDGEFLAGFORMATNVPROC glEdgeFlagFormatNV;
-extern PFNGLSECONDARYCOLORFORMATNVPROC glSecondaryColorFormatNV;
-extern PFNGLFOGCOORDFORMATNVPROC glFogCoordFormatNV;
-extern PFNGLVERTEXATTRIBFORMATNVPROC glVertexAttribFormatNV;
-extern PFNGLVERTEXATTRIBIFORMATNVPROC glVertexAttribIFormatNV;
-extern PFNGLGETINTEGERUI64I_VNVPROC glGetIntegerui64i_vNV;
 #endif /* SOGL_NV_vertex_buffer_unified_memory */
 
 #ifdef SOGL_NV_viewport_swizzle
@@ -5439,7 +4166,6 @@ extern PFNGLGETINTEGERUI64I_VNVPROC glGetIntegerui64i_vNV;
 #define GL_VIEWPORT_SWIZZLE_Z_NV          0x935A
 #define GL_VIEWPORT_SWIZZLE_W_NV          0x935B
 typedef void (APIENTRYP PFNGLVIEWPORTSWIZZLENVPROC) (GLuint index, GLenum swizzlex, GLenum swizzley, GLenum swizzlez, GLenum swizzlew);
-extern PFNGLVIEWPORTSWIZZLENVPROC glViewportSwizzleNV;
 #endif /* SOGL_NV_viewport_swizzle */
 
 #ifdef SOGL_OVR_multiview
@@ -5448,6931 +4174,2550 @@ extern PFNGLVIEWPORTSWIZZLENVPROC glViewportSwizzleNV;
 #define GL_MAX_VIEWS_OVR                  0x9631
 #define GL_FRAMEBUFFER_INCOMPLETE_VIEW_TARGETS_OVR 0x9633
 typedef void (APIENTRYP PFNGLFRAMEBUFFERTEXTUREMULTIVIEWOVRPROC) (GLenum target, GLenum attachment, GLuint texture, GLint level, GLint baseViewIndex, GLsizei numViews);
-extern PFNGLFRAMEBUFFERTEXTUREMULTIVIEWOVRPROC glFramebufferTextureMultiviewOVR;
 #endif /* SOGL_OVR_multiview */
+
+/*
+    OpenGL Function X Macros
+*/
+
+#define SOGL_FUNCTIONS_1_0 \
+SOGL_FUNCTION(PFNGLCULLFACEPROC, glCullFace)\
+SOGL_FUNCTION(PFNGLFRONTFACEPROC, glFrontFace)\
+SOGL_FUNCTION(PFNGLHINTPROC, glHint)\
+SOGL_FUNCTION(PFNGLLINEWIDTHPROC, glLineWidth)\
+SOGL_FUNCTION(PFNGLPOINTSIZEPROC, glPointSize)\
+SOGL_FUNCTION(PFNGLPOLYGONMODEPROC, glPolygonMode)\
+SOGL_FUNCTION(PFNGLSCISSORPROC, glScissor)\
+SOGL_FUNCTION(PFNGLTEXPARAMETERFPROC, glTexParameterf)\
+SOGL_FUNCTION(PFNGLTEXPARAMETERFVPROC, glTexParameterfv)\
+SOGL_FUNCTION(PFNGLTEXPARAMETERIPROC, glTexParameteri)\
+SOGL_FUNCTION(PFNGLTEXPARAMETERIVPROC, glTexParameteriv)\
+SOGL_FUNCTION(PFNGLTEXIMAGE1DPROC, glTexImage1D)\
+SOGL_FUNCTION(PFNGLTEXIMAGE2DPROC, glTexImage2D)\
+SOGL_FUNCTION(PFNGLDRAWBUFFERPROC, glDrawBuffer)\
+SOGL_FUNCTION(PFNGLCLEARPROC, glClear)\
+SOGL_FUNCTION(PFNGLCLEARCOLORPROC, glClearColor)\
+SOGL_FUNCTION(PFNGLCLEARSTENCILPROC, glClearStencil)\
+SOGL_FUNCTION(PFNGLCLEARDEPTHPROC, glClearDepth)\
+SOGL_FUNCTION(PFNGLSTENCILMASKPROC, glStencilMask)\
+SOGL_FUNCTION(PFNGLCOLORMASKPROC, glColorMask)\
+SOGL_FUNCTION(PFNGLDEPTHMASKPROC, glDepthMask)\
+SOGL_FUNCTION(PFNGLDISABLEPROC, glDisable)\
+SOGL_FUNCTION(PFNGLENABLEPROC, glEnable)\
+SOGL_FUNCTION(PFNGLFINISHPROC, glFinish)\
+SOGL_FUNCTION(PFNGLFLUSHPROC, glFlush)\
+SOGL_FUNCTION(PFNGLBLENDFUNCPROC, glBlendFunc)\
+SOGL_FUNCTION(PFNGLLOGICOPPROC, glLogicOp)\
+SOGL_FUNCTION(PFNGLSTENCILFUNCPROC, glStencilFunc)\
+SOGL_FUNCTION(PFNGLSTENCILOPPROC, glStencilOp)\
+SOGL_FUNCTION(PFNGLDEPTHFUNCPROC, glDepthFunc)\
+SOGL_FUNCTION(PFNGLPIXELSTOREFPROC, glPixelStoref)\
+SOGL_FUNCTION(PFNGLPIXELSTOREIPROC, glPixelStorei)\
+SOGL_FUNCTION(PFNGLREADBUFFERPROC, glReadBuffer)\
+SOGL_FUNCTION(PFNGLREADPIXELSPROC, glReadPixels)\
+SOGL_FUNCTION(PFNGLGETBOOLEANVPROC, glGetBooleanv)\
+SOGL_FUNCTION(PFNGLGETDOUBLEVPROC, glGetDoublev)\
+SOGL_FUNCTION(PFNGLGETERRORPROC, glGetError)\
+SOGL_FUNCTION(PFNGLGETFLOATVPROC, glGetFloatv)\
+SOGL_FUNCTION(PFNGLGETINTEGERVPROC, glGetIntegerv)\
+SOGL_FUNCTION(PFNGLGETSTRINGPROC, glGetString)\
+SOGL_FUNCTION(PFNGLGETTEXIMAGEPROC, glGetTexImage)\
+SOGL_FUNCTION(PFNGLGETTEXPARAMETERFVPROC, glGetTexParameterfv)\
+SOGL_FUNCTION(PFNGLGETTEXPARAMETERIVPROC, glGetTexParameteriv)\
+SOGL_FUNCTION(PFNGLGETTEXLEVELPARAMETERFVPROC, glGetTexLevelParameterfv)\
+SOGL_FUNCTION(PFNGLGETTEXLEVELPARAMETERIVPROC, glGetTexLevelParameteriv)\
+SOGL_FUNCTION(PFNGLISENABLEDPROC, glIsEnabled)\
+SOGL_FUNCTION(PFNGLDEPTHRANGEPROC, glDepthRange)\
+SOGL_FUNCTION(PFNGLVIEWPORTPROC, glViewport)
+
+#define SOGL_FUNCTIONS_1_1 \
+SOGL_FUNCTION(PFNGLDRAWARRAYSPROC, glDrawArrays)\
+SOGL_FUNCTION(PFNGLDRAWELEMENTSPROC, glDrawElements)\
+SOGL_FUNCTION(PFNGLGETPOINTERVPROC, glGetPointerv)\
+SOGL_FUNCTION(PFNGLPOLYGONOFFSETPROC, glPolygonOffset)\
+SOGL_FUNCTION(PFNGLCOPYTEXIMAGE1DPROC, glCopyTexImage1D)\
+SOGL_FUNCTION(PFNGLCOPYTEXIMAGE2DPROC, glCopyTexImage2D)\
+SOGL_FUNCTION(PFNGLCOPYTEXSUBIMAGE1DPROC, glCopyTexSubImage1D)\
+SOGL_FUNCTION(PFNGLCOPYTEXSUBIMAGE2DPROC, glCopyTexSubImage2D)\
+SOGL_FUNCTION(PFNGLTEXSUBIMAGE1DPROC, glTexSubImage1D)\
+SOGL_FUNCTION(PFNGLTEXSUBIMAGE2DPROC, glTexSubImage2D)\
+SOGL_FUNCTION(PFNGLBINDTEXTUREPROC, glBindTexture)\
+SOGL_FUNCTION(PFNGLDELETETEXTURESPROC, glDeleteTextures)\
+SOGL_FUNCTION(PFNGLGENTEXTURESPROC, glGenTextures)\
+SOGL_FUNCTION(PFNGLISTEXTUREPROC, glIsTexture)
+
+#define SOGL_FUNCTIONS_1_2 \
+SOGL_FUNCTION(PFNGLDRAWRANGEELEMENTSPROC, glDrawRangeElements)\
+SOGL_FUNCTION(PFNGLTEXIMAGE3DPROC, glTexImage3D)\
+SOGL_FUNCTION(PFNGLTEXSUBIMAGE3DPROC, glTexSubImage3D)\
+SOGL_FUNCTION(PFNGLCOPYTEXSUBIMAGE3DPROC, glCopyTexSubImage3D)
+
+#define SOGL_FUNCTIONS_1_3 \
+SOGL_FUNCTION(PFNGLACTIVETEXTUREPROC, glActiveTexture)\
+SOGL_FUNCTION(PFNGLSAMPLECOVERAGEPROC, glSampleCoverage)\
+SOGL_FUNCTION(PFNGLCOMPRESSEDTEXIMAGE3DPROC, glCompressedTexImage3D)\
+SOGL_FUNCTION(PFNGLCOMPRESSEDTEXIMAGE2DPROC, glCompressedTexImage2D)\
+SOGL_FUNCTION(PFNGLCOMPRESSEDTEXIMAGE1DPROC, glCompressedTexImage1D)\
+SOGL_FUNCTION(PFNGLCOMPRESSEDTEXSUBIMAGE3DPROC, glCompressedTexSubImage3D)\
+SOGL_FUNCTION(PFNGLCOMPRESSEDTEXSUBIMAGE2DPROC, glCompressedTexSubImage2D)\
+SOGL_FUNCTION(PFNGLCOMPRESSEDTEXSUBIMAGE1DPROC, glCompressedTexSubImage1D)\
+SOGL_FUNCTION(PFNGLGETCOMPRESSEDTEXIMAGEPROC, glGetCompressedTexImage)
+
+#define SOGL_FUNCTIONS_1_4 \
+SOGL_FUNCTION(PFNGLBLENDFUNCSEPARATEPROC, glBlendFuncSeparate)\
+SOGL_FUNCTION(PFNGLMULTIDRAWARRAYSPROC, glMultiDrawArrays)\
+SOGL_FUNCTION(PFNGLMULTIDRAWELEMENTSPROC, glMultiDrawElements)\
+SOGL_FUNCTION(PFNGLPOINTPARAMETERFPROC, glPointParameterf)\
+SOGL_FUNCTION(PFNGLPOINTPARAMETERFVPROC, glPointParameterfv)\
+SOGL_FUNCTION(PFNGLPOINTPARAMETERIPROC, glPointParameteri)\
+SOGL_FUNCTION(PFNGLPOINTPARAMETERIVPROC, glPointParameteriv)\
+SOGL_FUNCTION(PFNGLBLENDCOLORPROC, glBlendColor)\
+SOGL_FUNCTION(PFNGLBLENDEQUATIONPROC, glBlendEquation)
+
+#define SOGL_FUNCTIONS_1_5 \
+SOGL_FUNCTION(PFNGLGENQUERIESPROC, glGenQueries)\
+SOGL_FUNCTION(PFNGLDELETEQUERIESPROC, glDeleteQueries)\
+SOGL_FUNCTION(PFNGLISQUERYPROC, glIsQuery)\
+SOGL_FUNCTION(PFNGLBEGINQUERYPROC, glBeginQuery)\
+SOGL_FUNCTION(PFNGLENDQUERYPROC, glEndQuery)\
+SOGL_FUNCTION(PFNGLGETQUERYIVPROC, glGetQueryiv)\
+SOGL_FUNCTION(PFNGLGETQUERYOBJECTIVPROC, glGetQueryObjectiv)\
+SOGL_FUNCTION(PFNGLGETQUERYOBJECTUIVPROC, glGetQueryObjectuiv)\
+SOGL_FUNCTION(PFNGLBINDBUFFERPROC, glBindBuffer)\
+SOGL_FUNCTION(PFNGLDELETEBUFFERSPROC, glDeleteBuffers)\
+SOGL_FUNCTION(PFNGLGENBUFFERSPROC, glGenBuffers)\
+SOGL_FUNCTION(PFNGLISBUFFERPROC, glIsBuffer)\
+SOGL_FUNCTION(PFNGLBUFFERDATAPROC, glBufferData)\
+SOGL_FUNCTION(PFNGLBUFFERSUBDATAPROC, glBufferSubData)\
+SOGL_FUNCTION(PFNGLGETBUFFERSUBDATAPROC, glGetBufferSubData)\
+SOGL_FUNCTION(PFNGLMAPBUFFERPROC, glMapBuffer)\
+SOGL_FUNCTION(PFNGLUNMAPBUFFERPROC, glUnmapBuffer)\
+SOGL_FUNCTION(PFNGLGETBUFFERPARAMETERIVPROC, glGetBufferParameteriv)\
+SOGL_FUNCTION(PFNGLGETBUFFERPOINTERVPROC, glGetBufferPointerv)
+
+#define SOGL_FUNCTIONS_2_0 \
+SOGL_FUNCTION(PFNGLBLENDEQUATIONSEPARATEPROC, glBlendEquationSeparate)\
+SOGL_FUNCTION(PFNGLDRAWBUFFERSPROC, glDrawBuffers)\
+SOGL_FUNCTION(PFNGLSTENCILOPSEPARATEPROC, glStencilOpSeparate)\
+SOGL_FUNCTION(PFNGLSTENCILFUNCSEPARATEPROC, glStencilFuncSeparate)\
+SOGL_FUNCTION(PFNGLSTENCILMASKSEPARATEPROC, glStencilMaskSeparate)\
+SOGL_FUNCTION(PFNGLATTACHSHADERPROC, glAttachShader)\
+SOGL_FUNCTION(PFNGLBINDATTRIBLOCATIONPROC, glBindAttribLocation)\
+SOGL_FUNCTION(PFNGLCOMPILESHADERPROC, glCompileShader)\
+SOGL_FUNCTION(PFNGLCREATEPROGRAMPROC, glCreateProgram)\
+SOGL_FUNCTION(PFNGLCREATESHADERPROC, glCreateShader)\
+SOGL_FUNCTION(PFNGLDELETEPROGRAMPROC, glDeleteProgram)\
+SOGL_FUNCTION(PFNGLDELETESHADERPROC, glDeleteShader)\
+SOGL_FUNCTION(PFNGLDETACHSHADERPROC, glDetachShader)\
+SOGL_FUNCTION(PFNGLDISABLEVERTEXATTRIBARRAYPROC, glDisableVertexAttribArray)\
+SOGL_FUNCTION(PFNGLENABLEVERTEXATTRIBARRAYPROC, glEnableVertexAttribArray)\
+SOGL_FUNCTION(PFNGLGETACTIVEATTRIBPROC, glGetActiveAttrib)\
+SOGL_FUNCTION(PFNGLGETACTIVEUNIFORMPROC, glGetActiveUniform)\
+SOGL_FUNCTION(PFNGLGETATTACHEDSHADERSPROC, glGetAttachedShaders)\
+SOGL_FUNCTION(PFNGLGETATTRIBLOCATIONPROC, glGetAttribLocation)\
+SOGL_FUNCTION(PFNGLGETPROGRAMIVPROC, glGetProgramiv)\
+SOGL_FUNCTION(PFNGLGETPROGRAMINFOLOGPROC, glGetProgramInfoLog)\
+SOGL_FUNCTION(PFNGLGETSHADERIVPROC, glGetShaderiv)\
+SOGL_FUNCTION(PFNGLGETSHADERINFOLOGPROC, glGetShaderInfoLog)\
+SOGL_FUNCTION(PFNGLGETSHADERSOURCEPROC, glGetShaderSource)\
+SOGL_FUNCTION(PFNGLGETUNIFORMLOCATIONPROC, glGetUniformLocation)\
+SOGL_FUNCTION(PFNGLGETUNIFORMFVPROC, glGetUniformfv)\
+SOGL_FUNCTION(PFNGLGETUNIFORMIVPROC, glGetUniformiv)\
+SOGL_FUNCTION(PFNGLGETVERTEXATTRIBDVPROC, glGetVertexAttribdv)\
+SOGL_FUNCTION(PFNGLGETVERTEXATTRIBFVPROC, glGetVertexAttribfv)\
+SOGL_FUNCTION(PFNGLGETVERTEXATTRIBIVPROC, glGetVertexAttribiv)\
+SOGL_FUNCTION(PFNGLGETVERTEXATTRIBPOINTERVPROC, glGetVertexAttribPointerv)\
+SOGL_FUNCTION(PFNGLISPROGRAMPROC, glIsProgram)\
+SOGL_FUNCTION(PFNGLISSHADERPROC, glIsShader)\
+SOGL_FUNCTION(PFNGLLINKPROGRAMPROC, glLinkProgram)\
+SOGL_FUNCTION(PFNGLSHADERSOURCEPROC, glShaderSource)\
+SOGL_FUNCTION(PFNGLUSEPROGRAMPROC, glUseProgram)\
+SOGL_FUNCTION(PFNGLUNIFORM1FPROC, glUniform1f)\
+SOGL_FUNCTION(PFNGLUNIFORM2FPROC, glUniform2f)\
+SOGL_FUNCTION(PFNGLUNIFORM3FPROC, glUniform3f)\
+SOGL_FUNCTION(PFNGLUNIFORM4FPROC, glUniform4f)\
+SOGL_FUNCTION(PFNGLUNIFORM1IPROC, glUniform1i)\
+SOGL_FUNCTION(PFNGLUNIFORM2IPROC, glUniform2i)\
+SOGL_FUNCTION(PFNGLUNIFORM3IPROC, glUniform3i)\
+SOGL_FUNCTION(PFNGLUNIFORM4IPROC, glUniform4i)\
+SOGL_FUNCTION(PFNGLUNIFORM1FVPROC, glUniform1fv)\
+SOGL_FUNCTION(PFNGLUNIFORM2FVPROC, glUniform2fv)\
+SOGL_FUNCTION(PFNGLUNIFORM3FVPROC, glUniform3fv)\
+SOGL_FUNCTION(PFNGLUNIFORM4FVPROC, glUniform4fv)\
+SOGL_FUNCTION(PFNGLUNIFORM1IVPROC, glUniform1iv)\
+SOGL_FUNCTION(PFNGLUNIFORM2IVPROC, glUniform2iv)\
+SOGL_FUNCTION(PFNGLUNIFORM3IVPROC, glUniform3iv)\
+SOGL_FUNCTION(PFNGLUNIFORM4IVPROC, glUniform4iv)\
+SOGL_FUNCTION(PFNGLUNIFORMMATRIX2FVPROC, glUniformMatrix2fv)\
+SOGL_FUNCTION(PFNGLUNIFORMMATRIX3FVPROC, glUniformMatrix3fv)\
+SOGL_FUNCTION(PFNGLUNIFORMMATRIX4FVPROC, glUniformMatrix4fv)\
+SOGL_FUNCTION(PFNGLVALIDATEPROGRAMPROC, glValidateProgram)\
+SOGL_FUNCTION(PFNGLVERTEXATTRIB1DPROC, glVertexAttrib1d)\
+SOGL_FUNCTION(PFNGLVERTEXATTRIB1DVPROC, glVertexAttrib1dv)\
+SOGL_FUNCTION(PFNGLVERTEXATTRIB1FPROC, glVertexAttrib1f)\
+SOGL_FUNCTION(PFNGLVERTEXATTRIB1FVPROC, glVertexAttrib1fv)\
+SOGL_FUNCTION(PFNGLVERTEXATTRIB1SPROC, glVertexAttrib1s)\
+SOGL_FUNCTION(PFNGLVERTEXATTRIB1SVPROC, glVertexAttrib1sv)\
+SOGL_FUNCTION(PFNGLVERTEXATTRIB2DPROC, glVertexAttrib2d)\
+SOGL_FUNCTION(PFNGLVERTEXATTRIB2DVPROC, glVertexAttrib2dv)\
+SOGL_FUNCTION(PFNGLVERTEXATTRIB2FPROC, glVertexAttrib2f)\
+SOGL_FUNCTION(PFNGLVERTEXATTRIB2FVPROC, glVertexAttrib2fv)\
+SOGL_FUNCTION(PFNGLVERTEXATTRIB2SPROC, glVertexAttrib2s)\
+SOGL_FUNCTION(PFNGLVERTEXATTRIB2SVPROC, glVertexAttrib2sv)\
+SOGL_FUNCTION(PFNGLVERTEXATTRIB3DPROC, glVertexAttrib3d)\
+SOGL_FUNCTION(PFNGLVERTEXATTRIB3DVPROC, glVertexAttrib3dv)\
+SOGL_FUNCTION(PFNGLVERTEXATTRIB3FPROC, glVertexAttrib3f)\
+SOGL_FUNCTION(PFNGLVERTEXATTRIB3FVPROC, glVertexAttrib3fv)\
+SOGL_FUNCTION(PFNGLVERTEXATTRIB3SPROC, glVertexAttrib3s)\
+SOGL_FUNCTION(PFNGLVERTEXATTRIB3SVPROC, glVertexAttrib3sv)\
+SOGL_FUNCTION(PFNGLVERTEXATTRIB4NBVPROC, glVertexAttrib4Nbv)\
+SOGL_FUNCTION(PFNGLVERTEXATTRIB4NIVPROC, glVertexAttrib4Niv)\
+SOGL_FUNCTION(PFNGLVERTEXATTRIB4NSVPROC, glVertexAttrib4Nsv)\
+SOGL_FUNCTION(PFNGLVERTEXATTRIB4NUBPROC, glVertexAttrib4Nub)\
+SOGL_FUNCTION(PFNGLVERTEXATTRIB4NUBVPROC, glVertexAttrib4Nubv)\
+SOGL_FUNCTION(PFNGLVERTEXATTRIB4NUIVPROC, glVertexAttrib4Nuiv)\
+SOGL_FUNCTION(PFNGLVERTEXATTRIB4NUSVPROC, glVertexAttrib4Nusv)\
+SOGL_FUNCTION(PFNGLVERTEXATTRIB4BVPROC, glVertexAttrib4bv)\
+SOGL_FUNCTION(PFNGLVERTEXATTRIB4DPROC, glVertexAttrib4d)\
+SOGL_FUNCTION(PFNGLVERTEXATTRIB4DVPROC, glVertexAttrib4dv)\
+SOGL_FUNCTION(PFNGLVERTEXATTRIB4FPROC, glVertexAttrib4f)\
+SOGL_FUNCTION(PFNGLVERTEXATTRIB4FVPROC, glVertexAttrib4fv)\
+SOGL_FUNCTION(PFNGLVERTEXATTRIB4IVPROC, glVertexAttrib4iv)\
+SOGL_FUNCTION(PFNGLVERTEXATTRIB4SPROC, glVertexAttrib4s)\
+SOGL_FUNCTION(PFNGLVERTEXATTRIB4SVPROC, glVertexAttrib4sv)\
+SOGL_FUNCTION(PFNGLVERTEXATTRIB4UBVPROC, glVertexAttrib4ubv)\
+SOGL_FUNCTION(PFNGLVERTEXATTRIB4UIVPROC, glVertexAttrib4uiv)\
+SOGL_FUNCTION(PFNGLVERTEXATTRIB4USVPROC, glVertexAttrib4usv)\
+SOGL_FUNCTION(PFNGLVERTEXATTRIBPOINTERPROC, glVertexAttribPointer)
+
+#define SOGL_FUNCTIONS_2_1 \
+SOGL_FUNCTION(PFNGLUNIFORMMATRIX2X3FVPROC, glUniformMatrix2x3fv)\
+SOGL_FUNCTION(PFNGLUNIFORMMATRIX3X2FVPROC, glUniformMatrix3x2fv)\
+SOGL_FUNCTION(PFNGLUNIFORMMATRIX2X4FVPROC, glUniformMatrix2x4fv)\
+SOGL_FUNCTION(PFNGLUNIFORMMATRIX4X2FVPROC, glUniformMatrix4x2fv)\
+SOGL_FUNCTION(PFNGLUNIFORMMATRIX3X4FVPROC, glUniformMatrix3x4fv)\
+SOGL_FUNCTION(PFNGLUNIFORMMATRIX4X3FVPROC, glUniformMatrix4x3fv)
+
+#define SOGL_FUNCTIONS_3_0 \
+SOGL_FUNCTION(PFNGLCOLORMASKIPROC, glColorMaski)\
+SOGL_FUNCTION(PFNGLGETBOOLEANI_VPROC, glGetBooleani_v)\
+SOGL_FUNCTION(PFNGLGETINTEGERI_VPROC, glGetIntegeri_v)\
+SOGL_FUNCTION(PFNGLENABLEIPROC, glEnablei)\
+SOGL_FUNCTION(PFNGLDISABLEIPROC, glDisablei)\
+SOGL_FUNCTION(PFNGLISENABLEDIPROC, glIsEnabledi)\
+SOGL_FUNCTION(PFNGLBEGINTRANSFORMFEEDBACKPROC, glBeginTransformFeedback)\
+SOGL_FUNCTION(PFNGLENDTRANSFORMFEEDBACKPROC, glEndTransformFeedback)\
+SOGL_FUNCTION(PFNGLBINDBUFFERRANGEPROC, glBindBufferRange)\
+SOGL_FUNCTION(PFNGLBINDBUFFERBASEPROC, glBindBufferBase)\
+SOGL_FUNCTION(PFNGLTRANSFORMFEEDBACKVARYINGSPROC, glTransformFeedbackVaryings)\
+SOGL_FUNCTION(PFNGLGETTRANSFORMFEEDBACKVARYINGPROC, glGetTransformFeedbackVarying)\
+SOGL_FUNCTION(PFNGLCLAMPCOLORPROC, glClampColor)\
+SOGL_FUNCTION(PFNGLBEGINCONDITIONALRENDERPROC, glBeginConditionalRender)\
+SOGL_FUNCTION(PFNGLENDCONDITIONALRENDERPROC, glEndConditionalRender)\
+SOGL_FUNCTION(PFNGLVERTEXATTRIBIPOINTERPROC, glVertexAttribIPointer)\
+SOGL_FUNCTION(PFNGLGETVERTEXATTRIBIIVPROC, glGetVertexAttribIiv)\
+SOGL_FUNCTION(PFNGLGETVERTEXATTRIBIUIVPROC, glGetVertexAttribIuiv)\
+SOGL_FUNCTION(PFNGLVERTEXATTRIBI1IPROC, glVertexAttribI1i)\
+SOGL_FUNCTION(PFNGLVERTEXATTRIBI2IPROC, glVertexAttribI2i)\
+SOGL_FUNCTION(PFNGLVERTEXATTRIBI3IPROC, glVertexAttribI3i)\
+SOGL_FUNCTION(PFNGLVERTEXATTRIBI4IPROC, glVertexAttribI4i)\
+SOGL_FUNCTION(PFNGLVERTEXATTRIBI1UIPROC, glVertexAttribI1ui)\
+SOGL_FUNCTION(PFNGLVERTEXATTRIBI2UIPROC, glVertexAttribI2ui)\
+SOGL_FUNCTION(PFNGLVERTEXATTRIBI3UIPROC, glVertexAttribI3ui)\
+SOGL_FUNCTION(PFNGLVERTEXATTRIBI4UIPROC, glVertexAttribI4ui)\
+SOGL_FUNCTION(PFNGLVERTEXATTRIBI1IVPROC, glVertexAttribI1iv)\
+SOGL_FUNCTION(PFNGLVERTEXATTRIBI2IVPROC, glVertexAttribI2iv)\
+SOGL_FUNCTION(PFNGLVERTEXATTRIBI3IVPROC, glVertexAttribI3iv)\
+SOGL_FUNCTION(PFNGLVERTEXATTRIBI4IVPROC, glVertexAttribI4iv)\
+SOGL_FUNCTION(PFNGLVERTEXATTRIBI1UIVPROC, glVertexAttribI1uiv)\
+SOGL_FUNCTION(PFNGLVERTEXATTRIBI2UIVPROC, glVertexAttribI2uiv)\
+SOGL_FUNCTION(PFNGLVERTEXATTRIBI3UIVPROC, glVertexAttribI3uiv)\
+SOGL_FUNCTION(PFNGLVERTEXATTRIBI4UIVPROC, glVertexAttribI4uiv)\
+SOGL_FUNCTION(PFNGLVERTEXATTRIBI4BVPROC, glVertexAttribI4bv)\
+SOGL_FUNCTION(PFNGLVERTEXATTRIBI4SVPROC, glVertexAttribI4sv)\
+SOGL_FUNCTION(PFNGLVERTEXATTRIBI4UBVPROC, glVertexAttribI4ubv)\
+SOGL_FUNCTION(PFNGLVERTEXATTRIBI4USVPROC, glVertexAttribI4usv)\
+SOGL_FUNCTION(PFNGLGETUNIFORMUIVPROC, glGetUniformuiv)\
+SOGL_FUNCTION(PFNGLBINDFRAGDATALOCATIONPROC, glBindFragDataLocation)\
+SOGL_FUNCTION(PFNGLGETFRAGDATALOCATIONPROC, glGetFragDataLocation)\
+SOGL_FUNCTION(PFNGLUNIFORM1UIPROC, glUniform1ui)\
+SOGL_FUNCTION(PFNGLUNIFORM2UIPROC, glUniform2ui)\
+SOGL_FUNCTION(PFNGLUNIFORM3UIPROC, glUniform3ui)\
+SOGL_FUNCTION(PFNGLUNIFORM4UIPROC, glUniform4ui)\
+SOGL_FUNCTION(PFNGLUNIFORM1UIVPROC, glUniform1uiv)\
+SOGL_FUNCTION(PFNGLUNIFORM2UIVPROC, glUniform2uiv)\
+SOGL_FUNCTION(PFNGLUNIFORM3UIVPROC, glUniform3uiv)\
+SOGL_FUNCTION(PFNGLUNIFORM4UIVPROC, glUniform4uiv)\
+SOGL_FUNCTION(PFNGLTEXPARAMETERIIVPROC, glTexParameterIiv)\
+SOGL_FUNCTION(PFNGLTEXPARAMETERIUIVPROC, glTexParameterIuiv)\
+SOGL_FUNCTION(PFNGLGETTEXPARAMETERIIVPROC, glGetTexParameterIiv)\
+SOGL_FUNCTION(PFNGLGETTEXPARAMETERIUIVPROC, glGetTexParameterIuiv)\
+SOGL_FUNCTION(PFNGLCLEARBUFFERIVPROC, glClearBufferiv)\
+SOGL_FUNCTION(PFNGLCLEARBUFFERUIVPROC, glClearBufferuiv)\
+SOGL_FUNCTION(PFNGLCLEARBUFFERFVPROC, glClearBufferfv)\
+SOGL_FUNCTION(PFNGLCLEARBUFFERFIPROC, glClearBufferfi)\
+SOGL_FUNCTION(PFNGLGETSTRINGIPROC, glGetStringi)\
+SOGL_FUNCTION(PFNGLISRENDERBUFFERPROC, glIsRenderbuffer)\
+SOGL_FUNCTION(PFNGLBINDRENDERBUFFERPROC, glBindRenderbuffer)\
+SOGL_FUNCTION(PFNGLDELETERENDERBUFFERSPROC, glDeleteRenderbuffers)\
+SOGL_FUNCTION(PFNGLGENRENDERBUFFERSPROC, glGenRenderbuffers)\
+SOGL_FUNCTION(PFNGLRENDERBUFFERSTORAGEPROC, glRenderbufferStorage)\
+SOGL_FUNCTION(PFNGLGETRENDERBUFFERPARAMETERIVPROC, glGetRenderbufferParameteriv)\
+SOGL_FUNCTION(PFNGLISFRAMEBUFFERPROC, glIsFramebuffer)\
+SOGL_FUNCTION(PFNGLBINDFRAMEBUFFERPROC, glBindFramebuffer)\
+SOGL_FUNCTION(PFNGLDELETEFRAMEBUFFERSPROC, glDeleteFramebuffers)\
+SOGL_FUNCTION(PFNGLGENFRAMEBUFFERSPROC, glGenFramebuffers)\
+SOGL_FUNCTION(PFNGLCHECKFRAMEBUFFERSTATUSPROC, glCheckFramebufferStatus)\
+SOGL_FUNCTION(PFNGLFRAMEBUFFERTEXTURE1DPROC, glFramebufferTexture1D)\
+SOGL_FUNCTION(PFNGLFRAMEBUFFERTEXTURE2DPROC, glFramebufferTexture2D)\
+SOGL_FUNCTION(PFNGLFRAMEBUFFERTEXTURE3DPROC, glFramebufferTexture3D)\
+SOGL_FUNCTION(PFNGLFRAMEBUFFERRENDERBUFFERPROC, glFramebufferRenderbuffer)\
+SOGL_FUNCTION(PFNGLGETFRAMEBUFFERATTACHMENTPARAMETERIVPROC, glGetFramebufferAttachmentParameteriv)\
+SOGL_FUNCTION(PFNGLGENERATEMIPMAPPROC, glGenerateMipmap)\
+SOGL_FUNCTION(PFNGLBLITFRAMEBUFFERPROC, glBlitFramebuffer)\
+SOGL_FUNCTION(PFNGLRENDERBUFFERSTORAGEMULTISAMPLEPROC, glRenderbufferStorageMultisample)\
+SOGL_FUNCTION(PFNGLFRAMEBUFFERTEXTURELAYERPROC, glFramebufferTextureLayer)\
+SOGL_FUNCTION(PFNGLMAPBUFFERRANGEPROC, glMapBufferRange)\
+SOGL_FUNCTION(PFNGLFLUSHMAPPEDBUFFERRANGEPROC, glFlushMappedBufferRange)\
+SOGL_FUNCTION(PFNGLBINDVERTEXARRAYPROC, glBindVertexArray)\
+SOGL_FUNCTION(PFNGLDELETEVERTEXARRAYSPROC, glDeleteVertexArrays)\
+SOGL_FUNCTION(PFNGLGENVERTEXARRAYSPROC, glGenVertexArrays)\
+SOGL_FUNCTION(PFNGLISVERTEXARRAYPROC, glIsVertexArray)
+
+#define SOGL_FUNCTIONS_3_1 \
+SOGL_FUNCTION(PFNGLDRAWARRAYSINSTANCEDPROC, glDrawArraysInstanced)\
+SOGL_FUNCTION(PFNGLDRAWELEMENTSINSTANCEDPROC, glDrawElementsInstanced)\
+SOGL_FUNCTION(PFNGLTEXBUFFERPROC, glTexBuffer)\
+SOGL_FUNCTION(PFNGLPRIMITIVERESTARTINDEXPROC, glPrimitiveRestartIndex)\
+SOGL_FUNCTION(PFNGLCOPYBUFFERSUBDATAPROC, glCopyBufferSubData)\
+SOGL_FUNCTION(PFNGLGETUNIFORMINDICESPROC, glGetUniformIndices)\
+SOGL_FUNCTION(PFNGLGETACTIVEUNIFORMSIVPROC, glGetActiveUniformsiv)\
+SOGL_FUNCTION(PFNGLGETACTIVEUNIFORMNAMEPROC, glGetActiveUniformName)\
+SOGL_FUNCTION(PFNGLGETUNIFORMBLOCKINDEXPROC, glGetUniformBlockIndex)\
+SOGL_FUNCTION(PFNGLGETACTIVEUNIFORMBLOCKIVPROC, glGetActiveUniformBlockiv)\
+SOGL_FUNCTION(PFNGLGETACTIVEUNIFORMBLOCKNAMEPROC, glGetActiveUniformBlockName)\
+SOGL_FUNCTION(PFNGLUNIFORMBLOCKBINDINGPROC, glUniformBlockBinding)
+
+#define SOGL_FUNCTIONS_3_2 \
+SOGL_FUNCTION(PFNGLDRAWELEMENTSBASEVERTEXPROC, glDrawElementsBaseVertex)\
+SOGL_FUNCTION(PFNGLDRAWRANGEELEMENTSBASEVERTEXPROC, glDrawRangeElementsBaseVertex)\
+SOGL_FUNCTION(PFNGLDRAWELEMENTSINSTANCEDBASEVERTEXPROC, glDrawElementsInstancedBaseVertex)\
+SOGL_FUNCTION(PFNGLMULTIDRAWELEMENTSBASEVERTEXPROC, glMultiDrawElementsBaseVertex)\
+SOGL_FUNCTION(PFNGLPROVOKINGVERTEXPROC, glProvokingVertex)\
+SOGL_FUNCTION(PFNGLFENCESYNCPROC, glFenceSync)\
+SOGL_FUNCTION(PFNGLISSYNCPROC, glIsSync)\
+SOGL_FUNCTION(PFNGLDELETESYNCPROC, glDeleteSync)\
+SOGL_FUNCTION(PFNGLCLIENTWAITSYNCPROC, glClientWaitSync)\
+SOGL_FUNCTION(PFNGLWAITSYNCPROC, glWaitSync)\
+SOGL_FUNCTION(PFNGLGETINTEGER64VPROC, glGetInteger64v)\
+SOGL_FUNCTION(PFNGLGETSYNCIVPROC, glGetSynciv)\
+SOGL_FUNCTION(PFNGLGETINTEGER64I_VPROC, glGetInteger64i_v)\
+SOGL_FUNCTION(PFNGLGETBUFFERPARAMETERI64VPROC, glGetBufferParameteri64v)\
+SOGL_FUNCTION(PFNGLFRAMEBUFFERTEXTUREPROC, glFramebufferTexture)\
+SOGL_FUNCTION(PFNGLTEXIMAGE2DMULTISAMPLEPROC, glTexImage2DMultisample)\
+SOGL_FUNCTION(PFNGLTEXIMAGE3DMULTISAMPLEPROC, glTexImage3DMultisample)\
+SOGL_FUNCTION(PFNGLGETMULTISAMPLEFVPROC, glGetMultisamplefv)\
+SOGL_FUNCTION(PFNGLSAMPLEMASKIPROC, glSampleMaski)
+
+#define SOGL_FUNCTIONS_3_3 \
+SOGL_FUNCTION(PFNGLBINDFRAGDATALOCATIONINDEXEDPROC, glBindFragDataLocationIndexed)\
+SOGL_FUNCTION(PFNGLGETFRAGDATAINDEXPROC, glGetFragDataIndex)\
+SOGL_FUNCTION(PFNGLGENSAMPLERSPROC, glGenSamplers)\
+SOGL_FUNCTION(PFNGLDELETESAMPLERSPROC, glDeleteSamplers)\
+SOGL_FUNCTION(PFNGLISSAMPLERPROC, glIsSampler)\
+SOGL_FUNCTION(PFNGLBINDSAMPLERPROC, glBindSampler)\
+SOGL_FUNCTION(PFNGLSAMPLERPARAMETERIPROC, glSamplerParameteri)\
+SOGL_FUNCTION(PFNGLSAMPLERPARAMETERIVPROC, glSamplerParameteriv)\
+SOGL_FUNCTION(PFNGLSAMPLERPARAMETERFPROC, glSamplerParameterf)\
+SOGL_FUNCTION(PFNGLSAMPLERPARAMETERFVPROC, glSamplerParameterfv)\
+SOGL_FUNCTION(PFNGLSAMPLERPARAMETERIIVPROC, glSamplerParameterIiv)\
+SOGL_FUNCTION(PFNGLSAMPLERPARAMETERIUIVPROC, glSamplerParameterIuiv)\
+SOGL_FUNCTION(PFNGLGETSAMPLERPARAMETERIVPROC, glGetSamplerParameteriv)\
+SOGL_FUNCTION(PFNGLGETSAMPLERPARAMETERIIVPROC, glGetSamplerParameterIiv)\
+SOGL_FUNCTION(PFNGLGETSAMPLERPARAMETERFVPROC, glGetSamplerParameterfv)\
+SOGL_FUNCTION(PFNGLGETSAMPLERPARAMETERIUIVPROC, glGetSamplerParameterIuiv)\
+SOGL_FUNCTION(PFNGLQUERYCOUNTERPROC, glQueryCounter)\
+SOGL_FUNCTION(PFNGLGETQUERYOBJECTI64VPROC, glGetQueryObjecti64v)\
+SOGL_FUNCTION(PFNGLGETQUERYOBJECTUI64VPROC, glGetQueryObjectui64v)\
+SOGL_FUNCTION(PFNGLVERTEXATTRIBDIVISORPROC, glVertexAttribDivisor)\
+SOGL_FUNCTION(PFNGLVERTEXATTRIBP1UIPROC, glVertexAttribP1ui)\
+SOGL_FUNCTION(PFNGLVERTEXATTRIBP1UIVPROC, glVertexAttribP1uiv)\
+SOGL_FUNCTION(PFNGLVERTEXATTRIBP2UIPROC, glVertexAttribP2ui)\
+SOGL_FUNCTION(PFNGLVERTEXATTRIBP2UIVPROC, glVertexAttribP2uiv)\
+SOGL_FUNCTION(PFNGLVERTEXATTRIBP3UIPROC, glVertexAttribP3ui)\
+SOGL_FUNCTION(PFNGLVERTEXATTRIBP3UIVPROC, glVertexAttribP3uiv)\
+SOGL_FUNCTION(PFNGLVERTEXATTRIBP4UIPROC, glVertexAttribP4ui)\
+SOGL_FUNCTION(PFNGLVERTEXATTRIBP4UIVPROC, glVertexAttribP4uiv)
+
+#define SOGL_FUNCTIONS_4_0 \
+SOGL_FUNCTION(PFNGLMINSAMPLESHADINGPROC, glMinSampleShading)\
+SOGL_FUNCTION(PFNGLBLENDEQUATIONIPROC, glBlendEquationi)\
+SOGL_FUNCTION(PFNGLBLENDEQUATIONSEPARATEIPROC, glBlendEquationSeparatei)\
+SOGL_FUNCTION(PFNGLBLENDFUNCIPROC, glBlendFunci)\
+SOGL_FUNCTION(PFNGLBLENDFUNCSEPARATEIPROC, glBlendFuncSeparatei)\
+SOGL_FUNCTION(PFNGLDRAWARRAYSINDIRECTPROC, glDrawArraysIndirect)\
+SOGL_FUNCTION(PFNGLDRAWELEMENTSINDIRECTPROC, glDrawElementsIndirect)\
+SOGL_FUNCTION(PFNGLUNIFORM1DPROC, glUniform1d)\
+SOGL_FUNCTION(PFNGLUNIFORM2DPROC, glUniform2d)\
+SOGL_FUNCTION(PFNGLUNIFORM3DPROC, glUniform3d)\
+SOGL_FUNCTION(PFNGLUNIFORM4DPROC, glUniform4d)\
+SOGL_FUNCTION(PFNGLUNIFORM1DVPROC, glUniform1dv)\
+SOGL_FUNCTION(PFNGLUNIFORM2DVPROC, glUniform2dv)\
+SOGL_FUNCTION(PFNGLUNIFORM3DVPROC, glUniform3dv)\
+SOGL_FUNCTION(PFNGLUNIFORM4DVPROC, glUniform4dv)\
+SOGL_FUNCTION(PFNGLUNIFORMMATRIX2DVPROC, glUniformMatrix2dv)\
+SOGL_FUNCTION(PFNGLUNIFORMMATRIX3DVPROC, glUniformMatrix3dv)\
+SOGL_FUNCTION(PFNGLUNIFORMMATRIX4DVPROC, glUniformMatrix4dv)\
+SOGL_FUNCTION(PFNGLUNIFORMMATRIX2X3DVPROC, glUniformMatrix2x3dv)\
+SOGL_FUNCTION(PFNGLUNIFORMMATRIX2X4DVPROC, glUniformMatrix2x4dv)\
+SOGL_FUNCTION(PFNGLUNIFORMMATRIX3X2DVPROC, glUniformMatrix3x2dv)\
+SOGL_FUNCTION(PFNGLUNIFORMMATRIX3X4DVPROC, glUniformMatrix3x4dv)\
+SOGL_FUNCTION(PFNGLUNIFORMMATRIX4X2DVPROC, glUniformMatrix4x2dv)\
+SOGL_FUNCTION(PFNGLUNIFORMMATRIX4X3DVPROC, glUniformMatrix4x3dv)\
+SOGL_FUNCTION(PFNGLGETUNIFORMDVPROC, glGetUniformdv)\
+SOGL_FUNCTION(PFNGLGETSUBROUTINEUNIFORMLOCATIONPROC, glGetSubroutineUniformLocation)\
+SOGL_FUNCTION(PFNGLGETSUBROUTINEINDEXPROC, glGetSubroutineIndex)\
+SOGL_FUNCTION(PFNGLGETACTIVESUBROUTINEUNIFORMIVPROC, glGetActiveSubroutineUniformiv)\
+SOGL_FUNCTION(PFNGLGETACTIVESUBROUTINEUNIFORMNAMEPROC, glGetActiveSubroutineUniformName)\
+SOGL_FUNCTION(PFNGLGETACTIVESUBROUTINENAMEPROC, glGetActiveSubroutineName)\
+SOGL_FUNCTION(PFNGLUNIFORMSUBROUTINESUIVPROC, glUniformSubroutinesuiv)\
+SOGL_FUNCTION(PFNGLGETUNIFORMSUBROUTINEUIVPROC, glGetUniformSubroutineuiv)\
+SOGL_FUNCTION(PFNGLGETPROGRAMSTAGEIVPROC, glGetProgramStageiv)\
+SOGL_FUNCTION(PFNGLPATCHPARAMETERIPROC, glPatchParameteri)\
+SOGL_FUNCTION(PFNGLPATCHPARAMETERFVPROC, glPatchParameterfv)\
+SOGL_FUNCTION(PFNGLBINDTRANSFORMFEEDBACKPROC, glBindTransformFeedback)\
+SOGL_FUNCTION(PFNGLDELETETRANSFORMFEEDBACKSPROC, glDeleteTransformFeedbacks)\
+SOGL_FUNCTION(PFNGLGENTRANSFORMFEEDBACKSPROC, glGenTransformFeedbacks)\
+SOGL_FUNCTION(PFNGLISTRANSFORMFEEDBACKPROC, glIsTransformFeedback)\
+SOGL_FUNCTION(PFNGLPAUSETRANSFORMFEEDBACKPROC, glPauseTransformFeedback)\
+SOGL_FUNCTION(PFNGLRESUMETRANSFORMFEEDBACKPROC, glResumeTransformFeedback)\
+SOGL_FUNCTION(PFNGLDRAWTRANSFORMFEEDBACKPROC, glDrawTransformFeedback)\
+SOGL_FUNCTION(PFNGLDRAWTRANSFORMFEEDBACKSTREAMPROC, glDrawTransformFeedbackStream)\
+SOGL_FUNCTION(PFNGLBEGINQUERYINDEXEDPROC, glBeginQueryIndexed)\
+SOGL_FUNCTION(PFNGLENDQUERYINDEXEDPROC, glEndQueryIndexed)\
+SOGL_FUNCTION(PFNGLGETQUERYINDEXEDIVPROC, glGetQueryIndexediv)
+
+#define SOGL_FUNCTIONS_4_1 \
+SOGL_FUNCTION(PFNGLRELEASESHADERCOMPILERPROC, glReleaseShaderCompiler)\
+SOGL_FUNCTION(PFNGLSHADERBINARYPROC, glShaderBinary)\
+SOGL_FUNCTION(PFNGLGETSHADERPRECISIONFORMATPROC, glGetShaderPrecisionFormat)\
+SOGL_FUNCTION(PFNGLDEPTHRANGEFPROC, glDepthRangef)\
+SOGL_FUNCTION(PFNGLCLEARDEPTHFPROC, glClearDepthf)\
+SOGL_FUNCTION(PFNGLGETPROGRAMBINARYPROC, glGetProgramBinary)\
+SOGL_FUNCTION(PFNGLPROGRAMBINARYPROC, glProgramBinary)\
+SOGL_FUNCTION(PFNGLPROGRAMPARAMETERIPROC, glProgramParameteri)\
+SOGL_FUNCTION(PFNGLUSEPROGRAMSTAGESPROC, glUseProgramStages)\
+SOGL_FUNCTION(PFNGLACTIVESHADERPROGRAMPROC, glActiveShaderProgram)\
+SOGL_FUNCTION(PFNGLCREATESHADERPROGRAMVPROC, glCreateShaderProgramv)\
+SOGL_FUNCTION(PFNGLBINDPROGRAMPIPELINEPROC, glBindProgramPipeline)\
+SOGL_FUNCTION(PFNGLDELETEPROGRAMPIPELINESPROC, glDeleteProgramPipelines)\
+SOGL_FUNCTION(PFNGLGENPROGRAMPIPELINESPROC, glGenProgramPipelines)\
+SOGL_FUNCTION(PFNGLISPROGRAMPIPELINEPROC, glIsProgramPipeline)\
+SOGL_FUNCTION(PFNGLGETPROGRAMPIPELINEIVPROC, glGetProgramPipelineiv)\
+SOGL_FUNCTION(PFNGLPROGRAMUNIFORM1IPROC, glProgramUniform1i)\
+SOGL_FUNCTION(PFNGLPROGRAMUNIFORM1IVPROC, glProgramUniform1iv)\
+SOGL_FUNCTION(PFNGLPROGRAMUNIFORM1FPROC, glProgramUniform1f)\
+SOGL_FUNCTION(PFNGLPROGRAMUNIFORM1FVPROC, glProgramUniform1fv)\
+SOGL_FUNCTION(PFNGLPROGRAMUNIFORM1DPROC, glProgramUniform1d)\
+SOGL_FUNCTION(PFNGLPROGRAMUNIFORM1DVPROC, glProgramUniform1dv)\
+SOGL_FUNCTION(PFNGLPROGRAMUNIFORM1UIPROC, glProgramUniform1ui)\
+SOGL_FUNCTION(PFNGLPROGRAMUNIFORM1UIVPROC, glProgramUniform1uiv)\
+SOGL_FUNCTION(PFNGLPROGRAMUNIFORM2IPROC, glProgramUniform2i)\
+SOGL_FUNCTION(PFNGLPROGRAMUNIFORM2IVPROC, glProgramUniform2iv)\
+SOGL_FUNCTION(PFNGLPROGRAMUNIFORM2FPROC, glProgramUniform2f)\
+SOGL_FUNCTION(PFNGLPROGRAMUNIFORM2FVPROC, glProgramUniform2fv)\
+SOGL_FUNCTION(PFNGLPROGRAMUNIFORM2DPROC, glProgramUniform2d)\
+SOGL_FUNCTION(PFNGLPROGRAMUNIFORM2DVPROC, glProgramUniform2dv)\
+SOGL_FUNCTION(PFNGLPROGRAMUNIFORM2UIPROC, glProgramUniform2ui)\
+SOGL_FUNCTION(PFNGLPROGRAMUNIFORM2UIVPROC, glProgramUniform2uiv)\
+SOGL_FUNCTION(PFNGLPROGRAMUNIFORM3IPROC, glProgramUniform3i)\
+SOGL_FUNCTION(PFNGLPROGRAMUNIFORM3IVPROC, glProgramUniform3iv)\
+SOGL_FUNCTION(PFNGLPROGRAMUNIFORM3FPROC, glProgramUniform3f)\
+SOGL_FUNCTION(PFNGLPROGRAMUNIFORM3FVPROC, glProgramUniform3fv)\
+SOGL_FUNCTION(PFNGLPROGRAMUNIFORM3DPROC, glProgramUniform3d)\
+SOGL_FUNCTION(PFNGLPROGRAMUNIFORM3DVPROC, glProgramUniform3dv)\
+SOGL_FUNCTION(PFNGLPROGRAMUNIFORM3UIPROC, glProgramUniform3ui)\
+SOGL_FUNCTION(PFNGLPROGRAMUNIFORM3UIVPROC, glProgramUniform3uiv)\
+SOGL_FUNCTION(PFNGLPROGRAMUNIFORM4IPROC, glProgramUniform4i)\
+SOGL_FUNCTION(PFNGLPROGRAMUNIFORM4IVPROC, glProgramUniform4iv)\
+SOGL_FUNCTION(PFNGLPROGRAMUNIFORM4FPROC, glProgramUniform4f)\
+SOGL_FUNCTION(PFNGLPROGRAMUNIFORM4FVPROC, glProgramUniform4fv)\
+SOGL_FUNCTION(PFNGLPROGRAMUNIFORM4DPROC, glProgramUniform4d)\
+SOGL_FUNCTION(PFNGLPROGRAMUNIFORM4DVPROC, glProgramUniform4dv)\
+SOGL_FUNCTION(PFNGLPROGRAMUNIFORM4UIPROC, glProgramUniform4ui)\
+SOGL_FUNCTION(PFNGLPROGRAMUNIFORM4UIVPROC, glProgramUniform4uiv)\
+SOGL_FUNCTION(PFNGLPROGRAMUNIFORMMATRIX2FVPROC, glProgramUniformMatrix2fv)\
+SOGL_FUNCTION(PFNGLPROGRAMUNIFORMMATRIX3FVPROC, glProgramUniformMatrix3fv)\
+SOGL_FUNCTION(PFNGLPROGRAMUNIFORMMATRIX4FVPROC, glProgramUniformMatrix4fv)\
+SOGL_FUNCTION(PFNGLPROGRAMUNIFORMMATRIX2DVPROC, glProgramUniformMatrix2dv)\
+SOGL_FUNCTION(PFNGLPROGRAMUNIFORMMATRIX3DVPROC, glProgramUniformMatrix3dv)\
+SOGL_FUNCTION(PFNGLPROGRAMUNIFORMMATRIX4DVPROC, glProgramUniformMatrix4dv)\
+SOGL_FUNCTION(PFNGLPROGRAMUNIFORMMATRIX2X3FVPROC, glProgramUniformMatrix2x3fv)\
+SOGL_FUNCTION(PFNGLPROGRAMUNIFORMMATRIX3X2FVPROC, glProgramUniformMatrix3x2fv)\
+SOGL_FUNCTION(PFNGLPROGRAMUNIFORMMATRIX2X4FVPROC, glProgramUniformMatrix2x4fv)\
+SOGL_FUNCTION(PFNGLPROGRAMUNIFORMMATRIX4X2FVPROC, glProgramUniformMatrix4x2fv)\
+SOGL_FUNCTION(PFNGLPROGRAMUNIFORMMATRIX3X4FVPROC, glProgramUniformMatrix3x4fv)\
+SOGL_FUNCTION(PFNGLPROGRAMUNIFORMMATRIX4X3FVPROC, glProgramUniformMatrix4x3fv)\
+SOGL_FUNCTION(PFNGLPROGRAMUNIFORMMATRIX2X3DVPROC, glProgramUniformMatrix2x3dv)\
+SOGL_FUNCTION(PFNGLPROGRAMUNIFORMMATRIX3X2DVPROC, glProgramUniformMatrix3x2dv)\
+SOGL_FUNCTION(PFNGLPROGRAMUNIFORMMATRIX2X4DVPROC, glProgramUniformMatrix2x4dv)\
+SOGL_FUNCTION(PFNGLPROGRAMUNIFORMMATRIX4X2DVPROC, glProgramUniformMatrix4x2dv)\
+SOGL_FUNCTION(PFNGLPROGRAMUNIFORMMATRIX3X4DVPROC, glProgramUniformMatrix3x4dv)\
+SOGL_FUNCTION(PFNGLPROGRAMUNIFORMMATRIX4X3DVPROC, glProgramUniformMatrix4x3dv)\
+SOGL_FUNCTION(PFNGLVALIDATEPROGRAMPIPELINEPROC, glValidateProgramPipeline)\
+SOGL_FUNCTION(PFNGLGETPROGRAMPIPELINEINFOLOGPROC, glGetProgramPipelineInfoLog)\
+SOGL_FUNCTION(PFNGLVERTEXATTRIBL1DPROC, glVertexAttribL1d)\
+SOGL_FUNCTION(PFNGLVERTEXATTRIBL2DPROC, glVertexAttribL2d)\
+SOGL_FUNCTION(PFNGLVERTEXATTRIBL3DPROC, glVertexAttribL3d)\
+SOGL_FUNCTION(PFNGLVERTEXATTRIBL4DPROC, glVertexAttribL4d)\
+SOGL_FUNCTION(PFNGLVERTEXATTRIBL1DVPROC, glVertexAttribL1dv)\
+SOGL_FUNCTION(PFNGLVERTEXATTRIBL2DVPROC, glVertexAttribL2dv)\
+SOGL_FUNCTION(PFNGLVERTEXATTRIBL3DVPROC, glVertexAttribL3dv)\
+SOGL_FUNCTION(PFNGLVERTEXATTRIBL4DVPROC, glVertexAttribL4dv)\
+SOGL_FUNCTION(PFNGLVERTEXATTRIBLPOINTERPROC, glVertexAttribLPointer)\
+SOGL_FUNCTION(PFNGLGETVERTEXATTRIBLDVPROC, glGetVertexAttribLdv)\
+SOGL_FUNCTION(PFNGLVIEWPORTARRAYVPROC, glViewportArrayv)\
+SOGL_FUNCTION(PFNGLVIEWPORTINDEXEDFPROC, glViewportIndexedf)\
+SOGL_FUNCTION(PFNGLVIEWPORTINDEXEDFVPROC, glViewportIndexedfv)\
+SOGL_FUNCTION(PFNGLSCISSORARRAYVPROC, glScissorArrayv)\
+SOGL_FUNCTION(PFNGLSCISSORINDEXEDPROC, glScissorIndexed)\
+SOGL_FUNCTION(PFNGLSCISSORINDEXEDVPROC, glScissorIndexedv)\
+SOGL_FUNCTION(PFNGLDEPTHRANGEARRAYVPROC, glDepthRangeArrayv)\
+SOGL_FUNCTION(PFNGLDEPTHRANGEINDEXEDPROC, glDepthRangeIndexed)\
+SOGL_FUNCTION(PFNGLGETFLOATI_VPROC, glGetFloati_v)\
+SOGL_FUNCTION(PFNGLGETDOUBLEI_VPROC, glGetDoublei_v)
+
+#define SOGL_FUNCTIONS_4_2 \
+SOGL_FUNCTION(PFNGLDRAWARRAYSINSTANCEDBASEINSTANCEPROC, glDrawArraysInstancedBaseInstance)\
+SOGL_FUNCTION(PFNGLDRAWELEMENTSINSTANCEDBASEINSTANCEPROC, glDrawElementsInstancedBaseInstance)\
+SOGL_FUNCTION(PFNGLDRAWELEMENTSINSTANCEDBASEVERTEXBASEINSTANCEPROC, glDrawElementsInstancedBaseVertexBaseInstance)\
+SOGL_FUNCTION(PFNGLGETINTERNALFORMATIVPROC, glGetInternalformativ)\
+SOGL_FUNCTION(PFNGLGETACTIVEATOMICCOUNTERBUFFERIVPROC, glGetActiveAtomicCounterBufferiv)\
+SOGL_FUNCTION(PFNGLBINDIMAGETEXTUREPROC, glBindImageTexture)\
+SOGL_FUNCTION(PFNGLMEMORYBARRIERPROC, glMemoryBarrier)\
+SOGL_FUNCTION(PFNGLTEXSTORAGE1DPROC, glTexStorage1D)\
+SOGL_FUNCTION(PFNGLTEXSTORAGE2DPROC, glTexStorage2D)\
+SOGL_FUNCTION(PFNGLTEXSTORAGE3DPROC, glTexStorage3D)\
+SOGL_FUNCTION(PFNGLDRAWTRANSFORMFEEDBACKINSTANCEDPROC, glDrawTransformFeedbackInstanced)\
+SOGL_FUNCTION(PFNGLDRAWTRANSFORMFEEDBACKSTREAMINSTANCEDPROC, glDrawTransformFeedbackStreamInstanced)
+
+#define SOGL_FUNCTIONS_4_3 \
+SOGL_FUNCTION(PFNGLCLEARBUFFERDATAPROC, glClearBufferData)\
+SOGL_FUNCTION(PFNGLCLEARBUFFERSUBDATAPROC, glClearBufferSubData)\
+SOGL_FUNCTION(PFNGLDISPATCHCOMPUTEPROC, glDispatchCompute)\
+SOGL_FUNCTION(PFNGLDISPATCHCOMPUTEINDIRECTPROC, glDispatchComputeIndirect)\
+SOGL_FUNCTION(PFNGLCOPYIMAGESUBDATAPROC, glCopyImageSubData)\
+SOGL_FUNCTION(PFNGLFRAMEBUFFERPARAMETERIPROC, glFramebufferParameteri)\
+SOGL_FUNCTION(PFNGLGETFRAMEBUFFERPARAMETERIVPROC, glGetFramebufferParameteriv)\
+SOGL_FUNCTION(PFNGLGETINTERNALFORMATI64VPROC, glGetInternalformati64v)\
+SOGL_FUNCTION(PFNGLINVALIDATETEXSUBIMAGEPROC, glInvalidateTexSubImage)\
+SOGL_FUNCTION(PFNGLINVALIDATETEXIMAGEPROC, glInvalidateTexImage)\
+SOGL_FUNCTION(PFNGLINVALIDATEBUFFERSUBDATAPROC, glInvalidateBufferSubData)\
+SOGL_FUNCTION(PFNGLINVALIDATEBUFFERDATAPROC, glInvalidateBufferData)\
+SOGL_FUNCTION(PFNGLINVALIDATEFRAMEBUFFERPROC, glInvalidateFramebuffer)\
+SOGL_FUNCTION(PFNGLINVALIDATESUBFRAMEBUFFERPROC, glInvalidateSubFramebuffer)\
+SOGL_FUNCTION(PFNGLMULTIDRAWARRAYSINDIRECTPROC, glMultiDrawArraysIndirect)\
+SOGL_FUNCTION(PFNGLMULTIDRAWELEMENTSINDIRECTPROC, glMultiDrawElementsIndirect)\
+SOGL_FUNCTION(PFNGLGETPROGRAMINTERFACEIVPROC, glGetProgramInterfaceiv)\
+SOGL_FUNCTION(PFNGLGETPROGRAMRESOURCEINDEXPROC, glGetProgramResourceIndex)\
+SOGL_FUNCTION(PFNGLGETPROGRAMRESOURCENAMEPROC, glGetProgramResourceName)\
+SOGL_FUNCTION(PFNGLGETPROGRAMRESOURCEIVPROC, glGetProgramResourceiv)\
+SOGL_FUNCTION(PFNGLGETPROGRAMRESOURCELOCATIONPROC, glGetProgramResourceLocation)\
+SOGL_FUNCTION(PFNGLGETPROGRAMRESOURCELOCATIONINDEXPROC, glGetProgramResourceLocationIndex)\
+SOGL_FUNCTION(PFNGLSHADERSTORAGEBLOCKBINDINGPROC, glShaderStorageBlockBinding)\
+SOGL_FUNCTION(PFNGLTEXBUFFERRANGEPROC, glTexBufferRange)\
+SOGL_FUNCTION(PFNGLTEXSTORAGE2DMULTISAMPLEPROC, glTexStorage2DMultisample)\
+SOGL_FUNCTION(PFNGLTEXSTORAGE3DMULTISAMPLEPROC, glTexStorage3DMultisample)\
+SOGL_FUNCTION(PFNGLTEXTUREVIEWPROC, glTextureView)\
+SOGL_FUNCTION(PFNGLBINDVERTEXBUFFERPROC, glBindVertexBuffer)\
+SOGL_FUNCTION(PFNGLVERTEXATTRIBFORMATPROC, glVertexAttribFormat)\
+SOGL_FUNCTION(PFNGLVERTEXATTRIBIFORMATPROC, glVertexAttribIFormat)\
+SOGL_FUNCTION(PFNGLVERTEXATTRIBLFORMATPROC, glVertexAttribLFormat)\
+SOGL_FUNCTION(PFNGLVERTEXATTRIBBINDINGPROC, glVertexAttribBinding)\
+SOGL_FUNCTION(PFNGLVERTEXBINDINGDIVISORPROC, glVertexBindingDivisor)\
+SOGL_FUNCTION(PFNGLDEBUGMESSAGECONTROLPROC, glDebugMessageControl)\
+SOGL_FUNCTION(PFNGLDEBUGMESSAGEINSERTPROC, glDebugMessageInsert)\
+SOGL_FUNCTION(PFNGLDEBUGMESSAGECALLBACKPROC, glDebugMessageCallback)\
+SOGL_FUNCTION(PFNGLGETDEBUGMESSAGELOGPROC, glGetDebugMessageLog)\
+SOGL_FUNCTION(PFNGLPUSHDEBUGGROUPPROC, glPushDebugGroup)\
+SOGL_FUNCTION(PFNGLPOPDEBUGGROUPPROC, glPopDebugGroup)\
+SOGL_FUNCTION(PFNGLOBJECTLABELPROC, glObjectLabel)\
+SOGL_FUNCTION(PFNGLGETOBJECTLABELPROC, glGetObjectLabel)\
+SOGL_FUNCTION(PFNGLOBJECTPTRLABELPROC, glObjectPtrLabel)\
+SOGL_FUNCTION(PFNGLGETOBJECTPTRLABELPROC, glGetObjectPtrLabel)
+
+#define SOGL_FUNCTIONS_4_4 \
+SOGL_FUNCTION(PFNGLBUFFERSTORAGEPROC, glBufferStorage)\
+SOGL_FUNCTION(PFNGLCLEARTEXIMAGEPROC, glClearTexImage)\
+SOGL_FUNCTION(PFNGLCLEARTEXSUBIMAGEPROC, glClearTexSubImage)\
+SOGL_FUNCTION(PFNGLBINDBUFFERSBASEPROC, glBindBuffersBase)\
+SOGL_FUNCTION(PFNGLBINDBUFFERSRANGEPROC, glBindBuffersRange)\
+SOGL_FUNCTION(PFNGLBINDTEXTURESPROC, glBindTextures)\
+SOGL_FUNCTION(PFNGLBINDSAMPLERSPROC, glBindSamplers)\
+SOGL_FUNCTION(PFNGLBINDIMAGETEXTURESPROC, glBindImageTextures)\
+SOGL_FUNCTION(PFNGLBINDVERTEXBUFFERSPROC, glBindVertexBuffers)
+
+#define SOGL_FUNCTIONS_4_5 \
+SOGL_FUNCTION(PFNGLCLIPCONTROLPROC, glClipControl)\
+SOGL_FUNCTION(PFNGLCREATETRANSFORMFEEDBACKSPROC, glCreateTransformFeedbacks)\
+SOGL_FUNCTION(PFNGLTRANSFORMFEEDBACKBUFFERBASEPROC, glTransformFeedbackBufferBase)\
+SOGL_FUNCTION(PFNGLTRANSFORMFEEDBACKBUFFERRANGEPROC, glTransformFeedbackBufferRange)\
+SOGL_FUNCTION(PFNGLGETTRANSFORMFEEDBACKIVPROC, glGetTransformFeedbackiv)\
+SOGL_FUNCTION(PFNGLGETTRANSFORMFEEDBACKI_VPROC, glGetTransformFeedbacki_v)\
+SOGL_FUNCTION(PFNGLGETTRANSFORMFEEDBACKI64_VPROC, glGetTransformFeedbacki64_v)\
+SOGL_FUNCTION(PFNGLCREATEBUFFERSPROC, glCreateBuffers)\
+SOGL_FUNCTION(PFNGLNAMEDBUFFERSTORAGEPROC, glNamedBufferStorage)\
+SOGL_FUNCTION(PFNGLNAMEDBUFFERDATAPROC, glNamedBufferData)\
+SOGL_FUNCTION(PFNGLNAMEDBUFFERSUBDATAPROC, glNamedBufferSubData)\
+SOGL_FUNCTION(PFNGLCOPYNAMEDBUFFERSUBDATAPROC, glCopyNamedBufferSubData)\
+SOGL_FUNCTION(PFNGLCLEARNAMEDBUFFERDATAPROC, glClearNamedBufferData)\
+SOGL_FUNCTION(PFNGLCLEARNAMEDBUFFERSUBDATAPROC, glClearNamedBufferSubData)\
+SOGL_FUNCTION(PFNGLMAPNAMEDBUFFERPROC, glMapNamedBuffer)\
+SOGL_FUNCTION(PFNGLMAPNAMEDBUFFERRANGEPROC, glMapNamedBufferRange)\
+SOGL_FUNCTION(PFNGLUNMAPNAMEDBUFFERPROC, glUnmapNamedBuffer)\
+SOGL_FUNCTION(PFNGLFLUSHMAPPEDNAMEDBUFFERRANGEPROC, glFlushMappedNamedBufferRange)\
+SOGL_FUNCTION(PFNGLGETNAMEDBUFFERPARAMETERIVPROC, glGetNamedBufferParameteriv)\
+SOGL_FUNCTION(PFNGLGETNAMEDBUFFERPARAMETERI64VPROC, glGetNamedBufferParameteri64v)\
+SOGL_FUNCTION(PFNGLGETNAMEDBUFFERPOINTERVPROC, glGetNamedBufferPointerv)\
+SOGL_FUNCTION(PFNGLGETNAMEDBUFFERSUBDATAPROC, glGetNamedBufferSubData)\
+SOGL_FUNCTION(PFNGLCREATEFRAMEBUFFERSPROC, glCreateFramebuffers)\
+SOGL_FUNCTION(PFNGLNAMEDFRAMEBUFFERRENDERBUFFERPROC, glNamedFramebufferRenderbuffer)\
+SOGL_FUNCTION(PFNGLNAMEDFRAMEBUFFERPARAMETERIPROC, glNamedFramebufferParameteri)\
+SOGL_FUNCTION(PFNGLNAMEDFRAMEBUFFERTEXTUREPROC, glNamedFramebufferTexture)\
+SOGL_FUNCTION(PFNGLNAMEDFRAMEBUFFERTEXTURELAYERPROC, glNamedFramebufferTextureLayer)\
+SOGL_FUNCTION(PFNGLNAMEDFRAMEBUFFERDRAWBUFFERPROC, glNamedFramebufferDrawBuffer)\
+SOGL_FUNCTION(PFNGLNAMEDFRAMEBUFFERDRAWBUFFERSPROC, glNamedFramebufferDrawBuffers)\
+SOGL_FUNCTION(PFNGLNAMEDFRAMEBUFFERREADBUFFERPROC, glNamedFramebufferReadBuffer)\
+SOGL_FUNCTION(PFNGLINVALIDATENAMEDFRAMEBUFFERDATAPROC, glInvalidateNamedFramebufferData)\
+SOGL_FUNCTION(PFNGLINVALIDATENAMEDFRAMEBUFFERSUBDATAPROC, glInvalidateNamedFramebufferSubData)\
+SOGL_FUNCTION(PFNGLCLEARNAMEDFRAMEBUFFERIVPROC, glClearNamedFramebufferiv)\
+SOGL_FUNCTION(PFNGLCLEARNAMEDFRAMEBUFFERUIVPROC, glClearNamedFramebufferuiv)\
+SOGL_FUNCTION(PFNGLCLEARNAMEDFRAMEBUFFERFVPROC, glClearNamedFramebufferfv)\
+SOGL_FUNCTION(PFNGLCLEARNAMEDFRAMEBUFFERFIPROC, glClearNamedFramebufferfi)\
+SOGL_FUNCTION(PFNGLBLITNAMEDFRAMEBUFFERPROC, glBlitNamedFramebuffer)\
+SOGL_FUNCTION(PFNGLCHECKNAMEDFRAMEBUFFERSTATUSPROC, glCheckNamedFramebufferStatus)\
+SOGL_FUNCTION(PFNGLGETNAMEDFRAMEBUFFERPARAMETERIVPROC, glGetNamedFramebufferParameteriv)\
+SOGL_FUNCTION(PFNGLGETNAMEDFRAMEBUFFERATTACHMENTPARAMETERIVPROC, glGetNamedFramebufferAttachmentParameteriv)\
+SOGL_FUNCTION(PFNGLCREATERENDERBUFFERSPROC, glCreateRenderbuffers)\
+SOGL_FUNCTION(PFNGLNAMEDRENDERBUFFERSTORAGEPROC, glNamedRenderbufferStorage)\
+SOGL_FUNCTION(PFNGLNAMEDRENDERBUFFERSTORAGEMULTISAMPLEPROC, glNamedRenderbufferStorageMultisample)\
+SOGL_FUNCTION(PFNGLGETNAMEDRENDERBUFFERPARAMETERIVPROC, glGetNamedRenderbufferParameteriv)\
+SOGL_FUNCTION(PFNGLCREATETEXTURESPROC, glCreateTextures)\
+SOGL_FUNCTION(PFNGLTEXTUREBUFFERPROC, glTextureBuffer)\
+SOGL_FUNCTION(PFNGLTEXTUREBUFFERRANGEPROC, glTextureBufferRange)\
+SOGL_FUNCTION(PFNGLTEXTURESTORAGE1DPROC, glTextureStorage1D)\
+SOGL_FUNCTION(PFNGLTEXTURESTORAGE2DPROC, glTextureStorage2D)\
+SOGL_FUNCTION(PFNGLTEXTURESTORAGE3DPROC, glTextureStorage3D)\
+SOGL_FUNCTION(PFNGLTEXTURESTORAGE2DMULTISAMPLEPROC, glTextureStorage2DMultisample)\
+SOGL_FUNCTION(PFNGLTEXTURESTORAGE3DMULTISAMPLEPROC, glTextureStorage3DMultisample)\
+SOGL_FUNCTION(PFNGLTEXTURESUBIMAGE1DPROC, glTextureSubImage1D)\
+SOGL_FUNCTION(PFNGLTEXTURESUBIMAGE2DPROC, glTextureSubImage2D)\
+SOGL_FUNCTION(PFNGLTEXTURESUBIMAGE3DPROC, glTextureSubImage3D)\
+SOGL_FUNCTION(PFNGLCOMPRESSEDTEXTURESUBIMAGE1DPROC, glCompressedTextureSubImage1D)\
+SOGL_FUNCTION(PFNGLCOMPRESSEDTEXTURESUBIMAGE2DPROC, glCompressedTextureSubImage2D)\
+SOGL_FUNCTION(PFNGLCOMPRESSEDTEXTURESUBIMAGE3DPROC, glCompressedTextureSubImage3D)\
+SOGL_FUNCTION(PFNGLCOPYTEXTURESUBIMAGE1DPROC, glCopyTextureSubImage1D)\
+SOGL_FUNCTION(PFNGLCOPYTEXTURESUBIMAGE2DPROC, glCopyTextureSubImage2D)\
+SOGL_FUNCTION(PFNGLCOPYTEXTURESUBIMAGE3DPROC, glCopyTextureSubImage3D)\
+SOGL_FUNCTION(PFNGLTEXTUREPARAMETERFPROC, glTextureParameterf)\
+SOGL_FUNCTION(PFNGLTEXTUREPARAMETERFVPROC, glTextureParameterfv)\
+SOGL_FUNCTION(PFNGLTEXTUREPARAMETERIPROC, glTextureParameteri)\
+SOGL_FUNCTION(PFNGLTEXTUREPARAMETERIIVPROC, glTextureParameterIiv)\
+SOGL_FUNCTION(PFNGLTEXTUREPARAMETERIUIVPROC, glTextureParameterIuiv)\
+SOGL_FUNCTION(PFNGLTEXTUREPARAMETERIVPROC, glTextureParameteriv)\
+SOGL_FUNCTION(PFNGLGENERATETEXTUREMIPMAPPROC, glGenerateTextureMipmap)\
+SOGL_FUNCTION(PFNGLBINDTEXTUREUNITPROC, glBindTextureUnit)\
+SOGL_FUNCTION(PFNGLGETTEXTUREIMAGEPROC, glGetTextureImage)\
+SOGL_FUNCTION(PFNGLGETCOMPRESSEDTEXTUREIMAGEPROC, glGetCompressedTextureImage)\
+SOGL_FUNCTION(PFNGLGETTEXTURELEVELPARAMETERFVPROC, glGetTextureLevelParameterfv)\
+SOGL_FUNCTION(PFNGLGETTEXTURELEVELPARAMETERIVPROC, glGetTextureLevelParameteriv)\
+SOGL_FUNCTION(PFNGLGETTEXTUREPARAMETERFVPROC, glGetTextureParameterfv)\
+SOGL_FUNCTION(PFNGLGETTEXTUREPARAMETERIIVPROC, glGetTextureParameterIiv)\
+SOGL_FUNCTION(PFNGLGETTEXTUREPARAMETERIUIVPROC, glGetTextureParameterIuiv)\
+SOGL_FUNCTION(PFNGLGETTEXTUREPARAMETERIVPROC, glGetTextureParameteriv)\
+SOGL_FUNCTION(PFNGLCREATEVERTEXARRAYSPROC, glCreateVertexArrays)\
+SOGL_FUNCTION(PFNGLDISABLEVERTEXARRAYATTRIBPROC, glDisableVertexArrayAttrib)\
+SOGL_FUNCTION(PFNGLENABLEVERTEXARRAYATTRIBPROC, glEnableVertexArrayAttrib)\
+SOGL_FUNCTION(PFNGLVERTEXARRAYELEMENTBUFFERPROC, glVertexArrayElementBuffer)\
+SOGL_FUNCTION(PFNGLVERTEXARRAYVERTEXBUFFERPROC, glVertexArrayVertexBuffer)\
+SOGL_FUNCTION(PFNGLVERTEXARRAYVERTEXBUFFERSPROC, glVertexArrayVertexBuffers)\
+SOGL_FUNCTION(PFNGLVERTEXARRAYATTRIBBINDINGPROC, glVertexArrayAttribBinding)\
+SOGL_FUNCTION(PFNGLVERTEXARRAYATTRIBFORMATPROC, glVertexArrayAttribFormat)\
+SOGL_FUNCTION(PFNGLVERTEXARRAYATTRIBIFORMATPROC, glVertexArrayAttribIFormat)\
+SOGL_FUNCTION(PFNGLVERTEXARRAYATTRIBLFORMATPROC, glVertexArrayAttribLFormat)\
+SOGL_FUNCTION(PFNGLVERTEXARRAYBINDINGDIVISORPROC, glVertexArrayBindingDivisor)\
+SOGL_FUNCTION(PFNGLGETVERTEXARRAYIVPROC, glGetVertexArrayiv)\
+SOGL_FUNCTION(PFNGLGETVERTEXARRAYINDEXEDIVPROC, glGetVertexArrayIndexediv)\
+SOGL_FUNCTION(PFNGLGETVERTEXARRAYINDEXED64IVPROC, glGetVertexArrayIndexed64iv)\
+SOGL_FUNCTION(PFNGLCREATESAMPLERSPROC, glCreateSamplers)\
+SOGL_FUNCTION(PFNGLCREATEPROGRAMPIPELINESPROC, glCreateProgramPipelines)\
+SOGL_FUNCTION(PFNGLCREATEQUERIESPROC, glCreateQueries)\
+SOGL_FUNCTION(PFNGLGETQUERYBUFFEROBJECTI64VPROC, glGetQueryBufferObjecti64v)\
+SOGL_FUNCTION(PFNGLGETQUERYBUFFEROBJECTIVPROC, glGetQueryBufferObjectiv)\
+SOGL_FUNCTION(PFNGLGETQUERYBUFFEROBJECTUI64VPROC, glGetQueryBufferObjectui64v)\
+SOGL_FUNCTION(PFNGLGETQUERYBUFFEROBJECTUIVPROC, glGetQueryBufferObjectuiv)\
+SOGL_FUNCTION(PFNGLMEMORYBARRIERBYREGIONPROC, glMemoryBarrierByRegion)\
+SOGL_FUNCTION(PFNGLGETTEXTURESUBIMAGEPROC, glGetTextureSubImage)\
+SOGL_FUNCTION(PFNGLGETCOMPRESSEDTEXTURESUBIMAGEPROC, glGetCompressedTextureSubImage)\
+SOGL_FUNCTION(PFNGLGETGRAPHICSRESETSTATUSPROC, glGetGraphicsResetStatus)\
+SOGL_FUNCTION(PFNGLGETNCOMPRESSEDTEXIMAGEPROC, glGetnCompressedTexImage)\
+SOGL_FUNCTION(PFNGLGETNTEXIMAGEPROC, glGetnTexImage)\
+SOGL_FUNCTION(PFNGLGETNUNIFORMDVPROC, glGetnUniformdv)\
+SOGL_FUNCTION(PFNGLGETNUNIFORMFVPROC, glGetnUniformfv)\
+SOGL_FUNCTION(PFNGLGETNUNIFORMIVPROC, glGetnUniformiv)\
+SOGL_FUNCTION(PFNGLGETNUNIFORMUIVPROC, glGetnUniformuiv)\
+SOGL_FUNCTION(PFNGLREADNPIXELSPROC, glReadnPixels)\
+SOGL_FUNCTION(PFNGLTEXTUREBARRIERPROC, glTextureBarrier)
+
+#define SOGL_FUNCTIONS_4_6 \
+SOGL_FUNCTION(PFNGLSPECIALIZESHADERPROC, glSpecializeShader)\
+SOGL_FUNCTION(PFNGLMULTIDRAWARRAYSINDIRECTCOUNTPROC, glMultiDrawArraysIndirectCount)\
+SOGL_FUNCTION(PFNGLMULTIDRAWELEMENTSINDIRECTCOUNTPROC, glMultiDrawElementsIndirectCount)\
+SOGL_FUNCTION(PFNGLPOLYGONOFFSETCLAMPPROC, glPolygonOffsetClamp)
+
+
+#define SOGL_FUNCTIONS_ARB_ES3_2_compatibility \
+SOGL_FUNCTION(PFNGLPRIMITIVEBOUNDINGBOXARBPROC, glPrimitiveBoundingBoxARB)
+
+#define SOGL_FUNCTIONS_ARB_bindless_texture \
+SOGL_FUNCTION(PFNGLGETTEXTUREHANDLEARBPROC, glGetTextureHandleARB)\
+SOGL_FUNCTION(PFNGLGETTEXTURESAMPLERHANDLEARBPROC, glGetTextureSamplerHandleARB)\
+SOGL_FUNCTION(PFNGLMAKETEXTUREHANDLERESIDENTARBPROC, glMakeTextureHandleResidentARB)\
+SOGL_FUNCTION(PFNGLMAKETEXTUREHANDLENONRESIDENTARBPROC, glMakeTextureHandleNonResidentARB)\
+SOGL_FUNCTION(PFNGLGETIMAGEHANDLEARBPROC, glGetImageHandleARB)\
+SOGL_FUNCTION(PFNGLMAKEIMAGEHANDLERESIDENTARBPROC, glMakeImageHandleResidentARB)\
+SOGL_FUNCTION(PFNGLMAKEIMAGEHANDLENONRESIDENTARBPROC, glMakeImageHandleNonResidentARB)\
+SOGL_FUNCTION(PFNGLUNIFORMHANDLEUI64ARBPROC, glUniformHandleui64ARB)\
+SOGL_FUNCTION(PFNGLUNIFORMHANDLEUI64VARBPROC, glUniformHandleui64vARB)\
+SOGL_FUNCTION(PFNGLPROGRAMUNIFORMHANDLEUI64ARBPROC, glProgramUniformHandleui64ARB)\
+SOGL_FUNCTION(PFNGLPROGRAMUNIFORMHANDLEUI64VARBPROC, glProgramUniformHandleui64vARB)\
+SOGL_FUNCTION(PFNGLISTEXTUREHANDLERESIDENTARBPROC, glIsTextureHandleResidentARB)\
+SOGL_FUNCTION(PFNGLISIMAGEHANDLERESIDENTARBPROC, glIsImageHandleResidentARB)\
+SOGL_FUNCTION(PFNGLVERTEXATTRIBL1UI64ARBPROC, glVertexAttribL1ui64ARB)\
+SOGL_FUNCTION(PFNGLVERTEXATTRIBL1UI64VARBPROC, glVertexAttribL1ui64vARB)\
+SOGL_FUNCTION(PFNGLGETVERTEXATTRIBLUI64VARBPROC, glGetVertexAttribLui64vARB)
+
+#define SOGL_FUNCTIONS_ARB_cl_event \
+SOGL_FUNCTION(PFNGLCREATESYNCFROMCLEVENTARBPROC, glCreateSyncFromCLeventARB)
+
+#define SOGL_FUNCTIONS_ARB_compute_variable_group_size \
+SOGL_FUNCTION(PFNGLDISPATCHCOMPUTEGROUPSIZEARBPROC, glDispatchComputeGroupSizeARB)
+
+#define SOGL_FUNCTIONS_ARB_debug_output \
+SOGL_FUNCTION(PFNGLDEBUGMESSAGECONTROLARBPROC, glDebugMessageControlARB)\
+SOGL_FUNCTION(PFNGLDEBUGMESSAGEINSERTARBPROC, glDebugMessageInsertARB)\
+SOGL_FUNCTION(PFNGLDEBUGMESSAGECALLBACKARBPROC, glDebugMessageCallbackARB)\
+SOGL_FUNCTION(PFNGLGETDEBUGMESSAGELOGARBPROC, glGetDebugMessageLogARB)
+
+#define SOGL_FUNCTIONS_ARB_draw_buffers_blend \
+SOGL_FUNCTION(PFNGLBLENDEQUATIONIARBPROC, glBlendEquationiARB)\
+SOGL_FUNCTION(PFNGLBLENDEQUATIONSEPARATEIARBPROC, glBlendEquationSeparateiARB)\
+SOGL_FUNCTION(PFNGLBLENDFUNCIARBPROC, glBlendFunciARB)\
+SOGL_FUNCTION(PFNGLBLENDFUNCSEPARATEIARBPROC, glBlendFuncSeparateiARB)
+
+#define SOGL_FUNCTIONS_ARB_draw_instanced \
+SOGL_FUNCTION(PFNGLDRAWARRAYSINSTANCEDARBPROC, glDrawArraysInstancedARB)\
+SOGL_FUNCTION(PFNGLDRAWELEMENTSINSTANCEDARBPROC, glDrawElementsInstancedARB)
+
+#define SOGL_FUNCTIONS_ARB_geometry_shader4 \
+SOGL_FUNCTION(PFNGLPROGRAMPARAMETERIARBPROC, glProgramParameteriARB)\
+SOGL_FUNCTION(PFNGLFRAMEBUFFERTEXTUREARBPROC, glFramebufferTextureARB)\
+SOGL_FUNCTION(PFNGLFRAMEBUFFERTEXTURELAYERARBPROC, glFramebufferTextureLayerARB)\
+SOGL_FUNCTION(PFNGLFRAMEBUFFERTEXTUREFACEARBPROC, glFramebufferTextureFaceARB)
+
+#define SOGL_FUNCTIONS_ARB_gl_spirv \
+SOGL_FUNCTION(PFNGLSPECIALIZESHADERARBPROC, glSpecializeShaderARB)
+
+#define SOGL_FUNCTIONS_ARB_gpu_shader_int64 \
+SOGL_FUNCTION(PFNGLUNIFORM1I64ARBPROC, glUniform1i64ARB)\
+SOGL_FUNCTION(PFNGLUNIFORM2I64ARBPROC, glUniform2i64ARB)\
+SOGL_FUNCTION(PFNGLUNIFORM3I64ARBPROC, glUniform3i64ARB)\
+SOGL_FUNCTION(PFNGLUNIFORM4I64ARBPROC, glUniform4i64ARB)\
+SOGL_FUNCTION(PFNGLUNIFORM1I64VARBPROC, glUniform1i64vARB)\
+SOGL_FUNCTION(PFNGLUNIFORM2I64VARBPROC, glUniform2i64vARB)\
+SOGL_FUNCTION(PFNGLUNIFORM3I64VARBPROC, glUniform3i64vARB)\
+SOGL_FUNCTION(PFNGLUNIFORM4I64VARBPROC, glUniform4i64vARB)\
+SOGL_FUNCTION(PFNGLUNIFORM1UI64ARBPROC, glUniform1ui64ARB)\
+SOGL_FUNCTION(PFNGLUNIFORM2UI64ARBPROC, glUniform2ui64ARB)\
+SOGL_FUNCTION(PFNGLUNIFORM3UI64ARBPROC, glUniform3ui64ARB)\
+SOGL_FUNCTION(PFNGLUNIFORM4UI64ARBPROC, glUniform4ui64ARB)\
+SOGL_FUNCTION(PFNGLUNIFORM1UI64VARBPROC, glUniform1ui64vARB)\
+SOGL_FUNCTION(PFNGLUNIFORM2UI64VARBPROC, glUniform2ui64vARB)\
+SOGL_FUNCTION(PFNGLUNIFORM3UI64VARBPROC, glUniform3ui64vARB)\
+SOGL_FUNCTION(PFNGLUNIFORM4UI64VARBPROC, glUniform4ui64vARB)\
+SOGL_FUNCTION(PFNGLGETUNIFORMI64VARBPROC, glGetUniformi64vARB)\
+SOGL_FUNCTION(PFNGLGETUNIFORMUI64VARBPROC, glGetUniformui64vARB)\
+SOGL_FUNCTION(PFNGLGETNUNIFORMI64VARBPROC, glGetnUniformi64vARB)\
+SOGL_FUNCTION(PFNGLGETNUNIFORMUI64VARBPROC, glGetnUniformui64vARB)\
+SOGL_FUNCTION(PFNGLPROGRAMUNIFORM1I64ARBPROC, glProgramUniform1i64ARB)\
+SOGL_FUNCTION(PFNGLPROGRAMUNIFORM2I64ARBPROC, glProgramUniform2i64ARB)\
+SOGL_FUNCTION(PFNGLPROGRAMUNIFORM3I64ARBPROC, glProgramUniform3i64ARB)\
+SOGL_FUNCTION(PFNGLPROGRAMUNIFORM4I64ARBPROC, glProgramUniform4i64ARB)\
+SOGL_FUNCTION(PFNGLPROGRAMUNIFORM1I64VARBPROC, glProgramUniform1i64vARB)\
+SOGL_FUNCTION(PFNGLPROGRAMUNIFORM2I64VARBPROC, glProgramUniform2i64vARB)\
+SOGL_FUNCTION(PFNGLPROGRAMUNIFORM3I64VARBPROC, glProgramUniform3i64vARB)\
+SOGL_FUNCTION(PFNGLPROGRAMUNIFORM4I64VARBPROC, glProgramUniform4i64vARB)\
+SOGL_FUNCTION(PFNGLPROGRAMUNIFORM1UI64ARBPROC, glProgramUniform1ui64ARB)\
+SOGL_FUNCTION(PFNGLPROGRAMUNIFORM2UI64ARBPROC, glProgramUniform2ui64ARB)\
+SOGL_FUNCTION(PFNGLPROGRAMUNIFORM3UI64ARBPROC, glProgramUniform3ui64ARB)\
+SOGL_FUNCTION(PFNGLPROGRAMUNIFORM4UI64ARBPROC, glProgramUniform4ui64ARB)\
+SOGL_FUNCTION(PFNGLPROGRAMUNIFORM1UI64VARBPROC, glProgramUniform1ui64vARB)\
+SOGL_FUNCTION(PFNGLPROGRAMUNIFORM2UI64VARBPROC, glProgramUniform2ui64vARB)\
+SOGL_FUNCTION(PFNGLPROGRAMUNIFORM3UI64VARBPROC, glProgramUniform3ui64vARB)\
+SOGL_FUNCTION(PFNGLPROGRAMUNIFORM4UI64VARBPROC, glProgramUniform4ui64vARB)
+
+#define SOGL_FUNCTIONS_ARB_indirect_parameters \
+SOGL_FUNCTION(PFNGLMULTIDRAWARRAYSINDIRECTCOUNTARBPROC, glMultiDrawArraysIndirectCountARB)\
+SOGL_FUNCTION(PFNGLMULTIDRAWELEMENTSINDIRECTCOUNTARBPROC, glMultiDrawElementsIndirectCountARB)
+
+#define SOGL_FUNCTIONS_ARB_instanced_arrays \
+SOGL_FUNCTION(PFNGLVERTEXATTRIBDIVISORARBPROC, glVertexAttribDivisorARB)
+
+#define SOGL_FUNCTIONS_ARB_parallel_shader_compile \
+SOGL_FUNCTION(PFNGLMAXSHADERCOMPILERTHREADSARBPROC, glMaxShaderCompilerThreadsARB)
+
+#define SOGL_FUNCTIONS_ARB_robustness \
+SOGL_FUNCTION(PFNGLGETGRAPHICSRESETSTATUSARBPROC, glGetGraphicsResetStatusARB)\
+SOGL_FUNCTION(PFNGLGETNTEXIMAGEARBPROC, glGetnTexImageARB)\
+SOGL_FUNCTION(PFNGLREADNPIXELSARBPROC, glReadnPixelsARB)\
+SOGL_FUNCTION(PFNGLGETNCOMPRESSEDTEXIMAGEARBPROC, glGetnCompressedTexImageARB)\
+SOGL_FUNCTION(PFNGLGETNUNIFORMFVARBPROC, glGetnUniformfvARB)\
+SOGL_FUNCTION(PFNGLGETNUNIFORMIVARBPROC, glGetnUniformivARB)\
+SOGL_FUNCTION(PFNGLGETNUNIFORMUIVARBPROC, glGetnUniformuivARB)\
+SOGL_FUNCTION(PFNGLGETNUNIFORMDVARBPROC, glGetnUniformdvARB)
+
+#define SOGL_FUNCTIONS_ARB_sample_locations \
+SOGL_FUNCTION(PFNGLFRAMEBUFFERSAMPLELOCATIONSFVARBPROC, glFramebufferSampleLocationsfvARB)\
+SOGL_FUNCTION(PFNGLNAMEDFRAMEBUFFERSAMPLELOCATIONSFVARBPROC, glNamedFramebufferSampleLocationsfvARB)\
+SOGL_FUNCTION(PFNGLEVALUATEDEPTHVALUESARBPROC, glEvaluateDepthValuesARB)
+
+#define SOGL_FUNCTIONS_ARB_sample_shading \
+SOGL_FUNCTION(PFNGLMINSAMPLESHADINGARBPROC, glMinSampleShadingARB)
+
+#define SOGL_FUNCTIONS_ARB_shading_language_include \
+SOGL_FUNCTION(PFNGLNAMEDSTRINGARBPROC, glNamedStringARB)\
+SOGL_FUNCTION(PFNGLDELETENAMEDSTRINGARBPROC, glDeleteNamedStringARB)\
+SOGL_FUNCTION(PFNGLCOMPILESHADERINCLUDEARBPROC, glCompileShaderIncludeARB)\
+SOGL_FUNCTION(PFNGLISNAMEDSTRINGARBPROC, glIsNamedStringARB)\
+SOGL_FUNCTION(PFNGLGETNAMEDSTRINGARBPROC, glGetNamedStringARB)\
+SOGL_FUNCTION(PFNGLGETNAMEDSTRINGIVARBPROC, glGetNamedStringivARB)
+
+#define SOGL_FUNCTIONS_ARB_sparse_buffer \
+SOGL_FUNCTION(PFNGLBUFFERPAGECOMMITMENTARBPROC, glBufferPageCommitmentARB)\
+SOGL_FUNCTION(PFNGLNAMEDBUFFERPAGECOMMITMENTEXTPROC, glNamedBufferPageCommitmentEXT)\
+SOGL_FUNCTION(PFNGLNAMEDBUFFERPAGECOMMITMENTARBPROC, glNamedBufferPageCommitmentARB)
+
+#define SOGL_FUNCTIONS_ARB_sparse_texture \
+SOGL_FUNCTION(PFNGLTEXPAGECOMMITMENTARBPROC, glTexPageCommitmentARB)
+
+#define SOGL_FUNCTIONS_ARB_texture_buffer_object \
+SOGL_FUNCTION(PFNGLTEXBUFFERARBPROC, glTexBufferARB)
+
+#define SOGL_FUNCTIONS_ARB_viewport_array \
+SOGL_FUNCTION(PFNGLDEPTHRANGEARRAYDVNVPROC, glDepthRangeArraydvNV)\
+SOGL_FUNCTION(PFNGLDEPTHRANGEINDEXEDDNVPROC, glDepthRangeIndexeddNV)
+
+#define SOGL_FUNCTIONS_KHR_blend_equation_advanced \
+SOGL_FUNCTION(PFNGLBLENDBARRIERKHRPROC, glBlendBarrierKHR)
+
+#define SOGL_FUNCTIONS_KHR_parallel_shader_compile \
+SOGL_FUNCTION(PFNGLMAXSHADERCOMPILERTHREADSKHRPROC, glMaxShaderCompilerThreadsKHR)
+
+#define SOGL_FUNCTIONS_AMD_framebuffer_multisample_advanced \
+SOGL_FUNCTION(PFNGLRENDERBUFFERSTORAGEMULTISAMPLEADVANCEDAMDPROC, glRenderbufferStorageMultisampleAdvancedAMD)\
+SOGL_FUNCTION(PFNGLNAMEDRENDERBUFFERSTORAGEMULTISAMPLEADVANCEDAMDPROC, glNamedRenderbufferStorageMultisampleAdvancedAMD)
+
+#define SOGL_FUNCTIONS_AMD_performance_monitor \
+SOGL_FUNCTION(PFNGLGETPERFMONITORGROUPSAMDPROC, glGetPerfMonitorGroupsAMD)\
+SOGL_FUNCTION(PFNGLGETPERFMONITORCOUNTERSAMDPROC, glGetPerfMonitorCountersAMD)\
+SOGL_FUNCTION(PFNGLGETPERFMONITORGROUPSTRINGAMDPROC, glGetPerfMonitorGroupStringAMD)\
+SOGL_FUNCTION(PFNGLGETPERFMONITORCOUNTERSTRINGAMDPROC, glGetPerfMonitorCounterStringAMD)\
+SOGL_FUNCTION(PFNGLGETPERFMONITORCOUNTERINFOAMDPROC, glGetPerfMonitorCounterInfoAMD)\
+SOGL_FUNCTION(PFNGLGENPERFMONITORSAMDPROC, glGenPerfMonitorsAMD)\
+SOGL_FUNCTION(PFNGLDELETEPERFMONITORSAMDPROC, glDeletePerfMonitorsAMD)\
+SOGL_FUNCTION(PFNGLSELECTPERFMONITORCOUNTERSAMDPROC, glSelectPerfMonitorCountersAMD)\
+SOGL_FUNCTION(PFNGLBEGINPERFMONITORAMDPROC, glBeginPerfMonitorAMD)\
+SOGL_FUNCTION(PFNGLENDPERFMONITORAMDPROC, glEndPerfMonitorAMD)\
+SOGL_FUNCTION(PFNGLGETPERFMONITORCOUNTERDATAAMDPROC, glGetPerfMonitorCounterDataAMD)
+
+#define SOGL_FUNCTIONS_EXT_EGL_image_storage \
+SOGL_FUNCTION(PFNGLEGLIMAGETARGETTEXSTORAGEEXTPROC, glEGLImageTargetTexStorageEXT)\
+SOGL_FUNCTION(PFNGLEGLIMAGETARGETTEXTURESTORAGEEXTPROC, glEGLImageTargetTextureStorageEXT)
+
+#define SOGL_FUNCTIONS_EXT_debug_label \
+SOGL_FUNCTION(PFNGLLABELOBJECTEXTPROC, glLabelObjectEXT)\
+SOGL_FUNCTION(PFNGLGETOBJECTLABELEXTPROC, glGetObjectLabelEXT)
+
+#define SOGL_FUNCTIONS_EXT_debug_marker \
+SOGL_FUNCTION(PFNGLINSERTEVENTMARKEREXTPROC, glInsertEventMarkerEXT)\
+SOGL_FUNCTION(PFNGLPUSHGROUPMARKEREXTPROC, glPushGroupMarkerEXT)\
+SOGL_FUNCTION(PFNGLPOPGROUPMARKEREXTPROC, glPopGroupMarkerEXT)
+
+#define SOGL_FUNCTIONS_EXT_direct_state_access \
+SOGL_FUNCTION(PFNGLMATRIXLOADFEXTPROC, glMatrixLoadfEXT)\
+SOGL_FUNCTION(PFNGLMATRIXLOADDEXTPROC, glMatrixLoaddEXT)\
+SOGL_FUNCTION(PFNGLMATRIXMULTFEXTPROC, glMatrixMultfEXT)\
+SOGL_FUNCTION(PFNGLMATRIXMULTDEXTPROC, glMatrixMultdEXT)\
+SOGL_FUNCTION(PFNGLMATRIXLOADIDENTITYEXTPROC, glMatrixLoadIdentityEXT)\
+SOGL_FUNCTION(PFNGLMATRIXROTATEFEXTPROC, glMatrixRotatefEXT)\
+SOGL_FUNCTION(PFNGLMATRIXROTATEDEXTPROC, glMatrixRotatedEXT)\
+SOGL_FUNCTION(PFNGLMATRIXSCALEFEXTPROC, glMatrixScalefEXT)\
+SOGL_FUNCTION(PFNGLMATRIXSCALEDEXTPROC, glMatrixScaledEXT)\
+SOGL_FUNCTION(PFNGLMATRIXTRANSLATEFEXTPROC, glMatrixTranslatefEXT)\
+SOGL_FUNCTION(PFNGLMATRIXTRANSLATEDEXTPROC, glMatrixTranslatedEXT)\
+SOGL_FUNCTION(PFNGLMATRIXFRUSTUMEXTPROC, glMatrixFrustumEXT)\
+SOGL_FUNCTION(PFNGLMATRIXORTHOEXTPROC, glMatrixOrthoEXT)\
+SOGL_FUNCTION(PFNGLMATRIXPOPEXTPROC, glMatrixPopEXT)\
+SOGL_FUNCTION(PFNGLMATRIXPUSHEXTPROC, glMatrixPushEXT)\
+SOGL_FUNCTION(PFNGLCLIENTATTRIBDEFAULTEXTPROC, glClientAttribDefaultEXT)\
+SOGL_FUNCTION(PFNGLPUSHCLIENTATTRIBDEFAULTEXTPROC, glPushClientAttribDefaultEXT)\
+SOGL_FUNCTION(PFNGLTEXTUREPARAMETERFEXTPROC, glTextureParameterfEXT)\
+SOGL_FUNCTION(PFNGLTEXTUREPARAMETERFVEXTPROC, glTextureParameterfvEXT)\
+SOGL_FUNCTION(PFNGLTEXTUREPARAMETERIEXTPROC, glTextureParameteriEXT)\
+SOGL_FUNCTION(PFNGLTEXTUREPARAMETERIVEXTPROC, glTextureParameterivEXT)\
+SOGL_FUNCTION(PFNGLTEXTUREIMAGE1DEXTPROC, glTextureImage1DEXT)\
+SOGL_FUNCTION(PFNGLTEXTUREIMAGE2DEXTPROC, glTextureImage2DEXT)\
+SOGL_FUNCTION(PFNGLTEXTURESUBIMAGE1DEXTPROC, glTextureSubImage1DEXT)\
+SOGL_FUNCTION(PFNGLTEXTURESUBIMAGE2DEXTPROC, glTextureSubImage2DEXT)\
+SOGL_FUNCTION(PFNGLCOPYTEXTUREIMAGE1DEXTPROC, glCopyTextureImage1DEXT)\
+SOGL_FUNCTION(PFNGLCOPYTEXTUREIMAGE2DEXTPROC, glCopyTextureImage2DEXT)\
+SOGL_FUNCTION(PFNGLCOPYTEXTURESUBIMAGE1DEXTPROC, glCopyTextureSubImage1DEXT)\
+SOGL_FUNCTION(PFNGLCOPYTEXTURESUBIMAGE2DEXTPROC, glCopyTextureSubImage2DEXT)\
+SOGL_FUNCTION(PFNGLGETTEXTUREIMAGEEXTPROC, glGetTextureImageEXT)\
+SOGL_FUNCTION(PFNGLGETTEXTUREPARAMETERFVEXTPROC, glGetTextureParameterfvEXT)\
+SOGL_FUNCTION(PFNGLGETTEXTUREPARAMETERIVEXTPROC, glGetTextureParameterivEXT)\
+SOGL_FUNCTION(PFNGLGETTEXTURELEVELPARAMETERFVEXTPROC, glGetTextureLevelParameterfvEXT)\
+SOGL_FUNCTION(PFNGLGETTEXTURELEVELPARAMETERIVEXTPROC, glGetTextureLevelParameterivEXT)\
+SOGL_FUNCTION(PFNGLTEXTUREIMAGE3DEXTPROC, glTextureImage3DEXT)\
+SOGL_FUNCTION(PFNGLTEXTURESUBIMAGE3DEXTPROC, glTextureSubImage3DEXT)\
+SOGL_FUNCTION(PFNGLCOPYTEXTURESUBIMAGE3DEXTPROC, glCopyTextureSubImage3DEXT)\
+SOGL_FUNCTION(PFNGLBINDMULTITEXTUREEXTPROC, glBindMultiTextureEXT)\
+SOGL_FUNCTION(PFNGLMULTITEXCOORDPOINTEREXTPROC, glMultiTexCoordPointerEXT)\
+SOGL_FUNCTION(PFNGLMULTITEXENVFEXTPROC, glMultiTexEnvfEXT)\
+SOGL_FUNCTION(PFNGLMULTITEXENVFVEXTPROC, glMultiTexEnvfvEXT)\
+SOGL_FUNCTION(PFNGLMULTITEXENVIEXTPROC, glMultiTexEnviEXT)\
+SOGL_FUNCTION(PFNGLMULTITEXENVIVEXTPROC, glMultiTexEnvivEXT)\
+SOGL_FUNCTION(PFNGLMULTITEXGENDEXTPROC, glMultiTexGendEXT)\
+SOGL_FUNCTION(PFNGLMULTITEXGENDVEXTPROC, glMultiTexGendvEXT)\
+SOGL_FUNCTION(PFNGLMULTITEXGENFEXTPROC, glMultiTexGenfEXT)\
+SOGL_FUNCTION(PFNGLMULTITEXGENFVEXTPROC, glMultiTexGenfvEXT)\
+SOGL_FUNCTION(PFNGLMULTITEXGENIEXTPROC, glMultiTexGeniEXT)\
+SOGL_FUNCTION(PFNGLMULTITEXGENIVEXTPROC, glMultiTexGenivEXT)\
+SOGL_FUNCTION(PFNGLGETMULTITEXENVFVEXTPROC, glGetMultiTexEnvfvEXT)\
+SOGL_FUNCTION(PFNGLGETMULTITEXENVIVEXTPROC, glGetMultiTexEnvivEXT)\
+SOGL_FUNCTION(PFNGLGETMULTITEXGENDVEXTPROC, glGetMultiTexGendvEXT)\
+SOGL_FUNCTION(PFNGLGETMULTITEXGENFVEXTPROC, glGetMultiTexGenfvEXT)\
+SOGL_FUNCTION(PFNGLGETMULTITEXGENIVEXTPROC, glGetMultiTexGenivEXT)\
+SOGL_FUNCTION(PFNGLMULTITEXPARAMETERIEXTPROC, glMultiTexParameteriEXT)\
+SOGL_FUNCTION(PFNGLMULTITEXPARAMETERIVEXTPROC, glMultiTexParameterivEXT)\
+SOGL_FUNCTION(PFNGLMULTITEXPARAMETERFEXTPROC, glMultiTexParameterfEXT)\
+SOGL_FUNCTION(PFNGLMULTITEXPARAMETERFVEXTPROC, glMultiTexParameterfvEXT)\
+SOGL_FUNCTION(PFNGLMULTITEXIMAGE1DEXTPROC, glMultiTexImage1DEXT)\
+SOGL_FUNCTION(PFNGLMULTITEXIMAGE2DEXTPROC, glMultiTexImage2DEXT)\
+SOGL_FUNCTION(PFNGLMULTITEXSUBIMAGE1DEXTPROC, glMultiTexSubImage1DEXT)\
+SOGL_FUNCTION(PFNGLMULTITEXSUBIMAGE2DEXTPROC, glMultiTexSubImage2DEXT)\
+SOGL_FUNCTION(PFNGLCOPYMULTITEXIMAGE1DEXTPROC, glCopyMultiTexImage1DEXT)\
+SOGL_FUNCTION(PFNGLCOPYMULTITEXIMAGE2DEXTPROC, glCopyMultiTexImage2DEXT)\
+SOGL_FUNCTION(PFNGLCOPYMULTITEXSUBIMAGE1DEXTPROC, glCopyMultiTexSubImage1DEXT)\
+SOGL_FUNCTION(PFNGLCOPYMULTITEXSUBIMAGE2DEXTPROC, glCopyMultiTexSubImage2DEXT)\
+SOGL_FUNCTION(PFNGLGETMULTITEXIMAGEEXTPROC, glGetMultiTexImageEXT)\
+SOGL_FUNCTION(PFNGLGETMULTITEXPARAMETERFVEXTPROC, glGetMultiTexParameterfvEXT)\
+SOGL_FUNCTION(PFNGLGETMULTITEXPARAMETERIVEXTPROC, glGetMultiTexParameterivEXT)\
+SOGL_FUNCTION(PFNGLGETMULTITEXLEVELPARAMETERFVEXTPROC, glGetMultiTexLevelParameterfvEXT)\
+SOGL_FUNCTION(PFNGLGETMULTITEXLEVELPARAMETERIVEXTPROC, glGetMultiTexLevelParameterivEXT)\
+SOGL_FUNCTION(PFNGLMULTITEXIMAGE3DEXTPROC, glMultiTexImage3DEXT)\
+SOGL_FUNCTION(PFNGLMULTITEXSUBIMAGE3DEXTPROC, glMultiTexSubImage3DEXT)\
+SOGL_FUNCTION(PFNGLCOPYMULTITEXSUBIMAGE3DEXTPROC, glCopyMultiTexSubImage3DEXT)\
+SOGL_FUNCTION(PFNGLENABLECLIENTSTATEINDEXEDEXTPROC, glEnableClientStateIndexedEXT)\
+SOGL_FUNCTION(PFNGLDISABLECLIENTSTATEINDEXEDEXTPROC, glDisableClientStateIndexedEXT)\
+SOGL_FUNCTION(PFNGLGETFLOATINDEXEDVEXTPROC, glGetFloatIndexedvEXT)\
+SOGL_FUNCTION(PFNGLGETDOUBLEINDEXEDVEXTPROC, glGetDoubleIndexedvEXT)\
+SOGL_FUNCTION(PFNGLGETPOINTERINDEXEDVEXTPROC, glGetPointerIndexedvEXT)\
+SOGL_FUNCTION(PFNGLENABLEINDEXEDEXTPROC, glEnableIndexedEXT)\
+SOGL_FUNCTION(PFNGLDISABLEINDEXEDEXTPROC, glDisableIndexedEXT)\
+SOGL_FUNCTION(PFNGLISENABLEDINDEXEDEXTPROC, glIsEnabledIndexedEXT)\
+SOGL_FUNCTION(PFNGLGETINTEGERINDEXEDVEXTPROC, glGetIntegerIndexedvEXT)\
+SOGL_FUNCTION(PFNGLGETBOOLEANINDEXEDVEXTPROC, glGetBooleanIndexedvEXT)\
+SOGL_FUNCTION(PFNGLCOMPRESSEDTEXTUREIMAGE3DEXTPROC, glCompressedTextureImage3DEXT)\
+SOGL_FUNCTION(PFNGLCOMPRESSEDTEXTUREIMAGE2DEXTPROC, glCompressedTextureImage2DEXT)\
+SOGL_FUNCTION(PFNGLCOMPRESSEDTEXTUREIMAGE1DEXTPROC, glCompressedTextureImage1DEXT)\
+SOGL_FUNCTION(PFNGLCOMPRESSEDTEXTURESUBIMAGE3DEXTPROC, glCompressedTextureSubImage3DEXT)\
+SOGL_FUNCTION(PFNGLCOMPRESSEDTEXTURESUBIMAGE2DEXTPROC, glCompressedTextureSubImage2DEXT)\
+SOGL_FUNCTION(PFNGLCOMPRESSEDTEXTURESUBIMAGE1DEXTPROC, glCompressedTextureSubImage1DEXT)\
+SOGL_FUNCTION(PFNGLGETCOMPRESSEDTEXTUREIMAGEEXTPROC, glGetCompressedTextureImageEXT)\
+SOGL_FUNCTION(PFNGLCOMPRESSEDMULTITEXIMAGE3DEXTPROC, glCompressedMultiTexImage3DEXT)\
+SOGL_FUNCTION(PFNGLCOMPRESSEDMULTITEXIMAGE2DEXTPROC, glCompressedMultiTexImage2DEXT)\
+SOGL_FUNCTION(PFNGLCOMPRESSEDMULTITEXIMAGE1DEXTPROC, glCompressedMultiTexImage1DEXT)\
+SOGL_FUNCTION(PFNGLCOMPRESSEDMULTITEXSUBIMAGE3DEXTPROC, glCompressedMultiTexSubImage3DEXT)\
+SOGL_FUNCTION(PFNGLCOMPRESSEDMULTITEXSUBIMAGE2DEXTPROC, glCompressedMultiTexSubImage2DEXT)\
+SOGL_FUNCTION(PFNGLCOMPRESSEDMULTITEXSUBIMAGE1DEXTPROC, glCompressedMultiTexSubImage1DEXT)\
+SOGL_FUNCTION(PFNGLGETCOMPRESSEDMULTITEXIMAGEEXTPROC, glGetCompressedMultiTexImageEXT)\
+SOGL_FUNCTION(PFNGLMATRIXLOADTRANSPOSEFEXTPROC, glMatrixLoadTransposefEXT)\
+SOGL_FUNCTION(PFNGLMATRIXLOADTRANSPOSEDEXTPROC, glMatrixLoadTransposedEXT)\
+SOGL_FUNCTION(PFNGLMATRIXMULTTRANSPOSEFEXTPROC, glMatrixMultTransposefEXT)\
+SOGL_FUNCTION(PFNGLMATRIXMULTTRANSPOSEDEXTPROC, glMatrixMultTransposedEXT)\
+SOGL_FUNCTION(PFNGLNAMEDBUFFERDATAEXTPROC, glNamedBufferDataEXT)\
+SOGL_FUNCTION(PFNGLNAMEDBUFFERSUBDATAEXTPROC, glNamedBufferSubDataEXT)\
+SOGL_FUNCTION(PFNGLMAPNAMEDBUFFEREXTPROC, glMapNamedBufferEXT)\
+SOGL_FUNCTION(PFNGLUNMAPNAMEDBUFFEREXTPROC, glUnmapNamedBufferEXT)\
+SOGL_FUNCTION(PFNGLGETNAMEDBUFFERPARAMETERIVEXTPROC, glGetNamedBufferParameterivEXT)\
+SOGL_FUNCTION(PFNGLGETNAMEDBUFFERPOINTERVEXTPROC, glGetNamedBufferPointervEXT)\
+SOGL_FUNCTION(PFNGLGETNAMEDBUFFERSUBDATAEXTPROC, glGetNamedBufferSubDataEXT)\
+SOGL_FUNCTION(PFNGLPROGRAMUNIFORM1FEXTPROC, glProgramUniform1fEXT)\
+SOGL_FUNCTION(PFNGLPROGRAMUNIFORM2FEXTPROC, glProgramUniform2fEXT)\
+SOGL_FUNCTION(PFNGLPROGRAMUNIFORM3FEXTPROC, glProgramUniform3fEXT)\
+SOGL_FUNCTION(PFNGLPROGRAMUNIFORM4FEXTPROC, glProgramUniform4fEXT)\
+SOGL_FUNCTION(PFNGLPROGRAMUNIFORM1IEXTPROC, glProgramUniform1iEXT)\
+SOGL_FUNCTION(PFNGLPROGRAMUNIFORM2IEXTPROC, glProgramUniform2iEXT)\
+SOGL_FUNCTION(PFNGLPROGRAMUNIFORM3IEXTPROC, glProgramUniform3iEXT)\
+SOGL_FUNCTION(PFNGLPROGRAMUNIFORM4IEXTPROC, glProgramUniform4iEXT)\
+SOGL_FUNCTION(PFNGLPROGRAMUNIFORM1FVEXTPROC, glProgramUniform1fvEXT)\
+SOGL_FUNCTION(PFNGLPROGRAMUNIFORM2FVEXTPROC, glProgramUniform2fvEXT)\
+SOGL_FUNCTION(PFNGLPROGRAMUNIFORM3FVEXTPROC, glProgramUniform3fvEXT)\
+SOGL_FUNCTION(PFNGLPROGRAMUNIFORM4FVEXTPROC, glProgramUniform4fvEXT)\
+SOGL_FUNCTION(PFNGLPROGRAMUNIFORM1IVEXTPROC, glProgramUniform1ivEXT)\
+SOGL_FUNCTION(PFNGLPROGRAMUNIFORM2IVEXTPROC, glProgramUniform2ivEXT)\
+SOGL_FUNCTION(PFNGLPROGRAMUNIFORM3IVEXTPROC, glProgramUniform3ivEXT)\
+SOGL_FUNCTION(PFNGLPROGRAMUNIFORM4IVEXTPROC, glProgramUniform4ivEXT)\
+SOGL_FUNCTION(PFNGLPROGRAMUNIFORMMATRIX2FVEXTPROC, glProgramUniformMatrix2fvEXT)\
+SOGL_FUNCTION(PFNGLPROGRAMUNIFORMMATRIX3FVEXTPROC, glProgramUniformMatrix3fvEXT)\
+SOGL_FUNCTION(PFNGLPROGRAMUNIFORMMATRIX4FVEXTPROC, glProgramUniformMatrix4fvEXT)\
+SOGL_FUNCTION(PFNGLPROGRAMUNIFORMMATRIX2X3FVEXTPROC, glProgramUniformMatrix2x3fvEXT)\
+SOGL_FUNCTION(PFNGLPROGRAMUNIFORMMATRIX3X2FVEXTPROC, glProgramUniformMatrix3x2fvEXT)\
+SOGL_FUNCTION(PFNGLPROGRAMUNIFORMMATRIX2X4FVEXTPROC, glProgramUniformMatrix2x4fvEXT)\
+SOGL_FUNCTION(PFNGLPROGRAMUNIFORMMATRIX4X2FVEXTPROC, glProgramUniformMatrix4x2fvEXT)\
+SOGL_FUNCTION(PFNGLPROGRAMUNIFORMMATRIX3X4FVEXTPROC, glProgramUniformMatrix3x4fvEXT)\
+SOGL_FUNCTION(PFNGLPROGRAMUNIFORMMATRIX4X3FVEXTPROC, glProgramUniformMatrix4x3fvEXT)\
+SOGL_FUNCTION(PFNGLTEXTUREBUFFEREXTPROC, glTextureBufferEXT)\
+SOGL_FUNCTION(PFNGLMULTITEXBUFFEREXTPROC, glMultiTexBufferEXT)\
+SOGL_FUNCTION(PFNGLTEXTUREPARAMETERIIVEXTPROC, glTextureParameterIivEXT)\
+SOGL_FUNCTION(PFNGLTEXTUREPARAMETERIUIVEXTPROC, glTextureParameterIuivEXT)\
+SOGL_FUNCTION(PFNGLGETTEXTUREPARAMETERIIVEXTPROC, glGetTextureParameterIivEXT)\
+SOGL_FUNCTION(PFNGLGETTEXTUREPARAMETERIUIVEXTPROC, glGetTextureParameterIuivEXT)\
+SOGL_FUNCTION(PFNGLMULTITEXPARAMETERIIVEXTPROC, glMultiTexParameterIivEXT)\
+SOGL_FUNCTION(PFNGLMULTITEXPARAMETERIUIVEXTPROC, glMultiTexParameterIuivEXT)\
+SOGL_FUNCTION(PFNGLGETMULTITEXPARAMETERIIVEXTPROC, glGetMultiTexParameterIivEXT)\
+SOGL_FUNCTION(PFNGLGETMULTITEXPARAMETERIUIVEXTPROC, glGetMultiTexParameterIuivEXT)\
+SOGL_FUNCTION(PFNGLPROGRAMUNIFORM1UIEXTPROC, glProgramUniform1uiEXT)\
+SOGL_FUNCTION(PFNGLPROGRAMUNIFORM2UIEXTPROC, glProgramUniform2uiEXT)\
+SOGL_FUNCTION(PFNGLPROGRAMUNIFORM3UIEXTPROC, glProgramUniform3uiEXT)\
+SOGL_FUNCTION(PFNGLPROGRAMUNIFORM4UIEXTPROC, glProgramUniform4uiEXT)\
+SOGL_FUNCTION(PFNGLPROGRAMUNIFORM1UIVEXTPROC, glProgramUniform1uivEXT)\
+SOGL_FUNCTION(PFNGLPROGRAMUNIFORM2UIVEXTPROC, glProgramUniform2uivEXT)\
+SOGL_FUNCTION(PFNGLPROGRAMUNIFORM3UIVEXTPROC, glProgramUniform3uivEXT)\
+SOGL_FUNCTION(PFNGLPROGRAMUNIFORM4UIVEXTPROC, glProgramUniform4uivEXT)\
+SOGL_FUNCTION(PFNGLNAMEDPROGRAMLOCALPARAMETERS4FVEXTPROC, glNamedProgramLocalParameters4fvEXT)\
+SOGL_FUNCTION(PFNGLNAMEDPROGRAMLOCALPARAMETERI4IEXTPROC, glNamedProgramLocalParameterI4iEXT)\
+SOGL_FUNCTION(PFNGLNAMEDPROGRAMLOCALPARAMETERI4IVEXTPROC, glNamedProgramLocalParameterI4ivEXT)\
+SOGL_FUNCTION(PFNGLNAMEDPROGRAMLOCALPARAMETERSI4IVEXTPROC, glNamedProgramLocalParametersI4ivEXT)\
+SOGL_FUNCTION(PFNGLNAMEDPROGRAMLOCALPARAMETERI4UIEXTPROC, glNamedProgramLocalParameterI4uiEXT)\
+SOGL_FUNCTION(PFNGLNAMEDPROGRAMLOCALPARAMETERI4UIVEXTPROC, glNamedProgramLocalParameterI4uivEXT)\
+SOGL_FUNCTION(PFNGLNAMEDPROGRAMLOCALPARAMETERSI4UIVEXTPROC, glNamedProgramLocalParametersI4uivEXT)\
+SOGL_FUNCTION(PFNGLGETNAMEDPROGRAMLOCALPARAMETERIIVEXTPROC, glGetNamedProgramLocalParameterIivEXT)\
+SOGL_FUNCTION(PFNGLGETNAMEDPROGRAMLOCALPARAMETERIUIVEXTPROC, glGetNamedProgramLocalParameterIuivEXT)\
+SOGL_FUNCTION(PFNGLENABLECLIENTSTATEIEXTPROC, glEnableClientStateiEXT)\
+SOGL_FUNCTION(PFNGLDISABLECLIENTSTATEIEXTPROC, glDisableClientStateiEXT)\
+SOGL_FUNCTION(PFNGLGETFLOATI_VEXTPROC, glGetFloati_vEXT)\
+SOGL_FUNCTION(PFNGLGETDOUBLEI_VEXTPROC, glGetDoublei_vEXT)\
+SOGL_FUNCTION(PFNGLGETPOINTERI_VEXTPROC, glGetPointeri_vEXT)\
+SOGL_FUNCTION(PFNGLNAMEDPROGRAMSTRINGEXTPROC, glNamedProgramStringEXT)\
+SOGL_FUNCTION(PFNGLNAMEDPROGRAMLOCALPARAMETER4DEXTPROC, glNamedProgramLocalParameter4dEXT)\
+SOGL_FUNCTION(PFNGLNAMEDPROGRAMLOCALPARAMETER4DVEXTPROC, glNamedProgramLocalParameter4dvEXT)\
+SOGL_FUNCTION(PFNGLNAMEDPROGRAMLOCALPARAMETER4FEXTPROC, glNamedProgramLocalParameter4fEXT)\
+SOGL_FUNCTION(PFNGLNAMEDPROGRAMLOCALPARAMETER4FVEXTPROC, glNamedProgramLocalParameter4fvEXT)\
+SOGL_FUNCTION(PFNGLGETNAMEDPROGRAMLOCALPARAMETERDVEXTPROC, glGetNamedProgramLocalParameterdvEXT)\
+SOGL_FUNCTION(PFNGLGETNAMEDPROGRAMLOCALPARAMETERFVEXTPROC, glGetNamedProgramLocalParameterfvEXT)\
+SOGL_FUNCTION(PFNGLGETNAMEDPROGRAMIVEXTPROC, glGetNamedProgramivEXT)\
+SOGL_FUNCTION(PFNGLGETNAMEDPROGRAMSTRINGEXTPROC, glGetNamedProgramStringEXT)\
+SOGL_FUNCTION(PFNGLNAMEDRENDERBUFFERSTORAGEEXTPROC, glNamedRenderbufferStorageEXT)\
+SOGL_FUNCTION(PFNGLGETNAMEDRENDERBUFFERPARAMETERIVEXTPROC, glGetNamedRenderbufferParameterivEXT)\
+SOGL_FUNCTION(PFNGLNAMEDRENDERBUFFERSTORAGEMULTISAMPLEEXTPROC, glNamedRenderbufferStorageMultisampleEXT)\
+SOGL_FUNCTION(PFNGLNAMEDRENDERBUFFERSTORAGEMULTISAMPLECOVERAGEEXTPROC, glNamedRenderbufferStorageMultisampleCoverageEXT)\
+SOGL_FUNCTION(PFNGLCHECKNAMEDFRAMEBUFFERSTATUSEXTPROC, glCheckNamedFramebufferStatusEXT)\
+SOGL_FUNCTION(PFNGLNAMEDFRAMEBUFFERTEXTURE1DEXTPROC, glNamedFramebufferTexture1DEXT)\
+SOGL_FUNCTION(PFNGLNAMEDFRAMEBUFFERTEXTURE2DEXTPROC, glNamedFramebufferTexture2DEXT)\
+SOGL_FUNCTION(PFNGLNAMEDFRAMEBUFFERTEXTURE3DEXTPROC, glNamedFramebufferTexture3DEXT)\
+SOGL_FUNCTION(PFNGLNAMEDFRAMEBUFFERRENDERBUFFEREXTPROC, glNamedFramebufferRenderbufferEXT)\
+SOGL_FUNCTION(PFNGLGETNAMEDFRAMEBUFFERATTACHMENTPARAMETERIVEXTPROC, glGetNamedFramebufferAttachmentParameterivEXT)\
+SOGL_FUNCTION(PFNGLGENERATETEXTUREMIPMAPEXTPROC, glGenerateTextureMipmapEXT)\
+SOGL_FUNCTION(PFNGLGENERATEMULTITEXMIPMAPEXTPROC, glGenerateMultiTexMipmapEXT)\
+SOGL_FUNCTION(PFNGLFRAMEBUFFERDRAWBUFFEREXTPROC, glFramebufferDrawBufferEXT)\
+SOGL_FUNCTION(PFNGLFRAMEBUFFERDRAWBUFFERSEXTPROC, glFramebufferDrawBuffersEXT)\
+SOGL_FUNCTION(PFNGLFRAMEBUFFERREADBUFFEREXTPROC, glFramebufferReadBufferEXT)\
+SOGL_FUNCTION(PFNGLGETFRAMEBUFFERPARAMETERIVEXTPROC, glGetFramebufferParameterivEXT)\
+SOGL_FUNCTION(PFNGLNAMEDCOPYBUFFERSUBDATAEXTPROC, glNamedCopyBufferSubDataEXT)\
+SOGL_FUNCTION(PFNGLNAMEDFRAMEBUFFERTEXTUREEXTPROC, glNamedFramebufferTextureEXT)\
+SOGL_FUNCTION(PFNGLNAMEDFRAMEBUFFERTEXTURELAYEREXTPROC, glNamedFramebufferTextureLayerEXT)\
+SOGL_FUNCTION(PFNGLNAMEDFRAMEBUFFERTEXTUREFACEEXTPROC, glNamedFramebufferTextureFaceEXT)\
+SOGL_FUNCTION(PFNGLTEXTURERENDERBUFFEREXTPROC, glTextureRenderbufferEXT)\
+SOGL_FUNCTION(PFNGLMULTITEXRENDERBUFFEREXTPROC, glMultiTexRenderbufferEXT)\
+SOGL_FUNCTION(PFNGLVERTEXARRAYVERTEXOFFSETEXTPROC, glVertexArrayVertexOffsetEXT)\
+SOGL_FUNCTION(PFNGLVERTEXARRAYCOLOROFFSETEXTPROC, glVertexArrayColorOffsetEXT)\
+SOGL_FUNCTION(PFNGLVERTEXARRAYEDGEFLAGOFFSETEXTPROC, glVertexArrayEdgeFlagOffsetEXT)\
+SOGL_FUNCTION(PFNGLVERTEXARRAYINDEXOFFSETEXTPROC, glVertexArrayIndexOffsetEXT)\
+SOGL_FUNCTION(PFNGLVERTEXARRAYNORMALOFFSETEXTPROC, glVertexArrayNormalOffsetEXT)\
+SOGL_FUNCTION(PFNGLVERTEXARRAYTEXCOORDOFFSETEXTPROC, glVertexArrayTexCoordOffsetEXT)\
+SOGL_FUNCTION(PFNGLVERTEXARRAYMULTITEXCOORDOFFSETEXTPROC, glVertexArrayMultiTexCoordOffsetEXT)\
+SOGL_FUNCTION(PFNGLVERTEXARRAYFOGCOORDOFFSETEXTPROC, glVertexArrayFogCoordOffsetEXT)\
+SOGL_FUNCTION(PFNGLVERTEXARRAYSECONDARYCOLOROFFSETEXTPROC, glVertexArraySecondaryColorOffsetEXT)\
+SOGL_FUNCTION(PFNGLVERTEXARRAYVERTEXATTRIBOFFSETEXTPROC, glVertexArrayVertexAttribOffsetEXT)\
+SOGL_FUNCTION(PFNGLVERTEXARRAYVERTEXATTRIBIOFFSETEXTPROC, glVertexArrayVertexAttribIOffsetEXT)\
+SOGL_FUNCTION(PFNGLENABLEVERTEXARRAYEXTPROC, glEnableVertexArrayEXT)\
+SOGL_FUNCTION(PFNGLDISABLEVERTEXARRAYEXTPROC, glDisableVertexArrayEXT)\
+SOGL_FUNCTION(PFNGLENABLEVERTEXARRAYATTRIBEXTPROC, glEnableVertexArrayAttribEXT)\
+SOGL_FUNCTION(PFNGLDISABLEVERTEXARRAYATTRIBEXTPROC, glDisableVertexArrayAttribEXT)\
+SOGL_FUNCTION(PFNGLGETVERTEXARRAYINTEGERVEXTPROC, glGetVertexArrayIntegervEXT)\
+SOGL_FUNCTION(PFNGLGETVERTEXARRAYPOINTERVEXTPROC, glGetVertexArrayPointervEXT)\
+SOGL_FUNCTION(PFNGLGETVERTEXARRAYINTEGERI_VEXTPROC, glGetVertexArrayIntegeri_vEXT)\
+SOGL_FUNCTION(PFNGLGETVERTEXARRAYPOINTERI_VEXTPROC, glGetVertexArrayPointeri_vEXT)\
+SOGL_FUNCTION(PFNGLMAPNAMEDBUFFERRANGEEXTPROC, glMapNamedBufferRangeEXT)\
+SOGL_FUNCTION(PFNGLFLUSHMAPPEDNAMEDBUFFERRANGEEXTPROC, glFlushMappedNamedBufferRangeEXT)\
+SOGL_FUNCTION(PFNGLNAMEDBUFFERSTORAGEEXTPROC, glNamedBufferStorageEXT)\
+SOGL_FUNCTION(PFNGLCLEARNAMEDBUFFERDATAEXTPROC, glClearNamedBufferDataEXT)\
+SOGL_FUNCTION(PFNGLCLEARNAMEDBUFFERSUBDATAEXTPROC, glClearNamedBufferSubDataEXT)\
+SOGL_FUNCTION(PFNGLNAMEDFRAMEBUFFERPARAMETERIEXTPROC, glNamedFramebufferParameteriEXT)\
+SOGL_FUNCTION(PFNGLGETNAMEDFRAMEBUFFERPARAMETERIVEXTPROC, glGetNamedFramebufferParameterivEXT)\
+SOGL_FUNCTION(PFNGLPROGRAMUNIFORM1DEXTPROC, glProgramUniform1dEXT)\
+SOGL_FUNCTION(PFNGLPROGRAMUNIFORM2DEXTPROC, glProgramUniform2dEXT)\
+SOGL_FUNCTION(PFNGLPROGRAMUNIFORM3DEXTPROC, glProgramUniform3dEXT)\
+SOGL_FUNCTION(PFNGLPROGRAMUNIFORM4DEXTPROC, glProgramUniform4dEXT)\
+SOGL_FUNCTION(PFNGLPROGRAMUNIFORM1DVEXTPROC, glProgramUniform1dvEXT)\
+SOGL_FUNCTION(PFNGLPROGRAMUNIFORM2DVEXTPROC, glProgramUniform2dvEXT)\
+SOGL_FUNCTION(PFNGLPROGRAMUNIFORM3DVEXTPROC, glProgramUniform3dvEXT)\
+SOGL_FUNCTION(PFNGLPROGRAMUNIFORM4DVEXTPROC, glProgramUniform4dvEXT)\
+SOGL_FUNCTION(PFNGLPROGRAMUNIFORMMATRIX2DVEXTPROC, glProgramUniformMatrix2dvEXT)\
+SOGL_FUNCTION(PFNGLPROGRAMUNIFORMMATRIX3DVEXTPROC, glProgramUniformMatrix3dvEXT)\
+SOGL_FUNCTION(PFNGLPROGRAMUNIFORMMATRIX4DVEXTPROC, glProgramUniformMatrix4dvEXT)\
+SOGL_FUNCTION(PFNGLPROGRAMUNIFORMMATRIX2X3DVEXTPROC, glProgramUniformMatrix2x3dvEXT)\
+SOGL_FUNCTION(PFNGLPROGRAMUNIFORMMATRIX2X4DVEXTPROC, glProgramUniformMatrix2x4dvEXT)\
+SOGL_FUNCTION(PFNGLPROGRAMUNIFORMMATRIX3X2DVEXTPROC, glProgramUniformMatrix3x2dvEXT)\
+SOGL_FUNCTION(PFNGLPROGRAMUNIFORMMATRIX3X4DVEXTPROC, glProgramUniformMatrix3x4dvEXT)\
+SOGL_FUNCTION(PFNGLPROGRAMUNIFORMMATRIX4X2DVEXTPROC, glProgramUniformMatrix4x2dvEXT)\
+SOGL_FUNCTION(PFNGLPROGRAMUNIFORMMATRIX4X3DVEXTPROC, glProgramUniformMatrix4x3dvEXT)\
+SOGL_FUNCTION(PFNGLTEXTUREBUFFERRANGEEXTPROC, glTextureBufferRangeEXT)\
+SOGL_FUNCTION(PFNGLTEXTURESTORAGE1DEXTPROC, glTextureStorage1DEXT)\
+SOGL_FUNCTION(PFNGLTEXTURESTORAGE2DEXTPROC, glTextureStorage2DEXT)\
+SOGL_FUNCTION(PFNGLTEXTURESTORAGE3DEXTPROC, glTextureStorage3DEXT)\
+SOGL_FUNCTION(PFNGLTEXTURESTORAGE2DMULTISAMPLEEXTPROC, glTextureStorage2DMultisampleEXT)\
+SOGL_FUNCTION(PFNGLTEXTURESTORAGE3DMULTISAMPLEEXTPROC, glTextureStorage3DMultisampleEXT)\
+SOGL_FUNCTION(PFNGLVERTEXARRAYBINDVERTEXBUFFEREXTPROC, glVertexArrayBindVertexBufferEXT)\
+SOGL_FUNCTION(PFNGLVERTEXARRAYVERTEXATTRIBFORMATEXTPROC, glVertexArrayVertexAttribFormatEXT)\
+SOGL_FUNCTION(PFNGLVERTEXARRAYVERTEXATTRIBIFORMATEXTPROC, glVertexArrayVertexAttribIFormatEXT)\
+SOGL_FUNCTION(PFNGLVERTEXARRAYVERTEXATTRIBLFORMATEXTPROC, glVertexArrayVertexAttribLFormatEXT)\
+SOGL_FUNCTION(PFNGLVERTEXARRAYVERTEXATTRIBBINDINGEXTPROC, glVertexArrayVertexAttribBindingEXT)\
+SOGL_FUNCTION(PFNGLVERTEXARRAYVERTEXBINDINGDIVISOREXTPROC, glVertexArrayVertexBindingDivisorEXT)\
+SOGL_FUNCTION(PFNGLVERTEXARRAYVERTEXATTRIBLOFFSETEXTPROC, glVertexArrayVertexAttribLOffsetEXT)\
+SOGL_FUNCTION(PFNGLTEXTUREPAGECOMMITMENTEXTPROC, glTexturePageCommitmentEXT)\
+SOGL_FUNCTION(PFNGLVERTEXARRAYVERTEXATTRIBDIVISOREXTPROC, glVertexArrayVertexAttribDivisorEXT)
+
+#define SOGL_FUNCTIONS_EXT_draw_instanced \
+SOGL_FUNCTION(PFNGLDRAWARRAYSINSTANCEDEXTPROC, glDrawArraysInstancedEXT)\
+SOGL_FUNCTION(PFNGLDRAWELEMENTSINSTANCEDEXTPROC, glDrawElementsInstancedEXT)
+
+#define SOGL_FUNCTIONS_EXT_polygon_offset_clamp \
+SOGL_FUNCTION(PFNGLPOLYGONOFFSETCLAMPEXTPROC, glPolygonOffsetClampEXT)
+
+#define SOGL_FUNCTIONS_EXT_raster_multisample \
+SOGL_FUNCTION(PFNGLRASTERSAMPLESEXTPROC, glRasterSamplesEXT)
+
+#define SOGL_FUNCTIONS_EXT_separate_shader_objects \
+SOGL_FUNCTION(PFNGLUSESHADERPROGRAMEXTPROC, glUseShaderProgramEXT)\
+SOGL_FUNCTION(PFNGLACTIVEPROGRAMEXTPROC, glActiveProgramEXT)\
+SOGL_FUNCTION(PFNGLCREATESHADERPROGRAMEXTPROC, glCreateShaderProgramEXT)
+
+#define SOGL_FUNCTIONS_EXT_shader_framebuffer_fetch_non_coherent \
+SOGL_FUNCTION(PFNGLFRAMEBUFFERFETCHBARRIEREXTPROC, glFramebufferFetchBarrierEXT)
+
+#define SOGL_FUNCTIONS_EXT_window_rectangles \
+SOGL_FUNCTION(PFNGLWINDOWRECTANGLESEXTPROC, glWindowRectanglesEXT)
+
+#define SOGL_FUNCTIONS_INTEL_framebuffer_CMAA \
+SOGL_FUNCTION(PFNGLAPPLYFRAMEBUFFERATTACHMENTCMAAINTELPROC, glApplyFramebufferAttachmentCMAAINTEL)
+
+#define SOGL_FUNCTIONS_INTEL_performance_query \
+SOGL_FUNCTION(PFNGLBEGINPERFQUERYINTELPROC, glBeginPerfQueryINTEL)\
+SOGL_FUNCTION(PFNGLCREATEPERFQUERYINTELPROC, glCreatePerfQueryINTEL)\
+SOGL_FUNCTION(PFNGLDELETEPERFQUERYINTELPROC, glDeletePerfQueryINTEL)\
+SOGL_FUNCTION(PFNGLENDPERFQUERYINTELPROC, glEndPerfQueryINTEL)\
+SOGL_FUNCTION(PFNGLGETFIRSTPERFQUERYIDINTELPROC, glGetFirstPerfQueryIdINTEL)\
+SOGL_FUNCTION(PFNGLGETNEXTPERFQUERYIDINTELPROC, glGetNextPerfQueryIdINTEL)\
+SOGL_FUNCTION(PFNGLGETPERFCOUNTERINFOINTELPROC, glGetPerfCounterInfoINTEL)\
+SOGL_FUNCTION(PFNGLGETPERFQUERYDATAINTELPROC, glGetPerfQueryDataINTEL)\
+SOGL_FUNCTION(PFNGLGETPERFQUERYIDBYNAMEINTELPROC, glGetPerfQueryIdByNameINTEL)\
+SOGL_FUNCTION(PFNGLGETPERFQUERYINFOINTELPROC, glGetPerfQueryInfoINTEL)
+
+#define SOGL_FUNCTIONS_MESA_framebuffer_flip_y \
+SOGL_FUNCTION(PFNGLFRAMEBUFFERPARAMETERIMESAPROC, glFramebufferParameteriMESA)\
+SOGL_FUNCTION(PFNGLGETFRAMEBUFFERPARAMETERIVMESAPROC, glGetFramebufferParameterivMESA)
+
+#define SOGL_FUNCTIONS_NV_bindless_multi_draw_indirect \
+SOGL_FUNCTION(PFNGLMULTIDRAWARRAYSINDIRECTBINDLESSNVPROC, glMultiDrawArraysIndirectBindlessNV)\
+SOGL_FUNCTION(PFNGLMULTIDRAWELEMENTSINDIRECTBINDLESSNVPROC, glMultiDrawElementsIndirectBindlessNV)
+
+#define SOGL_FUNCTIONS_NV_bindless_multi_draw_indirect_count \
+SOGL_FUNCTION(PFNGLMULTIDRAWARRAYSINDIRECTBINDLESSCOUNTNVPROC, glMultiDrawArraysIndirectBindlessCountNV)\
+SOGL_FUNCTION(PFNGLMULTIDRAWELEMENTSINDIRECTBINDLESSCOUNTNVPROC, glMultiDrawElementsIndirectBindlessCountNV)
+
+#define SOGL_FUNCTIONS_NV_bindless_texture \
+SOGL_FUNCTION(PFNGLGETTEXTUREHANDLENVPROC, glGetTextureHandleNV)\
+SOGL_FUNCTION(PFNGLGETTEXTURESAMPLERHANDLENVPROC, glGetTextureSamplerHandleNV)\
+SOGL_FUNCTION(PFNGLMAKETEXTUREHANDLERESIDENTNVPROC, glMakeTextureHandleResidentNV)\
+SOGL_FUNCTION(PFNGLMAKETEXTUREHANDLENONRESIDENTNVPROC, glMakeTextureHandleNonResidentNV)\
+SOGL_FUNCTION(PFNGLGETIMAGEHANDLENVPROC, glGetImageHandleNV)\
+SOGL_FUNCTION(PFNGLMAKEIMAGEHANDLERESIDENTNVPROC, glMakeImageHandleResidentNV)\
+SOGL_FUNCTION(PFNGLMAKEIMAGEHANDLENONRESIDENTNVPROC, glMakeImageHandleNonResidentNV)\
+SOGL_FUNCTION(PFNGLUNIFORMHANDLEUI64NVPROC, glUniformHandleui64NV)\
+SOGL_FUNCTION(PFNGLUNIFORMHANDLEUI64VNVPROC, glUniformHandleui64vNV)\
+SOGL_FUNCTION(PFNGLPROGRAMUNIFORMHANDLEUI64NVPROC, glProgramUniformHandleui64NV)\
+SOGL_FUNCTION(PFNGLPROGRAMUNIFORMHANDLEUI64VNVPROC, glProgramUniformHandleui64vNV)\
+SOGL_FUNCTION(PFNGLISTEXTUREHANDLERESIDENTNVPROC, glIsTextureHandleResidentNV)\
+SOGL_FUNCTION(PFNGLISIMAGEHANDLERESIDENTNVPROC, glIsImageHandleResidentNV)
+
+#define SOGL_FUNCTIONS_NV_blend_equation_advanced \
+SOGL_FUNCTION(PFNGLBLENDPARAMETERINVPROC, glBlendParameteriNV)\
+SOGL_FUNCTION(PFNGLBLENDBARRIERNVPROC, glBlendBarrierNV)
+
+#define SOGL_FUNCTIONS_NV_clip_space_w_scaling \
+SOGL_FUNCTION(PFNGLVIEWPORTPOSITIONWSCALENVPROC, glViewportPositionWScaleNV)
+
+#define SOGL_FUNCTIONS_NV_command_list \
+SOGL_FUNCTION(PFNGLCREATESTATESNVPROC, glCreateStatesNV)\
+SOGL_FUNCTION(PFNGLDELETESTATESNVPROC, glDeleteStatesNV)\
+SOGL_FUNCTION(PFNGLISSTATENVPROC, glIsStateNV)\
+SOGL_FUNCTION(PFNGLSTATECAPTURENVPROC, glStateCaptureNV)\
+SOGL_FUNCTION(PFNGLGETCOMMANDHEADERNVPROC, glGetCommandHeaderNV)\
+SOGL_FUNCTION(PFNGLGETSTAGEINDEXNVPROC, glGetStageIndexNV)\
+SOGL_FUNCTION(PFNGLDRAWCOMMANDSNVPROC, glDrawCommandsNV)\
+SOGL_FUNCTION(PFNGLDRAWCOMMANDSADDRESSNVPROC, glDrawCommandsAddressNV)\
+SOGL_FUNCTION(PFNGLDRAWCOMMANDSSTATESNVPROC, glDrawCommandsStatesNV)\
+SOGL_FUNCTION(PFNGLDRAWCOMMANDSSTATESADDRESSNVPROC, glDrawCommandsStatesAddressNV)\
+SOGL_FUNCTION(PFNGLCREATECOMMANDLISTSNVPROC, glCreateCommandListsNV)\
+SOGL_FUNCTION(PFNGLDELETECOMMANDLISTSNVPROC, glDeleteCommandListsNV)\
+SOGL_FUNCTION(PFNGLISCOMMANDLISTNVPROC, glIsCommandListNV)\
+SOGL_FUNCTION(PFNGLLISTDRAWCOMMANDSSTATESCLIENTNVPROC, glListDrawCommandsStatesClientNV)\
+SOGL_FUNCTION(PFNGLCOMMANDLISTSEGMENTSNVPROC, glCommandListSegmentsNV)\
+SOGL_FUNCTION(PFNGLCOMPILECOMMANDLISTNVPROC, glCompileCommandListNV)\
+SOGL_FUNCTION(PFNGLCALLCOMMANDLISTNVPROC, glCallCommandListNV)
+
+#define SOGL_FUNCTIONS_NV_conditional_render \
+SOGL_FUNCTION(PFNGLBEGINCONDITIONALRENDERNVPROC, glBeginConditionalRenderNV)\
+SOGL_FUNCTION(PFNGLENDCONDITIONALRENDERNVPROC, glEndConditionalRenderNV)
+
+#define SOGL_FUNCTIONS_NV_conservative_raster \
+SOGL_FUNCTION(PFNGLSUBPIXELPRECISIONBIASNVPROC, glSubpixelPrecisionBiasNV)
+
+#define SOGL_FUNCTIONS_NV_conservative_raster_dilate \
+SOGL_FUNCTION(PFNGLCONSERVATIVERASTERPARAMETERFNVPROC, glConservativeRasterParameterfNV)
+
+#define SOGL_FUNCTIONS_NV_conservative_raster_pre_snap_triangles \
+SOGL_FUNCTION(PFNGLCONSERVATIVERASTERPARAMETERINVPROC, glConservativeRasterParameteriNV)
+
+#define SOGL_FUNCTIONS_NV_depth_buffer_float \
+SOGL_FUNCTION(PFNGLDEPTHRANGEDNVPROC, glDepthRangedNV)\
+SOGL_FUNCTION(PFNGLCLEARDEPTHDNVPROC, glClearDepthdNV)\
+SOGL_FUNCTION(PFNGLDEPTHBOUNDSDNVPROC, glDepthBoundsdNV)
+
+#define SOGL_FUNCTIONS_NV_draw_vulkan_image \
+SOGL_FUNCTION(PFNGLDRAWVKIMAGENVPROC, glDrawVkImageNV)\
+SOGL_FUNCTION(PFNGLGETVKPROCADDRNVPROC, glGetVkProcAddrNV)\
+SOGL_FUNCTION(PFNGLWAITVKSEMAPHORENVPROC, glWaitVkSemaphoreNV)\
+SOGL_FUNCTION(PFNGLSIGNALVKSEMAPHORENVPROC, glSignalVkSemaphoreNV)\
+SOGL_FUNCTION(PFNGLSIGNALVKFENCENVPROC, glSignalVkFenceNV)
+
+#define SOGL_FUNCTIONS_NV_fragment_coverage_to_color \
+SOGL_FUNCTION(PFNGLFRAGMENTCOVERAGECOLORNVPROC, glFragmentCoverageColorNV)
+
+#define SOGL_FUNCTIONS_NV_framebuffer_mixed_samples \
+SOGL_FUNCTION(PFNGLCOVERAGEMODULATIONTABLENVPROC, glCoverageModulationTableNV)\
+SOGL_FUNCTION(PFNGLGETCOVERAGEMODULATIONTABLENVPROC, glGetCoverageModulationTableNV)\
+SOGL_FUNCTION(PFNGLCOVERAGEMODULATIONNVPROC, glCoverageModulationNV)
+
+#define SOGL_FUNCTIONS_NV_framebuffer_multisample_coverage \
+SOGL_FUNCTION(PFNGLRENDERBUFFERSTORAGEMULTISAMPLECOVERAGENVPROC, glRenderbufferStorageMultisampleCoverageNV)
+
+#define SOGL_FUNCTIONS_NV_gpu_shader5 \
+SOGL_FUNCTION(PFNGLUNIFORM1I64NVPROC, glUniform1i64NV)\
+SOGL_FUNCTION(PFNGLUNIFORM2I64NVPROC, glUniform2i64NV)\
+SOGL_FUNCTION(PFNGLUNIFORM3I64NVPROC, glUniform3i64NV)\
+SOGL_FUNCTION(PFNGLUNIFORM4I64NVPROC, glUniform4i64NV)\
+SOGL_FUNCTION(PFNGLUNIFORM1I64VNVPROC, glUniform1i64vNV)\
+SOGL_FUNCTION(PFNGLUNIFORM2I64VNVPROC, glUniform2i64vNV)\
+SOGL_FUNCTION(PFNGLUNIFORM3I64VNVPROC, glUniform3i64vNV)\
+SOGL_FUNCTION(PFNGLUNIFORM4I64VNVPROC, glUniform4i64vNV)\
+SOGL_FUNCTION(PFNGLUNIFORM1UI64NVPROC, glUniform1ui64NV)\
+SOGL_FUNCTION(PFNGLUNIFORM2UI64NVPROC, glUniform2ui64NV)\
+SOGL_FUNCTION(PFNGLUNIFORM3UI64NVPROC, glUniform3ui64NV)\
+SOGL_FUNCTION(PFNGLUNIFORM4UI64NVPROC, glUniform4ui64NV)\
+SOGL_FUNCTION(PFNGLUNIFORM1UI64VNVPROC, glUniform1ui64vNV)\
+SOGL_FUNCTION(PFNGLUNIFORM2UI64VNVPROC, glUniform2ui64vNV)\
+SOGL_FUNCTION(PFNGLUNIFORM3UI64VNVPROC, glUniform3ui64vNV)\
+SOGL_FUNCTION(PFNGLUNIFORM4UI64VNVPROC, glUniform4ui64vNV)\
+SOGL_FUNCTION(PFNGLGETUNIFORMI64VNVPROC, glGetUniformi64vNV)\
+SOGL_FUNCTION(PFNGLPROGRAMUNIFORM1I64NVPROC, glProgramUniform1i64NV)\
+SOGL_FUNCTION(PFNGLPROGRAMUNIFORM2I64NVPROC, glProgramUniform2i64NV)\
+SOGL_FUNCTION(PFNGLPROGRAMUNIFORM3I64NVPROC, glProgramUniform3i64NV)\
+SOGL_FUNCTION(PFNGLPROGRAMUNIFORM4I64NVPROC, glProgramUniform4i64NV)\
+SOGL_FUNCTION(PFNGLPROGRAMUNIFORM1I64VNVPROC, glProgramUniform1i64vNV)\
+SOGL_FUNCTION(PFNGLPROGRAMUNIFORM2I64VNVPROC, glProgramUniform2i64vNV)\
+SOGL_FUNCTION(PFNGLPROGRAMUNIFORM3I64VNVPROC, glProgramUniform3i64vNV)\
+SOGL_FUNCTION(PFNGLPROGRAMUNIFORM4I64VNVPROC, glProgramUniform4i64vNV)\
+SOGL_FUNCTION(PFNGLPROGRAMUNIFORM1UI64NVPROC, glProgramUniform1ui64NV)\
+SOGL_FUNCTION(PFNGLPROGRAMUNIFORM2UI64NVPROC, glProgramUniform2ui64NV)\
+SOGL_FUNCTION(PFNGLPROGRAMUNIFORM3UI64NVPROC, glProgramUniform3ui64NV)\
+SOGL_FUNCTION(PFNGLPROGRAMUNIFORM4UI64NVPROC, glProgramUniform4ui64NV)\
+SOGL_FUNCTION(PFNGLPROGRAMUNIFORM1UI64VNVPROC, glProgramUniform1ui64vNV)\
+SOGL_FUNCTION(PFNGLPROGRAMUNIFORM2UI64VNVPROC, glProgramUniform2ui64vNV)\
+SOGL_FUNCTION(PFNGLPROGRAMUNIFORM3UI64VNVPROC, glProgramUniform3ui64vNV)\
+SOGL_FUNCTION(PFNGLPROGRAMUNIFORM4UI64VNVPROC, glProgramUniform4ui64vNV)
+
+#define SOGL_FUNCTIONS_NV_internalformat_sample_query \
+SOGL_FUNCTION(PFNGLGETINTERNALFORMATSAMPLEIVNVPROC, glGetInternalformatSampleivNV)
+
+#define SOGL_FUNCTIONS_NV_memory_attachment \
+SOGL_FUNCTION(PFNGLGETMEMORYOBJECTDETACHEDRESOURCESUIVNVPROC, glGetMemoryObjectDetachedResourcesuivNV)\
+SOGL_FUNCTION(PFNGLRESETMEMORYOBJECTPARAMETERNVPROC, glResetMemoryObjectParameterNV)\
+SOGL_FUNCTION(PFNGLTEXATTACHMEMORYNVPROC, glTexAttachMemoryNV)\
+SOGL_FUNCTION(PFNGLBUFFERATTACHMEMORYNVPROC, glBufferAttachMemoryNV)\
+SOGL_FUNCTION(PFNGLTEXTUREATTACHMEMORYNVPROC, glTextureAttachMemoryNV)\
+SOGL_FUNCTION(PFNGLNAMEDBUFFERATTACHMEMORYNVPROC, glNamedBufferAttachMemoryNV)
+
+#define SOGL_FUNCTIONS_NV_memory_object_sparse \
+SOGL_FUNCTION(PFNGLBUFFERPAGECOMMITMENTMEMNVPROC, glBufferPageCommitmentMemNV)\
+SOGL_FUNCTION(PFNGLTEXPAGECOMMITMENTMEMNVPROC, glTexPageCommitmentMemNV)\
+SOGL_FUNCTION(PFNGLNAMEDBUFFERPAGECOMMITMENTMEMNVPROC, glNamedBufferPageCommitmentMemNV)\
+SOGL_FUNCTION(PFNGLTEXTUREPAGECOMMITMENTMEMNVPROC, glTexturePageCommitmentMemNV)
+
+#define SOGL_FUNCTIONS_NV_mesh_shader \
+SOGL_FUNCTION(PFNGLDRAWMESHTASKSNVPROC, glDrawMeshTasksNV)\
+SOGL_FUNCTION(PFNGLDRAWMESHTASKSINDIRECTNVPROC, glDrawMeshTasksIndirectNV)\
+SOGL_FUNCTION(PFNGLMULTIDRAWMESHTASKSINDIRECTNVPROC, glMultiDrawMeshTasksIndirectNV)\
+SOGL_FUNCTION(PFNGLMULTIDRAWMESHTASKSINDIRECTCOUNTNVPROC, glMultiDrawMeshTasksIndirectCountNV)
+
+#define SOGL_FUNCTIONS_NV_path_rendering \
+SOGL_FUNCTION(PFNGLGENPATHSNVPROC, glGenPathsNV)\
+SOGL_FUNCTION(PFNGLDELETEPATHSNVPROC, glDeletePathsNV)\
+SOGL_FUNCTION(PFNGLISPATHNVPROC, glIsPathNV)\
+SOGL_FUNCTION(PFNGLPATHCOMMANDSNVPROC, glPathCommandsNV)\
+SOGL_FUNCTION(PFNGLPATHCOORDSNVPROC, glPathCoordsNV)\
+SOGL_FUNCTION(PFNGLPATHSUBCOMMANDSNVPROC, glPathSubCommandsNV)\
+SOGL_FUNCTION(PFNGLPATHSUBCOORDSNVPROC, glPathSubCoordsNV)\
+SOGL_FUNCTION(PFNGLPATHSTRINGNVPROC, glPathStringNV)\
+SOGL_FUNCTION(PFNGLPATHGLYPHSNVPROC, glPathGlyphsNV)\
+SOGL_FUNCTION(PFNGLPATHGLYPHRANGENVPROC, glPathGlyphRangeNV)\
+SOGL_FUNCTION(PFNGLWEIGHTPATHSNVPROC, glWeightPathsNV)\
+SOGL_FUNCTION(PFNGLCOPYPATHNVPROC, glCopyPathNV)\
+SOGL_FUNCTION(PFNGLINTERPOLATEPATHSNVPROC, glInterpolatePathsNV)\
+SOGL_FUNCTION(PFNGLTRANSFORMPATHNVPROC, glTransformPathNV)\
+SOGL_FUNCTION(PFNGLPATHPARAMETERIVNVPROC, glPathParameterivNV)\
+SOGL_FUNCTION(PFNGLPATHPARAMETERINVPROC, glPathParameteriNV)\
+SOGL_FUNCTION(PFNGLPATHPARAMETERFVNVPROC, glPathParameterfvNV)\
+SOGL_FUNCTION(PFNGLPATHPARAMETERFNVPROC, glPathParameterfNV)\
+SOGL_FUNCTION(PFNGLPATHDASHARRAYNVPROC, glPathDashArrayNV)\
+SOGL_FUNCTION(PFNGLPATHSTENCILFUNCNVPROC, glPathStencilFuncNV)\
+SOGL_FUNCTION(PFNGLPATHSTENCILDEPTHOFFSETNVPROC, glPathStencilDepthOffsetNV)\
+SOGL_FUNCTION(PFNGLSTENCILFILLPATHNVPROC, glStencilFillPathNV)\
+SOGL_FUNCTION(PFNGLSTENCILSTROKEPATHNVPROC, glStencilStrokePathNV)\
+SOGL_FUNCTION(PFNGLSTENCILFILLPATHINSTANCEDNVPROC, glStencilFillPathInstancedNV)\
+SOGL_FUNCTION(PFNGLSTENCILSTROKEPATHINSTANCEDNVPROC, glStencilStrokePathInstancedNV)\
+SOGL_FUNCTION(PFNGLPATHCOVERDEPTHFUNCNVPROC, glPathCoverDepthFuncNV)\
+SOGL_FUNCTION(PFNGLCOVERFILLPATHNVPROC, glCoverFillPathNV)\
+SOGL_FUNCTION(PFNGLCOVERSTROKEPATHNVPROC, glCoverStrokePathNV)\
+SOGL_FUNCTION(PFNGLCOVERFILLPATHINSTANCEDNVPROC, glCoverFillPathInstancedNV)\
+SOGL_FUNCTION(PFNGLCOVERSTROKEPATHINSTANCEDNVPROC, glCoverStrokePathInstancedNV)\
+SOGL_FUNCTION(PFNGLGETPATHPARAMETERIVNVPROC, glGetPathParameterivNV)\
+SOGL_FUNCTION(PFNGLGETPATHPARAMETERFVNVPROC, glGetPathParameterfvNV)\
+SOGL_FUNCTION(PFNGLGETPATHCOMMANDSNVPROC, glGetPathCommandsNV)\
+SOGL_FUNCTION(PFNGLGETPATHCOORDSNVPROC, glGetPathCoordsNV)\
+SOGL_FUNCTION(PFNGLGETPATHDASHARRAYNVPROC, glGetPathDashArrayNV)\
+SOGL_FUNCTION(PFNGLGETPATHMETRICSNVPROC, glGetPathMetricsNV)\
+SOGL_FUNCTION(PFNGLGETPATHMETRICRANGENVPROC, glGetPathMetricRangeNV)\
+SOGL_FUNCTION(PFNGLGETPATHSPACINGNVPROC, glGetPathSpacingNV)\
+SOGL_FUNCTION(PFNGLISPOINTINFILLPATHNVPROC, glIsPointInFillPathNV)\
+SOGL_FUNCTION(PFNGLISPOINTINSTROKEPATHNVPROC, glIsPointInStrokePathNV)\
+SOGL_FUNCTION(PFNGLGETPATHLENGTHNVPROC, glGetPathLengthNV)\
+SOGL_FUNCTION(PFNGLPOINTALONGPATHNVPROC, glPointAlongPathNV)\
+SOGL_FUNCTION(PFNGLMATRIXLOAD3X2FNVPROC, glMatrixLoad3x2fNV)\
+SOGL_FUNCTION(PFNGLMATRIXLOAD3X3FNVPROC, glMatrixLoad3x3fNV)\
+SOGL_FUNCTION(PFNGLMATRIXLOADTRANSPOSE3X3FNVPROC, glMatrixLoadTranspose3x3fNV)\
+SOGL_FUNCTION(PFNGLMATRIXMULT3X2FNVPROC, glMatrixMult3x2fNV)\
+SOGL_FUNCTION(PFNGLMATRIXMULT3X3FNVPROC, glMatrixMult3x3fNV)\
+SOGL_FUNCTION(PFNGLMATRIXMULTTRANSPOSE3X3FNVPROC, glMatrixMultTranspose3x3fNV)\
+SOGL_FUNCTION(PFNGLSTENCILTHENCOVERFILLPATHNVPROC, glStencilThenCoverFillPathNV)\
+SOGL_FUNCTION(PFNGLSTENCILTHENCOVERSTROKEPATHNVPROC, glStencilThenCoverStrokePathNV)\
+SOGL_FUNCTION(PFNGLSTENCILTHENCOVERFILLPATHINSTANCEDNVPROC, glStencilThenCoverFillPathInstancedNV)\
+SOGL_FUNCTION(PFNGLSTENCILTHENCOVERSTROKEPATHINSTANCEDNVPROC, glStencilThenCoverStrokePathInstancedNV)\
+SOGL_FUNCTION(PFNGLPATHGLYPHINDEXRANGENVPROC, glPathGlyphIndexRangeNV)\
+SOGL_FUNCTION(PFNGLPATHGLYPHINDEXARRAYNVPROC, glPathGlyphIndexArrayNV)\
+SOGL_FUNCTION(PFNGLPATHMEMORYGLYPHINDEXARRAYNVPROC, glPathMemoryGlyphIndexArrayNV)\
+SOGL_FUNCTION(PFNGLPROGRAMPATHFRAGMENTINPUTGENNVPROC, glProgramPathFragmentInputGenNV)\
+SOGL_FUNCTION(PFNGLGETPROGRAMRESOURCEFVNVPROC, glGetProgramResourcefvNV)
+
+#define SOGL_FUNCTIONS_NV_sample_locations \
+SOGL_FUNCTION(PFNGLFRAMEBUFFERSAMPLELOCATIONSFVNVPROC, glFramebufferSampleLocationsfvNV)\
+SOGL_FUNCTION(PFNGLNAMEDFRAMEBUFFERSAMPLELOCATIONSFVNVPROC, glNamedFramebufferSampleLocationsfvNV)\
+SOGL_FUNCTION(PFNGLRESOLVEDEPTHVALUESNVPROC, glResolveDepthValuesNV)
+
+#define SOGL_FUNCTIONS_NV_scissor_exclusive \
+SOGL_FUNCTION(PFNGLSCISSOREXCLUSIVENVPROC, glScissorExclusiveNV)\
+SOGL_FUNCTION(PFNGLSCISSOREXCLUSIVEARRAYVNVPROC, glScissorExclusiveArrayvNV)
+
+#define SOGL_FUNCTIONS_NV_shader_buffer_load \
+SOGL_FUNCTION(PFNGLMAKEBUFFERRESIDENTNVPROC, glMakeBufferResidentNV)\
+SOGL_FUNCTION(PFNGLMAKEBUFFERNONRESIDENTNVPROC, glMakeBufferNonResidentNV)\
+SOGL_FUNCTION(PFNGLISBUFFERRESIDENTNVPROC, glIsBufferResidentNV)\
+SOGL_FUNCTION(PFNGLMAKENAMEDBUFFERRESIDENTNVPROC, glMakeNamedBufferResidentNV)\
+SOGL_FUNCTION(PFNGLMAKENAMEDBUFFERNONRESIDENTNVPROC, glMakeNamedBufferNonResidentNV)\
+SOGL_FUNCTION(PFNGLISNAMEDBUFFERRESIDENTNVPROC, glIsNamedBufferResidentNV)\
+SOGL_FUNCTION(PFNGLGETBUFFERPARAMETERUI64VNVPROC, glGetBufferParameterui64vNV)\
+SOGL_FUNCTION(PFNGLGETNAMEDBUFFERPARAMETERUI64VNVPROC, glGetNamedBufferParameterui64vNV)\
+SOGL_FUNCTION(PFNGLGETINTEGERUI64VNVPROC, glGetIntegerui64vNV)\
+SOGL_FUNCTION(PFNGLUNIFORMUI64NVPROC, glUniformui64NV)\
+SOGL_FUNCTION(PFNGLUNIFORMUI64VNVPROC, glUniformui64vNV)\
+SOGL_FUNCTION(PFNGLGETUNIFORMUI64VNVPROC, glGetUniformui64vNV)\
+SOGL_FUNCTION(PFNGLPROGRAMUNIFORMUI64NVPROC, glProgramUniformui64NV)\
+SOGL_FUNCTION(PFNGLPROGRAMUNIFORMUI64VNVPROC, glProgramUniformui64vNV)
+
+#define SOGL_FUNCTIONS_NV_shading_rate_image \
+SOGL_FUNCTION(PFNGLBINDSHADINGRATEIMAGENVPROC, glBindShadingRateImageNV)\
+SOGL_FUNCTION(PFNGLGETSHADINGRATEIMAGEPALETTENVPROC, glGetShadingRateImagePaletteNV)\
+SOGL_FUNCTION(PFNGLGETSHADINGRATESAMPLELOCATIONIVNVPROC, glGetShadingRateSampleLocationivNV)\
+SOGL_FUNCTION(PFNGLSHADINGRATEIMAGEBARRIERNVPROC, glShadingRateImageBarrierNV)\
+SOGL_FUNCTION(PFNGLSHADINGRATEIMAGEPALETTENVPROC, glShadingRateImagePaletteNV)\
+SOGL_FUNCTION(PFNGLSHADINGRATESAMPLEORDERNVPROC, glShadingRateSampleOrderNV)\
+SOGL_FUNCTION(PFNGLSHADINGRATESAMPLEORDERCUSTOMNVPROC, glShadingRateSampleOrderCustomNV)
+
+#define SOGL_FUNCTIONS_NV_texture_barrier \
+SOGL_FUNCTION(PFNGLTEXTUREBARRIERNVPROC, glTextureBarrierNV)
+
+#define SOGL_FUNCTIONS_NV_vertex_attrib_integer_64bit \
+SOGL_FUNCTION(PFNGLVERTEXATTRIBL1I64NVPROC, glVertexAttribL1i64NV)\
+SOGL_FUNCTION(PFNGLVERTEXATTRIBL2I64NVPROC, glVertexAttribL2i64NV)\
+SOGL_FUNCTION(PFNGLVERTEXATTRIBL3I64NVPROC, glVertexAttribL3i64NV)\
+SOGL_FUNCTION(PFNGLVERTEXATTRIBL4I64NVPROC, glVertexAttribL4i64NV)\
+SOGL_FUNCTION(PFNGLVERTEXATTRIBL1I64VNVPROC, glVertexAttribL1i64vNV)\
+SOGL_FUNCTION(PFNGLVERTEXATTRIBL2I64VNVPROC, glVertexAttribL2i64vNV)\
+SOGL_FUNCTION(PFNGLVERTEXATTRIBL3I64VNVPROC, glVertexAttribL3i64vNV)\
+SOGL_FUNCTION(PFNGLVERTEXATTRIBL4I64VNVPROC, glVertexAttribL4i64vNV)\
+SOGL_FUNCTION(PFNGLVERTEXATTRIBL1UI64NVPROC, glVertexAttribL1ui64NV)\
+SOGL_FUNCTION(PFNGLVERTEXATTRIBL2UI64NVPROC, glVertexAttribL2ui64NV)\
+SOGL_FUNCTION(PFNGLVERTEXATTRIBL3UI64NVPROC, glVertexAttribL3ui64NV)\
+SOGL_FUNCTION(PFNGLVERTEXATTRIBL4UI64NVPROC, glVertexAttribL4ui64NV)\
+SOGL_FUNCTION(PFNGLVERTEXATTRIBL1UI64VNVPROC, glVertexAttribL1ui64vNV)\
+SOGL_FUNCTION(PFNGLVERTEXATTRIBL2UI64VNVPROC, glVertexAttribL2ui64vNV)\
+SOGL_FUNCTION(PFNGLVERTEXATTRIBL3UI64VNVPROC, glVertexAttribL3ui64vNV)\
+SOGL_FUNCTION(PFNGLVERTEXATTRIBL4UI64VNVPROC, glVertexAttribL4ui64vNV)\
+SOGL_FUNCTION(PFNGLGETVERTEXATTRIBLI64VNVPROC, glGetVertexAttribLi64vNV)\
+SOGL_FUNCTION(PFNGLGETVERTEXATTRIBLUI64VNVPROC, glGetVertexAttribLui64vNV)\
+SOGL_FUNCTION(PFNGLVERTEXATTRIBLFORMATNVPROC, glVertexAttribLFormatNV)
+
+#define SOGL_FUNCTIONS_NV_vertex_buffer_unified_memory \
+SOGL_FUNCTION(PFNGLBUFFERADDRESSRANGENVPROC, glBufferAddressRangeNV)\
+SOGL_FUNCTION(PFNGLVERTEXFORMATNVPROC, glVertexFormatNV)\
+SOGL_FUNCTION(PFNGLNORMALFORMATNVPROC, glNormalFormatNV)\
+SOGL_FUNCTION(PFNGLCOLORFORMATNVPROC, glColorFormatNV)\
+SOGL_FUNCTION(PFNGLINDEXFORMATNVPROC, glIndexFormatNV)\
+SOGL_FUNCTION(PFNGLTEXCOORDFORMATNVPROC, glTexCoordFormatNV)\
+SOGL_FUNCTION(PFNGLEDGEFLAGFORMATNVPROC, glEdgeFlagFormatNV)\
+SOGL_FUNCTION(PFNGLSECONDARYCOLORFORMATNVPROC, glSecondaryColorFormatNV)\
+SOGL_FUNCTION(PFNGLFOGCOORDFORMATNVPROC, glFogCoordFormatNV)\
+SOGL_FUNCTION(PFNGLVERTEXATTRIBFORMATNVPROC, glVertexAttribFormatNV)\
+SOGL_FUNCTION(PFNGLVERTEXATTRIBIFORMATNVPROC, glVertexAttribIFormatNV)\
+SOGL_FUNCTION(PFNGLGETINTEGERUI64I_VNVPROC, glGetIntegerui64i_vNV)
+
+#define SOGL_FUNCTIONS_NV_viewport_swizzle \
+SOGL_FUNCTION(PFNGLVIEWPORTSWIZZLENVPROC, glViewportSwizzleNV)
+
+#define SOGL_FUNCTIONS_OVR_multiview \
+SOGL_FUNCTION(PFNGLFRAMEBUFFERTEXTUREMULTIVIEWOVRPROC, glFramebufferTextureMultiviewOVR)
+
+/*
+    OpenGL Function Declarations
+*/
+
+#define SOGL_FUNCTION(type, name) extern type name;
+
+#if SOGL_TEST_VERSION(1, 0)
+SOGL_FUNCTIONS_1_0
+#endif /* GL_VERSION_1_0 */
+
+#if SOGL_TEST_VERSION(1, 1)
+SOGL_FUNCTIONS_1_1
+#endif /* GL_VERSION_1_1 */
+
+#if SOGL_TEST_VERSION(1, 2)
+SOGL_FUNCTIONS_1_2
+#endif /* GL_VERSION_1_2 */
+
+#if SOGL_TEST_VERSION(1, 3)
+SOGL_FUNCTIONS_1_3
+#endif /* GL_VERSION_1_3 */
+
+#if SOGL_TEST_VERSION(1, 4)
+SOGL_FUNCTIONS_1_4
+#endif /* GL_VERSION_1_4 */
+
+#if SOGL_TEST_VERSION(1, 5)
+SOGL_FUNCTIONS_1_5
+#endif /* GL_VERSION_1_5 */
+
+#if SOGL_TEST_VERSION(2, 0)
+SOGL_FUNCTIONS_2_0
+#endif /* GL_VERSION_2_0 */
+
+#if SOGL_TEST_VERSION(2, 1)
+SOGL_FUNCTIONS_2_1
+#endif /* GL_VERSION_2_1 */
+
+#if SOGL_TEST_VERSION(3, 0)
+SOGL_FUNCTIONS_3_0
+#endif /* GL_VERSION_3_0 */
+
+#if SOGL_TEST_VERSION(3, 1)
+SOGL_FUNCTIONS_3_1
+#endif /* GL_VERSION_3_1 */
+
+#if SOGL_TEST_VERSION(3, 2)
+SOGL_FUNCTIONS_3_2
+#endif /* GL_VERSION_3_2 */
+
+#if SOGL_TEST_VERSION(3, 3)
+SOGL_FUNCTIONS_3_3
+#endif /* GL_VERSION_3_3 */
+
+#if SOGL_TEST_VERSION(4, 0)
+SOGL_FUNCTIONS_4_0
+#endif /* GL_VERSION_4_0 */
+
+#if SOGL_TEST_VERSION(4, 1)
+SOGL_FUNCTIONS_4_1
+#endif /* GL_VERSION_4_1 */
+
+#if SOGL_TEST_VERSION(4, 2)
+SOGL_FUNCTIONS_4_2
+#endif /* GL_VERSION_4_2 */
+
+#if SOGL_TEST_VERSION(4, 3)
+SOGL_FUNCTIONS_4_3
+#endif /* GL_VERSION_4_3 */
+
+#if SOGL_TEST_VERSION(4, 4)
+SOGL_FUNCTIONS_4_4
+#endif /* GL_VERSION_4_4 */
+
+#if SOGL_TEST_VERSION(4, 5)
+SOGL_FUNCTIONS_4_5
+#endif /* GL_VERSION_4_5 */
+
+#if SOGL_TEST_VERSION(4, 6)
+SOGL_FUNCTIONS_4_6
+#endif /* GL_VERSION_4_6 */
+
+#ifdef SOGL_ARB_ES3_2_compatibility
+SOGL_FUNCTIONS_ARB_ES3_2_compatibility
+#endif /* SOGL_ARB_ES3_2_compatibility */
+
+#ifdef SOGL_ARB_bindless_texture
+SOGL_FUNCTIONS_ARB_bindless_texture
+#endif /* SOGL_ARB_bindless_texture */
+
+#ifdef SOGL_ARB_cl_event
+SOGL_FUNCTIONS_ARB_cl_event
+#endif /* SOGL_ARB_cl_event */
+
+#ifdef SOGL_ARB_compute_variable_group_size
+SOGL_FUNCTIONS_ARB_compute_variable_group_size
+#endif /* SOGL_ARB_compute_variable_group_size */
+
+#ifdef SOGL_ARB_debug_output
+SOGL_FUNCTIONS_ARB_debug_output
+#endif /* SOGL_ARB_debug_output */
+
+#ifdef SOGL_ARB_draw_buffers_blend
+SOGL_FUNCTIONS_ARB_draw_buffers_blend
+#endif /* SOGL_ARB_draw_buffers_blend */
+
+#ifdef SOGL_ARB_draw_instanced
+SOGL_FUNCTIONS_ARB_draw_instanced
+#endif /* SOGL_ARB_draw_instanced */
+
+#ifdef SOGL_ARB_geometry_shader4
+SOGL_FUNCTIONS_ARB_geometry_shader4
+#endif /* SOGL_ARB_geometry_shader4 */
+
+#ifdef SOGL_ARB_gl_spirv
+SOGL_FUNCTIONS_ARB_gl_spirv
+#endif /* SOGL_ARB_gl_spirv */
+
+#ifdef SOGL_ARB_gpu_shader_int64
+SOGL_FUNCTIONS_ARB_gpu_shader_int64
+#endif /* SOGL_ARB_gpu_shader_int64 */
+
+#ifdef SOGL_ARB_indirect_parameters
+SOGL_FUNCTIONS_ARB_indirect_parameters
+#endif /* SOGL_ARB_indirect_parameters */
+
+#ifdef SOGL_ARB_instanced_arrays
+SOGL_FUNCTIONS_ARB_instanced_arrays
+#endif /* SOGL_ARB_instanced_arrays */
+
+#ifdef SOGL_ARB_parallel_shader_compile
+SOGL_FUNCTIONS_ARB_parallel_shader_compile
+#endif /* SOGL_ARB_parallel_shader_compile */
+
+#ifdef SOGL_ARB_robustness
+SOGL_FUNCTIONS_ARB_robustness
+#endif /* SOGL_ARB_robustness */
+
+#ifdef SOGL_ARB_sample_locations
+SOGL_FUNCTIONS_ARB_sample_locations
+#endif /* SOGL_ARB_sample_locations */
+
+#ifdef SOGL_ARB_sample_shading
+SOGL_FUNCTIONS_ARB_sample_shading
+#endif /* SOGL_ARB_sample_shading */
+
+#ifdef SOGL_ARB_shading_language_include
+SOGL_FUNCTIONS_ARB_shading_language_include
+#endif /* SOGL_ARB_shading_language_include */
+
+#ifdef SOGL_ARB_sparse_buffer
+SOGL_FUNCTIONS_ARB_sparse_buffer
+#endif /* SOGL_ARB_sparse_buffer */
+
+#ifdef SOGL_ARB_sparse_texture
+SOGL_FUNCTIONS_ARB_sparse_texture
+#endif /* SOGL_ARB_sparse_texture */
+
+#ifdef SOGL_ARB_texture_buffer_object
+SOGL_FUNCTIONS_ARB_texture_buffer_object
+#endif /* SOGL_ARB_texture_buffer_object */
+
+#ifdef SOGL_ARB_viewport_array
+SOGL_FUNCTIONS_ARB_viewport_array
+#endif /* SOGL_ARB_viewport_array */
+
+#ifdef SOGL_KHR_blend_equation_advanced
+SOGL_FUNCTIONS_KHR_blend_equation_advanced
+#endif /* SOGL_KHR_blend_equation_advanced */
+
+#ifdef SOGL_KHR_parallel_shader_compile
+SOGL_FUNCTIONS_KHR_parallel_shader_compile
+#endif /* SOGL_KHR_parallel_shader_compile */
+
+#ifdef SOGL_AMD_framebuffer_multisample_advanced
+SOGL_FUNCTIONS_AMD_framebuffer_multisample_advanced
+#endif /* SOGL_AMD_framebuffer_multisample_advanced */
+
+#ifdef SOGL_AMD_performance_monitor
+SOGL_FUNCTIONS_AMD_performance_monitor
+#endif /* SOGL_AMD_performance_monitor */
+
+#ifdef SOGL_EXT_EGL_image_storage
+SOGL_FUNCTIONS_EXT_EGL_image_storage
+#endif /* SOGL_EXT_EGL_image_storage */
+
+#ifdef SOGL_EXT_debug_label
+SOGL_FUNCTIONS_EXT_debug_label
+#endif /* SOGL_EXT_debug_label */
+
+#ifdef SOGL_EXT_debug_marker
+SOGL_FUNCTIONS_EXT_debug_marker
+#endif /* SOGL_EXT_debug_marker */
+
+#ifdef SOGL_EXT_direct_state_access
+SOGL_FUNCTIONS_EXT_direct_state_access
+#endif /* SOGL_EXT_direct_state_access */
+
+#ifdef SOGL_EXT_draw_instanced
+SOGL_FUNCTIONS_EXT_draw_instanced
+#endif /* SOGL_EXT_draw_instanced */
+
+#ifdef SOGL_EXT_polygon_offset_clamp
+SOGL_FUNCTIONS_EXT_polygon_offset_clamp
+#endif /* SOGL_EXT_polygon_offset_clamp */
+
+#ifdef SOGL_EXT_raster_multisample
+SOGL_FUNCTIONS_EXT_raster_multisample
+#endif /* SOGL_EXT_raster_multisample */
+
+#ifdef SOGL_EXT_separate_shader_objects
+SOGL_FUNCTIONS_EXT_separate_shader_objects
+#endif /* SOGL_EXT_separate_shader_objects */
+
+#ifdef SOGL_EXT_shader_framebuffer_fetch_non_coherent
+SOGL_FUNCTIONS_EXT_shader_framebuffer_fetch_non_coherent
+#endif /* SOGL_EXT_shader_framebuffer_fetch_non_coherent */
+
+#ifdef SOGL_EXT_window_rectangles
+SOGL_FUNCTIONS_EXT_window_rectangles
+#endif /* SOGL_EXT_window_rectangles */
+
+#ifdef SOGL_INTEL_framebuffer_CMAA
+SOGL_FUNCTIONS_INTEL_framebuffer_CMAA
+#endif /* SOGL_INTEL_framebuffer_CMAA */
+
+#ifdef SOGL_INTEL_performance_query
+SOGL_FUNCTIONS_INTEL_performance_query
+#endif /* SOGL_INTEL_performance_query */
+
+#ifdef SOGL_MESA_framebuffer_flip_y
+SOGL_FUNCTIONS_MESA_framebuffer_flip_y
+#endif /* SOGL_MESA_framebuffer_flip_y */
+
+#ifdef SOGL_NV_bindless_multi_draw_indirect
+SOGL_FUNCTIONS_NV_bindless_multi_draw_indirect
+#endif /* SOGL_NV_bindless_multi_draw_indirect */
+
+#ifdef SOGL_NV_bindless_multi_draw_indirect_count
+SOGL_FUNCTIONS_NV_bindless_multi_draw_indirect_count
+#endif /* SOGL_NV_bindless_multi_draw_indirect_count */
+
+#ifdef SOGL_NV_bindless_texture
+SOGL_FUNCTIONS_NV_bindless_texture
+#endif /* SOGL_NV_bindless_texture */
+
+#ifdef SOGL_NV_blend_equation_advanced
+SOGL_FUNCTIONS_NV_blend_equation_advanced
+#endif /* SOGL_NV_blend_equation_advanced */
+
+#ifdef SOGL_NV_clip_space_w_scaling
+SOGL_FUNCTIONS_NV_clip_space_w_scaling
+#endif /* SOGL_NV_clip_space_w_scaling */
+
+#ifdef SOGL_NV_command_list
+SOGL_FUNCTIONS_NV_command_list
+#endif /* SOGL_NV_command_list */
+
+#ifdef SOGL_NV_conditional_render
+SOGL_FUNCTIONS_NV_conditional_render
+#endif /* SOGL_NV_conditional_render */
+
+#ifdef SOGL_NV_conservative_raster
+SOGL_FUNCTIONS_NV_conservative_raster
+#endif /* SOGL_NV_conservative_raster */
+
+#ifdef SOGL_NV_conservative_raster_dilate
+SOGL_FUNCTIONS_NV_conservative_raster_dilate
+#endif /* SOGL_NV_conservative_raster_dilate */
+
+#ifdef SOGL_NV_conservative_raster_pre_snap_triangles
+SOGL_FUNCTIONS_NV_conservative_raster_pre_snap_triangles
+#endif /* SOGL_NV_conservative_raster_pre_snap_triangles */
+
+#ifdef SOGL_NV_depth_buffer_float
+SOGL_FUNCTIONS_NV_depth_buffer_float
+#endif /* SOGL_NV_depth_buffer_float */
+
+#ifdef SOGL_NV_draw_vulkan_image
+SOGL_FUNCTIONS_NV_draw_vulkan_image
+#endif /* SOGL_NV_draw_vulkan_image */
+
+#ifdef SOGL_NV_fragment_coverage_to_color
+SOGL_FUNCTIONS_NV_fragment_coverage_to_color
+#endif /* SOGL_NV_fragment_coverage_to_color */
+
+#ifdef SOGL_NV_framebuffer_mixed_samples
+SOGL_FUNCTIONS_NV_framebuffer_mixed_samples
+#endif /* SOGL_NV_framebuffer_mixed_samples */
+
+#ifdef SOGL_NV_framebuffer_multisample_coverage
+SOGL_FUNCTIONS_NV_framebuffer_multisample_coverage
+#endif /* SOGL_NV_framebuffer_multisample_coverage */
+
+#ifdef SOGL_NV_gpu_shader5
+SOGL_FUNCTIONS_NV_gpu_shader5
+#endif /* SOGL_NV_gpu_shader5 */
+
+#ifdef SOGL_NV_internalformat_sample_query
+SOGL_FUNCTIONS_NV_internalformat_sample_query
+#endif /* SOGL_NV_internalformat_sample_query */
+
+#ifdef SOGL_NV_memory_attachment
+SOGL_FUNCTIONS_NV_memory_attachment
+#endif /* SOGL_NV_memory_attachment */
+
+#ifdef SOGL_NV_memory_object_sparse
+SOGL_FUNCTIONS_NV_memory_object_sparse
+#endif /* SOGL_NV_memory_object_sparse */
+
+#ifdef SOGL_NV_mesh_shader
+SOGL_FUNCTIONS_NV_mesh_shader
+#endif /* SOGL_NV_mesh_shader */
+
+#ifdef SOGL_NV_path_rendering
+SOGL_FUNCTIONS_NV_path_rendering
+#endif /* SOGL_NV_path_rendering */
+
+#ifdef SOGL_NV_sample_locations
+SOGL_FUNCTIONS_NV_sample_locations
+#endif /* SOGL_NV_sample_locations */
+
+#ifdef SOGL_NV_scissor_exclusive
+SOGL_FUNCTIONS_NV_scissor_exclusive
+#endif /* SOGL_NV_scissor_exclusive */
+
+#ifdef SOGL_NV_shader_buffer_load
+SOGL_FUNCTIONS_NV_shader_buffer_load
+#endif /* SOGL_NV_shader_buffer_load */
+
+#ifdef SOGL_NV_shading_rate_image
+SOGL_FUNCTIONS_NV_shading_rate_image
+#endif /* SOGL_NV_shading_rate_image */
+
+#ifdef SOGL_NV_texture_barrier
+SOGL_FUNCTIONS_NV_texture_barrier
+#endif /* SOGL_NV_texture_barrier */
+
+#ifdef SOGL_NV_vertex_attrib_integer_64bit
+SOGL_FUNCTIONS_NV_vertex_attrib_integer_64bit
+#endif /* SOGL_NV_vertex_attrib_integer_64bit */
+
+#ifdef SOGL_NV_vertex_buffer_unified_memory
+SOGL_FUNCTIONS_NV_vertex_buffer_unified_memory
+#endif /* SOGL_NV_vertex_buffer_unified_memory */
+
+#ifdef SOGL_NV_viewport_swizzle
+SOGL_FUNCTIONS_NV_viewport_swizzle
+#endif /* SOGL_NV_viewport_swizzle */
+
+#ifdef SOGL_OVR_multiview
+SOGL_FUNCTIONS_OVR_multiview
+#endif /* SOGL_OVR_multiview */
+
+#undef SOGL_FUNCTION
 
 /* IMPLEMENTATION */
 
 #ifdef SOGL_IMPLEMENTATION
 
+/*
+    OpenGL Function Defintions
+*/
+
+#define SOGL_FUNCTION(type, name) type name = SOGL_NULL;
+
 #if SOGL_TEST_VERSION(1, 0)
-PFNGLCULLFACEPROC glCullFace = SOGL_NULL;
-PFNGLFRONTFACEPROC glFrontFace = SOGL_NULL;
-PFNGLHINTPROC glHint = SOGL_NULL;
-PFNGLLINEWIDTHPROC glLineWidth = SOGL_NULL;
-PFNGLPOINTSIZEPROC glPointSize = SOGL_NULL;
-PFNGLPOLYGONMODEPROC glPolygonMode = SOGL_NULL;
-PFNGLSCISSORPROC glScissor = SOGL_NULL;
-PFNGLTEXPARAMETERFPROC glTexParameterf = SOGL_NULL;
-PFNGLTEXPARAMETERFVPROC glTexParameterfv = SOGL_NULL;
-PFNGLTEXPARAMETERIPROC glTexParameteri = SOGL_NULL;
-PFNGLTEXPARAMETERIVPROC glTexParameteriv = SOGL_NULL;
-PFNGLTEXIMAGE1DPROC glTexImage1D = SOGL_NULL;
-PFNGLTEXIMAGE2DPROC glTexImage2D = SOGL_NULL;
-PFNGLDRAWBUFFERPROC glDrawBuffer = SOGL_NULL;
-PFNGLCLEARPROC glClear = SOGL_NULL;
-PFNGLCLEARCOLORPROC glClearColor = SOGL_NULL;
-PFNGLCLEARSTENCILPROC glClearStencil = SOGL_NULL;
-PFNGLCLEARDEPTHPROC glClearDepth = SOGL_NULL;
-PFNGLSTENCILMASKPROC glStencilMask = SOGL_NULL;
-PFNGLCOLORMASKPROC glColorMask = SOGL_NULL;
-PFNGLDEPTHMASKPROC glDepthMask = SOGL_NULL;
-PFNGLDISABLEPROC glDisable = SOGL_NULL;
-PFNGLENABLEPROC glEnable = SOGL_NULL;
-PFNGLFINISHPROC glFinish = SOGL_NULL;
-PFNGLFLUSHPROC glFlush = SOGL_NULL;
-PFNGLBLENDFUNCPROC glBlendFunc = SOGL_NULL;
-PFNGLLOGICOPPROC glLogicOp = SOGL_NULL;
-PFNGLSTENCILFUNCPROC glStencilFunc = SOGL_NULL;
-PFNGLSTENCILOPPROC glStencilOp = SOGL_NULL;
-PFNGLDEPTHFUNCPROC glDepthFunc = SOGL_NULL;
-PFNGLPIXELSTOREFPROC glPixelStoref = SOGL_NULL;
-PFNGLPIXELSTOREIPROC glPixelStorei = SOGL_NULL;
-PFNGLREADBUFFERPROC glReadBuffer = SOGL_NULL;
-PFNGLREADPIXELSPROC glReadPixels = SOGL_NULL;
-PFNGLGETBOOLEANVPROC glGetBooleanv = SOGL_NULL;
-PFNGLGETDOUBLEVPROC glGetDoublev = SOGL_NULL;
-PFNGLGETERRORPROC glGetError = SOGL_NULL;
-PFNGLGETFLOATVPROC glGetFloatv = SOGL_NULL;
-PFNGLGETINTEGERVPROC glGetIntegerv = SOGL_NULL;
-PFNGLGETSTRINGPROC glGetString = SOGL_NULL;
-PFNGLGETTEXIMAGEPROC glGetTexImage = SOGL_NULL;
-PFNGLGETTEXPARAMETERFVPROC glGetTexParameterfv = SOGL_NULL;
-PFNGLGETTEXPARAMETERIVPROC glGetTexParameteriv = SOGL_NULL;
-PFNGLGETTEXLEVELPARAMETERFVPROC glGetTexLevelParameterfv = SOGL_NULL;
-PFNGLGETTEXLEVELPARAMETERIVPROC glGetTexLevelParameteriv = SOGL_NULL;
-PFNGLISENABLEDPROC glIsEnabled = SOGL_NULL;
-PFNGLDEPTHRANGEPROC glDepthRange = SOGL_NULL;
-PFNGLVIEWPORTPROC glViewport = SOGL_NULL;
+SOGL_FUNCTIONS_1_0
 #endif /* GL_VERSION_1_0 */
 
 #if SOGL_TEST_VERSION(1, 1)
-PFNGLDRAWARRAYSPROC glDrawArrays = SOGL_NULL;
-PFNGLDRAWELEMENTSPROC glDrawElements = SOGL_NULL;
-PFNGLGETPOINTERVPROC glGetPointerv = SOGL_NULL;
-PFNGLPOLYGONOFFSETPROC glPolygonOffset = SOGL_NULL;
-PFNGLCOPYTEXIMAGE1DPROC glCopyTexImage1D = SOGL_NULL;
-PFNGLCOPYTEXIMAGE2DPROC glCopyTexImage2D = SOGL_NULL;
-PFNGLCOPYTEXSUBIMAGE1DPROC glCopyTexSubImage1D = SOGL_NULL;
-PFNGLCOPYTEXSUBIMAGE2DPROC glCopyTexSubImage2D = SOGL_NULL;
-PFNGLTEXSUBIMAGE1DPROC glTexSubImage1D = SOGL_NULL;
-PFNGLTEXSUBIMAGE2DPROC glTexSubImage2D = SOGL_NULL;
-PFNGLBINDTEXTUREPROC glBindTexture = SOGL_NULL;
-PFNGLDELETETEXTURESPROC glDeleteTextures = SOGL_NULL;
-PFNGLGENTEXTURESPROC glGenTextures = SOGL_NULL;
-PFNGLISTEXTUREPROC glIsTexture = SOGL_NULL;
+SOGL_FUNCTIONS_1_1
 #endif /* GL_VERSION_1_1 */
 
 #if SOGL_TEST_VERSION(1, 2)
-PFNGLDRAWRANGEELEMENTSPROC glDrawRangeElements = SOGL_NULL;
-PFNGLTEXIMAGE3DPROC glTexImage3D = SOGL_NULL;
-PFNGLTEXSUBIMAGE3DPROC glTexSubImage3D = SOGL_NULL;
-PFNGLCOPYTEXSUBIMAGE3DPROC glCopyTexSubImage3D = SOGL_NULL;
+SOGL_FUNCTIONS_1_2
 #endif /* GL_VERSION_1_2 */
 
 #if SOGL_TEST_VERSION(1, 3)
-PFNGLACTIVETEXTUREPROC glActiveTexture = SOGL_NULL;
-PFNGLSAMPLECOVERAGEPROC glSampleCoverage = SOGL_NULL;
-PFNGLCOMPRESSEDTEXIMAGE3DPROC glCompressedTexImage3D = SOGL_NULL;
-PFNGLCOMPRESSEDTEXIMAGE2DPROC glCompressedTexImage2D = SOGL_NULL;
-PFNGLCOMPRESSEDTEXIMAGE1DPROC glCompressedTexImage1D = SOGL_NULL;
-PFNGLCOMPRESSEDTEXSUBIMAGE3DPROC glCompressedTexSubImage3D = SOGL_NULL;
-PFNGLCOMPRESSEDTEXSUBIMAGE2DPROC glCompressedTexSubImage2D = SOGL_NULL;
-PFNGLCOMPRESSEDTEXSUBIMAGE1DPROC glCompressedTexSubImage1D = SOGL_NULL;
-PFNGLGETCOMPRESSEDTEXIMAGEPROC glGetCompressedTexImage = SOGL_NULL;
+SOGL_FUNCTIONS_1_3
 #endif /* GL_VERSION_1_3 */
 
 #if SOGL_TEST_VERSION(1, 4)
-PFNGLBLENDFUNCSEPARATEPROC glBlendFuncSeparate = SOGL_NULL;
-PFNGLMULTIDRAWARRAYSPROC glMultiDrawArrays = SOGL_NULL;
-PFNGLMULTIDRAWELEMENTSPROC glMultiDrawElements = SOGL_NULL;
-PFNGLPOINTPARAMETERFPROC glPointParameterf = SOGL_NULL;
-PFNGLPOINTPARAMETERFVPROC glPointParameterfv = SOGL_NULL;
-PFNGLPOINTPARAMETERIPROC glPointParameteri = SOGL_NULL;
-PFNGLPOINTPARAMETERIVPROC glPointParameteriv = SOGL_NULL;
-PFNGLBLENDCOLORPROC glBlendColor = SOGL_NULL;
-PFNGLBLENDEQUATIONPROC glBlendEquation = SOGL_NULL;
+SOGL_FUNCTIONS_1_4
 #endif /* GL_VERSION_1_4 */
 
 #if SOGL_TEST_VERSION(1, 5)
-PFNGLGENQUERIESPROC glGenQueries = SOGL_NULL;
-PFNGLDELETEQUERIESPROC glDeleteQueries = SOGL_NULL;
-PFNGLISQUERYPROC glIsQuery = SOGL_NULL;
-PFNGLBEGINQUERYPROC glBeginQuery = SOGL_NULL;
-PFNGLENDQUERYPROC glEndQuery = SOGL_NULL;
-PFNGLGETQUERYIVPROC glGetQueryiv = SOGL_NULL;
-PFNGLGETQUERYOBJECTIVPROC glGetQueryObjectiv = SOGL_NULL;
-PFNGLGETQUERYOBJECTUIVPROC glGetQueryObjectuiv = SOGL_NULL;
-PFNGLBINDBUFFERPROC glBindBuffer = SOGL_NULL;
-PFNGLDELETEBUFFERSPROC glDeleteBuffers = SOGL_NULL;
-PFNGLGENBUFFERSPROC glGenBuffers = SOGL_NULL;
-PFNGLISBUFFERPROC glIsBuffer = SOGL_NULL;
-PFNGLBUFFERDATAPROC glBufferData = SOGL_NULL;
-PFNGLBUFFERSUBDATAPROC glBufferSubData = SOGL_NULL;
-PFNGLGETBUFFERSUBDATAPROC glGetBufferSubData = SOGL_NULL;
-PFNGLMAPBUFFERPROC glMapBuffer = SOGL_NULL;
-PFNGLUNMAPBUFFERPROC glUnmapBuffer = SOGL_NULL;
-PFNGLGETBUFFERPARAMETERIVPROC glGetBufferParameteriv = SOGL_NULL;
-PFNGLGETBUFFERPOINTERVPROC glGetBufferPointerv = SOGL_NULL;
+SOGL_FUNCTIONS_1_5
 #endif /* GL_VERSION_1_5 */
 
 #if SOGL_TEST_VERSION(2, 0)
-PFNGLBLENDEQUATIONSEPARATEPROC glBlendEquationSeparate = SOGL_NULL;
-PFNGLDRAWBUFFERSPROC glDrawBuffers = SOGL_NULL;
-PFNGLSTENCILOPSEPARATEPROC glStencilOpSeparate = SOGL_NULL;
-PFNGLSTENCILFUNCSEPARATEPROC glStencilFuncSeparate = SOGL_NULL;
-PFNGLSTENCILMASKSEPARATEPROC glStencilMaskSeparate = SOGL_NULL;
-PFNGLATTACHSHADERPROC glAttachShader = SOGL_NULL;
-PFNGLBINDATTRIBLOCATIONPROC glBindAttribLocation = SOGL_NULL;
-PFNGLCOMPILESHADERPROC glCompileShader = SOGL_NULL;
-PFNGLCREATEPROGRAMPROC glCreateProgram = SOGL_NULL;
-PFNGLCREATESHADERPROC glCreateShader = SOGL_NULL;
-PFNGLDELETEPROGRAMPROC glDeleteProgram = SOGL_NULL;
-PFNGLDELETESHADERPROC glDeleteShader = SOGL_NULL;
-PFNGLDETACHSHADERPROC glDetachShader = SOGL_NULL;
-PFNGLDISABLEVERTEXATTRIBARRAYPROC glDisableVertexAttribArray = SOGL_NULL;
-PFNGLENABLEVERTEXATTRIBARRAYPROC glEnableVertexAttribArray = SOGL_NULL;
-PFNGLGETACTIVEATTRIBPROC glGetActiveAttrib = SOGL_NULL;
-PFNGLGETACTIVEUNIFORMPROC glGetActiveUniform = SOGL_NULL;
-PFNGLGETATTACHEDSHADERSPROC glGetAttachedShaders = SOGL_NULL;
-PFNGLGETATTRIBLOCATIONPROC glGetAttribLocation = SOGL_NULL;
-PFNGLGETPROGRAMIVPROC glGetProgramiv = SOGL_NULL;
-PFNGLGETPROGRAMINFOLOGPROC glGetProgramInfoLog = SOGL_NULL;
-PFNGLGETSHADERIVPROC glGetShaderiv = SOGL_NULL;
-PFNGLGETSHADERINFOLOGPROC glGetShaderInfoLog = SOGL_NULL;
-PFNGLGETSHADERSOURCEPROC glGetShaderSource = SOGL_NULL;
-PFNGLGETUNIFORMLOCATIONPROC glGetUniformLocation = SOGL_NULL;
-PFNGLGETUNIFORMFVPROC glGetUniformfv = SOGL_NULL;
-PFNGLGETUNIFORMIVPROC glGetUniformiv = SOGL_NULL;
-PFNGLGETVERTEXATTRIBDVPROC glGetVertexAttribdv = SOGL_NULL;
-PFNGLGETVERTEXATTRIBFVPROC glGetVertexAttribfv = SOGL_NULL;
-PFNGLGETVERTEXATTRIBIVPROC glGetVertexAttribiv = SOGL_NULL;
-PFNGLGETVERTEXATTRIBPOINTERVPROC glGetVertexAttribPointerv = SOGL_NULL;
-PFNGLISPROGRAMPROC glIsProgram = SOGL_NULL;
-PFNGLISSHADERPROC glIsShader = SOGL_NULL;
-PFNGLLINKPROGRAMPROC glLinkProgram = SOGL_NULL;
-PFNGLSHADERSOURCEPROC glShaderSource = SOGL_NULL;
-PFNGLUSEPROGRAMPROC glUseProgram = SOGL_NULL;
-PFNGLUNIFORM1FPROC glUniform1f = SOGL_NULL;
-PFNGLUNIFORM2FPROC glUniform2f = SOGL_NULL;
-PFNGLUNIFORM3FPROC glUniform3f = SOGL_NULL;
-PFNGLUNIFORM4FPROC glUniform4f = SOGL_NULL;
-PFNGLUNIFORM1IPROC glUniform1i = SOGL_NULL;
-PFNGLUNIFORM2IPROC glUniform2i = SOGL_NULL;
-PFNGLUNIFORM3IPROC glUniform3i = SOGL_NULL;
-PFNGLUNIFORM4IPROC glUniform4i = SOGL_NULL;
-PFNGLUNIFORM1FVPROC glUniform1fv = SOGL_NULL;
-PFNGLUNIFORM2FVPROC glUniform2fv = SOGL_NULL;
-PFNGLUNIFORM3FVPROC glUniform3fv = SOGL_NULL;
-PFNGLUNIFORM4FVPROC glUniform4fv = SOGL_NULL;
-PFNGLUNIFORM1IVPROC glUniform1iv = SOGL_NULL;
-PFNGLUNIFORM2IVPROC glUniform2iv = SOGL_NULL;
-PFNGLUNIFORM3IVPROC glUniform3iv = SOGL_NULL;
-PFNGLUNIFORM4IVPROC glUniform4iv = SOGL_NULL;
-PFNGLUNIFORMMATRIX2FVPROC glUniformMatrix2fv = SOGL_NULL;
-PFNGLUNIFORMMATRIX3FVPROC glUniformMatrix3fv = SOGL_NULL;
-PFNGLUNIFORMMATRIX4FVPROC glUniformMatrix4fv = SOGL_NULL;
-PFNGLVALIDATEPROGRAMPROC glValidateProgram = SOGL_NULL;
-PFNGLVERTEXATTRIB1DPROC glVertexAttrib1d = SOGL_NULL;
-PFNGLVERTEXATTRIB1DVPROC glVertexAttrib1dv = SOGL_NULL;
-PFNGLVERTEXATTRIB1FPROC glVertexAttrib1f = SOGL_NULL;
-PFNGLVERTEXATTRIB1FVPROC glVertexAttrib1fv = SOGL_NULL;
-PFNGLVERTEXATTRIB1SPROC glVertexAttrib1s = SOGL_NULL;
-PFNGLVERTEXATTRIB1SVPROC glVertexAttrib1sv = SOGL_NULL;
-PFNGLVERTEXATTRIB2DPROC glVertexAttrib2d = SOGL_NULL;
-PFNGLVERTEXATTRIB2DVPROC glVertexAttrib2dv = SOGL_NULL;
-PFNGLVERTEXATTRIB2FPROC glVertexAttrib2f = SOGL_NULL;
-PFNGLVERTEXATTRIB2FVPROC glVertexAttrib2fv = SOGL_NULL;
-PFNGLVERTEXATTRIB2SPROC glVertexAttrib2s = SOGL_NULL;
-PFNGLVERTEXATTRIB2SVPROC glVertexAttrib2sv = SOGL_NULL;
-PFNGLVERTEXATTRIB3DPROC glVertexAttrib3d = SOGL_NULL;
-PFNGLVERTEXATTRIB3DVPROC glVertexAttrib3dv = SOGL_NULL;
-PFNGLVERTEXATTRIB3FPROC glVertexAttrib3f = SOGL_NULL;
-PFNGLVERTEXATTRIB3FVPROC glVertexAttrib3fv = SOGL_NULL;
-PFNGLVERTEXATTRIB3SPROC glVertexAttrib3s = SOGL_NULL;
-PFNGLVERTEXATTRIB3SVPROC glVertexAttrib3sv = SOGL_NULL;
-PFNGLVERTEXATTRIB4NBVPROC glVertexAttrib4Nbv = SOGL_NULL;
-PFNGLVERTEXATTRIB4NIVPROC glVertexAttrib4Niv = SOGL_NULL;
-PFNGLVERTEXATTRIB4NSVPROC glVertexAttrib4Nsv = SOGL_NULL;
-PFNGLVERTEXATTRIB4NUBPROC glVertexAttrib4Nub = SOGL_NULL;
-PFNGLVERTEXATTRIB4NUBVPROC glVertexAttrib4Nubv = SOGL_NULL;
-PFNGLVERTEXATTRIB4NUIVPROC glVertexAttrib4Nuiv = SOGL_NULL;
-PFNGLVERTEXATTRIB4NUSVPROC glVertexAttrib4Nusv = SOGL_NULL;
-PFNGLVERTEXATTRIB4BVPROC glVertexAttrib4bv = SOGL_NULL;
-PFNGLVERTEXATTRIB4DPROC glVertexAttrib4d = SOGL_NULL;
-PFNGLVERTEXATTRIB4DVPROC glVertexAttrib4dv = SOGL_NULL;
-PFNGLVERTEXATTRIB4FPROC glVertexAttrib4f = SOGL_NULL;
-PFNGLVERTEXATTRIB4FVPROC glVertexAttrib4fv = SOGL_NULL;
-PFNGLVERTEXATTRIB4IVPROC glVertexAttrib4iv = SOGL_NULL;
-PFNGLVERTEXATTRIB4SPROC glVertexAttrib4s = SOGL_NULL;
-PFNGLVERTEXATTRIB4SVPROC glVertexAttrib4sv = SOGL_NULL;
-PFNGLVERTEXATTRIB4UBVPROC glVertexAttrib4ubv = SOGL_NULL;
-PFNGLVERTEXATTRIB4UIVPROC glVertexAttrib4uiv = SOGL_NULL;
-PFNGLVERTEXATTRIB4USVPROC glVertexAttrib4usv = SOGL_NULL;
-PFNGLVERTEXATTRIBPOINTERPROC glVertexAttribPointer = SOGL_NULL;
+SOGL_FUNCTIONS_2_0
 #endif /* GL_VERSION_2_0 */
 
 #if SOGL_TEST_VERSION(2, 1)
-PFNGLUNIFORMMATRIX2X3FVPROC glUniformMatrix2x3fv = SOGL_NULL;
-PFNGLUNIFORMMATRIX3X2FVPROC glUniformMatrix3x2fv = SOGL_NULL;
-PFNGLUNIFORMMATRIX2X4FVPROC glUniformMatrix2x4fv = SOGL_NULL;
-PFNGLUNIFORMMATRIX4X2FVPROC glUniformMatrix4x2fv = SOGL_NULL;
-PFNGLUNIFORMMATRIX3X4FVPROC glUniformMatrix3x4fv = SOGL_NULL;
-PFNGLUNIFORMMATRIX4X3FVPROC glUniformMatrix4x3fv = SOGL_NULL;
+SOGL_FUNCTIONS_2_1
 #endif /* GL_VERSION_2_1 */
 
 #if SOGL_TEST_VERSION(3, 0)
-PFNGLCOLORMASKIPROC glColorMaski = SOGL_NULL;
-PFNGLGETBOOLEANI_VPROC glGetBooleani_v = SOGL_NULL;
-PFNGLGETINTEGERI_VPROC glGetIntegeri_v = SOGL_NULL;
-PFNGLENABLEIPROC glEnablei = SOGL_NULL;
-PFNGLDISABLEIPROC glDisablei = SOGL_NULL;
-PFNGLISENABLEDIPROC glIsEnabledi = SOGL_NULL;
-PFNGLBEGINTRANSFORMFEEDBACKPROC glBeginTransformFeedback = SOGL_NULL;
-PFNGLENDTRANSFORMFEEDBACKPROC glEndTransformFeedback = SOGL_NULL;
-PFNGLBINDBUFFERRANGEPROC glBindBufferRange = SOGL_NULL;
-PFNGLBINDBUFFERBASEPROC glBindBufferBase = SOGL_NULL;
-PFNGLTRANSFORMFEEDBACKVARYINGSPROC glTransformFeedbackVaryings = SOGL_NULL;
-PFNGLGETTRANSFORMFEEDBACKVARYINGPROC glGetTransformFeedbackVarying = SOGL_NULL;
-PFNGLCLAMPCOLORPROC glClampColor = SOGL_NULL;
-PFNGLBEGINCONDITIONALRENDERPROC glBeginConditionalRender = SOGL_NULL;
-PFNGLENDCONDITIONALRENDERPROC glEndConditionalRender = SOGL_NULL;
-PFNGLVERTEXATTRIBIPOINTERPROC glVertexAttribIPointer = SOGL_NULL;
-PFNGLGETVERTEXATTRIBIIVPROC glGetVertexAttribIiv = SOGL_NULL;
-PFNGLGETVERTEXATTRIBIUIVPROC glGetVertexAttribIuiv = SOGL_NULL;
-PFNGLVERTEXATTRIBI1IPROC glVertexAttribI1i = SOGL_NULL;
-PFNGLVERTEXATTRIBI2IPROC glVertexAttribI2i = SOGL_NULL;
-PFNGLVERTEXATTRIBI3IPROC glVertexAttribI3i = SOGL_NULL;
-PFNGLVERTEXATTRIBI4IPROC glVertexAttribI4i = SOGL_NULL;
-PFNGLVERTEXATTRIBI1UIPROC glVertexAttribI1ui = SOGL_NULL;
-PFNGLVERTEXATTRIBI2UIPROC glVertexAttribI2ui = SOGL_NULL;
-PFNGLVERTEXATTRIBI3UIPROC glVertexAttribI3ui = SOGL_NULL;
-PFNGLVERTEXATTRIBI4UIPROC glVertexAttribI4ui = SOGL_NULL;
-PFNGLVERTEXATTRIBI1IVPROC glVertexAttribI1iv = SOGL_NULL;
-PFNGLVERTEXATTRIBI2IVPROC glVertexAttribI2iv = SOGL_NULL;
-PFNGLVERTEXATTRIBI3IVPROC glVertexAttribI3iv = SOGL_NULL;
-PFNGLVERTEXATTRIBI4IVPROC glVertexAttribI4iv = SOGL_NULL;
-PFNGLVERTEXATTRIBI1UIVPROC glVertexAttribI1uiv = SOGL_NULL;
-PFNGLVERTEXATTRIBI2UIVPROC glVertexAttribI2uiv = SOGL_NULL;
-PFNGLVERTEXATTRIBI3UIVPROC glVertexAttribI3uiv = SOGL_NULL;
-PFNGLVERTEXATTRIBI4UIVPROC glVertexAttribI4uiv = SOGL_NULL;
-PFNGLVERTEXATTRIBI4BVPROC glVertexAttribI4bv = SOGL_NULL;
-PFNGLVERTEXATTRIBI4SVPROC glVertexAttribI4sv = SOGL_NULL;
-PFNGLVERTEXATTRIBI4UBVPROC glVertexAttribI4ubv = SOGL_NULL;
-PFNGLVERTEXATTRIBI4USVPROC glVertexAttribI4usv = SOGL_NULL;
-PFNGLGETUNIFORMUIVPROC glGetUniformuiv = SOGL_NULL;
-PFNGLBINDFRAGDATALOCATIONPROC glBindFragDataLocation = SOGL_NULL;
-PFNGLGETFRAGDATALOCATIONPROC glGetFragDataLocation = SOGL_NULL;
-PFNGLUNIFORM1UIPROC glUniform1ui = SOGL_NULL;
-PFNGLUNIFORM2UIPROC glUniform2ui = SOGL_NULL;
-PFNGLUNIFORM3UIPROC glUniform3ui = SOGL_NULL;
-PFNGLUNIFORM4UIPROC glUniform4ui = SOGL_NULL;
-PFNGLUNIFORM1UIVPROC glUniform1uiv = SOGL_NULL;
-PFNGLUNIFORM2UIVPROC glUniform2uiv = SOGL_NULL;
-PFNGLUNIFORM3UIVPROC glUniform3uiv = SOGL_NULL;
-PFNGLUNIFORM4UIVPROC glUniform4uiv = SOGL_NULL;
-PFNGLTEXPARAMETERIIVPROC glTexParameterIiv = SOGL_NULL;
-PFNGLTEXPARAMETERIUIVPROC glTexParameterIuiv = SOGL_NULL;
-PFNGLGETTEXPARAMETERIIVPROC glGetTexParameterIiv = SOGL_NULL;
-PFNGLGETTEXPARAMETERIUIVPROC glGetTexParameterIuiv = SOGL_NULL;
-PFNGLCLEARBUFFERIVPROC glClearBufferiv = SOGL_NULL;
-PFNGLCLEARBUFFERUIVPROC glClearBufferuiv = SOGL_NULL;
-PFNGLCLEARBUFFERFVPROC glClearBufferfv = SOGL_NULL;
-PFNGLCLEARBUFFERFIPROC glClearBufferfi = SOGL_NULL;
-PFNGLGETSTRINGIPROC glGetStringi = SOGL_NULL;
-PFNGLISRENDERBUFFERPROC glIsRenderbuffer = SOGL_NULL;
-PFNGLBINDRENDERBUFFERPROC glBindRenderbuffer = SOGL_NULL;
-PFNGLDELETERENDERBUFFERSPROC glDeleteRenderbuffers = SOGL_NULL;
-PFNGLGENRENDERBUFFERSPROC glGenRenderbuffers = SOGL_NULL;
-PFNGLRENDERBUFFERSTORAGEPROC glRenderbufferStorage = SOGL_NULL;
-PFNGLGETRENDERBUFFERPARAMETERIVPROC glGetRenderbufferParameteriv = SOGL_NULL;
-PFNGLISFRAMEBUFFERPROC glIsFramebuffer = SOGL_NULL;
-PFNGLBINDFRAMEBUFFERPROC glBindFramebuffer = SOGL_NULL;
-PFNGLDELETEFRAMEBUFFERSPROC glDeleteFramebuffers = SOGL_NULL;
-PFNGLGENFRAMEBUFFERSPROC glGenFramebuffers = SOGL_NULL;
-PFNGLCHECKFRAMEBUFFERSTATUSPROC glCheckFramebufferStatus = SOGL_NULL;
-PFNGLFRAMEBUFFERTEXTURE1DPROC glFramebufferTexture1D = SOGL_NULL;
-PFNGLFRAMEBUFFERTEXTURE2DPROC glFramebufferTexture2D = SOGL_NULL;
-PFNGLFRAMEBUFFERTEXTURE3DPROC glFramebufferTexture3D = SOGL_NULL;
-PFNGLFRAMEBUFFERRENDERBUFFERPROC glFramebufferRenderbuffer = SOGL_NULL;
-PFNGLGETFRAMEBUFFERATTACHMENTPARAMETERIVPROC glGetFramebufferAttachmentParameteriv = SOGL_NULL;
-PFNGLGENERATEMIPMAPPROC glGenerateMipmap = SOGL_NULL;
-PFNGLBLITFRAMEBUFFERPROC glBlitFramebuffer = SOGL_NULL;
-PFNGLRENDERBUFFERSTORAGEMULTISAMPLEPROC glRenderbufferStorageMultisample = SOGL_NULL;
-PFNGLFRAMEBUFFERTEXTURELAYERPROC glFramebufferTextureLayer = SOGL_NULL;
-PFNGLMAPBUFFERRANGEPROC glMapBufferRange = SOGL_NULL;
-PFNGLFLUSHMAPPEDBUFFERRANGEPROC glFlushMappedBufferRange = SOGL_NULL;
-PFNGLBINDVERTEXARRAYPROC glBindVertexArray = SOGL_NULL;
-PFNGLDELETEVERTEXARRAYSPROC glDeleteVertexArrays = SOGL_NULL;
-PFNGLGENVERTEXARRAYSPROC glGenVertexArrays = SOGL_NULL;
-PFNGLISVERTEXARRAYPROC glIsVertexArray = SOGL_NULL;
+SOGL_FUNCTIONS_3_0
 #endif /* GL_VERSION_3_0 */
 
 #if SOGL_TEST_VERSION(3, 1)
-PFNGLDRAWARRAYSINSTANCEDPROC glDrawArraysInstanced = SOGL_NULL;
-PFNGLDRAWELEMENTSINSTANCEDPROC glDrawElementsInstanced = SOGL_NULL;
-PFNGLTEXBUFFERPROC glTexBuffer = SOGL_NULL;
-PFNGLPRIMITIVERESTARTINDEXPROC glPrimitiveRestartIndex = SOGL_NULL;
-PFNGLCOPYBUFFERSUBDATAPROC glCopyBufferSubData = SOGL_NULL;
-PFNGLGETUNIFORMINDICESPROC glGetUniformIndices = SOGL_NULL;
-PFNGLGETACTIVEUNIFORMSIVPROC glGetActiveUniformsiv = SOGL_NULL;
-PFNGLGETACTIVEUNIFORMNAMEPROC glGetActiveUniformName = SOGL_NULL;
-PFNGLGETUNIFORMBLOCKINDEXPROC glGetUniformBlockIndex = SOGL_NULL;
-PFNGLGETACTIVEUNIFORMBLOCKIVPROC glGetActiveUniformBlockiv = SOGL_NULL;
-PFNGLGETACTIVEUNIFORMBLOCKNAMEPROC glGetActiveUniformBlockName = SOGL_NULL;
-PFNGLUNIFORMBLOCKBINDINGPROC glUniformBlockBinding = SOGL_NULL;
+SOGL_FUNCTIONS_3_1
 #endif /* GL_VERSION_3_1 */
 
 #if SOGL_TEST_VERSION(3, 2)
-PFNGLDRAWELEMENTSBASEVERTEXPROC glDrawElementsBaseVertex = SOGL_NULL;
-PFNGLDRAWRANGEELEMENTSBASEVERTEXPROC glDrawRangeElementsBaseVertex = SOGL_NULL;
-PFNGLDRAWELEMENTSINSTANCEDBASEVERTEXPROC glDrawElementsInstancedBaseVertex = SOGL_NULL;
-PFNGLMULTIDRAWELEMENTSBASEVERTEXPROC glMultiDrawElementsBaseVertex = SOGL_NULL;
-PFNGLPROVOKINGVERTEXPROC glProvokingVertex = SOGL_NULL;
-PFNGLFENCESYNCPROC glFenceSync = SOGL_NULL;
-PFNGLISSYNCPROC glIsSync = SOGL_NULL;
-PFNGLDELETESYNCPROC glDeleteSync = SOGL_NULL;
-PFNGLCLIENTWAITSYNCPROC glClientWaitSync = SOGL_NULL;
-PFNGLWAITSYNCPROC glWaitSync = SOGL_NULL;
-PFNGLGETINTEGER64VPROC glGetInteger64v = SOGL_NULL;
-PFNGLGETSYNCIVPROC glGetSynciv = SOGL_NULL;
-PFNGLGETINTEGER64I_VPROC glGetInteger64i_v = SOGL_NULL;
-PFNGLGETBUFFERPARAMETERI64VPROC glGetBufferParameteri64v = SOGL_NULL;
-PFNGLFRAMEBUFFERTEXTUREPROC glFramebufferTexture = SOGL_NULL;
-PFNGLTEXIMAGE2DMULTISAMPLEPROC glTexImage2DMultisample = SOGL_NULL;
-PFNGLTEXIMAGE3DMULTISAMPLEPROC glTexImage3DMultisample = SOGL_NULL;
-PFNGLGETMULTISAMPLEFVPROC glGetMultisamplefv = SOGL_NULL;
-PFNGLSAMPLEMASKIPROC glSampleMaski = SOGL_NULL;
+SOGL_FUNCTIONS_3_2
 #endif /* GL_VERSION_3_2 */
 
 #if SOGL_TEST_VERSION(3, 3)
-PFNGLBINDFRAGDATALOCATIONINDEXEDPROC glBindFragDataLocationIndexed = SOGL_NULL;
-PFNGLGETFRAGDATAINDEXPROC glGetFragDataIndex = SOGL_NULL;
-PFNGLGENSAMPLERSPROC glGenSamplers = SOGL_NULL;
-PFNGLDELETESAMPLERSPROC glDeleteSamplers = SOGL_NULL;
-PFNGLISSAMPLERPROC glIsSampler = SOGL_NULL;
-PFNGLBINDSAMPLERPROC glBindSampler = SOGL_NULL;
-PFNGLSAMPLERPARAMETERIPROC glSamplerParameteri = SOGL_NULL;
-PFNGLSAMPLERPARAMETERIVPROC glSamplerParameteriv = SOGL_NULL;
-PFNGLSAMPLERPARAMETERFPROC glSamplerParameterf = SOGL_NULL;
-PFNGLSAMPLERPARAMETERFVPROC glSamplerParameterfv = SOGL_NULL;
-PFNGLSAMPLERPARAMETERIIVPROC glSamplerParameterIiv = SOGL_NULL;
-PFNGLSAMPLERPARAMETERIUIVPROC glSamplerParameterIuiv = SOGL_NULL;
-PFNGLGETSAMPLERPARAMETERIVPROC glGetSamplerParameteriv = SOGL_NULL;
-PFNGLGETSAMPLERPARAMETERIIVPROC glGetSamplerParameterIiv = SOGL_NULL;
-PFNGLGETSAMPLERPARAMETERFVPROC glGetSamplerParameterfv = SOGL_NULL;
-PFNGLGETSAMPLERPARAMETERIUIVPROC glGetSamplerParameterIuiv = SOGL_NULL;
-PFNGLQUERYCOUNTERPROC glQueryCounter = SOGL_NULL;
-PFNGLGETQUERYOBJECTI64VPROC glGetQueryObjecti64v = SOGL_NULL;
-PFNGLGETQUERYOBJECTUI64VPROC glGetQueryObjectui64v = SOGL_NULL;
-PFNGLVERTEXATTRIBDIVISORPROC glVertexAttribDivisor = SOGL_NULL;
-PFNGLVERTEXATTRIBP1UIPROC glVertexAttribP1ui = SOGL_NULL;
-PFNGLVERTEXATTRIBP1UIVPROC glVertexAttribP1uiv = SOGL_NULL;
-PFNGLVERTEXATTRIBP2UIPROC glVertexAttribP2ui = SOGL_NULL;
-PFNGLVERTEXATTRIBP2UIVPROC glVertexAttribP2uiv = SOGL_NULL;
-PFNGLVERTEXATTRIBP3UIPROC glVertexAttribP3ui = SOGL_NULL;
-PFNGLVERTEXATTRIBP3UIVPROC glVertexAttribP3uiv = SOGL_NULL;
-PFNGLVERTEXATTRIBP4UIPROC glVertexAttribP4ui = SOGL_NULL;
-PFNGLVERTEXATTRIBP4UIVPROC glVertexAttribP4uiv = SOGL_NULL;
+SOGL_FUNCTIONS_3_3
 #endif /* GL_VERSION_3_3 */
 
 #if SOGL_TEST_VERSION(4, 0)
-PFNGLMINSAMPLESHADINGPROC glMinSampleShading = SOGL_NULL;
-PFNGLBLENDEQUATIONIPROC glBlendEquationi = SOGL_NULL;
-PFNGLBLENDEQUATIONSEPARATEIPROC glBlendEquationSeparatei = SOGL_NULL;
-PFNGLBLENDFUNCIPROC glBlendFunci = SOGL_NULL;
-PFNGLBLENDFUNCSEPARATEIPROC glBlendFuncSeparatei = SOGL_NULL;
-PFNGLDRAWARRAYSINDIRECTPROC glDrawArraysIndirect = SOGL_NULL;
-PFNGLDRAWELEMENTSINDIRECTPROC glDrawElementsIndirect = SOGL_NULL;
-PFNGLUNIFORM1DPROC glUniform1d = SOGL_NULL;
-PFNGLUNIFORM2DPROC glUniform2d = SOGL_NULL;
-PFNGLUNIFORM3DPROC glUniform3d = SOGL_NULL;
-PFNGLUNIFORM4DPROC glUniform4d = SOGL_NULL;
-PFNGLUNIFORM1DVPROC glUniform1dv = SOGL_NULL;
-PFNGLUNIFORM2DVPROC glUniform2dv = SOGL_NULL;
-PFNGLUNIFORM3DVPROC glUniform3dv = SOGL_NULL;
-PFNGLUNIFORM4DVPROC glUniform4dv = SOGL_NULL;
-PFNGLUNIFORMMATRIX2DVPROC glUniformMatrix2dv = SOGL_NULL;
-PFNGLUNIFORMMATRIX3DVPROC glUniformMatrix3dv = SOGL_NULL;
-PFNGLUNIFORMMATRIX4DVPROC glUniformMatrix4dv = SOGL_NULL;
-PFNGLUNIFORMMATRIX2X3DVPROC glUniformMatrix2x3dv = SOGL_NULL;
-PFNGLUNIFORMMATRIX2X4DVPROC glUniformMatrix2x4dv = SOGL_NULL;
-PFNGLUNIFORMMATRIX3X2DVPROC glUniformMatrix3x2dv = SOGL_NULL;
-PFNGLUNIFORMMATRIX3X4DVPROC glUniformMatrix3x4dv = SOGL_NULL;
-PFNGLUNIFORMMATRIX4X2DVPROC glUniformMatrix4x2dv = SOGL_NULL;
-PFNGLUNIFORMMATRIX4X3DVPROC glUniformMatrix4x3dv = SOGL_NULL;
-PFNGLGETUNIFORMDVPROC glGetUniformdv = SOGL_NULL;
-PFNGLGETSUBROUTINEUNIFORMLOCATIONPROC glGetSubroutineUniformLocation = SOGL_NULL;
-PFNGLGETSUBROUTINEINDEXPROC glGetSubroutineIndex = SOGL_NULL;
-PFNGLGETACTIVESUBROUTINEUNIFORMIVPROC glGetActiveSubroutineUniformiv = SOGL_NULL;
-PFNGLGETACTIVESUBROUTINEUNIFORMNAMEPROC glGetActiveSubroutineUniformName = SOGL_NULL;
-PFNGLGETACTIVESUBROUTINENAMEPROC glGetActiveSubroutineName = SOGL_NULL;
-PFNGLUNIFORMSUBROUTINESUIVPROC glUniformSubroutinesuiv = SOGL_NULL;
-PFNGLGETUNIFORMSUBROUTINEUIVPROC glGetUniformSubroutineuiv = SOGL_NULL;
-PFNGLGETPROGRAMSTAGEIVPROC glGetProgramStageiv = SOGL_NULL;
-PFNGLPATCHPARAMETERIPROC glPatchParameteri = SOGL_NULL;
-PFNGLPATCHPARAMETERFVPROC glPatchParameterfv = SOGL_NULL;
-PFNGLBINDTRANSFORMFEEDBACKPROC glBindTransformFeedback = SOGL_NULL;
-PFNGLDELETETRANSFORMFEEDBACKSPROC glDeleteTransformFeedbacks = SOGL_NULL;
-PFNGLGENTRANSFORMFEEDBACKSPROC glGenTransformFeedbacks = SOGL_NULL;
-PFNGLISTRANSFORMFEEDBACKPROC glIsTransformFeedback = SOGL_NULL;
-PFNGLPAUSETRANSFORMFEEDBACKPROC glPauseTransformFeedback = SOGL_NULL;
-PFNGLRESUMETRANSFORMFEEDBACKPROC glResumeTransformFeedback = SOGL_NULL;
-PFNGLDRAWTRANSFORMFEEDBACKPROC glDrawTransformFeedback = SOGL_NULL;
-PFNGLDRAWTRANSFORMFEEDBACKSTREAMPROC glDrawTransformFeedbackStream = SOGL_NULL;
-PFNGLBEGINQUERYINDEXEDPROC glBeginQueryIndexed = SOGL_NULL;
-PFNGLENDQUERYINDEXEDPROC glEndQueryIndexed = SOGL_NULL;
-PFNGLGETQUERYINDEXEDIVPROC glGetQueryIndexediv = SOGL_NULL;
+SOGL_FUNCTIONS_4_0
 #endif /* GL_VERSION_4_0 */
 
 #if SOGL_TEST_VERSION(4, 1)
-PFNGLRELEASESHADERCOMPILERPROC glReleaseShaderCompiler = SOGL_NULL;
-PFNGLSHADERBINARYPROC glShaderBinary = SOGL_NULL;
-PFNGLGETSHADERPRECISIONFORMATPROC glGetShaderPrecisionFormat = SOGL_NULL;
-PFNGLDEPTHRANGEFPROC glDepthRangef = SOGL_NULL;
-PFNGLCLEARDEPTHFPROC glClearDepthf = SOGL_NULL;
-PFNGLGETPROGRAMBINARYPROC glGetProgramBinary = SOGL_NULL;
-PFNGLPROGRAMBINARYPROC glProgramBinary = SOGL_NULL;
-PFNGLPROGRAMPARAMETERIPROC glProgramParameteri = SOGL_NULL;
-PFNGLUSEPROGRAMSTAGESPROC glUseProgramStages = SOGL_NULL;
-PFNGLACTIVESHADERPROGRAMPROC glActiveShaderProgram = SOGL_NULL;
-PFNGLCREATESHADERPROGRAMVPROC glCreateShaderProgramv = SOGL_NULL;
-PFNGLBINDPROGRAMPIPELINEPROC glBindProgramPipeline = SOGL_NULL;
-PFNGLDELETEPROGRAMPIPELINESPROC glDeleteProgramPipelines = SOGL_NULL;
-PFNGLGENPROGRAMPIPELINESPROC glGenProgramPipelines = SOGL_NULL;
-PFNGLISPROGRAMPIPELINEPROC glIsProgramPipeline = SOGL_NULL;
-PFNGLGETPROGRAMPIPELINEIVPROC glGetProgramPipelineiv = SOGL_NULL;
-PFNGLPROGRAMUNIFORM1IPROC glProgramUniform1i = SOGL_NULL;
-PFNGLPROGRAMUNIFORM1IVPROC glProgramUniform1iv = SOGL_NULL;
-PFNGLPROGRAMUNIFORM1FPROC glProgramUniform1f = SOGL_NULL;
-PFNGLPROGRAMUNIFORM1FVPROC glProgramUniform1fv = SOGL_NULL;
-PFNGLPROGRAMUNIFORM1DPROC glProgramUniform1d = SOGL_NULL;
-PFNGLPROGRAMUNIFORM1DVPROC glProgramUniform1dv = SOGL_NULL;
-PFNGLPROGRAMUNIFORM1UIPROC glProgramUniform1ui = SOGL_NULL;
-PFNGLPROGRAMUNIFORM1UIVPROC glProgramUniform1uiv = SOGL_NULL;
-PFNGLPROGRAMUNIFORM2IPROC glProgramUniform2i = SOGL_NULL;
-PFNGLPROGRAMUNIFORM2IVPROC glProgramUniform2iv = SOGL_NULL;
-PFNGLPROGRAMUNIFORM2FPROC glProgramUniform2f = SOGL_NULL;
-PFNGLPROGRAMUNIFORM2FVPROC glProgramUniform2fv = SOGL_NULL;
-PFNGLPROGRAMUNIFORM2DPROC glProgramUniform2d = SOGL_NULL;
-PFNGLPROGRAMUNIFORM2DVPROC glProgramUniform2dv = SOGL_NULL;
-PFNGLPROGRAMUNIFORM2UIPROC glProgramUniform2ui = SOGL_NULL;
-PFNGLPROGRAMUNIFORM2UIVPROC glProgramUniform2uiv = SOGL_NULL;
-PFNGLPROGRAMUNIFORM3IPROC glProgramUniform3i = SOGL_NULL;
-PFNGLPROGRAMUNIFORM3IVPROC glProgramUniform3iv = SOGL_NULL;
-PFNGLPROGRAMUNIFORM3FPROC glProgramUniform3f = SOGL_NULL;
-PFNGLPROGRAMUNIFORM3FVPROC glProgramUniform3fv = SOGL_NULL;
-PFNGLPROGRAMUNIFORM3DPROC glProgramUniform3d = SOGL_NULL;
-PFNGLPROGRAMUNIFORM3DVPROC glProgramUniform3dv = SOGL_NULL;
-PFNGLPROGRAMUNIFORM3UIPROC glProgramUniform3ui = SOGL_NULL;
-PFNGLPROGRAMUNIFORM3UIVPROC glProgramUniform3uiv = SOGL_NULL;
-PFNGLPROGRAMUNIFORM4IPROC glProgramUniform4i = SOGL_NULL;
-PFNGLPROGRAMUNIFORM4IVPROC glProgramUniform4iv = SOGL_NULL;
-PFNGLPROGRAMUNIFORM4FPROC glProgramUniform4f = SOGL_NULL;
-PFNGLPROGRAMUNIFORM4FVPROC glProgramUniform4fv = SOGL_NULL;
-PFNGLPROGRAMUNIFORM4DPROC glProgramUniform4d = SOGL_NULL;
-PFNGLPROGRAMUNIFORM4DVPROC glProgramUniform4dv = SOGL_NULL;
-PFNGLPROGRAMUNIFORM4UIPROC glProgramUniform4ui = SOGL_NULL;
-PFNGLPROGRAMUNIFORM4UIVPROC glProgramUniform4uiv = SOGL_NULL;
-PFNGLPROGRAMUNIFORMMATRIX2FVPROC glProgramUniformMatrix2fv = SOGL_NULL;
-PFNGLPROGRAMUNIFORMMATRIX3FVPROC glProgramUniformMatrix3fv = SOGL_NULL;
-PFNGLPROGRAMUNIFORMMATRIX4FVPROC glProgramUniformMatrix4fv = SOGL_NULL;
-PFNGLPROGRAMUNIFORMMATRIX2DVPROC glProgramUniformMatrix2dv = SOGL_NULL;
-PFNGLPROGRAMUNIFORMMATRIX3DVPROC glProgramUniformMatrix3dv = SOGL_NULL;
-PFNGLPROGRAMUNIFORMMATRIX4DVPROC glProgramUniformMatrix4dv = SOGL_NULL;
-PFNGLPROGRAMUNIFORMMATRIX2X3FVPROC glProgramUniformMatrix2x3fv = SOGL_NULL;
-PFNGLPROGRAMUNIFORMMATRIX3X2FVPROC glProgramUniformMatrix3x2fv = SOGL_NULL;
-PFNGLPROGRAMUNIFORMMATRIX2X4FVPROC glProgramUniformMatrix2x4fv = SOGL_NULL;
-PFNGLPROGRAMUNIFORMMATRIX4X2FVPROC glProgramUniformMatrix4x2fv = SOGL_NULL;
-PFNGLPROGRAMUNIFORMMATRIX3X4FVPROC glProgramUniformMatrix3x4fv = SOGL_NULL;
-PFNGLPROGRAMUNIFORMMATRIX4X3FVPROC glProgramUniformMatrix4x3fv = SOGL_NULL;
-PFNGLPROGRAMUNIFORMMATRIX2X3DVPROC glProgramUniformMatrix2x3dv = SOGL_NULL;
-PFNGLPROGRAMUNIFORMMATRIX3X2DVPROC glProgramUniformMatrix3x2dv = SOGL_NULL;
-PFNGLPROGRAMUNIFORMMATRIX2X4DVPROC glProgramUniformMatrix2x4dv = SOGL_NULL;
-PFNGLPROGRAMUNIFORMMATRIX4X2DVPROC glProgramUniformMatrix4x2dv = SOGL_NULL;
-PFNGLPROGRAMUNIFORMMATRIX3X4DVPROC glProgramUniformMatrix3x4dv = SOGL_NULL;
-PFNGLPROGRAMUNIFORMMATRIX4X3DVPROC glProgramUniformMatrix4x3dv = SOGL_NULL;
-PFNGLVALIDATEPROGRAMPIPELINEPROC glValidateProgramPipeline = SOGL_NULL;
-PFNGLGETPROGRAMPIPELINEINFOLOGPROC glGetProgramPipelineInfoLog = SOGL_NULL;
-PFNGLVERTEXATTRIBL1DPROC glVertexAttribL1d = SOGL_NULL;
-PFNGLVERTEXATTRIBL2DPROC glVertexAttribL2d = SOGL_NULL;
-PFNGLVERTEXATTRIBL3DPROC glVertexAttribL3d = SOGL_NULL;
-PFNGLVERTEXATTRIBL4DPROC glVertexAttribL4d = SOGL_NULL;
-PFNGLVERTEXATTRIBL1DVPROC glVertexAttribL1dv = SOGL_NULL;
-PFNGLVERTEXATTRIBL2DVPROC glVertexAttribL2dv = SOGL_NULL;
-PFNGLVERTEXATTRIBL3DVPROC glVertexAttribL3dv = SOGL_NULL;
-PFNGLVERTEXATTRIBL4DVPROC glVertexAttribL4dv = SOGL_NULL;
-PFNGLVERTEXATTRIBLPOINTERPROC glVertexAttribLPointer = SOGL_NULL;
-PFNGLGETVERTEXATTRIBLDVPROC glGetVertexAttribLdv = SOGL_NULL;
-PFNGLVIEWPORTARRAYVPROC glViewportArrayv = SOGL_NULL;
-PFNGLVIEWPORTINDEXEDFPROC glViewportIndexedf = SOGL_NULL;
-PFNGLVIEWPORTINDEXEDFVPROC glViewportIndexedfv = SOGL_NULL;
-PFNGLSCISSORARRAYVPROC glScissorArrayv = SOGL_NULL;
-PFNGLSCISSORINDEXEDPROC glScissorIndexed = SOGL_NULL;
-PFNGLSCISSORINDEXEDVPROC glScissorIndexedv = SOGL_NULL;
-PFNGLDEPTHRANGEARRAYVPROC glDepthRangeArrayv = SOGL_NULL;
-PFNGLDEPTHRANGEINDEXEDPROC glDepthRangeIndexed = SOGL_NULL;
-PFNGLGETFLOATI_VPROC glGetFloati_v = SOGL_NULL;
-PFNGLGETDOUBLEI_VPROC glGetDoublei_v = SOGL_NULL;
+SOGL_FUNCTIONS_4_1
 #endif /* GL_VERSION_4_1 */
 
 #if SOGL_TEST_VERSION(4, 2)
-PFNGLDRAWARRAYSINSTANCEDBASEINSTANCEPROC glDrawArraysInstancedBaseInstance = SOGL_NULL;
-PFNGLDRAWELEMENTSINSTANCEDBASEINSTANCEPROC glDrawElementsInstancedBaseInstance = SOGL_NULL;
-PFNGLDRAWELEMENTSINSTANCEDBASEVERTEXBASEINSTANCEPROC glDrawElementsInstancedBaseVertexBaseInstance = SOGL_NULL;
-PFNGLGETINTERNALFORMATIVPROC glGetInternalformativ = SOGL_NULL;
-PFNGLGETACTIVEATOMICCOUNTERBUFFERIVPROC glGetActiveAtomicCounterBufferiv = SOGL_NULL;
-PFNGLBINDIMAGETEXTUREPROC glBindImageTexture = SOGL_NULL;
-PFNGLMEMORYBARRIERPROC glMemoryBarrier = SOGL_NULL;
-PFNGLTEXSTORAGE1DPROC glTexStorage1D = SOGL_NULL;
-PFNGLTEXSTORAGE2DPROC glTexStorage2D = SOGL_NULL;
-PFNGLTEXSTORAGE3DPROC glTexStorage3D = SOGL_NULL;
-PFNGLDRAWTRANSFORMFEEDBACKINSTANCEDPROC glDrawTransformFeedbackInstanced = SOGL_NULL;
-PFNGLDRAWTRANSFORMFEEDBACKSTREAMINSTANCEDPROC glDrawTransformFeedbackStreamInstanced = SOGL_NULL;
+SOGL_FUNCTIONS_4_2
 #endif /* GL_VERSION_4_2 */
 
 #if SOGL_TEST_VERSION(4, 3)
-PFNGLCLEARBUFFERDATAPROC glClearBufferData = SOGL_NULL;
-PFNGLCLEARBUFFERSUBDATAPROC glClearBufferSubData = SOGL_NULL;
-PFNGLDISPATCHCOMPUTEPROC glDispatchCompute = SOGL_NULL;
-PFNGLDISPATCHCOMPUTEINDIRECTPROC glDispatchComputeIndirect = SOGL_NULL;
-PFNGLCOPYIMAGESUBDATAPROC glCopyImageSubData = SOGL_NULL;
-PFNGLFRAMEBUFFERPARAMETERIPROC glFramebufferParameteri = SOGL_NULL;
-PFNGLGETFRAMEBUFFERPARAMETERIVPROC glGetFramebufferParameteriv = SOGL_NULL;
-PFNGLGETINTERNALFORMATI64VPROC glGetInternalformati64v = SOGL_NULL;
-PFNGLINVALIDATETEXSUBIMAGEPROC glInvalidateTexSubImage = SOGL_NULL;
-PFNGLINVALIDATETEXIMAGEPROC glInvalidateTexImage = SOGL_NULL;
-PFNGLINVALIDATEBUFFERSUBDATAPROC glInvalidateBufferSubData = SOGL_NULL;
-PFNGLINVALIDATEBUFFERDATAPROC glInvalidateBufferData = SOGL_NULL;
-PFNGLINVALIDATEFRAMEBUFFERPROC glInvalidateFramebuffer = SOGL_NULL;
-PFNGLINVALIDATESUBFRAMEBUFFERPROC glInvalidateSubFramebuffer = SOGL_NULL;
-PFNGLMULTIDRAWARRAYSINDIRECTPROC glMultiDrawArraysIndirect = SOGL_NULL;
-PFNGLMULTIDRAWELEMENTSINDIRECTPROC glMultiDrawElementsIndirect = SOGL_NULL;
-PFNGLGETPROGRAMINTERFACEIVPROC glGetProgramInterfaceiv = SOGL_NULL;
-PFNGLGETPROGRAMRESOURCEINDEXPROC glGetProgramResourceIndex = SOGL_NULL;
-PFNGLGETPROGRAMRESOURCENAMEPROC glGetProgramResourceName = SOGL_NULL;
-PFNGLGETPROGRAMRESOURCEIVPROC glGetProgramResourceiv = SOGL_NULL;
-PFNGLGETPROGRAMRESOURCELOCATIONPROC glGetProgramResourceLocation = SOGL_NULL;
-PFNGLGETPROGRAMRESOURCELOCATIONINDEXPROC glGetProgramResourceLocationIndex = SOGL_NULL;
-PFNGLSHADERSTORAGEBLOCKBINDINGPROC glShaderStorageBlockBinding = SOGL_NULL;
-PFNGLTEXBUFFERRANGEPROC glTexBufferRange = SOGL_NULL;
-PFNGLTEXSTORAGE2DMULTISAMPLEPROC glTexStorage2DMultisample = SOGL_NULL;
-PFNGLTEXSTORAGE3DMULTISAMPLEPROC glTexStorage3DMultisample = SOGL_NULL;
-PFNGLTEXTUREVIEWPROC glTextureView = SOGL_NULL;
-PFNGLBINDVERTEXBUFFERPROC glBindVertexBuffer = SOGL_NULL;
-PFNGLVERTEXATTRIBFORMATPROC glVertexAttribFormat = SOGL_NULL;
-PFNGLVERTEXATTRIBIFORMATPROC glVertexAttribIFormat = SOGL_NULL;
-PFNGLVERTEXATTRIBLFORMATPROC glVertexAttribLFormat = SOGL_NULL;
-PFNGLVERTEXATTRIBBINDINGPROC glVertexAttribBinding = SOGL_NULL;
-PFNGLVERTEXBINDINGDIVISORPROC glVertexBindingDivisor = SOGL_NULL;
-PFNGLDEBUGMESSAGECONTROLPROC glDebugMessageControl = SOGL_NULL;
-PFNGLDEBUGMESSAGEINSERTPROC glDebugMessageInsert = SOGL_NULL;
-PFNGLDEBUGMESSAGECALLBACKPROC glDebugMessageCallback = SOGL_NULL;
-PFNGLGETDEBUGMESSAGELOGPROC glGetDebugMessageLog = SOGL_NULL;
-PFNGLPUSHDEBUGGROUPPROC glPushDebugGroup = SOGL_NULL;
-PFNGLPOPDEBUGGROUPPROC glPopDebugGroup = SOGL_NULL;
-PFNGLOBJECTLABELPROC glObjectLabel = SOGL_NULL;
-PFNGLGETOBJECTLABELPROC glGetObjectLabel = SOGL_NULL;
-PFNGLOBJECTPTRLABELPROC glObjectPtrLabel = SOGL_NULL;
-PFNGLGETOBJECTPTRLABELPROC glGetObjectPtrLabel = SOGL_NULL;
+SOGL_FUNCTIONS_4_3
 #endif /* GL_VERSION_4_3 */
 
 #if SOGL_TEST_VERSION(4, 4)
-PFNGLBUFFERSTORAGEPROC glBufferStorage = SOGL_NULL;
-PFNGLCLEARTEXIMAGEPROC glClearTexImage = SOGL_NULL;
-PFNGLCLEARTEXSUBIMAGEPROC glClearTexSubImage = SOGL_NULL;
-PFNGLBINDBUFFERSBASEPROC glBindBuffersBase = SOGL_NULL;
-PFNGLBINDBUFFERSRANGEPROC glBindBuffersRange = SOGL_NULL;
-PFNGLBINDTEXTURESPROC glBindTextures = SOGL_NULL;
-PFNGLBINDSAMPLERSPROC glBindSamplers = SOGL_NULL;
-PFNGLBINDIMAGETEXTURESPROC glBindImageTextures = SOGL_NULL;
-PFNGLBINDVERTEXBUFFERSPROC glBindVertexBuffers = SOGL_NULL;
+SOGL_FUNCTIONS_4_4
 #endif /* GL_VERSION_4_4 */
 
 #if SOGL_TEST_VERSION(4, 5)
-PFNGLCLIPCONTROLPROC glClipControl = SOGL_NULL;
-PFNGLCREATETRANSFORMFEEDBACKSPROC glCreateTransformFeedbacks = SOGL_NULL;
-PFNGLTRANSFORMFEEDBACKBUFFERBASEPROC glTransformFeedbackBufferBase = SOGL_NULL;
-PFNGLTRANSFORMFEEDBACKBUFFERRANGEPROC glTransformFeedbackBufferRange = SOGL_NULL;
-PFNGLGETTRANSFORMFEEDBACKIVPROC glGetTransformFeedbackiv = SOGL_NULL;
-PFNGLGETTRANSFORMFEEDBACKI_VPROC glGetTransformFeedbacki_v = SOGL_NULL;
-PFNGLGETTRANSFORMFEEDBACKI64_VPROC glGetTransformFeedbacki64_v = SOGL_NULL;
-PFNGLCREATEBUFFERSPROC glCreateBuffers = SOGL_NULL;
-PFNGLNAMEDBUFFERSTORAGEPROC glNamedBufferStorage = SOGL_NULL;
-PFNGLNAMEDBUFFERDATAPROC glNamedBufferData = SOGL_NULL;
-PFNGLNAMEDBUFFERSUBDATAPROC glNamedBufferSubData = SOGL_NULL;
-PFNGLCOPYNAMEDBUFFERSUBDATAPROC glCopyNamedBufferSubData = SOGL_NULL;
-PFNGLCLEARNAMEDBUFFERDATAPROC glClearNamedBufferData = SOGL_NULL;
-PFNGLCLEARNAMEDBUFFERSUBDATAPROC glClearNamedBufferSubData = SOGL_NULL;
-PFNGLMAPNAMEDBUFFERPROC glMapNamedBuffer = SOGL_NULL;
-PFNGLMAPNAMEDBUFFERRANGEPROC glMapNamedBufferRange = SOGL_NULL;
-PFNGLUNMAPNAMEDBUFFERPROC glUnmapNamedBuffer = SOGL_NULL;
-PFNGLFLUSHMAPPEDNAMEDBUFFERRANGEPROC glFlushMappedNamedBufferRange = SOGL_NULL;
-PFNGLGETNAMEDBUFFERPARAMETERIVPROC glGetNamedBufferParameteriv = SOGL_NULL;
-PFNGLGETNAMEDBUFFERPARAMETERI64VPROC glGetNamedBufferParameteri64v = SOGL_NULL;
-PFNGLGETNAMEDBUFFERPOINTERVPROC glGetNamedBufferPointerv = SOGL_NULL;
-PFNGLGETNAMEDBUFFERSUBDATAPROC glGetNamedBufferSubData = SOGL_NULL;
-PFNGLCREATEFRAMEBUFFERSPROC glCreateFramebuffers = SOGL_NULL;
-PFNGLNAMEDFRAMEBUFFERRENDERBUFFERPROC glNamedFramebufferRenderbuffer = SOGL_NULL;
-PFNGLNAMEDFRAMEBUFFERPARAMETERIPROC glNamedFramebufferParameteri = SOGL_NULL;
-PFNGLNAMEDFRAMEBUFFERTEXTUREPROC glNamedFramebufferTexture = SOGL_NULL;
-PFNGLNAMEDFRAMEBUFFERTEXTURELAYERPROC glNamedFramebufferTextureLayer = SOGL_NULL;
-PFNGLNAMEDFRAMEBUFFERDRAWBUFFERPROC glNamedFramebufferDrawBuffer = SOGL_NULL;
-PFNGLNAMEDFRAMEBUFFERDRAWBUFFERSPROC glNamedFramebufferDrawBuffers = SOGL_NULL;
-PFNGLNAMEDFRAMEBUFFERREADBUFFERPROC glNamedFramebufferReadBuffer = SOGL_NULL;
-PFNGLINVALIDATENAMEDFRAMEBUFFERDATAPROC glInvalidateNamedFramebufferData = SOGL_NULL;
-PFNGLINVALIDATENAMEDFRAMEBUFFERSUBDATAPROC glInvalidateNamedFramebufferSubData = SOGL_NULL;
-PFNGLCLEARNAMEDFRAMEBUFFERIVPROC glClearNamedFramebufferiv = SOGL_NULL;
-PFNGLCLEARNAMEDFRAMEBUFFERUIVPROC glClearNamedFramebufferuiv = SOGL_NULL;
-PFNGLCLEARNAMEDFRAMEBUFFERFVPROC glClearNamedFramebufferfv = SOGL_NULL;
-PFNGLCLEARNAMEDFRAMEBUFFERFIPROC glClearNamedFramebufferfi = SOGL_NULL;
-PFNGLBLITNAMEDFRAMEBUFFERPROC glBlitNamedFramebuffer = SOGL_NULL;
-PFNGLCHECKNAMEDFRAMEBUFFERSTATUSPROC glCheckNamedFramebufferStatus = SOGL_NULL;
-PFNGLGETNAMEDFRAMEBUFFERPARAMETERIVPROC glGetNamedFramebufferParameteriv = SOGL_NULL;
-PFNGLGETNAMEDFRAMEBUFFERATTACHMENTPARAMETERIVPROC glGetNamedFramebufferAttachmentParameteriv = SOGL_NULL;
-PFNGLCREATERENDERBUFFERSPROC glCreateRenderbuffers = SOGL_NULL;
-PFNGLNAMEDRENDERBUFFERSTORAGEPROC glNamedRenderbufferStorage = SOGL_NULL;
-PFNGLNAMEDRENDERBUFFERSTORAGEMULTISAMPLEPROC glNamedRenderbufferStorageMultisample = SOGL_NULL;
-PFNGLGETNAMEDRENDERBUFFERPARAMETERIVPROC glGetNamedRenderbufferParameteriv = SOGL_NULL;
-PFNGLCREATETEXTURESPROC glCreateTextures = SOGL_NULL;
-PFNGLTEXTUREBUFFERPROC glTextureBuffer = SOGL_NULL;
-PFNGLTEXTUREBUFFERRANGEPROC glTextureBufferRange = SOGL_NULL;
-PFNGLTEXTURESTORAGE1DPROC glTextureStorage1D = SOGL_NULL;
-PFNGLTEXTURESTORAGE2DPROC glTextureStorage2D = SOGL_NULL;
-PFNGLTEXTURESTORAGE3DPROC glTextureStorage3D = SOGL_NULL;
-PFNGLTEXTURESTORAGE2DMULTISAMPLEPROC glTextureStorage2DMultisample = SOGL_NULL;
-PFNGLTEXTURESTORAGE3DMULTISAMPLEPROC glTextureStorage3DMultisample = SOGL_NULL;
-PFNGLTEXTURESUBIMAGE1DPROC glTextureSubImage1D = SOGL_NULL;
-PFNGLTEXTURESUBIMAGE2DPROC glTextureSubImage2D = SOGL_NULL;
-PFNGLTEXTURESUBIMAGE3DPROC glTextureSubImage3D = SOGL_NULL;
-PFNGLCOMPRESSEDTEXTURESUBIMAGE1DPROC glCompressedTextureSubImage1D = SOGL_NULL;
-PFNGLCOMPRESSEDTEXTURESUBIMAGE2DPROC glCompressedTextureSubImage2D = SOGL_NULL;
-PFNGLCOMPRESSEDTEXTURESUBIMAGE3DPROC glCompressedTextureSubImage3D = SOGL_NULL;
-PFNGLCOPYTEXTURESUBIMAGE1DPROC glCopyTextureSubImage1D = SOGL_NULL;
-PFNGLCOPYTEXTURESUBIMAGE2DPROC glCopyTextureSubImage2D = SOGL_NULL;
-PFNGLCOPYTEXTURESUBIMAGE3DPROC glCopyTextureSubImage3D = SOGL_NULL;
-PFNGLTEXTUREPARAMETERFPROC glTextureParameterf = SOGL_NULL;
-PFNGLTEXTUREPARAMETERFVPROC glTextureParameterfv = SOGL_NULL;
-PFNGLTEXTUREPARAMETERIPROC glTextureParameteri = SOGL_NULL;
-PFNGLTEXTUREPARAMETERIIVPROC glTextureParameterIiv = SOGL_NULL;
-PFNGLTEXTUREPARAMETERIUIVPROC glTextureParameterIuiv = SOGL_NULL;
-PFNGLTEXTUREPARAMETERIVPROC glTextureParameteriv = SOGL_NULL;
-PFNGLGENERATETEXTUREMIPMAPPROC glGenerateTextureMipmap = SOGL_NULL;
-PFNGLBINDTEXTUREUNITPROC glBindTextureUnit = SOGL_NULL;
-PFNGLGETTEXTUREIMAGEPROC glGetTextureImage = SOGL_NULL;
-PFNGLGETCOMPRESSEDTEXTUREIMAGEPROC glGetCompressedTextureImage = SOGL_NULL;
-PFNGLGETTEXTURELEVELPARAMETERFVPROC glGetTextureLevelParameterfv = SOGL_NULL;
-PFNGLGETTEXTURELEVELPARAMETERIVPROC glGetTextureLevelParameteriv = SOGL_NULL;
-PFNGLGETTEXTUREPARAMETERFVPROC glGetTextureParameterfv = SOGL_NULL;
-PFNGLGETTEXTUREPARAMETERIIVPROC glGetTextureParameterIiv = SOGL_NULL;
-PFNGLGETTEXTUREPARAMETERIUIVPROC glGetTextureParameterIuiv = SOGL_NULL;
-PFNGLGETTEXTUREPARAMETERIVPROC glGetTextureParameteriv = SOGL_NULL;
-PFNGLCREATEVERTEXARRAYSPROC glCreateVertexArrays = SOGL_NULL;
-PFNGLDISABLEVERTEXARRAYATTRIBPROC glDisableVertexArrayAttrib = SOGL_NULL;
-PFNGLENABLEVERTEXARRAYATTRIBPROC glEnableVertexArrayAttrib = SOGL_NULL;
-PFNGLVERTEXARRAYELEMENTBUFFERPROC glVertexArrayElementBuffer = SOGL_NULL;
-PFNGLVERTEXARRAYVERTEXBUFFERPROC glVertexArrayVertexBuffer = SOGL_NULL;
-PFNGLVERTEXARRAYVERTEXBUFFERSPROC glVertexArrayVertexBuffers = SOGL_NULL;
-PFNGLVERTEXARRAYATTRIBBINDINGPROC glVertexArrayAttribBinding = SOGL_NULL;
-PFNGLVERTEXARRAYATTRIBFORMATPROC glVertexArrayAttribFormat = SOGL_NULL;
-PFNGLVERTEXARRAYATTRIBIFORMATPROC glVertexArrayAttribIFormat = SOGL_NULL;
-PFNGLVERTEXARRAYATTRIBLFORMATPROC glVertexArrayAttribLFormat = SOGL_NULL;
-PFNGLVERTEXARRAYBINDINGDIVISORPROC glVertexArrayBindingDivisor = SOGL_NULL;
-PFNGLGETVERTEXARRAYIVPROC glGetVertexArrayiv = SOGL_NULL;
-PFNGLGETVERTEXARRAYINDEXEDIVPROC glGetVertexArrayIndexediv = SOGL_NULL;
-PFNGLGETVERTEXARRAYINDEXED64IVPROC glGetVertexArrayIndexed64iv = SOGL_NULL;
-PFNGLCREATESAMPLERSPROC glCreateSamplers = SOGL_NULL;
-PFNGLCREATEPROGRAMPIPELINESPROC glCreateProgramPipelines = SOGL_NULL;
-PFNGLCREATEQUERIESPROC glCreateQueries = SOGL_NULL;
-PFNGLGETQUERYBUFFEROBJECTI64VPROC glGetQueryBufferObjecti64v = SOGL_NULL;
-PFNGLGETQUERYBUFFEROBJECTIVPROC glGetQueryBufferObjectiv = SOGL_NULL;
-PFNGLGETQUERYBUFFEROBJECTUI64VPROC glGetQueryBufferObjectui64v = SOGL_NULL;
-PFNGLGETQUERYBUFFEROBJECTUIVPROC glGetQueryBufferObjectuiv = SOGL_NULL;
-PFNGLMEMORYBARRIERBYREGIONPROC glMemoryBarrierByRegion = SOGL_NULL;
-PFNGLGETTEXTURESUBIMAGEPROC glGetTextureSubImage = SOGL_NULL;
-PFNGLGETCOMPRESSEDTEXTURESUBIMAGEPROC glGetCompressedTextureSubImage = SOGL_NULL;
-PFNGLGETGRAPHICSRESETSTATUSPROC glGetGraphicsResetStatus = SOGL_NULL;
-PFNGLGETNCOMPRESSEDTEXIMAGEPROC glGetnCompressedTexImage = SOGL_NULL;
-PFNGLGETNTEXIMAGEPROC glGetnTexImage = SOGL_NULL;
-PFNGLGETNUNIFORMDVPROC glGetnUniformdv = SOGL_NULL;
-PFNGLGETNUNIFORMFVPROC glGetnUniformfv = SOGL_NULL;
-PFNGLGETNUNIFORMIVPROC glGetnUniformiv = SOGL_NULL;
-PFNGLGETNUNIFORMUIVPROC glGetnUniformuiv = SOGL_NULL;
-PFNGLREADNPIXELSPROC glReadnPixels = SOGL_NULL;
-PFNGLTEXTUREBARRIERPROC glTextureBarrier = SOGL_NULL;
+SOGL_FUNCTIONS_4_5
 #endif /* GL_VERSION_4_5 */
 
 #if SOGL_TEST_VERSION(4, 6)
-PFNGLSPECIALIZESHADERPROC glSpecializeShader = SOGL_NULL;
-PFNGLMULTIDRAWARRAYSINDIRECTCOUNTPROC glMultiDrawArraysIndirectCount = SOGL_NULL;
-PFNGLMULTIDRAWELEMENTSINDIRECTCOUNTPROC glMultiDrawElementsIndirectCount = SOGL_NULL;
-PFNGLPOLYGONOFFSETCLAMPPROC glPolygonOffsetClamp = SOGL_NULL;
+SOGL_FUNCTIONS_4_6
 #endif /* GL_VERSION_4_6 */
 
-/* EXTENSION IMPLEMENTATIONS */
-
-
 #ifdef SOGL_ARB_ES3_2_compatibility
-PFNGLPRIMITIVEBOUNDINGBOXARBPROC glPrimitiveBoundingBoxARB = SOGL_NULL;
+SOGL_FUNCTIONS_ARB_ES3_2_compatibility
 #endif /* SOGL_ARB_ES3_2_compatibility */
 
 #ifdef SOGL_ARB_bindless_texture
-PFNGLGETTEXTUREHANDLEARBPROC glGetTextureHandleARB = SOGL_NULL;
-PFNGLGETTEXTURESAMPLERHANDLEARBPROC glGetTextureSamplerHandleARB = SOGL_NULL;
-PFNGLMAKETEXTUREHANDLERESIDENTARBPROC glMakeTextureHandleResidentARB = SOGL_NULL;
-PFNGLMAKETEXTUREHANDLENONRESIDENTARBPROC glMakeTextureHandleNonResidentARB = SOGL_NULL;
-PFNGLGETIMAGEHANDLEARBPROC glGetImageHandleARB = SOGL_NULL;
-PFNGLMAKEIMAGEHANDLERESIDENTARBPROC glMakeImageHandleResidentARB = SOGL_NULL;
-PFNGLMAKEIMAGEHANDLENONRESIDENTARBPROC glMakeImageHandleNonResidentARB = SOGL_NULL;
-PFNGLUNIFORMHANDLEUI64ARBPROC glUniformHandleui64ARB = SOGL_NULL;
-PFNGLUNIFORMHANDLEUI64VARBPROC glUniformHandleui64vARB = SOGL_NULL;
-PFNGLPROGRAMUNIFORMHANDLEUI64ARBPROC glProgramUniformHandleui64ARB = SOGL_NULL;
-PFNGLPROGRAMUNIFORMHANDLEUI64VARBPROC glProgramUniformHandleui64vARB = SOGL_NULL;
-PFNGLISTEXTUREHANDLERESIDENTARBPROC glIsTextureHandleResidentARB = SOGL_NULL;
-PFNGLISIMAGEHANDLERESIDENTARBPROC glIsImageHandleResidentARB = SOGL_NULL;
-PFNGLVERTEXATTRIBL1UI64ARBPROC glVertexAttribL1ui64ARB = SOGL_NULL;
-PFNGLVERTEXATTRIBL1UI64VARBPROC glVertexAttribL1ui64vARB = SOGL_NULL;
-PFNGLGETVERTEXATTRIBLUI64VARBPROC glGetVertexAttribLui64vARB = SOGL_NULL;
+SOGL_FUNCTIONS_ARB_bindless_texture
 #endif /* SOGL_ARB_bindless_texture */
 
 #ifdef SOGL_ARB_cl_event
-PFNGLCREATESYNCFROMCLEVENTARBPROC glCreateSyncFromCLeventARB = SOGL_NULL;
+SOGL_FUNCTIONS_ARB_cl_event
 #endif /* SOGL_ARB_cl_event */
 
 #ifdef SOGL_ARB_compute_variable_group_size
-PFNGLDISPATCHCOMPUTEGROUPSIZEARBPROC glDispatchComputeGroupSizeARB = SOGL_NULL;
+SOGL_FUNCTIONS_ARB_compute_variable_group_size
 #endif /* SOGL_ARB_compute_variable_group_size */
 
 #ifdef SOGL_ARB_debug_output
-PFNGLDEBUGMESSAGECONTROLARBPROC glDebugMessageControlARB = SOGL_NULL;
-PFNGLDEBUGMESSAGEINSERTARBPROC glDebugMessageInsertARB = SOGL_NULL;
-PFNGLDEBUGMESSAGECALLBACKARBPROC glDebugMessageCallbackARB = SOGL_NULL;
-PFNGLGETDEBUGMESSAGELOGARBPROC glGetDebugMessageLogARB = SOGL_NULL;
+SOGL_FUNCTIONS_ARB_debug_output
 #endif /* SOGL_ARB_debug_output */
 
 #ifdef SOGL_ARB_draw_buffers_blend
-PFNGLBLENDEQUATIONIARBPROC glBlendEquationiARB = SOGL_NULL;
-PFNGLBLENDEQUATIONSEPARATEIARBPROC glBlendEquationSeparateiARB = SOGL_NULL;
-PFNGLBLENDFUNCIARBPROC glBlendFunciARB = SOGL_NULL;
-PFNGLBLENDFUNCSEPARATEIARBPROC glBlendFuncSeparateiARB = SOGL_NULL;
+SOGL_FUNCTIONS_ARB_draw_buffers_blend
 #endif /* SOGL_ARB_draw_buffers_blend */
 
 #ifdef SOGL_ARB_draw_instanced
-PFNGLDRAWARRAYSINSTANCEDARBPROC glDrawArraysInstancedARB = SOGL_NULL;
-PFNGLDRAWELEMENTSINSTANCEDARBPROC glDrawElementsInstancedARB = SOGL_NULL;
+SOGL_FUNCTIONS_ARB_draw_instanced
 #endif /* SOGL_ARB_draw_instanced */
 
 #ifdef SOGL_ARB_geometry_shader4
-PFNGLPROGRAMPARAMETERIARBPROC glProgramParameteriARB = SOGL_NULL;
-PFNGLFRAMEBUFFERTEXTUREARBPROC glFramebufferTextureARB = SOGL_NULL;
-PFNGLFRAMEBUFFERTEXTURELAYERARBPROC glFramebufferTextureLayerARB = SOGL_NULL;
-PFNGLFRAMEBUFFERTEXTUREFACEARBPROC glFramebufferTextureFaceARB = SOGL_NULL;
+SOGL_FUNCTIONS_ARB_geometry_shader4
 #endif /* SOGL_ARB_geometry_shader4 */
 
 #ifdef SOGL_ARB_gl_spirv
-PFNGLSPECIALIZESHADERARBPROC glSpecializeShaderARB = SOGL_NULL;
+SOGL_FUNCTIONS_ARB_gl_spirv
 #endif /* SOGL_ARB_gl_spirv */
 
 #ifdef SOGL_ARB_gpu_shader_int64
-PFNGLUNIFORM1I64ARBPROC glUniform1i64ARB = SOGL_NULL;
-PFNGLUNIFORM2I64ARBPROC glUniform2i64ARB = SOGL_NULL;
-PFNGLUNIFORM3I64ARBPROC glUniform3i64ARB = SOGL_NULL;
-PFNGLUNIFORM4I64ARBPROC glUniform4i64ARB = SOGL_NULL;
-PFNGLUNIFORM1I64VARBPROC glUniform1i64vARB = SOGL_NULL;
-PFNGLUNIFORM2I64VARBPROC glUniform2i64vARB = SOGL_NULL;
-PFNGLUNIFORM3I64VARBPROC glUniform3i64vARB = SOGL_NULL;
-PFNGLUNIFORM4I64VARBPROC glUniform4i64vARB = SOGL_NULL;
-PFNGLUNIFORM1UI64ARBPROC glUniform1ui64ARB = SOGL_NULL;
-PFNGLUNIFORM2UI64ARBPROC glUniform2ui64ARB = SOGL_NULL;
-PFNGLUNIFORM3UI64ARBPROC glUniform3ui64ARB = SOGL_NULL;
-PFNGLUNIFORM4UI64ARBPROC glUniform4ui64ARB = SOGL_NULL;
-PFNGLUNIFORM1UI64VARBPROC glUniform1ui64vARB = SOGL_NULL;
-PFNGLUNIFORM2UI64VARBPROC glUniform2ui64vARB = SOGL_NULL;
-PFNGLUNIFORM3UI64VARBPROC glUniform3ui64vARB = SOGL_NULL;
-PFNGLUNIFORM4UI64VARBPROC glUniform4ui64vARB = SOGL_NULL;
-PFNGLGETUNIFORMI64VARBPROC glGetUniformi64vARB = SOGL_NULL;
-PFNGLGETUNIFORMUI64VARBPROC glGetUniformui64vARB = SOGL_NULL;
-PFNGLGETNUNIFORMI64VARBPROC glGetnUniformi64vARB = SOGL_NULL;
-PFNGLGETNUNIFORMUI64VARBPROC glGetnUniformui64vARB = SOGL_NULL;
-PFNGLPROGRAMUNIFORM1I64ARBPROC glProgramUniform1i64ARB = SOGL_NULL;
-PFNGLPROGRAMUNIFORM2I64ARBPROC glProgramUniform2i64ARB = SOGL_NULL;
-PFNGLPROGRAMUNIFORM3I64ARBPROC glProgramUniform3i64ARB = SOGL_NULL;
-PFNGLPROGRAMUNIFORM4I64ARBPROC glProgramUniform4i64ARB = SOGL_NULL;
-PFNGLPROGRAMUNIFORM1I64VARBPROC glProgramUniform1i64vARB = SOGL_NULL;
-PFNGLPROGRAMUNIFORM2I64VARBPROC glProgramUniform2i64vARB = SOGL_NULL;
-PFNGLPROGRAMUNIFORM3I64VARBPROC glProgramUniform3i64vARB = SOGL_NULL;
-PFNGLPROGRAMUNIFORM4I64VARBPROC glProgramUniform4i64vARB = SOGL_NULL;
-PFNGLPROGRAMUNIFORM1UI64ARBPROC glProgramUniform1ui64ARB = SOGL_NULL;
-PFNGLPROGRAMUNIFORM2UI64ARBPROC glProgramUniform2ui64ARB = SOGL_NULL;
-PFNGLPROGRAMUNIFORM3UI64ARBPROC glProgramUniform3ui64ARB = SOGL_NULL;
-PFNGLPROGRAMUNIFORM4UI64ARBPROC glProgramUniform4ui64ARB = SOGL_NULL;
-PFNGLPROGRAMUNIFORM1UI64VARBPROC glProgramUniform1ui64vARB = SOGL_NULL;
-PFNGLPROGRAMUNIFORM2UI64VARBPROC glProgramUniform2ui64vARB = SOGL_NULL;
-PFNGLPROGRAMUNIFORM3UI64VARBPROC glProgramUniform3ui64vARB = SOGL_NULL;
-PFNGLPROGRAMUNIFORM4UI64VARBPROC glProgramUniform4ui64vARB = SOGL_NULL;
+SOGL_FUNCTIONS_ARB_gpu_shader_int64
 #endif /* SOGL_ARB_gpu_shader_int64 */
 
 #ifdef SOGL_ARB_indirect_parameters
-PFNGLMULTIDRAWARRAYSINDIRECTCOUNTARBPROC glMultiDrawArraysIndirectCountARB = SOGL_NULL;
-PFNGLMULTIDRAWELEMENTSINDIRECTCOUNTARBPROC glMultiDrawElementsIndirectCountARB = SOGL_NULL;
+SOGL_FUNCTIONS_ARB_indirect_parameters
 #endif /* SOGL_ARB_indirect_parameters */
 
 #ifdef SOGL_ARB_instanced_arrays
-PFNGLVERTEXATTRIBDIVISORARBPROC glVertexAttribDivisorARB = SOGL_NULL;
+SOGL_FUNCTIONS_ARB_instanced_arrays
 #endif /* SOGL_ARB_instanced_arrays */
 
 #ifdef SOGL_ARB_parallel_shader_compile
-PFNGLMAXSHADERCOMPILERTHREADSARBPROC glMaxShaderCompilerThreadsARB = SOGL_NULL;
+SOGL_FUNCTIONS_ARB_parallel_shader_compile
 #endif /* SOGL_ARB_parallel_shader_compile */
 
 #ifdef SOGL_ARB_robustness
-PFNGLGETGRAPHICSRESETSTATUSARBPROC glGetGraphicsResetStatusARB = SOGL_NULL;
-PFNGLGETNTEXIMAGEARBPROC glGetnTexImageARB = SOGL_NULL;
-PFNGLREADNPIXELSARBPROC glReadnPixelsARB = SOGL_NULL;
-PFNGLGETNCOMPRESSEDTEXIMAGEARBPROC glGetnCompressedTexImageARB = SOGL_NULL;
-PFNGLGETNUNIFORMFVARBPROC glGetnUniformfvARB = SOGL_NULL;
-PFNGLGETNUNIFORMIVARBPROC glGetnUniformivARB = SOGL_NULL;
-PFNGLGETNUNIFORMUIVARBPROC glGetnUniformuivARB = SOGL_NULL;
-PFNGLGETNUNIFORMDVARBPROC glGetnUniformdvARB = SOGL_NULL;
+SOGL_FUNCTIONS_ARB_robustness
 #endif /* SOGL_ARB_robustness */
 
 #ifdef SOGL_ARB_sample_locations
-PFNGLFRAMEBUFFERSAMPLELOCATIONSFVARBPROC glFramebufferSampleLocationsfvARB = SOGL_NULL;
-PFNGLNAMEDFRAMEBUFFERSAMPLELOCATIONSFVARBPROC glNamedFramebufferSampleLocationsfvARB = SOGL_NULL;
-PFNGLEVALUATEDEPTHVALUESARBPROC glEvaluateDepthValuesARB = SOGL_NULL;
+SOGL_FUNCTIONS_ARB_sample_locations
 #endif /* SOGL_ARB_sample_locations */
 
 #ifdef SOGL_ARB_sample_shading
-PFNGLMINSAMPLESHADINGARBPROC glMinSampleShadingARB = SOGL_NULL;
+SOGL_FUNCTIONS_ARB_sample_shading
 #endif /* SOGL_ARB_sample_shading */
 
 #ifdef SOGL_ARB_shading_language_include
-PFNGLNAMEDSTRINGARBPROC glNamedStringARB = SOGL_NULL;
-PFNGLDELETENAMEDSTRINGARBPROC glDeleteNamedStringARB = SOGL_NULL;
-PFNGLCOMPILESHADERINCLUDEARBPROC glCompileShaderIncludeARB = SOGL_NULL;
-PFNGLISNAMEDSTRINGARBPROC glIsNamedStringARB = SOGL_NULL;
-PFNGLGETNAMEDSTRINGARBPROC glGetNamedStringARB = SOGL_NULL;
-PFNGLGETNAMEDSTRINGIVARBPROC glGetNamedStringivARB = SOGL_NULL;
+SOGL_FUNCTIONS_ARB_shading_language_include
 #endif /* SOGL_ARB_shading_language_include */
 
 #ifdef SOGL_ARB_sparse_buffer
-PFNGLBUFFERPAGECOMMITMENTARBPROC glBufferPageCommitmentARB = SOGL_NULL;
-PFNGLNAMEDBUFFERPAGECOMMITMENTEXTPROC glNamedBufferPageCommitmentEXT = SOGL_NULL;
-PFNGLNAMEDBUFFERPAGECOMMITMENTARBPROC glNamedBufferPageCommitmentARB = SOGL_NULL;
+SOGL_FUNCTIONS_ARB_sparse_buffer
 #endif /* SOGL_ARB_sparse_buffer */
 
 #ifdef SOGL_ARB_sparse_texture
-PFNGLTEXPAGECOMMITMENTARBPROC glTexPageCommitmentARB = SOGL_NULL;
+SOGL_FUNCTIONS_ARB_sparse_texture
 #endif /* SOGL_ARB_sparse_texture */
 
 #ifdef SOGL_ARB_texture_buffer_object
-PFNGLTEXBUFFERARBPROC glTexBufferARB = SOGL_NULL;
+SOGL_FUNCTIONS_ARB_texture_buffer_object
 #endif /* SOGL_ARB_texture_buffer_object */
 
 #ifdef SOGL_ARB_viewport_array
-PFNGLDEPTHRANGEARRAYDVNVPROC glDepthRangeArraydvNV = SOGL_NULL;
-PFNGLDEPTHRANGEINDEXEDDNVPROC glDepthRangeIndexeddNV = SOGL_NULL;
+SOGL_FUNCTIONS_ARB_viewport_array
 #endif /* SOGL_ARB_viewport_array */
 
 #ifdef SOGL_KHR_blend_equation_advanced
-PFNGLBLENDBARRIERKHRPROC glBlendBarrierKHR = SOGL_NULL;
+SOGL_FUNCTIONS_KHR_blend_equation_advanced
 #endif /* SOGL_KHR_blend_equation_advanced */
 
 #ifdef SOGL_KHR_parallel_shader_compile
-PFNGLMAXSHADERCOMPILERTHREADSKHRPROC glMaxShaderCompilerThreadsKHR = SOGL_NULL;
+SOGL_FUNCTIONS_KHR_parallel_shader_compile
 #endif /* SOGL_KHR_parallel_shader_compile */
 
 #ifdef SOGL_AMD_framebuffer_multisample_advanced
-PFNGLRENDERBUFFERSTORAGEMULTISAMPLEADVANCEDAMDPROC glRenderbufferStorageMultisampleAdvancedAMD = SOGL_NULL;
-PFNGLNAMEDRENDERBUFFERSTORAGEMULTISAMPLEADVANCEDAMDPROC glNamedRenderbufferStorageMultisampleAdvancedAMD = SOGL_NULL;
+SOGL_FUNCTIONS_AMD_framebuffer_multisample_advanced
 #endif /* SOGL_AMD_framebuffer_multisample_advanced */
 
 #ifdef SOGL_AMD_performance_monitor
-PFNGLGETPERFMONITORGROUPSAMDPROC glGetPerfMonitorGroupsAMD = SOGL_NULL;
-PFNGLGETPERFMONITORCOUNTERSAMDPROC glGetPerfMonitorCountersAMD = SOGL_NULL;
-PFNGLGETPERFMONITORGROUPSTRINGAMDPROC glGetPerfMonitorGroupStringAMD = SOGL_NULL;
-PFNGLGETPERFMONITORCOUNTERSTRINGAMDPROC glGetPerfMonitorCounterStringAMD = SOGL_NULL;
-PFNGLGETPERFMONITORCOUNTERINFOAMDPROC glGetPerfMonitorCounterInfoAMD = SOGL_NULL;
-PFNGLGENPERFMONITORSAMDPROC glGenPerfMonitorsAMD = SOGL_NULL;
-PFNGLDELETEPERFMONITORSAMDPROC glDeletePerfMonitorsAMD = SOGL_NULL;
-PFNGLSELECTPERFMONITORCOUNTERSAMDPROC glSelectPerfMonitorCountersAMD = SOGL_NULL;
-PFNGLBEGINPERFMONITORAMDPROC glBeginPerfMonitorAMD = SOGL_NULL;
-PFNGLENDPERFMONITORAMDPROC glEndPerfMonitorAMD = SOGL_NULL;
-PFNGLGETPERFMONITORCOUNTERDATAAMDPROC glGetPerfMonitorCounterDataAMD = SOGL_NULL;
+SOGL_FUNCTIONS_AMD_performance_monitor
 #endif /* SOGL_AMD_performance_monitor */
 
 #ifdef SOGL_EXT_EGL_image_storage
-PFNGLEGLIMAGETARGETTEXSTORAGEEXTPROC glEGLImageTargetTexStorageEXT = SOGL_NULL;
-PFNGLEGLIMAGETARGETTEXTURESTORAGEEXTPROC glEGLImageTargetTextureStorageEXT = SOGL_NULL;
+SOGL_FUNCTIONS_EXT_EGL_image_storage
 #endif /* SOGL_EXT_EGL_image_storage */
 
 #ifdef SOGL_EXT_debug_label
-PFNGLLABELOBJECTEXTPROC glLabelObjectEXT = SOGL_NULL;
-PFNGLGETOBJECTLABELEXTPROC glGetObjectLabelEXT = SOGL_NULL;
+SOGL_FUNCTIONS_EXT_debug_label
 #endif /* SOGL_EXT_debug_label */
 
 #ifdef SOGL_EXT_debug_marker
-PFNGLINSERTEVENTMARKEREXTPROC glInsertEventMarkerEXT = SOGL_NULL;
-PFNGLPUSHGROUPMARKEREXTPROC glPushGroupMarkerEXT = SOGL_NULL;
-PFNGLPOPGROUPMARKEREXTPROC glPopGroupMarkerEXT = SOGL_NULL;
+SOGL_FUNCTIONS_EXT_debug_marker
 #endif /* SOGL_EXT_debug_marker */
 
 #ifdef SOGL_EXT_direct_state_access
-PFNGLMATRIXLOADFEXTPROC glMatrixLoadfEXT = SOGL_NULL;
-PFNGLMATRIXLOADDEXTPROC glMatrixLoaddEXT = SOGL_NULL;
-PFNGLMATRIXMULTFEXTPROC glMatrixMultfEXT = SOGL_NULL;
-PFNGLMATRIXMULTDEXTPROC glMatrixMultdEXT = SOGL_NULL;
-PFNGLMATRIXLOADIDENTITYEXTPROC glMatrixLoadIdentityEXT = SOGL_NULL;
-PFNGLMATRIXROTATEFEXTPROC glMatrixRotatefEXT = SOGL_NULL;
-PFNGLMATRIXROTATEDEXTPROC glMatrixRotatedEXT = SOGL_NULL;
-PFNGLMATRIXSCALEFEXTPROC glMatrixScalefEXT = SOGL_NULL;
-PFNGLMATRIXSCALEDEXTPROC glMatrixScaledEXT = SOGL_NULL;
-PFNGLMATRIXTRANSLATEFEXTPROC glMatrixTranslatefEXT = SOGL_NULL;
-PFNGLMATRIXTRANSLATEDEXTPROC glMatrixTranslatedEXT = SOGL_NULL;
-PFNGLMATRIXFRUSTUMEXTPROC glMatrixFrustumEXT = SOGL_NULL;
-PFNGLMATRIXORTHOEXTPROC glMatrixOrthoEXT = SOGL_NULL;
-PFNGLMATRIXPOPEXTPROC glMatrixPopEXT = SOGL_NULL;
-PFNGLMATRIXPUSHEXTPROC glMatrixPushEXT = SOGL_NULL;
-PFNGLCLIENTATTRIBDEFAULTEXTPROC glClientAttribDefaultEXT = SOGL_NULL;
-PFNGLPUSHCLIENTATTRIBDEFAULTEXTPROC glPushClientAttribDefaultEXT = SOGL_NULL;
-PFNGLTEXTUREPARAMETERFEXTPROC glTextureParameterfEXT = SOGL_NULL;
-PFNGLTEXTUREPARAMETERFVEXTPROC glTextureParameterfvEXT = SOGL_NULL;
-PFNGLTEXTUREPARAMETERIEXTPROC glTextureParameteriEXT = SOGL_NULL;
-PFNGLTEXTUREPARAMETERIVEXTPROC glTextureParameterivEXT = SOGL_NULL;
-PFNGLTEXTUREIMAGE1DEXTPROC glTextureImage1DEXT = SOGL_NULL;
-PFNGLTEXTUREIMAGE2DEXTPROC glTextureImage2DEXT = SOGL_NULL;
-PFNGLTEXTURESUBIMAGE1DEXTPROC glTextureSubImage1DEXT = SOGL_NULL;
-PFNGLTEXTURESUBIMAGE2DEXTPROC glTextureSubImage2DEXT = SOGL_NULL;
-PFNGLCOPYTEXTUREIMAGE1DEXTPROC glCopyTextureImage1DEXT = SOGL_NULL;
-PFNGLCOPYTEXTUREIMAGE2DEXTPROC glCopyTextureImage2DEXT = SOGL_NULL;
-PFNGLCOPYTEXTURESUBIMAGE1DEXTPROC glCopyTextureSubImage1DEXT = SOGL_NULL;
-PFNGLCOPYTEXTURESUBIMAGE2DEXTPROC glCopyTextureSubImage2DEXT = SOGL_NULL;
-PFNGLGETTEXTUREIMAGEEXTPROC glGetTextureImageEXT = SOGL_NULL;
-PFNGLGETTEXTUREPARAMETERFVEXTPROC glGetTextureParameterfvEXT = SOGL_NULL;
-PFNGLGETTEXTUREPARAMETERIVEXTPROC glGetTextureParameterivEXT = SOGL_NULL;
-PFNGLGETTEXTURELEVELPARAMETERFVEXTPROC glGetTextureLevelParameterfvEXT = SOGL_NULL;
-PFNGLGETTEXTURELEVELPARAMETERIVEXTPROC glGetTextureLevelParameterivEXT = SOGL_NULL;
-PFNGLTEXTUREIMAGE3DEXTPROC glTextureImage3DEXT = SOGL_NULL;
-PFNGLTEXTURESUBIMAGE3DEXTPROC glTextureSubImage3DEXT = SOGL_NULL;
-PFNGLCOPYTEXTURESUBIMAGE3DEXTPROC glCopyTextureSubImage3DEXT = SOGL_NULL;
-PFNGLBINDMULTITEXTUREEXTPROC glBindMultiTextureEXT = SOGL_NULL;
-PFNGLMULTITEXCOORDPOINTEREXTPROC glMultiTexCoordPointerEXT = SOGL_NULL;
-PFNGLMULTITEXENVFEXTPROC glMultiTexEnvfEXT = SOGL_NULL;
-PFNGLMULTITEXENVFVEXTPROC glMultiTexEnvfvEXT = SOGL_NULL;
-PFNGLMULTITEXENVIEXTPROC glMultiTexEnviEXT = SOGL_NULL;
-PFNGLMULTITEXENVIVEXTPROC glMultiTexEnvivEXT = SOGL_NULL;
-PFNGLMULTITEXGENDEXTPROC glMultiTexGendEXT = SOGL_NULL;
-PFNGLMULTITEXGENDVEXTPROC glMultiTexGendvEXT = SOGL_NULL;
-PFNGLMULTITEXGENFEXTPROC glMultiTexGenfEXT = SOGL_NULL;
-PFNGLMULTITEXGENFVEXTPROC glMultiTexGenfvEXT = SOGL_NULL;
-PFNGLMULTITEXGENIEXTPROC glMultiTexGeniEXT = SOGL_NULL;
-PFNGLMULTITEXGENIVEXTPROC glMultiTexGenivEXT = SOGL_NULL;
-PFNGLGETMULTITEXENVFVEXTPROC glGetMultiTexEnvfvEXT = SOGL_NULL;
-PFNGLGETMULTITEXENVIVEXTPROC glGetMultiTexEnvivEXT = SOGL_NULL;
-PFNGLGETMULTITEXGENDVEXTPROC glGetMultiTexGendvEXT = SOGL_NULL;
-PFNGLGETMULTITEXGENFVEXTPROC glGetMultiTexGenfvEXT = SOGL_NULL;
-PFNGLGETMULTITEXGENIVEXTPROC glGetMultiTexGenivEXT = SOGL_NULL;
-PFNGLMULTITEXPARAMETERIEXTPROC glMultiTexParameteriEXT = SOGL_NULL;
-PFNGLMULTITEXPARAMETERIVEXTPROC glMultiTexParameterivEXT = SOGL_NULL;
-PFNGLMULTITEXPARAMETERFEXTPROC glMultiTexParameterfEXT = SOGL_NULL;
-PFNGLMULTITEXPARAMETERFVEXTPROC glMultiTexParameterfvEXT = SOGL_NULL;
-PFNGLMULTITEXIMAGE1DEXTPROC glMultiTexImage1DEXT = SOGL_NULL;
-PFNGLMULTITEXIMAGE2DEXTPROC glMultiTexImage2DEXT = SOGL_NULL;
-PFNGLMULTITEXSUBIMAGE1DEXTPROC glMultiTexSubImage1DEXT = SOGL_NULL;
-PFNGLMULTITEXSUBIMAGE2DEXTPROC glMultiTexSubImage2DEXT = SOGL_NULL;
-PFNGLCOPYMULTITEXIMAGE1DEXTPROC glCopyMultiTexImage1DEXT = SOGL_NULL;
-PFNGLCOPYMULTITEXIMAGE2DEXTPROC glCopyMultiTexImage2DEXT = SOGL_NULL;
-PFNGLCOPYMULTITEXSUBIMAGE1DEXTPROC glCopyMultiTexSubImage1DEXT = SOGL_NULL;
-PFNGLCOPYMULTITEXSUBIMAGE2DEXTPROC glCopyMultiTexSubImage2DEXT = SOGL_NULL;
-PFNGLGETMULTITEXIMAGEEXTPROC glGetMultiTexImageEXT = SOGL_NULL;
-PFNGLGETMULTITEXPARAMETERFVEXTPROC glGetMultiTexParameterfvEXT = SOGL_NULL;
-PFNGLGETMULTITEXPARAMETERIVEXTPROC glGetMultiTexParameterivEXT = SOGL_NULL;
-PFNGLGETMULTITEXLEVELPARAMETERFVEXTPROC glGetMultiTexLevelParameterfvEXT = SOGL_NULL;
-PFNGLGETMULTITEXLEVELPARAMETERIVEXTPROC glGetMultiTexLevelParameterivEXT = SOGL_NULL;
-PFNGLMULTITEXIMAGE3DEXTPROC glMultiTexImage3DEXT = SOGL_NULL;
-PFNGLMULTITEXSUBIMAGE3DEXTPROC glMultiTexSubImage3DEXT = SOGL_NULL;
-PFNGLCOPYMULTITEXSUBIMAGE3DEXTPROC glCopyMultiTexSubImage3DEXT = SOGL_NULL;
-PFNGLENABLECLIENTSTATEINDEXEDEXTPROC glEnableClientStateIndexedEXT = SOGL_NULL;
-PFNGLDISABLECLIENTSTATEINDEXEDEXTPROC glDisableClientStateIndexedEXT = SOGL_NULL;
-PFNGLGETFLOATINDEXEDVEXTPROC glGetFloatIndexedvEXT = SOGL_NULL;
-PFNGLGETDOUBLEINDEXEDVEXTPROC glGetDoubleIndexedvEXT = SOGL_NULL;
-PFNGLGETPOINTERINDEXEDVEXTPROC glGetPointerIndexedvEXT = SOGL_NULL;
-PFNGLENABLEINDEXEDEXTPROC glEnableIndexedEXT = SOGL_NULL;
-PFNGLDISABLEINDEXEDEXTPROC glDisableIndexedEXT = SOGL_NULL;
-PFNGLISENABLEDINDEXEDEXTPROC glIsEnabledIndexedEXT = SOGL_NULL;
-PFNGLGETINTEGERINDEXEDVEXTPROC glGetIntegerIndexedvEXT = SOGL_NULL;
-PFNGLGETBOOLEANINDEXEDVEXTPROC glGetBooleanIndexedvEXT = SOGL_NULL;
-PFNGLCOMPRESSEDTEXTUREIMAGE3DEXTPROC glCompressedTextureImage3DEXT = SOGL_NULL;
-PFNGLCOMPRESSEDTEXTUREIMAGE2DEXTPROC glCompressedTextureImage2DEXT = SOGL_NULL;
-PFNGLCOMPRESSEDTEXTUREIMAGE1DEXTPROC glCompressedTextureImage1DEXT = SOGL_NULL;
-PFNGLCOMPRESSEDTEXTURESUBIMAGE3DEXTPROC glCompressedTextureSubImage3DEXT = SOGL_NULL;
-PFNGLCOMPRESSEDTEXTURESUBIMAGE2DEXTPROC glCompressedTextureSubImage2DEXT = SOGL_NULL;
-PFNGLCOMPRESSEDTEXTURESUBIMAGE1DEXTPROC glCompressedTextureSubImage1DEXT = SOGL_NULL;
-PFNGLGETCOMPRESSEDTEXTUREIMAGEEXTPROC glGetCompressedTextureImageEXT = SOGL_NULL;
-PFNGLCOMPRESSEDMULTITEXIMAGE3DEXTPROC glCompressedMultiTexImage3DEXT = SOGL_NULL;
-PFNGLCOMPRESSEDMULTITEXIMAGE2DEXTPROC glCompressedMultiTexImage2DEXT = SOGL_NULL;
-PFNGLCOMPRESSEDMULTITEXIMAGE1DEXTPROC glCompressedMultiTexImage1DEXT = SOGL_NULL;
-PFNGLCOMPRESSEDMULTITEXSUBIMAGE3DEXTPROC glCompressedMultiTexSubImage3DEXT = SOGL_NULL;
-PFNGLCOMPRESSEDMULTITEXSUBIMAGE2DEXTPROC glCompressedMultiTexSubImage2DEXT = SOGL_NULL;
-PFNGLCOMPRESSEDMULTITEXSUBIMAGE1DEXTPROC glCompressedMultiTexSubImage1DEXT = SOGL_NULL;
-PFNGLGETCOMPRESSEDMULTITEXIMAGEEXTPROC glGetCompressedMultiTexImageEXT = SOGL_NULL;
-PFNGLMATRIXLOADTRANSPOSEFEXTPROC glMatrixLoadTransposefEXT = SOGL_NULL;
-PFNGLMATRIXLOADTRANSPOSEDEXTPROC glMatrixLoadTransposedEXT = SOGL_NULL;
-PFNGLMATRIXMULTTRANSPOSEFEXTPROC glMatrixMultTransposefEXT = SOGL_NULL;
-PFNGLMATRIXMULTTRANSPOSEDEXTPROC glMatrixMultTransposedEXT = SOGL_NULL;
-PFNGLNAMEDBUFFERDATAEXTPROC glNamedBufferDataEXT = SOGL_NULL;
-PFNGLNAMEDBUFFERSUBDATAEXTPROC glNamedBufferSubDataEXT = SOGL_NULL;
-PFNGLMAPNAMEDBUFFEREXTPROC glMapNamedBufferEXT = SOGL_NULL;
-PFNGLUNMAPNAMEDBUFFEREXTPROC glUnmapNamedBufferEXT = SOGL_NULL;
-PFNGLGETNAMEDBUFFERPARAMETERIVEXTPROC glGetNamedBufferParameterivEXT = SOGL_NULL;
-PFNGLGETNAMEDBUFFERPOINTERVEXTPROC glGetNamedBufferPointervEXT = SOGL_NULL;
-PFNGLGETNAMEDBUFFERSUBDATAEXTPROC glGetNamedBufferSubDataEXT = SOGL_NULL;
-PFNGLPROGRAMUNIFORM1FEXTPROC glProgramUniform1fEXT = SOGL_NULL;
-PFNGLPROGRAMUNIFORM2FEXTPROC glProgramUniform2fEXT = SOGL_NULL;
-PFNGLPROGRAMUNIFORM3FEXTPROC glProgramUniform3fEXT = SOGL_NULL;
-PFNGLPROGRAMUNIFORM4FEXTPROC glProgramUniform4fEXT = SOGL_NULL;
-PFNGLPROGRAMUNIFORM1IEXTPROC glProgramUniform1iEXT = SOGL_NULL;
-PFNGLPROGRAMUNIFORM2IEXTPROC glProgramUniform2iEXT = SOGL_NULL;
-PFNGLPROGRAMUNIFORM3IEXTPROC glProgramUniform3iEXT = SOGL_NULL;
-PFNGLPROGRAMUNIFORM4IEXTPROC glProgramUniform4iEXT = SOGL_NULL;
-PFNGLPROGRAMUNIFORM1FVEXTPROC glProgramUniform1fvEXT = SOGL_NULL;
-PFNGLPROGRAMUNIFORM2FVEXTPROC glProgramUniform2fvEXT = SOGL_NULL;
-PFNGLPROGRAMUNIFORM3FVEXTPROC glProgramUniform3fvEXT = SOGL_NULL;
-PFNGLPROGRAMUNIFORM4FVEXTPROC glProgramUniform4fvEXT = SOGL_NULL;
-PFNGLPROGRAMUNIFORM1IVEXTPROC glProgramUniform1ivEXT = SOGL_NULL;
-PFNGLPROGRAMUNIFORM2IVEXTPROC glProgramUniform2ivEXT = SOGL_NULL;
-PFNGLPROGRAMUNIFORM3IVEXTPROC glProgramUniform3ivEXT = SOGL_NULL;
-PFNGLPROGRAMUNIFORM4IVEXTPROC glProgramUniform4ivEXT = SOGL_NULL;
-PFNGLPROGRAMUNIFORMMATRIX2FVEXTPROC glProgramUniformMatrix2fvEXT = SOGL_NULL;
-PFNGLPROGRAMUNIFORMMATRIX3FVEXTPROC glProgramUniformMatrix3fvEXT = SOGL_NULL;
-PFNGLPROGRAMUNIFORMMATRIX4FVEXTPROC glProgramUniformMatrix4fvEXT = SOGL_NULL;
-PFNGLPROGRAMUNIFORMMATRIX2X3FVEXTPROC glProgramUniformMatrix2x3fvEXT = SOGL_NULL;
-PFNGLPROGRAMUNIFORMMATRIX3X2FVEXTPROC glProgramUniformMatrix3x2fvEXT = SOGL_NULL;
-PFNGLPROGRAMUNIFORMMATRIX2X4FVEXTPROC glProgramUniformMatrix2x4fvEXT = SOGL_NULL;
-PFNGLPROGRAMUNIFORMMATRIX4X2FVEXTPROC glProgramUniformMatrix4x2fvEXT = SOGL_NULL;
-PFNGLPROGRAMUNIFORMMATRIX3X4FVEXTPROC glProgramUniformMatrix3x4fvEXT = SOGL_NULL;
-PFNGLPROGRAMUNIFORMMATRIX4X3FVEXTPROC glProgramUniformMatrix4x3fvEXT = SOGL_NULL;
-PFNGLTEXTUREBUFFEREXTPROC glTextureBufferEXT = SOGL_NULL;
-PFNGLMULTITEXBUFFEREXTPROC glMultiTexBufferEXT = SOGL_NULL;
-PFNGLTEXTUREPARAMETERIIVEXTPROC glTextureParameterIivEXT = SOGL_NULL;
-PFNGLTEXTUREPARAMETERIUIVEXTPROC glTextureParameterIuivEXT = SOGL_NULL;
-PFNGLGETTEXTUREPARAMETERIIVEXTPROC glGetTextureParameterIivEXT = SOGL_NULL;
-PFNGLGETTEXTUREPARAMETERIUIVEXTPROC glGetTextureParameterIuivEXT = SOGL_NULL;
-PFNGLMULTITEXPARAMETERIIVEXTPROC glMultiTexParameterIivEXT = SOGL_NULL;
-PFNGLMULTITEXPARAMETERIUIVEXTPROC glMultiTexParameterIuivEXT = SOGL_NULL;
-PFNGLGETMULTITEXPARAMETERIIVEXTPROC glGetMultiTexParameterIivEXT = SOGL_NULL;
-PFNGLGETMULTITEXPARAMETERIUIVEXTPROC glGetMultiTexParameterIuivEXT = SOGL_NULL;
-PFNGLPROGRAMUNIFORM1UIEXTPROC glProgramUniform1uiEXT = SOGL_NULL;
-PFNGLPROGRAMUNIFORM2UIEXTPROC glProgramUniform2uiEXT = SOGL_NULL;
-PFNGLPROGRAMUNIFORM3UIEXTPROC glProgramUniform3uiEXT = SOGL_NULL;
-PFNGLPROGRAMUNIFORM4UIEXTPROC glProgramUniform4uiEXT = SOGL_NULL;
-PFNGLPROGRAMUNIFORM1UIVEXTPROC glProgramUniform1uivEXT = SOGL_NULL;
-PFNGLPROGRAMUNIFORM2UIVEXTPROC glProgramUniform2uivEXT = SOGL_NULL;
-PFNGLPROGRAMUNIFORM3UIVEXTPROC glProgramUniform3uivEXT = SOGL_NULL;
-PFNGLPROGRAMUNIFORM4UIVEXTPROC glProgramUniform4uivEXT = SOGL_NULL;
-PFNGLNAMEDPROGRAMLOCALPARAMETERS4FVEXTPROC glNamedProgramLocalParameters4fvEXT = SOGL_NULL;
-PFNGLNAMEDPROGRAMLOCALPARAMETERI4IEXTPROC glNamedProgramLocalParameterI4iEXT = SOGL_NULL;
-PFNGLNAMEDPROGRAMLOCALPARAMETERI4IVEXTPROC glNamedProgramLocalParameterI4ivEXT = SOGL_NULL;
-PFNGLNAMEDPROGRAMLOCALPARAMETERSI4IVEXTPROC glNamedProgramLocalParametersI4ivEXT = SOGL_NULL;
-PFNGLNAMEDPROGRAMLOCALPARAMETERI4UIEXTPROC glNamedProgramLocalParameterI4uiEXT = SOGL_NULL;
-PFNGLNAMEDPROGRAMLOCALPARAMETERI4UIVEXTPROC glNamedProgramLocalParameterI4uivEXT = SOGL_NULL;
-PFNGLNAMEDPROGRAMLOCALPARAMETERSI4UIVEXTPROC glNamedProgramLocalParametersI4uivEXT = SOGL_NULL;
-PFNGLGETNAMEDPROGRAMLOCALPARAMETERIIVEXTPROC glGetNamedProgramLocalParameterIivEXT = SOGL_NULL;
-PFNGLGETNAMEDPROGRAMLOCALPARAMETERIUIVEXTPROC glGetNamedProgramLocalParameterIuivEXT = SOGL_NULL;
-PFNGLENABLECLIENTSTATEIEXTPROC glEnableClientStateiEXT = SOGL_NULL;
-PFNGLDISABLECLIENTSTATEIEXTPROC glDisableClientStateiEXT = SOGL_NULL;
-PFNGLGETFLOATI_VEXTPROC glGetFloati_vEXT = SOGL_NULL;
-PFNGLGETDOUBLEI_VEXTPROC glGetDoublei_vEXT = SOGL_NULL;
-PFNGLGETPOINTERI_VEXTPROC glGetPointeri_vEXT = SOGL_NULL;
-PFNGLNAMEDPROGRAMSTRINGEXTPROC glNamedProgramStringEXT = SOGL_NULL;
-PFNGLNAMEDPROGRAMLOCALPARAMETER4DEXTPROC glNamedProgramLocalParameter4dEXT = SOGL_NULL;
-PFNGLNAMEDPROGRAMLOCALPARAMETER4DVEXTPROC glNamedProgramLocalParameter4dvEXT = SOGL_NULL;
-PFNGLNAMEDPROGRAMLOCALPARAMETER4FEXTPROC glNamedProgramLocalParameter4fEXT = SOGL_NULL;
-PFNGLNAMEDPROGRAMLOCALPARAMETER4FVEXTPROC glNamedProgramLocalParameter4fvEXT = SOGL_NULL;
-PFNGLGETNAMEDPROGRAMLOCALPARAMETERDVEXTPROC glGetNamedProgramLocalParameterdvEXT = SOGL_NULL;
-PFNGLGETNAMEDPROGRAMLOCALPARAMETERFVEXTPROC glGetNamedProgramLocalParameterfvEXT = SOGL_NULL;
-PFNGLGETNAMEDPROGRAMIVEXTPROC glGetNamedProgramivEXT = SOGL_NULL;
-PFNGLGETNAMEDPROGRAMSTRINGEXTPROC glGetNamedProgramStringEXT = SOGL_NULL;
-PFNGLNAMEDRENDERBUFFERSTORAGEEXTPROC glNamedRenderbufferStorageEXT = SOGL_NULL;
-PFNGLGETNAMEDRENDERBUFFERPARAMETERIVEXTPROC glGetNamedRenderbufferParameterivEXT = SOGL_NULL;
-PFNGLNAMEDRENDERBUFFERSTORAGEMULTISAMPLEEXTPROC glNamedRenderbufferStorageMultisampleEXT = SOGL_NULL;
-PFNGLNAMEDRENDERBUFFERSTORAGEMULTISAMPLECOVERAGEEXTPROC glNamedRenderbufferStorageMultisampleCoverageEXT = SOGL_NULL;
-PFNGLCHECKNAMEDFRAMEBUFFERSTATUSEXTPROC glCheckNamedFramebufferStatusEXT = SOGL_NULL;
-PFNGLNAMEDFRAMEBUFFERTEXTURE1DEXTPROC glNamedFramebufferTexture1DEXT = SOGL_NULL;
-PFNGLNAMEDFRAMEBUFFERTEXTURE2DEXTPROC glNamedFramebufferTexture2DEXT = SOGL_NULL;
-PFNGLNAMEDFRAMEBUFFERTEXTURE3DEXTPROC glNamedFramebufferTexture3DEXT = SOGL_NULL;
-PFNGLNAMEDFRAMEBUFFERRENDERBUFFEREXTPROC glNamedFramebufferRenderbufferEXT = SOGL_NULL;
-PFNGLGETNAMEDFRAMEBUFFERATTACHMENTPARAMETERIVEXTPROC glGetNamedFramebufferAttachmentParameterivEXT = SOGL_NULL;
-PFNGLGENERATETEXTUREMIPMAPEXTPROC glGenerateTextureMipmapEXT = SOGL_NULL;
-PFNGLGENERATEMULTITEXMIPMAPEXTPROC glGenerateMultiTexMipmapEXT = SOGL_NULL;
-PFNGLFRAMEBUFFERDRAWBUFFEREXTPROC glFramebufferDrawBufferEXT = SOGL_NULL;
-PFNGLFRAMEBUFFERDRAWBUFFERSEXTPROC glFramebufferDrawBuffersEXT = SOGL_NULL;
-PFNGLFRAMEBUFFERREADBUFFEREXTPROC glFramebufferReadBufferEXT = SOGL_NULL;
-PFNGLGETFRAMEBUFFERPARAMETERIVEXTPROC glGetFramebufferParameterivEXT = SOGL_NULL;
-PFNGLNAMEDCOPYBUFFERSUBDATAEXTPROC glNamedCopyBufferSubDataEXT = SOGL_NULL;
-PFNGLNAMEDFRAMEBUFFERTEXTUREEXTPROC glNamedFramebufferTextureEXT = SOGL_NULL;
-PFNGLNAMEDFRAMEBUFFERTEXTURELAYEREXTPROC glNamedFramebufferTextureLayerEXT = SOGL_NULL;
-PFNGLNAMEDFRAMEBUFFERTEXTUREFACEEXTPROC glNamedFramebufferTextureFaceEXT = SOGL_NULL;
-PFNGLTEXTURERENDERBUFFEREXTPROC glTextureRenderbufferEXT = SOGL_NULL;
-PFNGLMULTITEXRENDERBUFFEREXTPROC glMultiTexRenderbufferEXT = SOGL_NULL;
-PFNGLVERTEXARRAYVERTEXOFFSETEXTPROC glVertexArrayVertexOffsetEXT = SOGL_NULL;
-PFNGLVERTEXARRAYCOLOROFFSETEXTPROC glVertexArrayColorOffsetEXT = SOGL_NULL;
-PFNGLVERTEXARRAYEDGEFLAGOFFSETEXTPROC glVertexArrayEdgeFlagOffsetEXT = SOGL_NULL;
-PFNGLVERTEXARRAYINDEXOFFSETEXTPROC glVertexArrayIndexOffsetEXT = SOGL_NULL;
-PFNGLVERTEXARRAYNORMALOFFSETEXTPROC glVertexArrayNormalOffsetEXT = SOGL_NULL;
-PFNGLVERTEXARRAYTEXCOORDOFFSETEXTPROC glVertexArrayTexCoordOffsetEXT = SOGL_NULL;
-PFNGLVERTEXARRAYMULTITEXCOORDOFFSETEXTPROC glVertexArrayMultiTexCoordOffsetEXT = SOGL_NULL;
-PFNGLVERTEXARRAYFOGCOORDOFFSETEXTPROC glVertexArrayFogCoordOffsetEXT = SOGL_NULL;
-PFNGLVERTEXARRAYSECONDARYCOLOROFFSETEXTPROC glVertexArraySecondaryColorOffsetEXT = SOGL_NULL;
-PFNGLVERTEXARRAYVERTEXATTRIBOFFSETEXTPROC glVertexArrayVertexAttribOffsetEXT = SOGL_NULL;
-PFNGLVERTEXARRAYVERTEXATTRIBIOFFSETEXTPROC glVertexArrayVertexAttribIOffsetEXT = SOGL_NULL;
-PFNGLENABLEVERTEXARRAYEXTPROC glEnableVertexArrayEXT = SOGL_NULL;
-PFNGLDISABLEVERTEXARRAYEXTPROC glDisableVertexArrayEXT = SOGL_NULL;
-PFNGLENABLEVERTEXARRAYATTRIBEXTPROC glEnableVertexArrayAttribEXT = SOGL_NULL;
-PFNGLDISABLEVERTEXARRAYATTRIBEXTPROC glDisableVertexArrayAttribEXT = SOGL_NULL;
-PFNGLGETVERTEXARRAYINTEGERVEXTPROC glGetVertexArrayIntegervEXT = SOGL_NULL;
-PFNGLGETVERTEXARRAYPOINTERVEXTPROC glGetVertexArrayPointervEXT = SOGL_NULL;
-PFNGLGETVERTEXARRAYINTEGERI_VEXTPROC glGetVertexArrayIntegeri_vEXT = SOGL_NULL;
-PFNGLGETVERTEXARRAYPOINTERI_VEXTPROC glGetVertexArrayPointeri_vEXT = SOGL_NULL;
-PFNGLMAPNAMEDBUFFERRANGEEXTPROC glMapNamedBufferRangeEXT = SOGL_NULL;
-PFNGLFLUSHMAPPEDNAMEDBUFFERRANGEEXTPROC glFlushMappedNamedBufferRangeEXT = SOGL_NULL;
-PFNGLNAMEDBUFFERSTORAGEEXTPROC glNamedBufferStorageEXT = SOGL_NULL;
-PFNGLCLEARNAMEDBUFFERDATAEXTPROC glClearNamedBufferDataEXT = SOGL_NULL;
-PFNGLCLEARNAMEDBUFFERSUBDATAEXTPROC glClearNamedBufferSubDataEXT = SOGL_NULL;
-PFNGLNAMEDFRAMEBUFFERPARAMETERIEXTPROC glNamedFramebufferParameteriEXT = SOGL_NULL;
-PFNGLGETNAMEDFRAMEBUFFERPARAMETERIVEXTPROC glGetNamedFramebufferParameterivEXT = SOGL_NULL;
-PFNGLPROGRAMUNIFORM1DEXTPROC glProgramUniform1dEXT = SOGL_NULL;
-PFNGLPROGRAMUNIFORM2DEXTPROC glProgramUniform2dEXT = SOGL_NULL;
-PFNGLPROGRAMUNIFORM3DEXTPROC glProgramUniform3dEXT = SOGL_NULL;
-PFNGLPROGRAMUNIFORM4DEXTPROC glProgramUniform4dEXT = SOGL_NULL;
-PFNGLPROGRAMUNIFORM1DVEXTPROC glProgramUniform1dvEXT = SOGL_NULL;
-PFNGLPROGRAMUNIFORM2DVEXTPROC glProgramUniform2dvEXT = SOGL_NULL;
-PFNGLPROGRAMUNIFORM3DVEXTPROC glProgramUniform3dvEXT = SOGL_NULL;
-PFNGLPROGRAMUNIFORM4DVEXTPROC glProgramUniform4dvEXT = SOGL_NULL;
-PFNGLPROGRAMUNIFORMMATRIX2DVEXTPROC glProgramUniformMatrix2dvEXT = SOGL_NULL;
-PFNGLPROGRAMUNIFORMMATRIX3DVEXTPROC glProgramUniformMatrix3dvEXT = SOGL_NULL;
-PFNGLPROGRAMUNIFORMMATRIX4DVEXTPROC glProgramUniformMatrix4dvEXT = SOGL_NULL;
-PFNGLPROGRAMUNIFORMMATRIX2X3DVEXTPROC glProgramUniformMatrix2x3dvEXT = SOGL_NULL;
-PFNGLPROGRAMUNIFORMMATRIX2X4DVEXTPROC glProgramUniformMatrix2x4dvEXT = SOGL_NULL;
-PFNGLPROGRAMUNIFORMMATRIX3X2DVEXTPROC glProgramUniformMatrix3x2dvEXT = SOGL_NULL;
-PFNGLPROGRAMUNIFORMMATRIX3X4DVEXTPROC glProgramUniformMatrix3x4dvEXT = SOGL_NULL;
-PFNGLPROGRAMUNIFORMMATRIX4X2DVEXTPROC glProgramUniformMatrix4x2dvEXT = SOGL_NULL;
-PFNGLPROGRAMUNIFORMMATRIX4X3DVEXTPROC glProgramUniformMatrix4x3dvEXT = SOGL_NULL;
-PFNGLTEXTUREBUFFERRANGEEXTPROC glTextureBufferRangeEXT = SOGL_NULL;
-PFNGLTEXTURESTORAGE1DEXTPROC glTextureStorage1DEXT = SOGL_NULL;
-PFNGLTEXTURESTORAGE2DEXTPROC glTextureStorage2DEXT = SOGL_NULL;
-PFNGLTEXTURESTORAGE3DEXTPROC glTextureStorage3DEXT = SOGL_NULL;
-PFNGLTEXTURESTORAGE2DMULTISAMPLEEXTPROC glTextureStorage2DMultisampleEXT = SOGL_NULL;
-PFNGLTEXTURESTORAGE3DMULTISAMPLEEXTPROC glTextureStorage3DMultisampleEXT = SOGL_NULL;
-PFNGLVERTEXARRAYBINDVERTEXBUFFEREXTPROC glVertexArrayBindVertexBufferEXT = SOGL_NULL;
-PFNGLVERTEXARRAYVERTEXATTRIBFORMATEXTPROC glVertexArrayVertexAttribFormatEXT = SOGL_NULL;
-PFNGLVERTEXARRAYVERTEXATTRIBIFORMATEXTPROC glVertexArrayVertexAttribIFormatEXT = SOGL_NULL;
-PFNGLVERTEXARRAYVERTEXATTRIBLFORMATEXTPROC glVertexArrayVertexAttribLFormatEXT = SOGL_NULL;
-PFNGLVERTEXARRAYVERTEXATTRIBBINDINGEXTPROC glVertexArrayVertexAttribBindingEXT = SOGL_NULL;
-PFNGLVERTEXARRAYVERTEXBINDINGDIVISOREXTPROC glVertexArrayVertexBindingDivisorEXT = SOGL_NULL;
-PFNGLVERTEXARRAYVERTEXATTRIBLOFFSETEXTPROC glVertexArrayVertexAttribLOffsetEXT = SOGL_NULL;
-PFNGLTEXTUREPAGECOMMITMENTEXTPROC glTexturePageCommitmentEXT = SOGL_NULL;
-PFNGLVERTEXARRAYVERTEXATTRIBDIVISOREXTPROC glVertexArrayVertexAttribDivisorEXT = SOGL_NULL;
+SOGL_FUNCTIONS_EXT_direct_state_access
 #endif /* SOGL_EXT_direct_state_access */
 
 #ifdef SOGL_EXT_draw_instanced
-PFNGLDRAWARRAYSINSTANCEDEXTPROC glDrawArraysInstancedEXT = SOGL_NULL;
-PFNGLDRAWELEMENTSINSTANCEDEXTPROC glDrawElementsInstancedEXT = SOGL_NULL;
+SOGL_FUNCTIONS_EXT_draw_instanced
 #endif /* SOGL_EXT_draw_instanced */
 
 #ifdef SOGL_EXT_polygon_offset_clamp
-PFNGLPOLYGONOFFSETCLAMPEXTPROC glPolygonOffsetClampEXT = SOGL_NULL;
+SOGL_FUNCTIONS_EXT_polygon_offset_clamp
 #endif /* SOGL_EXT_polygon_offset_clamp */
 
 #ifdef SOGL_EXT_raster_multisample
-PFNGLRASTERSAMPLESEXTPROC glRasterSamplesEXT = SOGL_NULL;
+SOGL_FUNCTIONS_EXT_raster_multisample
 #endif /* SOGL_EXT_raster_multisample */
 
 #ifdef SOGL_EXT_separate_shader_objects
-PFNGLUSESHADERPROGRAMEXTPROC glUseShaderProgramEXT = SOGL_NULL;
-PFNGLACTIVEPROGRAMEXTPROC glActiveProgramEXT = SOGL_NULL;
-PFNGLCREATESHADERPROGRAMEXTPROC glCreateShaderProgramEXT = SOGL_NULL;
+SOGL_FUNCTIONS_EXT_separate_shader_objects
 #endif /* SOGL_EXT_separate_shader_objects */
 
 #ifdef SOGL_EXT_shader_framebuffer_fetch_non_coherent
-PFNGLFRAMEBUFFERFETCHBARRIEREXTPROC glFramebufferFetchBarrierEXT = SOGL_NULL;
+SOGL_FUNCTIONS_EXT_shader_framebuffer_fetch_non_coherent
 #endif /* SOGL_EXT_shader_framebuffer_fetch_non_coherent */
 
 #ifdef SOGL_EXT_window_rectangles
-PFNGLWINDOWRECTANGLESEXTPROC glWindowRectanglesEXT = SOGL_NULL;
+SOGL_FUNCTIONS_EXT_window_rectangles
 #endif /* SOGL_EXT_window_rectangles */
 
 #ifdef SOGL_INTEL_framebuffer_CMAA
-PFNGLAPPLYFRAMEBUFFERATTACHMENTCMAAINTELPROC glApplyFramebufferAttachmentCMAAINTEL = SOGL_NULL;
+SOGL_FUNCTIONS_INTEL_framebuffer_CMAA
 #endif /* SOGL_INTEL_framebuffer_CMAA */
 
 #ifdef SOGL_INTEL_performance_query
-PFNGLBEGINPERFQUERYINTELPROC glBeginPerfQueryINTEL = SOGL_NULL;
-PFNGLCREATEPERFQUERYINTELPROC glCreatePerfQueryINTEL = SOGL_NULL;
-PFNGLDELETEPERFQUERYINTELPROC glDeletePerfQueryINTEL = SOGL_NULL;
-PFNGLENDPERFQUERYINTELPROC glEndPerfQueryINTEL = SOGL_NULL;
-PFNGLGETFIRSTPERFQUERYIDINTELPROC glGetFirstPerfQueryIdINTEL = SOGL_NULL;
-PFNGLGETNEXTPERFQUERYIDINTELPROC glGetNextPerfQueryIdINTEL = SOGL_NULL;
-PFNGLGETPERFCOUNTERINFOINTELPROC glGetPerfCounterInfoINTEL = SOGL_NULL;
-PFNGLGETPERFQUERYDATAINTELPROC glGetPerfQueryDataINTEL = SOGL_NULL;
-PFNGLGETPERFQUERYIDBYNAMEINTELPROC glGetPerfQueryIdByNameINTEL = SOGL_NULL;
-PFNGLGETPERFQUERYINFOINTELPROC glGetPerfQueryInfoINTEL = SOGL_NULL;
+SOGL_FUNCTIONS_INTEL_performance_query
 #endif /* SOGL_INTEL_performance_query */
 
 #ifdef SOGL_MESA_framebuffer_flip_y
-PFNGLFRAMEBUFFERPARAMETERIMESAPROC glFramebufferParameteriMESA = SOGL_NULL;
-PFNGLGETFRAMEBUFFERPARAMETERIVMESAPROC glGetFramebufferParameterivMESA = SOGL_NULL;
+SOGL_FUNCTIONS_MESA_framebuffer_flip_y
 #endif /* SOGL_MESA_framebuffer_flip_y */
 
 #ifdef SOGL_NV_bindless_multi_draw_indirect
-PFNGLMULTIDRAWARRAYSINDIRECTBINDLESSNVPROC glMultiDrawArraysIndirectBindlessNV = SOGL_NULL;
-PFNGLMULTIDRAWELEMENTSINDIRECTBINDLESSNVPROC glMultiDrawElementsIndirectBindlessNV = SOGL_NULL;
+SOGL_FUNCTIONS_NV_bindless_multi_draw_indirect
 #endif /* SOGL_NV_bindless_multi_draw_indirect */
 
 #ifdef SOGL_NV_bindless_multi_draw_indirect_count
-PFNGLMULTIDRAWARRAYSINDIRECTBINDLESSCOUNTNVPROC glMultiDrawArraysIndirectBindlessCountNV = SOGL_NULL;
-PFNGLMULTIDRAWELEMENTSINDIRECTBINDLESSCOUNTNVPROC glMultiDrawElementsIndirectBindlessCountNV = SOGL_NULL;
+SOGL_FUNCTIONS_NV_bindless_multi_draw_indirect_count
 #endif /* SOGL_NV_bindless_multi_draw_indirect_count */
 
 #ifdef SOGL_NV_bindless_texture
-PFNGLGETTEXTUREHANDLENVPROC glGetTextureHandleNV = SOGL_NULL;
-PFNGLGETTEXTURESAMPLERHANDLENVPROC glGetTextureSamplerHandleNV = SOGL_NULL;
-PFNGLMAKETEXTUREHANDLERESIDENTNVPROC glMakeTextureHandleResidentNV = SOGL_NULL;
-PFNGLMAKETEXTUREHANDLENONRESIDENTNVPROC glMakeTextureHandleNonResidentNV = SOGL_NULL;
-PFNGLGETIMAGEHANDLENVPROC glGetImageHandleNV = SOGL_NULL;
-PFNGLMAKEIMAGEHANDLERESIDENTNVPROC glMakeImageHandleResidentNV = SOGL_NULL;
-PFNGLMAKEIMAGEHANDLENONRESIDENTNVPROC glMakeImageHandleNonResidentNV = SOGL_NULL;
-PFNGLUNIFORMHANDLEUI64NVPROC glUniformHandleui64NV = SOGL_NULL;
-PFNGLUNIFORMHANDLEUI64VNVPROC glUniformHandleui64vNV = SOGL_NULL;
-PFNGLPROGRAMUNIFORMHANDLEUI64NVPROC glProgramUniformHandleui64NV = SOGL_NULL;
-PFNGLPROGRAMUNIFORMHANDLEUI64VNVPROC glProgramUniformHandleui64vNV = SOGL_NULL;
-PFNGLISTEXTUREHANDLERESIDENTNVPROC glIsTextureHandleResidentNV = SOGL_NULL;
-PFNGLISIMAGEHANDLERESIDENTNVPROC glIsImageHandleResidentNV = SOGL_NULL;
+SOGL_FUNCTIONS_NV_bindless_texture
 #endif /* SOGL_NV_bindless_texture */
 
 #ifdef SOGL_NV_blend_equation_advanced
-PFNGLBLENDPARAMETERINVPROC glBlendParameteriNV = SOGL_NULL;
-PFNGLBLENDBARRIERNVPROC glBlendBarrierNV = SOGL_NULL;
+SOGL_FUNCTIONS_NV_blend_equation_advanced
 #endif /* SOGL_NV_blend_equation_advanced */
 
 #ifdef SOGL_NV_clip_space_w_scaling
-PFNGLVIEWPORTPOSITIONWSCALENVPROC glViewportPositionWScaleNV = SOGL_NULL;
+SOGL_FUNCTIONS_NV_clip_space_w_scaling
 #endif /* SOGL_NV_clip_space_w_scaling */
 
 #ifdef SOGL_NV_command_list
-PFNGLCREATESTATESNVPROC glCreateStatesNV = SOGL_NULL;
-PFNGLDELETESTATESNVPROC glDeleteStatesNV = SOGL_NULL;
-PFNGLISSTATENVPROC glIsStateNV = SOGL_NULL;
-PFNGLSTATECAPTURENVPROC glStateCaptureNV = SOGL_NULL;
-PFNGLGETCOMMANDHEADERNVPROC glGetCommandHeaderNV = SOGL_NULL;
-PFNGLGETSTAGEINDEXNVPROC glGetStageIndexNV = SOGL_NULL;
-PFNGLDRAWCOMMANDSNVPROC glDrawCommandsNV = SOGL_NULL;
-PFNGLDRAWCOMMANDSADDRESSNVPROC glDrawCommandsAddressNV = SOGL_NULL;
-PFNGLDRAWCOMMANDSSTATESNVPROC glDrawCommandsStatesNV = SOGL_NULL;
-PFNGLDRAWCOMMANDSSTATESADDRESSNVPROC glDrawCommandsStatesAddressNV = SOGL_NULL;
-PFNGLCREATECOMMANDLISTSNVPROC glCreateCommandListsNV = SOGL_NULL;
-PFNGLDELETECOMMANDLISTSNVPROC glDeleteCommandListsNV = SOGL_NULL;
-PFNGLISCOMMANDLISTNVPROC glIsCommandListNV = SOGL_NULL;
-PFNGLLISTDRAWCOMMANDSSTATESCLIENTNVPROC glListDrawCommandsStatesClientNV = SOGL_NULL;
-PFNGLCOMMANDLISTSEGMENTSNVPROC glCommandListSegmentsNV = SOGL_NULL;
-PFNGLCOMPILECOMMANDLISTNVPROC glCompileCommandListNV = SOGL_NULL;
-PFNGLCALLCOMMANDLISTNVPROC glCallCommandListNV = SOGL_NULL;
+SOGL_FUNCTIONS_NV_command_list
 #endif /* SOGL_NV_command_list */
 
 #ifdef SOGL_NV_conditional_render
-PFNGLBEGINCONDITIONALRENDERNVPROC glBeginConditionalRenderNV = SOGL_NULL;
-PFNGLENDCONDITIONALRENDERNVPROC glEndConditionalRenderNV = SOGL_NULL;
+SOGL_FUNCTIONS_NV_conditional_render
 #endif /* SOGL_NV_conditional_render */
 
 #ifdef SOGL_NV_conservative_raster
-PFNGLSUBPIXELPRECISIONBIASNVPROC glSubpixelPrecisionBiasNV = SOGL_NULL;
+SOGL_FUNCTIONS_NV_conservative_raster
 #endif /* SOGL_NV_conservative_raster */
 
 #ifdef SOGL_NV_conservative_raster_dilate
-PFNGLCONSERVATIVERASTERPARAMETERFNVPROC glConservativeRasterParameterfNV = SOGL_NULL;
+SOGL_FUNCTIONS_NV_conservative_raster_dilate
 #endif /* SOGL_NV_conservative_raster_dilate */
 
 #ifdef SOGL_NV_conservative_raster_pre_snap_triangles
-PFNGLCONSERVATIVERASTERPARAMETERINVPROC glConservativeRasterParameteriNV = SOGL_NULL;
+SOGL_FUNCTIONS_NV_conservative_raster_pre_snap_triangles
 #endif /* SOGL_NV_conservative_raster_pre_snap_triangles */
 
 #ifdef SOGL_NV_depth_buffer_float
-PFNGLDEPTHRANGEDNVPROC glDepthRangedNV = SOGL_NULL;
-PFNGLCLEARDEPTHDNVPROC glClearDepthdNV = SOGL_NULL;
-PFNGLDEPTHBOUNDSDNVPROC glDepthBoundsdNV = SOGL_NULL;
+SOGL_FUNCTIONS_NV_depth_buffer_float
 #endif /* SOGL_NV_depth_buffer_float */
 
 #ifdef SOGL_NV_draw_vulkan_image
-PFNGLDRAWVKIMAGENVPROC glDrawVkImageNV = SOGL_NULL;
-PFNGLGETVKPROCADDRNVPROC glGetVkProcAddrNV = SOGL_NULL;
-PFNGLWAITVKSEMAPHORENVPROC glWaitVkSemaphoreNV = SOGL_NULL;
-PFNGLSIGNALVKSEMAPHORENVPROC glSignalVkSemaphoreNV = SOGL_NULL;
-PFNGLSIGNALVKFENCENVPROC glSignalVkFenceNV = SOGL_NULL;
+SOGL_FUNCTIONS_NV_draw_vulkan_image
 #endif /* SOGL_NV_draw_vulkan_image */
 
 #ifdef SOGL_NV_fragment_coverage_to_color
-PFNGLFRAGMENTCOVERAGECOLORNVPROC glFragmentCoverageColorNV = SOGL_NULL;
+SOGL_FUNCTIONS_NV_fragment_coverage_to_color
 #endif /* SOGL_NV_fragment_coverage_to_color */
 
 #ifdef SOGL_NV_framebuffer_mixed_samples
-PFNGLCOVERAGEMODULATIONTABLENVPROC glCoverageModulationTableNV = SOGL_NULL;
-PFNGLGETCOVERAGEMODULATIONTABLENVPROC glGetCoverageModulationTableNV = SOGL_NULL;
-PFNGLCOVERAGEMODULATIONNVPROC glCoverageModulationNV = SOGL_NULL;
+SOGL_FUNCTIONS_NV_framebuffer_mixed_samples
 #endif /* SOGL_NV_framebuffer_mixed_samples */
 
 #ifdef SOGL_NV_framebuffer_multisample_coverage
-PFNGLRENDERBUFFERSTORAGEMULTISAMPLECOVERAGENVPROC glRenderbufferStorageMultisampleCoverageNV = SOGL_NULL;
+SOGL_FUNCTIONS_NV_framebuffer_multisample_coverage
 #endif /* SOGL_NV_framebuffer_multisample_coverage */
 
 #ifdef SOGL_NV_gpu_shader5
-PFNGLUNIFORM1I64NVPROC glUniform1i64NV = SOGL_NULL;
-PFNGLUNIFORM2I64NVPROC glUniform2i64NV = SOGL_NULL;
-PFNGLUNIFORM3I64NVPROC glUniform3i64NV = SOGL_NULL;
-PFNGLUNIFORM4I64NVPROC glUniform4i64NV = SOGL_NULL;
-PFNGLUNIFORM1I64VNVPROC glUniform1i64vNV = SOGL_NULL;
-PFNGLUNIFORM2I64VNVPROC glUniform2i64vNV = SOGL_NULL;
-PFNGLUNIFORM3I64VNVPROC glUniform3i64vNV = SOGL_NULL;
-PFNGLUNIFORM4I64VNVPROC glUniform4i64vNV = SOGL_NULL;
-PFNGLUNIFORM1UI64NVPROC glUniform1ui64NV = SOGL_NULL;
-PFNGLUNIFORM2UI64NVPROC glUniform2ui64NV = SOGL_NULL;
-PFNGLUNIFORM3UI64NVPROC glUniform3ui64NV = SOGL_NULL;
-PFNGLUNIFORM4UI64NVPROC glUniform4ui64NV = SOGL_NULL;
-PFNGLUNIFORM1UI64VNVPROC glUniform1ui64vNV = SOGL_NULL;
-PFNGLUNIFORM2UI64VNVPROC glUniform2ui64vNV = SOGL_NULL;
-PFNGLUNIFORM3UI64VNVPROC glUniform3ui64vNV = SOGL_NULL;
-PFNGLUNIFORM4UI64VNVPROC glUniform4ui64vNV = SOGL_NULL;
-PFNGLGETUNIFORMI64VNVPROC glGetUniformi64vNV = SOGL_NULL;
-PFNGLPROGRAMUNIFORM1I64NVPROC glProgramUniform1i64NV = SOGL_NULL;
-PFNGLPROGRAMUNIFORM2I64NVPROC glProgramUniform2i64NV = SOGL_NULL;
-PFNGLPROGRAMUNIFORM3I64NVPROC glProgramUniform3i64NV = SOGL_NULL;
-PFNGLPROGRAMUNIFORM4I64NVPROC glProgramUniform4i64NV = SOGL_NULL;
-PFNGLPROGRAMUNIFORM1I64VNVPROC glProgramUniform1i64vNV = SOGL_NULL;
-PFNGLPROGRAMUNIFORM2I64VNVPROC glProgramUniform2i64vNV = SOGL_NULL;
-PFNGLPROGRAMUNIFORM3I64VNVPROC glProgramUniform3i64vNV = SOGL_NULL;
-PFNGLPROGRAMUNIFORM4I64VNVPROC glProgramUniform4i64vNV = SOGL_NULL;
-PFNGLPROGRAMUNIFORM1UI64NVPROC glProgramUniform1ui64NV = SOGL_NULL;
-PFNGLPROGRAMUNIFORM2UI64NVPROC glProgramUniform2ui64NV = SOGL_NULL;
-PFNGLPROGRAMUNIFORM3UI64NVPROC glProgramUniform3ui64NV = SOGL_NULL;
-PFNGLPROGRAMUNIFORM4UI64NVPROC glProgramUniform4ui64NV = SOGL_NULL;
-PFNGLPROGRAMUNIFORM1UI64VNVPROC glProgramUniform1ui64vNV = SOGL_NULL;
-PFNGLPROGRAMUNIFORM2UI64VNVPROC glProgramUniform2ui64vNV = SOGL_NULL;
-PFNGLPROGRAMUNIFORM3UI64VNVPROC glProgramUniform3ui64vNV = SOGL_NULL;
-PFNGLPROGRAMUNIFORM4UI64VNVPROC glProgramUniform4ui64vNV = SOGL_NULL;
+SOGL_FUNCTIONS_NV_gpu_shader5
 #endif /* SOGL_NV_gpu_shader5 */
 
 #ifdef SOGL_NV_internalformat_sample_query
-PFNGLGETINTERNALFORMATSAMPLEIVNVPROC glGetInternalformatSampleivNV = SOGL_NULL;
+SOGL_FUNCTIONS_NV_internalformat_sample_query
 #endif /* SOGL_NV_internalformat_sample_query */
 
 #ifdef SOGL_NV_memory_attachment
-PFNGLGETMEMORYOBJECTDETACHEDRESOURCESUIVNVPROC glGetMemoryObjectDetachedResourcesuivNV = SOGL_NULL;
-PFNGLRESETMEMORYOBJECTPARAMETERNVPROC glResetMemoryObjectParameterNV = SOGL_NULL;
-PFNGLTEXATTACHMEMORYNVPROC glTexAttachMemoryNV = SOGL_NULL;
-PFNGLBUFFERATTACHMEMORYNVPROC glBufferAttachMemoryNV = SOGL_NULL;
-PFNGLTEXTUREATTACHMEMORYNVPROC glTextureAttachMemoryNV = SOGL_NULL;
-PFNGLNAMEDBUFFERATTACHMEMORYNVPROC glNamedBufferAttachMemoryNV = SOGL_NULL;
+SOGL_FUNCTIONS_NV_memory_attachment
 #endif /* SOGL_NV_memory_attachment */
 
 #ifdef SOGL_NV_memory_object_sparse
-PFNGLBUFFERPAGECOMMITMENTMEMNVPROC glBufferPageCommitmentMemNV = SOGL_NULL;
-PFNGLTEXPAGECOMMITMENTMEMNVPROC glTexPageCommitmentMemNV = SOGL_NULL;
-PFNGLNAMEDBUFFERPAGECOMMITMENTMEMNVPROC glNamedBufferPageCommitmentMemNV = SOGL_NULL;
-PFNGLTEXTUREPAGECOMMITMENTMEMNVPROC glTexturePageCommitmentMemNV = SOGL_NULL;
+SOGL_FUNCTIONS_NV_memory_object_sparse
 #endif /* SOGL_NV_memory_object_sparse */
 
 #ifdef SOGL_NV_mesh_shader
-PFNGLDRAWMESHTASKSNVPROC glDrawMeshTasksNV = SOGL_NULL;
-PFNGLDRAWMESHTASKSINDIRECTNVPROC glDrawMeshTasksIndirectNV = SOGL_NULL;
-PFNGLMULTIDRAWMESHTASKSINDIRECTNVPROC glMultiDrawMeshTasksIndirectNV = SOGL_NULL;
-PFNGLMULTIDRAWMESHTASKSINDIRECTCOUNTNVPROC glMultiDrawMeshTasksIndirectCountNV = SOGL_NULL;
+SOGL_FUNCTIONS_NV_mesh_shader
 #endif /* SOGL_NV_mesh_shader */
 
 #ifdef SOGL_NV_path_rendering
-PFNGLGENPATHSNVPROC glGenPathsNV = SOGL_NULL;
-PFNGLDELETEPATHSNVPROC glDeletePathsNV = SOGL_NULL;
-PFNGLISPATHNVPROC glIsPathNV = SOGL_NULL;
-PFNGLPATHCOMMANDSNVPROC glPathCommandsNV = SOGL_NULL;
-PFNGLPATHCOORDSNVPROC glPathCoordsNV = SOGL_NULL;
-PFNGLPATHSUBCOMMANDSNVPROC glPathSubCommandsNV = SOGL_NULL;
-PFNGLPATHSUBCOORDSNVPROC glPathSubCoordsNV = SOGL_NULL;
-PFNGLPATHSTRINGNVPROC glPathStringNV = SOGL_NULL;
-PFNGLPATHGLYPHSNVPROC glPathGlyphsNV = SOGL_NULL;
-PFNGLPATHGLYPHRANGENVPROC glPathGlyphRangeNV = SOGL_NULL;
-PFNGLWEIGHTPATHSNVPROC glWeightPathsNV = SOGL_NULL;
-PFNGLCOPYPATHNVPROC glCopyPathNV = SOGL_NULL;
-PFNGLINTERPOLATEPATHSNVPROC glInterpolatePathsNV = SOGL_NULL;
-PFNGLTRANSFORMPATHNVPROC glTransformPathNV = SOGL_NULL;
-PFNGLPATHPARAMETERIVNVPROC glPathParameterivNV = SOGL_NULL;
-PFNGLPATHPARAMETERINVPROC glPathParameteriNV = SOGL_NULL;
-PFNGLPATHPARAMETERFVNVPROC glPathParameterfvNV = SOGL_NULL;
-PFNGLPATHPARAMETERFNVPROC glPathParameterfNV = SOGL_NULL;
-PFNGLPATHDASHARRAYNVPROC glPathDashArrayNV = SOGL_NULL;
-PFNGLPATHSTENCILFUNCNVPROC glPathStencilFuncNV = SOGL_NULL;
-PFNGLPATHSTENCILDEPTHOFFSETNVPROC glPathStencilDepthOffsetNV = SOGL_NULL;
-PFNGLSTENCILFILLPATHNVPROC glStencilFillPathNV = SOGL_NULL;
-PFNGLSTENCILSTROKEPATHNVPROC glStencilStrokePathNV = SOGL_NULL;
-PFNGLSTENCILFILLPATHINSTANCEDNVPROC glStencilFillPathInstancedNV = SOGL_NULL;
-PFNGLSTENCILSTROKEPATHINSTANCEDNVPROC glStencilStrokePathInstancedNV = SOGL_NULL;
-PFNGLPATHCOVERDEPTHFUNCNVPROC glPathCoverDepthFuncNV = SOGL_NULL;
-PFNGLCOVERFILLPATHNVPROC glCoverFillPathNV = SOGL_NULL;
-PFNGLCOVERSTROKEPATHNVPROC glCoverStrokePathNV = SOGL_NULL;
-PFNGLCOVERFILLPATHINSTANCEDNVPROC glCoverFillPathInstancedNV = SOGL_NULL;
-PFNGLCOVERSTROKEPATHINSTANCEDNVPROC glCoverStrokePathInstancedNV = SOGL_NULL;
-PFNGLGETPATHPARAMETERIVNVPROC glGetPathParameterivNV = SOGL_NULL;
-PFNGLGETPATHPARAMETERFVNVPROC glGetPathParameterfvNV = SOGL_NULL;
-PFNGLGETPATHCOMMANDSNVPROC glGetPathCommandsNV = SOGL_NULL;
-PFNGLGETPATHCOORDSNVPROC glGetPathCoordsNV = SOGL_NULL;
-PFNGLGETPATHDASHARRAYNVPROC glGetPathDashArrayNV = SOGL_NULL;
-PFNGLGETPATHMETRICSNVPROC glGetPathMetricsNV = SOGL_NULL;
-PFNGLGETPATHMETRICRANGENVPROC glGetPathMetricRangeNV = SOGL_NULL;
-PFNGLGETPATHSPACINGNVPROC glGetPathSpacingNV = SOGL_NULL;
-PFNGLISPOINTINFILLPATHNVPROC glIsPointInFillPathNV = SOGL_NULL;
-PFNGLISPOINTINSTROKEPATHNVPROC glIsPointInStrokePathNV = SOGL_NULL;
-PFNGLGETPATHLENGTHNVPROC glGetPathLengthNV = SOGL_NULL;
-PFNGLPOINTALONGPATHNVPROC glPointAlongPathNV = SOGL_NULL;
-PFNGLMATRIXLOAD3X2FNVPROC glMatrixLoad3x2fNV = SOGL_NULL;
-PFNGLMATRIXLOAD3X3FNVPROC glMatrixLoad3x3fNV = SOGL_NULL;
-PFNGLMATRIXLOADTRANSPOSE3X3FNVPROC glMatrixLoadTranspose3x3fNV = SOGL_NULL;
-PFNGLMATRIXMULT3X2FNVPROC glMatrixMult3x2fNV = SOGL_NULL;
-PFNGLMATRIXMULT3X3FNVPROC glMatrixMult3x3fNV = SOGL_NULL;
-PFNGLMATRIXMULTTRANSPOSE3X3FNVPROC glMatrixMultTranspose3x3fNV = SOGL_NULL;
-PFNGLSTENCILTHENCOVERFILLPATHNVPROC glStencilThenCoverFillPathNV = SOGL_NULL;
-PFNGLSTENCILTHENCOVERSTROKEPATHNVPROC glStencilThenCoverStrokePathNV = SOGL_NULL;
-PFNGLSTENCILTHENCOVERFILLPATHINSTANCEDNVPROC glStencilThenCoverFillPathInstancedNV = SOGL_NULL;
-PFNGLSTENCILTHENCOVERSTROKEPATHINSTANCEDNVPROC glStencilThenCoverStrokePathInstancedNV = SOGL_NULL;
-PFNGLPATHGLYPHINDEXRANGENVPROC glPathGlyphIndexRangeNV = SOGL_NULL;
-PFNGLPATHGLYPHINDEXARRAYNVPROC glPathGlyphIndexArrayNV = SOGL_NULL;
-PFNGLPATHMEMORYGLYPHINDEXARRAYNVPROC glPathMemoryGlyphIndexArrayNV = SOGL_NULL;
-PFNGLPROGRAMPATHFRAGMENTINPUTGENNVPROC glProgramPathFragmentInputGenNV = SOGL_NULL;
-PFNGLGETPROGRAMRESOURCEFVNVPROC glGetProgramResourcefvNV = SOGL_NULL;
+SOGL_FUNCTIONS_NV_path_rendering
 #endif /* SOGL_NV_path_rendering */
 
 #ifdef SOGL_NV_sample_locations
-PFNGLFRAMEBUFFERSAMPLELOCATIONSFVNVPROC glFramebufferSampleLocationsfvNV = SOGL_NULL;
-PFNGLNAMEDFRAMEBUFFERSAMPLELOCATIONSFVNVPROC glNamedFramebufferSampleLocationsfvNV = SOGL_NULL;
-PFNGLRESOLVEDEPTHVALUESNVPROC glResolveDepthValuesNV = SOGL_NULL;
+SOGL_FUNCTIONS_NV_sample_locations
 #endif /* SOGL_NV_sample_locations */
 
 #ifdef SOGL_NV_scissor_exclusive
-PFNGLSCISSOREXCLUSIVENVPROC glScissorExclusiveNV = SOGL_NULL;
-PFNGLSCISSOREXCLUSIVEARRAYVNVPROC glScissorExclusiveArrayvNV = SOGL_NULL;
+SOGL_FUNCTIONS_NV_scissor_exclusive
 #endif /* SOGL_NV_scissor_exclusive */
 
 #ifdef SOGL_NV_shader_buffer_load
-PFNGLMAKEBUFFERRESIDENTNVPROC glMakeBufferResidentNV = SOGL_NULL;
-PFNGLMAKEBUFFERNONRESIDENTNVPROC glMakeBufferNonResidentNV = SOGL_NULL;
-PFNGLISBUFFERRESIDENTNVPROC glIsBufferResidentNV = SOGL_NULL;
-PFNGLMAKENAMEDBUFFERRESIDENTNVPROC glMakeNamedBufferResidentNV = SOGL_NULL;
-PFNGLMAKENAMEDBUFFERNONRESIDENTNVPROC glMakeNamedBufferNonResidentNV = SOGL_NULL;
-PFNGLISNAMEDBUFFERRESIDENTNVPROC glIsNamedBufferResidentNV = SOGL_NULL;
-PFNGLGETBUFFERPARAMETERUI64VNVPROC glGetBufferParameterui64vNV = SOGL_NULL;
-PFNGLGETNAMEDBUFFERPARAMETERUI64VNVPROC glGetNamedBufferParameterui64vNV = SOGL_NULL;
-PFNGLGETINTEGERUI64VNVPROC glGetIntegerui64vNV = SOGL_NULL;
-PFNGLUNIFORMUI64NVPROC glUniformui64NV = SOGL_NULL;
-PFNGLUNIFORMUI64VNVPROC glUniformui64vNV = SOGL_NULL;
-PFNGLGETUNIFORMUI64VNVPROC glGetUniformui64vNV = SOGL_NULL;
-PFNGLPROGRAMUNIFORMUI64NVPROC glProgramUniformui64NV = SOGL_NULL;
-PFNGLPROGRAMUNIFORMUI64VNVPROC glProgramUniformui64vNV = SOGL_NULL;
+SOGL_FUNCTIONS_NV_shader_buffer_load
 #endif /* SOGL_NV_shader_buffer_load */
 
 #ifdef SOGL_NV_shading_rate_image
-PFNGLBINDSHADINGRATEIMAGENVPROC glBindShadingRateImageNV = SOGL_NULL;
-PFNGLGETSHADINGRATEIMAGEPALETTENVPROC glGetShadingRateImagePaletteNV = SOGL_NULL;
-PFNGLGETSHADINGRATESAMPLELOCATIONIVNVPROC glGetShadingRateSampleLocationivNV = SOGL_NULL;
-PFNGLSHADINGRATEIMAGEBARRIERNVPROC glShadingRateImageBarrierNV = SOGL_NULL;
-PFNGLSHADINGRATEIMAGEPALETTENVPROC glShadingRateImagePaletteNV = SOGL_NULL;
-PFNGLSHADINGRATESAMPLEORDERNVPROC glShadingRateSampleOrderNV = SOGL_NULL;
-PFNGLSHADINGRATESAMPLEORDERCUSTOMNVPROC glShadingRateSampleOrderCustomNV = SOGL_NULL;
+SOGL_FUNCTIONS_NV_shading_rate_image
 #endif /* SOGL_NV_shading_rate_image */
 
 #ifdef SOGL_NV_texture_barrier
-PFNGLTEXTUREBARRIERNVPROC glTextureBarrierNV = SOGL_NULL;
+SOGL_FUNCTIONS_NV_texture_barrier
 #endif /* SOGL_NV_texture_barrier */
 
 #ifdef SOGL_NV_vertex_attrib_integer_64bit
-PFNGLVERTEXATTRIBL1I64NVPROC glVertexAttribL1i64NV = SOGL_NULL;
-PFNGLVERTEXATTRIBL2I64NVPROC glVertexAttribL2i64NV = SOGL_NULL;
-PFNGLVERTEXATTRIBL3I64NVPROC glVertexAttribL3i64NV = SOGL_NULL;
-PFNGLVERTEXATTRIBL4I64NVPROC glVertexAttribL4i64NV = SOGL_NULL;
-PFNGLVERTEXATTRIBL1I64VNVPROC glVertexAttribL1i64vNV = SOGL_NULL;
-PFNGLVERTEXATTRIBL2I64VNVPROC glVertexAttribL2i64vNV = SOGL_NULL;
-PFNGLVERTEXATTRIBL3I64VNVPROC glVertexAttribL3i64vNV = SOGL_NULL;
-PFNGLVERTEXATTRIBL4I64VNVPROC glVertexAttribL4i64vNV = SOGL_NULL;
-PFNGLVERTEXATTRIBL1UI64NVPROC glVertexAttribL1ui64NV = SOGL_NULL;
-PFNGLVERTEXATTRIBL2UI64NVPROC glVertexAttribL2ui64NV = SOGL_NULL;
-PFNGLVERTEXATTRIBL3UI64NVPROC glVertexAttribL3ui64NV = SOGL_NULL;
-PFNGLVERTEXATTRIBL4UI64NVPROC glVertexAttribL4ui64NV = SOGL_NULL;
-PFNGLVERTEXATTRIBL1UI64VNVPROC glVertexAttribL1ui64vNV = SOGL_NULL;
-PFNGLVERTEXATTRIBL2UI64VNVPROC glVertexAttribL2ui64vNV = SOGL_NULL;
-PFNGLVERTEXATTRIBL3UI64VNVPROC glVertexAttribL3ui64vNV = SOGL_NULL;
-PFNGLVERTEXATTRIBL4UI64VNVPROC glVertexAttribL4ui64vNV = SOGL_NULL;
-PFNGLGETVERTEXATTRIBLI64VNVPROC glGetVertexAttribLi64vNV = SOGL_NULL;
-PFNGLGETVERTEXATTRIBLUI64VNVPROC glGetVertexAttribLui64vNV = SOGL_NULL;
-PFNGLVERTEXATTRIBLFORMATNVPROC glVertexAttribLFormatNV = SOGL_NULL;
+SOGL_FUNCTIONS_NV_vertex_attrib_integer_64bit
 #endif /* SOGL_NV_vertex_attrib_integer_64bit */
 
 #ifdef SOGL_NV_vertex_buffer_unified_memory
-PFNGLBUFFERADDRESSRANGENVPROC glBufferAddressRangeNV = SOGL_NULL;
-PFNGLVERTEXFORMATNVPROC glVertexFormatNV = SOGL_NULL;
-PFNGLNORMALFORMATNVPROC glNormalFormatNV = SOGL_NULL;
-PFNGLCOLORFORMATNVPROC glColorFormatNV = SOGL_NULL;
-PFNGLINDEXFORMATNVPROC glIndexFormatNV = SOGL_NULL;
-PFNGLTEXCOORDFORMATNVPROC glTexCoordFormatNV = SOGL_NULL;
-PFNGLEDGEFLAGFORMATNVPROC glEdgeFlagFormatNV = SOGL_NULL;
-PFNGLSECONDARYCOLORFORMATNVPROC glSecondaryColorFormatNV = SOGL_NULL;
-PFNGLFOGCOORDFORMATNVPROC glFogCoordFormatNV = SOGL_NULL;
-PFNGLVERTEXATTRIBFORMATNVPROC glVertexAttribFormatNV = SOGL_NULL;
-PFNGLVERTEXATTRIBIFORMATNVPROC glVertexAttribIFormatNV = SOGL_NULL;
-PFNGLGETINTEGERUI64I_VNVPROC glGetIntegerui64i_vNV = SOGL_NULL;
+SOGL_FUNCTIONS_NV_vertex_buffer_unified_memory
 #endif /* SOGL_NV_vertex_buffer_unified_memory */
 
 #ifdef SOGL_NV_viewport_swizzle
-PFNGLVIEWPORTSWIZZLENVPROC glViewportSwizzleNV = SOGL_NULL;
+SOGL_FUNCTIONS_NV_viewport_swizzle
 #endif /* SOGL_NV_viewport_swizzle */
 
 #ifdef SOGL_OVR_multiview
-PFNGLFRAMEBUFFERTEXTUREMULTIVIEWOVRPROC glFramebufferTextureMultiviewOVR = SOGL_NULL;
+SOGL_FUNCTIONS_OVR_multiview
 #endif /* SOGL_OVR_multiview */
+
+#undef SOGL_FUNCTION
+
+/*
+    OpenGL Function Loading
+*/
+
+#define SOGL_FUNCTION(type, name)\
+name = (type) sogl_loadOpenGLFunction(#name);\
+if (!name && failedLoads < SOGL_MAX_REPORTED_FAILURES) {\
+    sogl_failedLoads[failedLoads++] = #name;\
+}\
 
 static const char* sogl_failedLoads[SOGL_MAX_REPORTED_FAILURES + 1];
 
 int sogl_loadOpenGL() {
-	khronos_usize_t failedLoads = 0;
+    khronos_usize_t failedLoads = 0;
 
 #if SOGL_TEST_VERSION(1, 0)
-    glCullFace = (PFNGLCULLFACEPROC) sogl_loadOpenGLFunction("glCullFace");
-    if (!glCullFace && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glCullFace";
-    }
-    if (!glCullFace && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glCullFace";
-    }
-    glFrontFace = (PFNGLFRONTFACEPROC) sogl_loadOpenGLFunction("glFrontFace");
-    if (!glFrontFace && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glFrontFace";
-    }
-    glHint = (PFNGLHINTPROC) sogl_loadOpenGLFunction("glHint");
-    if (!glHint && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glHint";
-    }
-    glLineWidth = (PFNGLLINEWIDTHPROC) sogl_loadOpenGLFunction("glLineWidth");
-    if (!glLineWidth && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glLineWidth";
-    }
-    glPointSize = (PFNGLPOINTSIZEPROC) sogl_loadOpenGLFunction("glPointSize");
-    if (!glPointSize && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glPointSize";
-    }
-    glPolygonMode = (PFNGLPOLYGONMODEPROC) sogl_loadOpenGLFunction("glPolygonMode");
-    if (!glPolygonMode && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glPolygonMode";
-    }
-    glScissor = (PFNGLSCISSORPROC) sogl_loadOpenGLFunction("glScissor");
-    if (!glScissor && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glScissor";
-    }
-    glTexParameterf = (PFNGLTEXPARAMETERFPROC) sogl_loadOpenGLFunction("glTexParameterf");
-    if (!glTexParameterf && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glTexParameterf";
-    }
-    glTexParameterfv = (PFNGLTEXPARAMETERFVPROC) sogl_loadOpenGLFunction("glTexParameterfv");
-    if (!glTexParameterfv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glTexParameterfv";
-    }
-    glTexParameteri = (PFNGLTEXPARAMETERIPROC) sogl_loadOpenGLFunction("glTexParameteri");
-    if (!glTexParameteri && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glTexParameteri";
-    }
-    glTexParameteriv = (PFNGLTEXPARAMETERIVPROC) sogl_loadOpenGLFunction("glTexParameteriv");
-    if (!glTexParameteriv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glTexParameteriv";
-    }
-    glTexImage1D = (PFNGLTEXIMAGE1DPROC) sogl_loadOpenGLFunction("glTexImage1D");
-    if (!glTexImage1D && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glTexImage1D";
-    }
-    glTexImage2D = (PFNGLTEXIMAGE2DPROC) sogl_loadOpenGLFunction("glTexImage2D");
-    if (!glTexImage2D && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glTexImage2D";
-    }
-    glDrawBuffer = (PFNGLDRAWBUFFERPROC) sogl_loadOpenGLFunction("glDrawBuffer");
-    if (!glDrawBuffer && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glDrawBuffer";
-    }
-    glClear = (PFNGLCLEARPROC) sogl_loadOpenGLFunction("glClear");
-    if (!glClear && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glClear";
-    }
-    glClearColor = (PFNGLCLEARCOLORPROC) sogl_loadOpenGLFunction("glClearColor");
-    if (!glClearColor && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glClearColor";
-    }
-    glClearStencil = (PFNGLCLEARSTENCILPROC) sogl_loadOpenGLFunction("glClearStencil");
-    if (!glClearStencil && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glClearStencil";
-    }
-    glClearDepth = (PFNGLCLEARDEPTHPROC) sogl_loadOpenGLFunction("glClearDepth");
-    if (!glClearDepth && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glClearDepth";
-    }
-    glStencilMask = (PFNGLSTENCILMASKPROC) sogl_loadOpenGLFunction("glStencilMask");
-    if (!glStencilMask && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glStencilMask";
-    }
-    glColorMask = (PFNGLCOLORMASKPROC) sogl_loadOpenGLFunction("glColorMask");
-    if (!glColorMask && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glColorMask";
-    }
-    glDepthMask = (PFNGLDEPTHMASKPROC) sogl_loadOpenGLFunction("glDepthMask");
-    if (!glDepthMask && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glDepthMask";
-    }
-    glDisable = (PFNGLDISABLEPROC) sogl_loadOpenGLFunction("glDisable");
-    if (!glDisable && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glDisable";
-    }
-    glEnable = (PFNGLENABLEPROC) sogl_loadOpenGLFunction("glEnable");
-    if (!glEnable && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glEnable";
-    }
-    glFinish = (PFNGLFINISHPROC) sogl_loadOpenGLFunction("glFinish");
-    if (!glFinish && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glFinish";
-    }
-    glFlush = (PFNGLFLUSHPROC) sogl_loadOpenGLFunction("glFlush");
-    if (!glFlush && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glFlush";
-    }
-    glBlendFunc = (PFNGLBLENDFUNCPROC) sogl_loadOpenGLFunction("glBlendFunc");
-    if (!glBlendFunc && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glBlendFunc";
-    }
-    glLogicOp = (PFNGLLOGICOPPROC) sogl_loadOpenGLFunction("glLogicOp");
-    if (!glLogicOp && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glLogicOp";
-    }
-    glStencilFunc = (PFNGLSTENCILFUNCPROC) sogl_loadOpenGLFunction("glStencilFunc");
-    if (!glStencilFunc && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glStencilFunc";
-    }
-    glStencilOp = (PFNGLSTENCILOPPROC) sogl_loadOpenGLFunction("glStencilOp");
-    if (!glStencilOp && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glStencilOp";
-    }
-    glDepthFunc = (PFNGLDEPTHFUNCPROC) sogl_loadOpenGLFunction("glDepthFunc");
-    if (!glDepthFunc && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glDepthFunc";
-    }
-    glPixelStoref = (PFNGLPIXELSTOREFPROC) sogl_loadOpenGLFunction("glPixelStoref");
-    if (!glPixelStoref && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glPixelStoref";
-    }
-    glPixelStorei = (PFNGLPIXELSTOREIPROC) sogl_loadOpenGLFunction("glPixelStorei");
-    if (!glPixelStorei && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glPixelStorei";
-    }
-    glReadBuffer = (PFNGLREADBUFFERPROC) sogl_loadOpenGLFunction("glReadBuffer");
-    if (!glReadBuffer && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glReadBuffer";
-    }
-    glReadPixels = (PFNGLREADPIXELSPROC) sogl_loadOpenGLFunction("glReadPixels");
-    if (!glReadPixels && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glReadPixels";
-    }
-    glGetBooleanv = (PFNGLGETBOOLEANVPROC) sogl_loadOpenGLFunction("glGetBooleanv");
-    if (!glGetBooleanv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glGetBooleanv";
-    }
-    glGetDoublev = (PFNGLGETDOUBLEVPROC) sogl_loadOpenGLFunction("glGetDoublev");
-    if (!glGetDoublev && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glGetDoublev";
-    }
-    glGetError = (PFNGLGETERRORPROC) sogl_loadOpenGLFunction("glGetError");
-    if (!glGetError && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glGetError";
-    }
-    glGetFloatv = (PFNGLGETFLOATVPROC) sogl_loadOpenGLFunction("glGetFloatv");
-    if (!glGetFloatv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glGetFloatv";
-    }
-    glGetIntegerv = (PFNGLGETINTEGERVPROC) sogl_loadOpenGLFunction("glGetIntegerv");
-    if (!glGetIntegerv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glGetIntegerv";
-    }
-    glGetString = (PFNGLGETSTRINGPROC) sogl_loadOpenGLFunction("glGetString");
-    if (!glGetString && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glGetString";
-    }
-    glGetTexImage = (PFNGLGETTEXIMAGEPROC) sogl_loadOpenGLFunction("glGetTexImage");
-    if (!glGetTexImage && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glGetTexImage";
-    }
-    glGetTexParameterfv = (PFNGLGETTEXPARAMETERFVPROC) sogl_loadOpenGLFunction("glGetTexParameterfv");
-    if (!glGetTexParameterfv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glGetTexParameterfv";
-    }
-    glGetTexParameteriv = (PFNGLGETTEXPARAMETERIVPROC) sogl_loadOpenGLFunction("glGetTexParameteriv");
-    if (!glGetTexParameteriv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glGetTexParameteriv";
-    }
-    glGetTexLevelParameterfv = (PFNGLGETTEXLEVELPARAMETERFVPROC) sogl_loadOpenGLFunction("glGetTexLevelParameterfv");
-    if (!glGetTexLevelParameterfv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glGetTexLevelParameterfv";
-    }
-    glGetTexLevelParameteriv = (PFNGLGETTEXLEVELPARAMETERIVPROC) sogl_loadOpenGLFunction("glGetTexLevelParameteriv");
-    if (!glGetTexLevelParameteriv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glGetTexLevelParameteriv";
-    }
-    glIsEnabled = (PFNGLISENABLEDPROC) sogl_loadOpenGLFunction("glIsEnabled");
-    if (!glIsEnabled && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glIsEnabled";
-    }
-    glDepthRange = (PFNGLDEPTHRANGEPROC) sogl_loadOpenGLFunction("glDepthRange");
-    if (!glDepthRange && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glDepthRange";
-    }
-    glViewport = (PFNGLVIEWPORTPROC) sogl_loadOpenGLFunction("glViewport");
-    if (!glViewport && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glViewport";
-    }
+SOGL_FUNCTIONS_1_0
 #endif /* GL_VERSION_1_0 */
 
 #if SOGL_TEST_VERSION(1, 1)
-    glDrawArrays = (PFNGLDRAWARRAYSPROC) sogl_loadOpenGLFunction("glDrawArrays");
-    if (!glDrawArrays && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glDrawArrays";
-    }
-    glDrawElements = (PFNGLDRAWELEMENTSPROC) sogl_loadOpenGLFunction("glDrawElements");
-    if (!glDrawElements && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glDrawElements";
-    }
-    glGetPointerv = (PFNGLGETPOINTERVPROC) sogl_loadOpenGLFunction("glGetPointerv");
-    if (!glGetPointerv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glGetPointerv";
-    }
-    glPolygonOffset = (PFNGLPOLYGONOFFSETPROC) sogl_loadOpenGLFunction("glPolygonOffset");
-    if (!glPolygonOffset && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glPolygonOffset";
-    }
-    glCopyTexImage1D = (PFNGLCOPYTEXIMAGE1DPROC) sogl_loadOpenGLFunction("glCopyTexImage1D");
-    if (!glCopyTexImage1D && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glCopyTexImage1D";
-    }
-    glCopyTexImage2D = (PFNGLCOPYTEXIMAGE2DPROC) sogl_loadOpenGLFunction("glCopyTexImage2D");
-    if (!glCopyTexImage2D && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glCopyTexImage2D";
-    }
-    glCopyTexSubImage1D = (PFNGLCOPYTEXSUBIMAGE1DPROC) sogl_loadOpenGLFunction("glCopyTexSubImage1D");
-    if (!glCopyTexSubImage1D && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glCopyTexSubImage1D";
-    }
-    glCopyTexSubImage2D = (PFNGLCOPYTEXSUBIMAGE2DPROC) sogl_loadOpenGLFunction("glCopyTexSubImage2D");
-    if (!glCopyTexSubImage2D && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glCopyTexSubImage2D";
-    }
-    glTexSubImage1D = (PFNGLTEXSUBIMAGE1DPROC) sogl_loadOpenGLFunction("glTexSubImage1D");
-    if (!glTexSubImage1D && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glTexSubImage1D";
-    }
-    glTexSubImage2D = (PFNGLTEXSUBIMAGE2DPROC) sogl_loadOpenGLFunction("glTexSubImage2D");
-    if (!glTexSubImage2D && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glTexSubImage2D";
-    }
-    glBindTexture = (PFNGLBINDTEXTUREPROC) sogl_loadOpenGLFunction("glBindTexture");
-    if (!glBindTexture && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glBindTexture";
-    }
-    glDeleteTextures = (PFNGLDELETETEXTURESPROC) sogl_loadOpenGLFunction("glDeleteTextures");
-    if (!glDeleteTextures && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glDeleteTextures";
-    }
-    glGenTextures = (PFNGLGENTEXTURESPROC) sogl_loadOpenGLFunction("glGenTextures");
-    if (!glGenTextures && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glGenTextures";
-    }
-    glIsTexture = (PFNGLISTEXTUREPROC) sogl_loadOpenGLFunction("glIsTexture");
-    if (!glIsTexture && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glIsTexture";
-    }
+SOGL_FUNCTIONS_1_1
 #endif /* GL_VERSION_1_1 */
 
 #if SOGL_TEST_VERSION(1, 2)
-    glDrawRangeElements = (PFNGLDRAWRANGEELEMENTSPROC) sogl_loadOpenGLFunction("glDrawRangeElements");
-    if (!glDrawRangeElements && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glDrawRangeElements";
-    }
-    glTexImage3D = (PFNGLTEXIMAGE3DPROC) sogl_loadOpenGLFunction("glTexImage3D");
-    if (!glTexImage3D && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glTexImage3D";
-    }
-    glTexSubImage3D = (PFNGLTEXSUBIMAGE3DPROC) sogl_loadOpenGLFunction("glTexSubImage3D");
-    if (!glTexSubImage3D && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glTexSubImage3D";
-    }
-    glCopyTexSubImage3D = (PFNGLCOPYTEXSUBIMAGE3DPROC) sogl_loadOpenGLFunction("glCopyTexSubImage3D");
-    if (!glCopyTexSubImage3D && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glCopyTexSubImage3D";
-    }
+SOGL_FUNCTIONS_1_2
 #endif /* GL_VERSION_1_2 */
 
 #if SOGL_TEST_VERSION(1, 3)
-    glActiveTexture = (PFNGLACTIVETEXTUREPROC) sogl_loadOpenGLFunction("glActiveTexture");
-    if (!glActiveTexture && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glActiveTexture";
-    }
-    glSampleCoverage = (PFNGLSAMPLECOVERAGEPROC) sogl_loadOpenGLFunction("glSampleCoverage");
-    if (!glSampleCoverage && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glSampleCoverage";
-    }
-    glCompressedTexImage3D = (PFNGLCOMPRESSEDTEXIMAGE3DPROC) sogl_loadOpenGLFunction("glCompressedTexImage3D");
-    if (!glCompressedTexImage3D && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glCompressedTexImage3D";
-    }
-    glCompressedTexImage2D = (PFNGLCOMPRESSEDTEXIMAGE2DPROC) sogl_loadOpenGLFunction("glCompressedTexImage2D");
-    if (!glCompressedTexImage2D && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glCompressedTexImage2D";
-    }
-    glCompressedTexImage1D = (PFNGLCOMPRESSEDTEXIMAGE1DPROC) sogl_loadOpenGLFunction("glCompressedTexImage1D");
-    if (!glCompressedTexImage1D && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glCompressedTexImage1D";
-    }
-    glCompressedTexSubImage3D = (PFNGLCOMPRESSEDTEXSUBIMAGE3DPROC) sogl_loadOpenGLFunction("glCompressedTexSubImage3D");
-    if (!glCompressedTexSubImage3D && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glCompressedTexSubImage3D";
-    }
-    glCompressedTexSubImage2D = (PFNGLCOMPRESSEDTEXSUBIMAGE2DPROC) sogl_loadOpenGLFunction("glCompressedTexSubImage2D");
-    if (!glCompressedTexSubImage2D && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glCompressedTexSubImage2D";
-    }
-    glCompressedTexSubImage1D = (PFNGLCOMPRESSEDTEXSUBIMAGE1DPROC) sogl_loadOpenGLFunction("glCompressedTexSubImage1D");
-    if (!glCompressedTexSubImage1D && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glCompressedTexSubImage1D";
-    }
-    glGetCompressedTexImage = (PFNGLGETCOMPRESSEDTEXIMAGEPROC) sogl_loadOpenGLFunction("glGetCompressedTexImage");
-    if (!glGetCompressedTexImage && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glGetCompressedTexImage";
-    }
+SOGL_FUNCTIONS_1_3
 #endif /* GL_VERSION_1_3 */
 
 #if SOGL_TEST_VERSION(1, 4)
-    glBlendFuncSeparate = (PFNGLBLENDFUNCSEPARATEPROC) sogl_loadOpenGLFunction("glBlendFuncSeparate");
-    if (!glBlendFuncSeparate && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glBlendFuncSeparate";
-    }
-    glMultiDrawArrays = (PFNGLMULTIDRAWARRAYSPROC) sogl_loadOpenGLFunction("glMultiDrawArrays");
-    if (!glMultiDrawArrays && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glMultiDrawArrays";
-    }
-    glMultiDrawElements = (PFNGLMULTIDRAWELEMENTSPROC) sogl_loadOpenGLFunction("glMultiDrawElements");
-    if (!glMultiDrawElements && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glMultiDrawElements";
-    }
-    glPointParameterf = (PFNGLPOINTPARAMETERFPROC) sogl_loadOpenGLFunction("glPointParameterf");
-    if (!glPointParameterf && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glPointParameterf";
-    }
-    glPointParameterfv = (PFNGLPOINTPARAMETERFVPROC) sogl_loadOpenGLFunction("glPointParameterfv");
-    if (!glPointParameterfv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glPointParameterfv";
-    }
-    glPointParameteri = (PFNGLPOINTPARAMETERIPROC) sogl_loadOpenGLFunction("glPointParameteri");
-    if (!glPointParameteri && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glPointParameteri";
-    }
-    glPointParameteriv = (PFNGLPOINTPARAMETERIVPROC) sogl_loadOpenGLFunction("glPointParameteriv");
-    if (!glPointParameteriv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glPointParameteriv";
-    }
-    glBlendColor = (PFNGLBLENDCOLORPROC) sogl_loadOpenGLFunction("glBlendColor");
-    if (!glBlendColor && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glBlendColor";
-    }
-    glBlendEquation = (PFNGLBLENDEQUATIONPROC) sogl_loadOpenGLFunction("glBlendEquation");
-    if (!glBlendEquation && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glBlendEquation";
-    }
+SOGL_FUNCTIONS_1_4
 #endif /* GL_VERSION_1_4 */
 
 #if SOGL_TEST_VERSION(1, 5)
-    glGenQueries = (PFNGLGENQUERIESPROC) sogl_loadOpenGLFunction("glGenQueries");
-    if (!glGenQueries && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glGenQueries";
-    }
-    glDeleteQueries = (PFNGLDELETEQUERIESPROC) sogl_loadOpenGLFunction("glDeleteQueries");
-    if (!glDeleteQueries && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glDeleteQueries";
-    }
-    glIsQuery = (PFNGLISQUERYPROC) sogl_loadOpenGLFunction("glIsQuery");
-    if (!glIsQuery && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glIsQuery";
-    }
-    glBeginQuery = (PFNGLBEGINQUERYPROC) sogl_loadOpenGLFunction("glBeginQuery");
-    if (!glBeginQuery && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glBeginQuery";
-    }
-    glEndQuery = (PFNGLENDQUERYPROC) sogl_loadOpenGLFunction("glEndQuery");
-    if (!glEndQuery && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glEndQuery";
-    }
-    glGetQueryiv = (PFNGLGETQUERYIVPROC) sogl_loadOpenGLFunction("glGetQueryiv");
-    if (!glGetQueryiv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glGetQueryiv";
-    }
-    glGetQueryObjectiv = (PFNGLGETQUERYOBJECTIVPROC) sogl_loadOpenGLFunction("glGetQueryObjectiv");
-    if (!glGetQueryObjectiv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glGetQueryObjectiv";
-    }
-    glGetQueryObjectuiv = (PFNGLGETQUERYOBJECTUIVPROC) sogl_loadOpenGLFunction("glGetQueryObjectuiv");
-    if (!glGetQueryObjectuiv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glGetQueryObjectuiv";
-    }
-    glBindBuffer = (PFNGLBINDBUFFERPROC) sogl_loadOpenGLFunction("glBindBuffer");
-    if (!glBindBuffer && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glBindBuffer";
-    }
-    glDeleteBuffers = (PFNGLDELETEBUFFERSPROC) sogl_loadOpenGLFunction("glDeleteBuffers");
-    if (!glDeleteBuffers && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glDeleteBuffers";
-    }
-    glGenBuffers = (PFNGLGENBUFFERSPROC) sogl_loadOpenGLFunction("glGenBuffers");
-    if (!glGenBuffers && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glGenBuffers";
-    }
-    glIsBuffer = (PFNGLISBUFFERPROC) sogl_loadOpenGLFunction("glIsBuffer");
-    if (!glIsBuffer && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glIsBuffer";
-    }
-    glBufferData = (PFNGLBUFFERDATAPROC) sogl_loadOpenGLFunction("glBufferData");
-    if (!glBufferData && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glBufferData";
-    }
-    glBufferSubData = (PFNGLBUFFERSUBDATAPROC) sogl_loadOpenGLFunction("glBufferSubData");
-    if (!glBufferSubData && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glBufferSubData";
-    }
-    glGetBufferSubData = (PFNGLGETBUFFERSUBDATAPROC) sogl_loadOpenGLFunction("glGetBufferSubData");
-    if (!glGetBufferSubData && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glGetBufferSubData";
-    }
-    glMapBuffer = (PFNGLMAPBUFFERPROC) sogl_loadOpenGLFunction("glMapBuffer");
-    if (!glMapBuffer && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glMapBuffer";
-    }
-    glUnmapBuffer = (PFNGLUNMAPBUFFERPROC) sogl_loadOpenGLFunction("glUnmapBuffer");
-    if (!glUnmapBuffer && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glUnmapBuffer";
-    }
-    glGetBufferParameteriv = (PFNGLGETBUFFERPARAMETERIVPROC) sogl_loadOpenGLFunction("glGetBufferParameteriv");
-    if (!glGetBufferParameteriv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glGetBufferParameteriv";
-    }
-    glGetBufferPointerv = (PFNGLGETBUFFERPOINTERVPROC) sogl_loadOpenGLFunction("glGetBufferPointerv");
-    if (!glGetBufferPointerv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glGetBufferPointerv";
-    }
+SOGL_FUNCTIONS_1_5
 #endif /* GL_VERSION_1_5 */
 
 #if SOGL_TEST_VERSION(2, 0)
-    glBlendEquationSeparate = (PFNGLBLENDEQUATIONSEPARATEPROC) sogl_loadOpenGLFunction("glBlendEquationSeparate");
-    if (!glBlendEquationSeparate && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glBlendEquationSeparate";
-    }
-    glDrawBuffers = (PFNGLDRAWBUFFERSPROC) sogl_loadOpenGLFunction("glDrawBuffers");
-    if (!glDrawBuffers && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glDrawBuffers";
-    }
-    glStencilOpSeparate = (PFNGLSTENCILOPSEPARATEPROC) sogl_loadOpenGLFunction("glStencilOpSeparate");
-    if (!glStencilOpSeparate && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glStencilOpSeparate";
-    }
-    glStencilFuncSeparate = (PFNGLSTENCILFUNCSEPARATEPROC) sogl_loadOpenGLFunction("glStencilFuncSeparate");
-    if (!glStencilFuncSeparate && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glStencilFuncSeparate";
-    }
-    glStencilMaskSeparate = (PFNGLSTENCILMASKSEPARATEPROC) sogl_loadOpenGLFunction("glStencilMaskSeparate");
-    if (!glStencilMaskSeparate && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glStencilMaskSeparate";
-    }
-    glAttachShader = (PFNGLATTACHSHADERPROC) sogl_loadOpenGLFunction("glAttachShader");
-    if (!glAttachShader && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glAttachShader";
-    }
-    glBindAttribLocation = (PFNGLBINDATTRIBLOCATIONPROC) sogl_loadOpenGLFunction("glBindAttribLocation");
-    if (!glBindAttribLocation && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glBindAttribLocation";
-    }
-    glCompileShader = (PFNGLCOMPILESHADERPROC) sogl_loadOpenGLFunction("glCompileShader");
-    if (!glCompileShader && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glCompileShader";
-    }
-    glCreateProgram = (PFNGLCREATEPROGRAMPROC) sogl_loadOpenGLFunction("glCreateProgram");
-    if (!glCreateProgram && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glCreateProgram";
-    }
-    glCreateShader = (PFNGLCREATESHADERPROC) sogl_loadOpenGLFunction("glCreateShader");
-    if (!glCreateShader && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glCreateShader";
-    }
-    glDeleteProgram = (PFNGLDELETEPROGRAMPROC) sogl_loadOpenGLFunction("glDeleteProgram");
-    if (!glDeleteProgram && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glDeleteProgram";
-    }
-    glDeleteShader = (PFNGLDELETESHADERPROC) sogl_loadOpenGLFunction("glDeleteShader");
-    if (!glDeleteShader && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glDeleteShader";
-    }
-    glDetachShader = (PFNGLDETACHSHADERPROC) sogl_loadOpenGLFunction("glDetachShader");
-    if (!glDetachShader && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glDetachShader";
-    }
-    glDisableVertexAttribArray = (PFNGLDISABLEVERTEXATTRIBARRAYPROC) sogl_loadOpenGLFunction("glDisableVertexAttribArray");
-    if (!glDisableVertexAttribArray && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glDisableVertexAttribArray";
-    }
-    glEnableVertexAttribArray = (PFNGLENABLEVERTEXATTRIBARRAYPROC) sogl_loadOpenGLFunction("glEnableVertexAttribArray");
-    if (!glEnableVertexAttribArray && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glEnableVertexAttribArray";
-    }
-    glGetActiveAttrib = (PFNGLGETACTIVEATTRIBPROC) sogl_loadOpenGLFunction("glGetActiveAttrib");
-    if (!glGetActiveAttrib && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glGetActiveAttrib";
-    }
-    glGetActiveUniform = (PFNGLGETACTIVEUNIFORMPROC) sogl_loadOpenGLFunction("glGetActiveUniform");
-    if (!glGetActiveUniform && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glGetActiveUniform";
-    }
-    glGetAttachedShaders = (PFNGLGETATTACHEDSHADERSPROC) sogl_loadOpenGLFunction("glGetAttachedShaders");
-    if (!glGetAttachedShaders && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glGetAttachedShaders";
-    }
-    glGetAttribLocation = (PFNGLGETATTRIBLOCATIONPROC) sogl_loadOpenGLFunction("glGetAttribLocation");
-    if (!glGetAttribLocation && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glGetAttribLocation";
-    }
-    glGetProgramiv = (PFNGLGETPROGRAMIVPROC) sogl_loadOpenGLFunction("glGetProgramiv");
-    if (!glGetProgramiv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glGetProgramiv";
-    }
-    glGetProgramInfoLog = (PFNGLGETPROGRAMINFOLOGPROC) sogl_loadOpenGLFunction("glGetProgramInfoLog");
-    if (!glGetProgramInfoLog && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glGetProgramInfoLog";
-    }
-    glGetShaderiv = (PFNGLGETSHADERIVPROC) sogl_loadOpenGLFunction("glGetShaderiv");
-    if (!glGetShaderiv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glGetShaderiv";
-    }
-    glGetShaderInfoLog = (PFNGLGETSHADERINFOLOGPROC) sogl_loadOpenGLFunction("glGetShaderInfoLog");
-    if (!glGetShaderInfoLog && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glGetShaderInfoLog";
-    }
-    glGetShaderSource = (PFNGLGETSHADERSOURCEPROC) sogl_loadOpenGLFunction("glGetShaderSource");
-    if (!glGetShaderSource && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glGetShaderSource";
-    }
-    glGetUniformLocation = (PFNGLGETUNIFORMLOCATIONPROC) sogl_loadOpenGLFunction("glGetUniformLocation");
-    if (!glGetUniformLocation && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glGetUniformLocation";
-    }
-    glGetUniformfv = (PFNGLGETUNIFORMFVPROC) sogl_loadOpenGLFunction("glGetUniformfv");
-    if (!glGetUniformfv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glGetUniformfv";
-    }
-    glGetUniformiv = (PFNGLGETUNIFORMIVPROC) sogl_loadOpenGLFunction("glGetUniformiv");
-    if (!glGetUniformiv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glGetUniformiv";
-    }
-    glGetVertexAttribdv = (PFNGLGETVERTEXATTRIBDVPROC) sogl_loadOpenGLFunction("glGetVertexAttribdv");
-    if (!glGetVertexAttribdv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glGetVertexAttribdv";
-    }
-    glGetVertexAttribfv = (PFNGLGETVERTEXATTRIBFVPROC) sogl_loadOpenGLFunction("glGetVertexAttribfv");
-    if (!glGetVertexAttribfv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glGetVertexAttribfv";
-    }
-    glGetVertexAttribiv = (PFNGLGETVERTEXATTRIBIVPROC) sogl_loadOpenGLFunction("glGetVertexAttribiv");
-    if (!glGetVertexAttribiv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glGetVertexAttribiv";
-    }
-    glGetVertexAttribPointerv = (PFNGLGETVERTEXATTRIBPOINTERVPROC) sogl_loadOpenGLFunction("glGetVertexAttribPointerv");
-    if (!glGetVertexAttribPointerv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glGetVertexAttribPointerv";
-    }
-    glIsProgram = (PFNGLISPROGRAMPROC) sogl_loadOpenGLFunction("glIsProgram");
-    if (!glIsProgram && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glIsProgram";
-    }
-    glIsShader = (PFNGLISSHADERPROC) sogl_loadOpenGLFunction("glIsShader");
-    if (!glIsShader && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glIsShader";
-    }
-    glLinkProgram = (PFNGLLINKPROGRAMPROC) sogl_loadOpenGLFunction("glLinkProgram");
-    if (!glLinkProgram && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glLinkProgram";
-    }
-    glShaderSource = (PFNGLSHADERSOURCEPROC) sogl_loadOpenGLFunction("glShaderSource");
-    if (!glShaderSource && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glShaderSource";
-    }
-    glUseProgram = (PFNGLUSEPROGRAMPROC) sogl_loadOpenGLFunction("glUseProgram");
-    if (!glUseProgram && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glUseProgram";
-    }
-    glUniform1f = (PFNGLUNIFORM1FPROC) sogl_loadOpenGLFunction("glUniform1f");
-    if (!glUniform1f && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glUniform1f";
-    }
-    glUniform2f = (PFNGLUNIFORM2FPROC) sogl_loadOpenGLFunction("glUniform2f");
-    if (!glUniform2f && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glUniform2f";
-    }
-    glUniform3f = (PFNGLUNIFORM3FPROC) sogl_loadOpenGLFunction("glUniform3f");
-    if (!glUniform3f && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glUniform3f";
-    }
-    glUniform4f = (PFNGLUNIFORM4FPROC) sogl_loadOpenGLFunction("glUniform4f");
-    if (!glUniform4f && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glUniform4f";
-    }
-    glUniform1i = (PFNGLUNIFORM1IPROC) sogl_loadOpenGLFunction("glUniform1i");
-    if (!glUniform1i && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glUniform1i";
-    }
-    glUniform2i = (PFNGLUNIFORM2IPROC) sogl_loadOpenGLFunction("glUniform2i");
-    if (!glUniform2i && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glUniform2i";
-    }
-    glUniform3i = (PFNGLUNIFORM3IPROC) sogl_loadOpenGLFunction("glUniform3i");
-    if (!glUniform3i && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glUniform3i";
-    }
-    glUniform4i = (PFNGLUNIFORM4IPROC) sogl_loadOpenGLFunction("glUniform4i");
-    if (!glUniform4i && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glUniform4i";
-    }
-    glUniform1fv = (PFNGLUNIFORM1FVPROC) sogl_loadOpenGLFunction("glUniform1fv");
-    if (!glUniform1fv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glUniform1fv";
-    }
-    glUniform2fv = (PFNGLUNIFORM2FVPROC) sogl_loadOpenGLFunction("glUniform2fv");
-    if (!glUniform2fv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glUniform2fv";
-    }
-    glUniform3fv = (PFNGLUNIFORM3FVPROC) sogl_loadOpenGLFunction("glUniform3fv");
-    if (!glUniform3fv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glUniform3fv";
-    }
-    glUniform4fv = (PFNGLUNIFORM4FVPROC) sogl_loadOpenGLFunction("glUniform4fv");
-    if (!glUniform4fv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glUniform4fv";
-    }
-    glUniform1iv = (PFNGLUNIFORM1IVPROC) sogl_loadOpenGLFunction("glUniform1iv");
-    if (!glUniform1iv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glUniform1iv";
-    }
-    glUniform2iv = (PFNGLUNIFORM2IVPROC) sogl_loadOpenGLFunction("glUniform2iv");
-    if (!glUniform2iv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glUniform2iv";
-    }
-    glUniform3iv = (PFNGLUNIFORM3IVPROC) sogl_loadOpenGLFunction("glUniform3iv");
-    if (!glUniform3iv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glUniform3iv";
-    }
-    glUniform4iv = (PFNGLUNIFORM4IVPROC) sogl_loadOpenGLFunction("glUniform4iv");
-    if (!glUniform4iv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glUniform4iv";
-    }
-    glUniformMatrix2fv = (PFNGLUNIFORMMATRIX2FVPROC) sogl_loadOpenGLFunction("glUniformMatrix2fv");
-    if (!glUniformMatrix2fv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glUniformMatrix2fv";
-    }
-    glUniformMatrix3fv = (PFNGLUNIFORMMATRIX3FVPROC) sogl_loadOpenGLFunction("glUniformMatrix3fv");
-    if (!glUniformMatrix3fv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glUniformMatrix3fv";
-    }
-    glUniformMatrix4fv = (PFNGLUNIFORMMATRIX4FVPROC) sogl_loadOpenGLFunction("glUniformMatrix4fv");
-    if (!glUniformMatrix4fv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glUniformMatrix4fv";
-    }
-    glValidateProgram = (PFNGLVALIDATEPROGRAMPROC) sogl_loadOpenGLFunction("glValidateProgram");
-    if (!glValidateProgram && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glValidateProgram";
-    }
-    glVertexAttrib1d = (PFNGLVERTEXATTRIB1DPROC) sogl_loadOpenGLFunction("glVertexAttrib1d");
-    if (!glVertexAttrib1d && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glVertexAttrib1d";
-    }
-    glVertexAttrib1dv = (PFNGLVERTEXATTRIB1DVPROC) sogl_loadOpenGLFunction("glVertexAttrib1dv");
-    if (!glVertexAttrib1dv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glVertexAttrib1dv";
-    }
-    glVertexAttrib1f = (PFNGLVERTEXATTRIB1FPROC) sogl_loadOpenGLFunction("glVertexAttrib1f");
-    if (!glVertexAttrib1f && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glVertexAttrib1f";
-    }
-    glVertexAttrib1fv = (PFNGLVERTEXATTRIB1FVPROC) sogl_loadOpenGLFunction("glVertexAttrib1fv");
-    if (!glVertexAttrib1fv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glVertexAttrib1fv";
-    }
-    glVertexAttrib1s = (PFNGLVERTEXATTRIB1SPROC) sogl_loadOpenGLFunction("glVertexAttrib1s");
-    if (!glVertexAttrib1s && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glVertexAttrib1s";
-    }
-    glVertexAttrib1sv = (PFNGLVERTEXATTRIB1SVPROC) sogl_loadOpenGLFunction("glVertexAttrib1sv");
-    if (!glVertexAttrib1sv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glVertexAttrib1sv";
-    }
-    glVertexAttrib2d = (PFNGLVERTEXATTRIB2DPROC) sogl_loadOpenGLFunction("glVertexAttrib2d");
-    if (!glVertexAttrib2d && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glVertexAttrib2d";
-    }
-    glVertexAttrib2dv = (PFNGLVERTEXATTRIB2DVPROC) sogl_loadOpenGLFunction("glVertexAttrib2dv");
-    if (!glVertexAttrib2dv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glVertexAttrib2dv";
-    }
-    glVertexAttrib2f = (PFNGLVERTEXATTRIB2FPROC) sogl_loadOpenGLFunction("glVertexAttrib2f");
-    if (!glVertexAttrib2f && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glVertexAttrib2f";
-    }
-    glVertexAttrib2fv = (PFNGLVERTEXATTRIB2FVPROC) sogl_loadOpenGLFunction("glVertexAttrib2fv");
-    if (!glVertexAttrib2fv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glVertexAttrib2fv";
-    }
-    glVertexAttrib2s = (PFNGLVERTEXATTRIB2SPROC) sogl_loadOpenGLFunction("glVertexAttrib2s");
-    if (!glVertexAttrib2s && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glVertexAttrib2s";
-    }
-    glVertexAttrib2sv = (PFNGLVERTEXATTRIB2SVPROC) sogl_loadOpenGLFunction("glVertexAttrib2sv");
-    if (!glVertexAttrib2sv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glVertexAttrib2sv";
-    }
-    glVertexAttrib3d = (PFNGLVERTEXATTRIB3DPROC) sogl_loadOpenGLFunction("glVertexAttrib3d");
-    if (!glVertexAttrib3d && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glVertexAttrib3d";
-    }
-    glVertexAttrib3dv = (PFNGLVERTEXATTRIB3DVPROC) sogl_loadOpenGLFunction("glVertexAttrib3dv");
-    if (!glVertexAttrib3dv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glVertexAttrib3dv";
-    }
-    glVertexAttrib3f = (PFNGLVERTEXATTRIB3FPROC) sogl_loadOpenGLFunction("glVertexAttrib3f");
-    if (!glVertexAttrib3f && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glVertexAttrib3f";
-    }
-    glVertexAttrib3fv = (PFNGLVERTEXATTRIB3FVPROC) sogl_loadOpenGLFunction("glVertexAttrib3fv");
-    if (!glVertexAttrib3fv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glVertexAttrib3fv";
-    }
-    glVertexAttrib3s = (PFNGLVERTEXATTRIB3SPROC) sogl_loadOpenGLFunction("glVertexAttrib3s");
-    if (!glVertexAttrib3s && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glVertexAttrib3s";
-    }
-    glVertexAttrib3sv = (PFNGLVERTEXATTRIB3SVPROC) sogl_loadOpenGLFunction("glVertexAttrib3sv");
-    if (!glVertexAttrib3sv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glVertexAttrib3sv";
-    }
-    glVertexAttrib4Nbv = (PFNGLVERTEXATTRIB4NBVPROC) sogl_loadOpenGLFunction("glVertexAttrib4Nbv");
-    if (!glVertexAttrib4Nbv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glVertexAttrib4Nbv";
-    }
-    glVertexAttrib4Niv = (PFNGLVERTEXATTRIB4NIVPROC) sogl_loadOpenGLFunction("glVertexAttrib4Niv");
-    if (!glVertexAttrib4Niv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glVertexAttrib4Niv";
-    }
-    glVertexAttrib4Nsv = (PFNGLVERTEXATTRIB4NSVPROC) sogl_loadOpenGLFunction("glVertexAttrib4Nsv");
-    if (!glVertexAttrib4Nsv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glVertexAttrib4Nsv";
-    }
-    glVertexAttrib4Nub = (PFNGLVERTEXATTRIB4NUBPROC) sogl_loadOpenGLFunction("glVertexAttrib4Nub");
-    if (!glVertexAttrib4Nub && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glVertexAttrib4Nub";
-    }
-    glVertexAttrib4Nubv = (PFNGLVERTEXATTRIB4NUBVPROC) sogl_loadOpenGLFunction("glVertexAttrib4Nubv");
-    if (!glVertexAttrib4Nubv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glVertexAttrib4Nubv";
-    }
-    glVertexAttrib4Nuiv = (PFNGLVERTEXATTRIB4NUIVPROC) sogl_loadOpenGLFunction("glVertexAttrib4Nuiv");
-    if (!glVertexAttrib4Nuiv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glVertexAttrib4Nuiv";
-    }
-    glVertexAttrib4Nusv = (PFNGLVERTEXATTRIB4NUSVPROC) sogl_loadOpenGLFunction("glVertexAttrib4Nusv");
-    if (!glVertexAttrib4Nusv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glVertexAttrib4Nusv";
-    }
-    glVertexAttrib4bv = (PFNGLVERTEXATTRIB4BVPROC) sogl_loadOpenGLFunction("glVertexAttrib4bv");
-    if (!glVertexAttrib4bv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glVertexAttrib4bv";
-    }
-    glVertexAttrib4d = (PFNGLVERTEXATTRIB4DPROC) sogl_loadOpenGLFunction("glVertexAttrib4d");
-    if (!glVertexAttrib4d && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glVertexAttrib4d";
-    }
-    glVertexAttrib4dv = (PFNGLVERTEXATTRIB4DVPROC) sogl_loadOpenGLFunction("glVertexAttrib4dv");
-    if (!glVertexAttrib4dv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glVertexAttrib4dv";
-    }
-    glVertexAttrib4f = (PFNGLVERTEXATTRIB4FPROC) sogl_loadOpenGLFunction("glVertexAttrib4f");
-    if (!glVertexAttrib4f && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glVertexAttrib4f";
-    }
-    glVertexAttrib4fv = (PFNGLVERTEXATTRIB4FVPROC) sogl_loadOpenGLFunction("glVertexAttrib4fv");
-    if (!glVertexAttrib4fv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glVertexAttrib4fv";
-    }
-    glVertexAttrib4iv = (PFNGLVERTEXATTRIB4IVPROC) sogl_loadOpenGLFunction("glVertexAttrib4iv");
-    if (!glVertexAttrib4iv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glVertexAttrib4iv";
-    }
-    glVertexAttrib4s = (PFNGLVERTEXATTRIB4SPROC) sogl_loadOpenGLFunction("glVertexAttrib4s");
-    if (!glVertexAttrib4s && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glVertexAttrib4s";
-    }
-    glVertexAttrib4sv = (PFNGLVERTEXATTRIB4SVPROC) sogl_loadOpenGLFunction("glVertexAttrib4sv");
-    if (!glVertexAttrib4sv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glVertexAttrib4sv";
-    }
-    glVertexAttrib4ubv = (PFNGLVERTEXATTRIB4UBVPROC) sogl_loadOpenGLFunction("glVertexAttrib4ubv");
-    if (!glVertexAttrib4ubv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glVertexAttrib4ubv";
-    }
-    glVertexAttrib4uiv = (PFNGLVERTEXATTRIB4UIVPROC) sogl_loadOpenGLFunction("glVertexAttrib4uiv");
-    if (!glVertexAttrib4uiv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glVertexAttrib4uiv";
-    }
-    glVertexAttrib4usv = (PFNGLVERTEXATTRIB4USVPROC) sogl_loadOpenGLFunction("glVertexAttrib4usv");
-    if (!glVertexAttrib4usv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glVertexAttrib4usv";
-    }
-    glVertexAttribPointer = (PFNGLVERTEXATTRIBPOINTERPROC) sogl_loadOpenGLFunction("glVertexAttribPointer");
-    if (!glVertexAttribPointer && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glVertexAttribPointer";
-    }
+SOGL_FUNCTIONS_2_0
 #endif /* GL_VERSION_2_0 */
 
 #if SOGL_TEST_VERSION(2, 1)
-    glUniformMatrix2x3fv = (PFNGLUNIFORMMATRIX2X3FVPROC) sogl_loadOpenGLFunction("glUniformMatrix2x3fv");
-    if (!glUniformMatrix2x3fv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glUniformMatrix2x3fv";
-    }
-    glUniformMatrix3x2fv = (PFNGLUNIFORMMATRIX3X2FVPROC) sogl_loadOpenGLFunction("glUniformMatrix3x2fv");
-    if (!glUniformMatrix3x2fv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glUniformMatrix3x2fv";
-    }
-    glUniformMatrix2x4fv = (PFNGLUNIFORMMATRIX2X4FVPROC) sogl_loadOpenGLFunction("glUniformMatrix2x4fv");
-    if (!glUniformMatrix2x4fv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glUniformMatrix2x4fv";
-    }
-    glUniformMatrix4x2fv = (PFNGLUNIFORMMATRIX4X2FVPROC) sogl_loadOpenGLFunction("glUniformMatrix4x2fv");
-    if (!glUniformMatrix4x2fv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glUniformMatrix4x2fv";
-    }
-    glUniformMatrix3x4fv = (PFNGLUNIFORMMATRIX3X4FVPROC) sogl_loadOpenGLFunction("glUniformMatrix3x4fv");
-    if (!glUniformMatrix3x4fv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glUniformMatrix3x4fv";
-    }
-    glUniformMatrix4x3fv = (PFNGLUNIFORMMATRIX4X3FVPROC) sogl_loadOpenGLFunction("glUniformMatrix4x3fv");
-    if (!glUniformMatrix4x3fv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glUniformMatrix4x3fv";
-    }
+SOGL_FUNCTIONS_2_1
 #endif /* GL_VERSION_2_1 */
 
 #if SOGL_TEST_VERSION(3, 0)
-    glColorMaski = (PFNGLCOLORMASKIPROC) sogl_loadOpenGLFunction("glColorMaski");
-    if (!glColorMaski && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glColorMaski";
-    }
-    glGetBooleani_v = (PFNGLGETBOOLEANI_VPROC) sogl_loadOpenGLFunction("glGetBooleani_v");
-    if (!glGetBooleani_v && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glGetBooleani_v";
-    }
-    glGetIntegeri_v = (PFNGLGETINTEGERI_VPROC) sogl_loadOpenGLFunction("glGetIntegeri_v");
-    if (!glGetIntegeri_v && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glGetIntegeri_v";
-    }
-    glEnablei = (PFNGLENABLEIPROC) sogl_loadOpenGLFunction("glEnablei");
-    if (!glEnablei && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glEnablei";
-    }
-    glDisablei = (PFNGLDISABLEIPROC) sogl_loadOpenGLFunction("glDisablei");
-    if (!glDisablei && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glDisablei";
-    }
-    glIsEnabledi = (PFNGLISENABLEDIPROC) sogl_loadOpenGLFunction("glIsEnabledi");
-    if (!glIsEnabledi && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glIsEnabledi";
-    }
-    glBeginTransformFeedback = (PFNGLBEGINTRANSFORMFEEDBACKPROC) sogl_loadOpenGLFunction("glBeginTransformFeedback");
-    if (!glBeginTransformFeedback && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glBeginTransformFeedback";
-    }
-    glEndTransformFeedback = (PFNGLENDTRANSFORMFEEDBACKPROC) sogl_loadOpenGLFunction("glEndTransformFeedback");
-    if (!glEndTransformFeedback && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glEndTransformFeedback";
-    }
-    glBindBufferRange = (PFNGLBINDBUFFERRANGEPROC) sogl_loadOpenGLFunction("glBindBufferRange");
-    if (!glBindBufferRange && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glBindBufferRange";
-    }
-    glBindBufferBase = (PFNGLBINDBUFFERBASEPROC) sogl_loadOpenGLFunction("glBindBufferBase");
-    if (!glBindBufferBase && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glBindBufferBase";
-    }
-    glTransformFeedbackVaryings = (PFNGLTRANSFORMFEEDBACKVARYINGSPROC) sogl_loadOpenGLFunction("glTransformFeedbackVaryings");
-    if (!glTransformFeedbackVaryings && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glTransformFeedbackVaryings";
-    }
-    glGetTransformFeedbackVarying = (PFNGLGETTRANSFORMFEEDBACKVARYINGPROC) sogl_loadOpenGLFunction("glGetTransformFeedbackVarying");
-    if (!glGetTransformFeedbackVarying && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glGetTransformFeedbackVarying";
-    }
-    glClampColor = (PFNGLCLAMPCOLORPROC) sogl_loadOpenGLFunction("glClampColor");
-    if (!glClampColor && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glClampColor";
-    }
-    glBeginConditionalRender = (PFNGLBEGINCONDITIONALRENDERPROC) sogl_loadOpenGLFunction("glBeginConditionalRender");
-    if (!glBeginConditionalRender && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glBeginConditionalRender";
-    }
-    glEndConditionalRender = (PFNGLENDCONDITIONALRENDERPROC) sogl_loadOpenGLFunction("glEndConditionalRender");
-    if (!glEndConditionalRender && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glEndConditionalRender";
-    }
-    glVertexAttribIPointer = (PFNGLVERTEXATTRIBIPOINTERPROC) sogl_loadOpenGLFunction("glVertexAttribIPointer");
-    if (!glVertexAttribIPointer && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glVertexAttribIPointer";
-    }
-    glGetVertexAttribIiv = (PFNGLGETVERTEXATTRIBIIVPROC) sogl_loadOpenGLFunction("glGetVertexAttribIiv");
-    if (!glGetVertexAttribIiv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glGetVertexAttribIiv";
-    }
-    glGetVertexAttribIuiv = (PFNGLGETVERTEXATTRIBIUIVPROC) sogl_loadOpenGLFunction("glGetVertexAttribIuiv");
-    if (!glGetVertexAttribIuiv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glGetVertexAttribIuiv";
-    }
-    glVertexAttribI1i = (PFNGLVERTEXATTRIBI1IPROC) sogl_loadOpenGLFunction("glVertexAttribI1i");
-    if (!glVertexAttribI1i && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glVertexAttribI1i";
-    }
-    glVertexAttribI2i = (PFNGLVERTEXATTRIBI2IPROC) sogl_loadOpenGLFunction("glVertexAttribI2i");
-    if (!glVertexAttribI2i && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glVertexAttribI2i";
-    }
-    glVertexAttribI3i = (PFNGLVERTEXATTRIBI3IPROC) sogl_loadOpenGLFunction("glVertexAttribI3i");
-    if (!glVertexAttribI3i && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glVertexAttribI3i";
-    }
-    glVertexAttribI4i = (PFNGLVERTEXATTRIBI4IPROC) sogl_loadOpenGLFunction("glVertexAttribI4i");
-    if (!glVertexAttribI4i && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glVertexAttribI4i";
-    }
-    glVertexAttribI1ui = (PFNGLVERTEXATTRIBI1UIPROC) sogl_loadOpenGLFunction("glVertexAttribI1ui");
-    if (!glVertexAttribI1ui && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glVertexAttribI1ui";
-    }
-    glVertexAttribI2ui = (PFNGLVERTEXATTRIBI2UIPROC) sogl_loadOpenGLFunction("glVertexAttribI2ui");
-    if (!glVertexAttribI2ui && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glVertexAttribI2ui";
-    }
-    glVertexAttribI3ui = (PFNGLVERTEXATTRIBI3UIPROC) sogl_loadOpenGLFunction("glVertexAttribI3ui");
-    if (!glVertexAttribI3ui && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glVertexAttribI3ui";
-    }
-    glVertexAttribI4ui = (PFNGLVERTEXATTRIBI4UIPROC) sogl_loadOpenGLFunction("glVertexAttribI4ui");
-    if (!glVertexAttribI4ui && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glVertexAttribI4ui";
-    }
-    glVertexAttribI1iv = (PFNGLVERTEXATTRIBI1IVPROC) sogl_loadOpenGLFunction("glVertexAttribI1iv");
-    if (!glVertexAttribI1iv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glVertexAttribI1iv";
-    }
-    glVertexAttribI2iv = (PFNGLVERTEXATTRIBI2IVPROC) sogl_loadOpenGLFunction("glVertexAttribI2iv");
-    if (!glVertexAttribI2iv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glVertexAttribI2iv";
-    }
-    glVertexAttribI3iv = (PFNGLVERTEXATTRIBI3IVPROC) sogl_loadOpenGLFunction("glVertexAttribI3iv");
-    if (!glVertexAttribI3iv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glVertexAttribI3iv";
-    }
-    glVertexAttribI4iv = (PFNGLVERTEXATTRIBI4IVPROC) sogl_loadOpenGLFunction("glVertexAttribI4iv");
-    if (!glVertexAttribI4iv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glVertexAttribI4iv";
-    }
-    glVertexAttribI1uiv = (PFNGLVERTEXATTRIBI1UIVPROC) sogl_loadOpenGLFunction("glVertexAttribI1uiv");
-    if (!glVertexAttribI1uiv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glVertexAttribI1uiv";
-    }
-    glVertexAttribI2uiv = (PFNGLVERTEXATTRIBI2UIVPROC) sogl_loadOpenGLFunction("glVertexAttribI2uiv");
-    if (!glVertexAttribI2uiv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glVertexAttribI2uiv";
-    }
-    glVertexAttribI3uiv = (PFNGLVERTEXATTRIBI3UIVPROC) sogl_loadOpenGLFunction("glVertexAttribI3uiv");
-    if (!glVertexAttribI3uiv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glVertexAttribI3uiv";
-    }
-    glVertexAttribI4uiv = (PFNGLVERTEXATTRIBI4UIVPROC) sogl_loadOpenGLFunction("glVertexAttribI4uiv");
-    if (!glVertexAttribI4uiv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glVertexAttribI4uiv";
-    }
-    glVertexAttribI4bv = (PFNGLVERTEXATTRIBI4BVPROC) sogl_loadOpenGLFunction("glVertexAttribI4bv");
-    if (!glVertexAttribI4bv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glVertexAttribI4bv";
-    }
-    glVertexAttribI4sv = (PFNGLVERTEXATTRIBI4SVPROC) sogl_loadOpenGLFunction("glVertexAttribI4sv");
-    if (!glVertexAttribI4sv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glVertexAttribI4sv";
-    }
-    glVertexAttribI4ubv = (PFNGLVERTEXATTRIBI4UBVPROC) sogl_loadOpenGLFunction("glVertexAttribI4ubv");
-    if (!glVertexAttribI4ubv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glVertexAttribI4ubv";
-    }
-    glVertexAttribI4usv = (PFNGLVERTEXATTRIBI4USVPROC) sogl_loadOpenGLFunction("glVertexAttribI4usv");
-    if (!glVertexAttribI4usv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glVertexAttribI4usv";
-    }
-    glGetUniformuiv = (PFNGLGETUNIFORMUIVPROC) sogl_loadOpenGLFunction("glGetUniformuiv");
-    if (!glGetUniformuiv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glGetUniformuiv";
-    }
-    glBindFragDataLocation = (PFNGLBINDFRAGDATALOCATIONPROC) sogl_loadOpenGLFunction("glBindFragDataLocation");
-    if (!glBindFragDataLocation && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glBindFragDataLocation";
-    }
-    glGetFragDataLocation = (PFNGLGETFRAGDATALOCATIONPROC) sogl_loadOpenGLFunction("glGetFragDataLocation");
-    if (!glGetFragDataLocation && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glGetFragDataLocation";
-    }
-    glUniform1ui = (PFNGLUNIFORM1UIPROC) sogl_loadOpenGLFunction("glUniform1ui");
-    if (!glUniform1ui && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glUniform1ui";
-    }
-    glUniform2ui = (PFNGLUNIFORM2UIPROC) sogl_loadOpenGLFunction("glUniform2ui");
-    if (!glUniform2ui && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glUniform2ui";
-    }
-    glUniform3ui = (PFNGLUNIFORM3UIPROC) sogl_loadOpenGLFunction("glUniform3ui");
-    if (!glUniform3ui && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glUniform3ui";
-    }
-    glUniform4ui = (PFNGLUNIFORM4UIPROC) sogl_loadOpenGLFunction("glUniform4ui");
-    if (!glUniform4ui && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glUniform4ui";
-    }
-    glUniform1uiv = (PFNGLUNIFORM1UIVPROC) sogl_loadOpenGLFunction("glUniform1uiv");
-    if (!glUniform1uiv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glUniform1uiv";
-    }
-    glUniform2uiv = (PFNGLUNIFORM2UIVPROC) sogl_loadOpenGLFunction("glUniform2uiv");
-    if (!glUniform2uiv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glUniform2uiv";
-    }
-    glUniform3uiv = (PFNGLUNIFORM3UIVPROC) sogl_loadOpenGLFunction("glUniform3uiv");
-    if (!glUniform3uiv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glUniform3uiv";
-    }
-    glUniform4uiv = (PFNGLUNIFORM4UIVPROC) sogl_loadOpenGLFunction("glUniform4uiv");
-    if (!glUniform4uiv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glUniform4uiv";
-    }
-    glTexParameterIiv = (PFNGLTEXPARAMETERIIVPROC) sogl_loadOpenGLFunction("glTexParameterIiv");
-    if (!glTexParameterIiv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glTexParameterIiv";
-    }
-    glTexParameterIuiv = (PFNGLTEXPARAMETERIUIVPROC) sogl_loadOpenGLFunction("glTexParameterIuiv");
-    if (!glTexParameterIuiv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glTexParameterIuiv";
-    }
-    glGetTexParameterIiv = (PFNGLGETTEXPARAMETERIIVPROC) sogl_loadOpenGLFunction("glGetTexParameterIiv");
-    if (!glGetTexParameterIiv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glGetTexParameterIiv";
-    }
-    glGetTexParameterIuiv = (PFNGLGETTEXPARAMETERIUIVPROC) sogl_loadOpenGLFunction("glGetTexParameterIuiv");
-    if (!glGetTexParameterIuiv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glGetTexParameterIuiv";
-    }
-    glClearBufferiv = (PFNGLCLEARBUFFERIVPROC) sogl_loadOpenGLFunction("glClearBufferiv");
-    if (!glClearBufferiv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glClearBufferiv";
-    }
-    glClearBufferuiv = (PFNGLCLEARBUFFERUIVPROC) sogl_loadOpenGLFunction("glClearBufferuiv");
-    if (!glClearBufferuiv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glClearBufferuiv";
-    }
-    glClearBufferfv = (PFNGLCLEARBUFFERFVPROC) sogl_loadOpenGLFunction("glClearBufferfv");
-    if (!glClearBufferfv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glClearBufferfv";
-    }
-    glClearBufferfi = (PFNGLCLEARBUFFERFIPROC) sogl_loadOpenGLFunction("glClearBufferfi");
-    if (!glClearBufferfi && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glClearBufferfi";
-    }
-    glGetStringi = (PFNGLGETSTRINGIPROC) sogl_loadOpenGLFunction("glGetStringi");
-    if (!glGetStringi && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glGetStringi";
-    }
-    glIsRenderbuffer = (PFNGLISRENDERBUFFERPROC) sogl_loadOpenGLFunction("glIsRenderbuffer");
-    if (!glIsRenderbuffer && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glIsRenderbuffer";
-    }
-    glBindRenderbuffer = (PFNGLBINDRENDERBUFFERPROC) sogl_loadOpenGLFunction("glBindRenderbuffer");
-    if (!glBindRenderbuffer && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glBindRenderbuffer";
-    }
-    glDeleteRenderbuffers = (PFNGLDELETERENDERBUFFERSPROC) sogl_loadOpenGLFunction("glDeleteRenderbuffers");
-    if (!glDeleteRenderbuffers && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glDeleteRenderbuffers";
-    }
-    glGenRenderbuffers = (PFNGLGENRENDERBUFFERSPROC) sogl_loadOpenGLFunction("glGenRenderbuffers");
-    if (!glGenRenderbuffers && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glGenRenderbuffers";
-    }
-    glRenderbufferStorage = (PFNGLRENDERBUFFERSTORAGEPROC) sogl_loadOpenGLFunction("glRenderbufferStorage");
-    if (!glRenderbufferStorage && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glRenderbufferStorage";
-    }
-    glGetRenderbufferParameteriv = (PFNGLGETRENDERBUFFERPARAMETERIVPROC) sogl_loadOpenGLFunction("glGetRenderbufferParameteriv");
-    if (!glGetRenderbufferParameteriv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glGetRenderbufferParameteriv";
-    }
-    glIsFramebuffer = (PFNGLISFRAMEBUFFERPROC) sogl_loadOpenGLFunction("glIsFramebuffer");
-    if (!glIsFramebuffer && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glIsFramebuffer";
-    }
-    glBindFramebuffer = (PFNGLBINDFRAMEBUFFERPROC) sogl_loadOpenGLFunction("glBindFramebuffer");
-    if (!glBindFramebuffer && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glBindFramebuffer";
-    }
-    glDeleteFramebuffers = (PFNGLDELETEFRAMEBUFFERSPROC) sogl_loadOpenGLFunction("glDeleteFramebuffers");
-    if (!glDeleteFramebuffers && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glDeleteFramebuffers";
-    }
-    glGenFramebuffers = (PFNGLGENFRAMEBUFFERSPROC) sogl_loadOpenGLFunction("glGenFramebuffers");
-    if (!glGenFramebuffers && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glGenFramebuffers";
-    }
-    glCheckFramebufferStatus = (PFNGLCHECKFRAMEBUFFERSTATUSPROC) sogl_loadOpenGLFunction("glCheckFramebufferStatus");
-    if (!glCheckFramebufferStatus && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glCheckFramebufferStatus";
-    }
-    glFramebufferTexture1D = (PFNGLFRAMEBUFFERTEXTURE1DPROC) sogl_loadOpenGLFunction("glFramebufferTexture1D");
-    if (!glFramebufferTexture1D && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glFramebufferTexture1D";
-    }
-    glFramebufferTexture2D = (PFNGLFRAMEBUFFERTEXTURE2DPROC) sogl_loadOpenGLFunction("glFramebufferTexture2D");
-    if (!glFramebufferTexture2D && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glFramebufferTexture2D";
-    }
-    glFramebufferTexture3D = (PFNGLFRAMEBUFFERTEXTURE3DPROC) sogl_loadOpenGLFunction("glFramebufferTexture3D");
-    if (!glFramebufferTexture3D && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glFramebufferTexture3D";
-    }
-    glFramebufferRenderbuffer = (PFNGLFRAMEBUFFERRENDERBUFFERPROC) sogl_loadOpenGLFunction("glFramebufferRenderbuffer");
-    if (!glFramebufferRenderbuffer && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glFramebufferRenderbuffer";
-    }
-    glGetFramebufferAttachmentParameteriv = (PFNGLGETFRAMEBUFFERATTACHMENTPARAMETERIVPROC) sogl_loadOpenGLFunction("glGetFramebufferAttachmentParameteriv");
-    if (!glGetFramebufferAttachmentParameteriv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glGetFramebufferAttachmentParameteriv";
-    }
-    glGenerateMipmap = (PFNGLGENERATEMIPMAPPROC) sogl_loadOpenGLFunction("glGenerateMipmap");
-    if (!glGenerateMipmap && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glGenerateMipmap";
-    }
-    glBlitFramebuffer = (PFNGLBLITFRAMEBUFFERPROC) sogl_loadOpenGLFunction("glBlitFramebuffer");
-    if (!glBlitFramebuffer && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glBlitFramebuffer";
-    }
-    glRenderbufferStorageMultisample = (PFNGLRENDERBUFFERSTORAGEMULTISAMPLEPROC) sogl_loadOpenGLFunction("glRenderbufferStorageMultisample");
-    if (!glRenderbufferStorageMultisample && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glRenderbufferStorageMultisample";
-    }
-    glFramebufferTextureLayer = (PFNGLFRAMEBUFFERTEXTURELAYERPROC) sogl_loadOpenGLFunction("glFramebufferTextureLayer");
-    if (!glFramebufferTextureLayer && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glFramebufferTextureLayer";
-    }
-    glMapBufferRange = (PFNGLMAPBUFFERRANGEPROC) sogl_loadOpenGLFunction("glMapBufferRange");
-    if (!glMapBufferRange && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glMapBufferRange";
-    }
-    glFlushMappedBufferRange = (PFNGLFLUSHMAPPEDBUFFERRANGEPROC) sogl_loadOpenGLFunction("glFlushMappedBufferRange");
-    if (!glFlushMappedBufferRange && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glFlushMappedBufferRange";
-    }
-    glBindVertexArray = (PFNGLBINDVERTEXARRAYPROC) sogl_loadOpenGLFunction("glBindVertexArray");
-    if (!glBindVertexArray && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glBindVertexArray";
-    }
-    glDeleteVertexArrays = (PFNGLDELETEVERTEXARRAYSPROC) sogl_loadOpenGLFunction("glDeleteVertexArrays");
-    if (!glDeleteVertexArrays && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glDeleteVertexArrays";
-    }
-    glGenVertexArrays = (PFNGLGENVERTEXARRAYSPROC) sogl_loadOpenGLFunction("glGenVertexArrays");
-    if (!glGenVertexArrays && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glGenVertexArrays";
-    }
-    glIsVertexArray = (PFNGLISVERTEXARRAYPROC) sogl_loadOpenGLFunction("glIsVertexArray");
-    if (!glIsVertexArray && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glIsVertexArray";
-    }
+SOGL_FUNCTIONS_3_0
 #endif /* GL_VERSION_3_0 */
 
 #if SOGL_TEST_VERSION(3, 1)
-    glDrawArraysInstanced = (PFNGLDRAWARRAYSINSTANCEDPROC) sogl_loadOpenGLFunction("glDrawArraysInstanced");
-    if (!glDrawArraysInstanced && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glDrawArraysInstanced";
-    }
-    glDrawElementsInstanced = (PFNGLDRAWELEMENTSINSTANCEDPROC) sogl_loadOpenGLFunction("glDrawElementsInstanced");
-    if (!glDrawElementsInstanced && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glDrawElementsInstanced";
-    }
-    glTexBuffer = (PFNGLTEXBUFFERPROC) sogl_loadOpenGLFunction("glTexBuffer");
-    if (!glTexBuffer && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glTexBuffer";
-    }
-    glPrimitiveRestartIndex = (PFNGLPRIMITIVERESTARTINDEXPROC) sogl_loadOpenGLFunction("glPrimitiveRestartIndex");
-    if (!glPrimitiveRestartIndex && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glPrimitiveRestartIndex";
-    }
-    glCopyBufferSubData = (PFNGLCOPYBUFFERSUBDATAPROC) sogl_loadOpenGLFunction("glCopyBufferSubData");
-    if (!glCopyBufferSubData && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glCopyBufferSubData";
-    }
-    glGetUniformIndices = (PFNGLGETUNIFORMINDICESPROC) sogl_loadOpenGLFunction("glGetUniformIndices");
-    if (!glGetUniformIndices && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glGetUniformIndices";
-    }
-    glGetActiveUniformsiv = (PFNGLGETACTIVEUNIFORMSIVPROC) sogl_loadOpenGLFunction("glGetActiveUniformsiv");
-    if (!glGetActiveUniformsiv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glGetActiveUniformsiv";
-    }
-    glGetActiveUniformName = (PFNGLGETACTIVEUNIFORMNAMEPROC) sogl_loadOpenGLFunction("glGetActiveUniformName");
-    if (!glGetActiveUniformName && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glGetActiveUniformName";
-    }
-    glGetUniformBlockIndex = (PFNGLGETUNIFORMBLOCKINDEXPROC) sogl_loadOpenGLFunction("glGetUniformBlockIndex");
-    if (!glGetUniformBlockIndex && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glGetUniformBlockIndex";
-    }
-    glGetActiveUniformBlockiv = (PFNGLGETACTIVEUNIFORMBLOCKIVPROC) sogl_loadOpenGLFunction("glGetActiveUniformBlockiv");
-    if (!glGetActiveUniformBlockiv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glGetActiveUniformBlockiv";
-    }
-    glGetActiveUniformBlockName = (PFNGLGETACTIVEUNIFORMBLOCKNAMEPROC) sogl_loadOpenGLFunction("glGetActiveUniformBlockName");
-    if (!glGetActiveUniformBlockName && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glGetActiveUniformBlockName";
-    }
-    glUniformBlockBinding = (PFNGLUNIFORMBLOCKBINDINGPROC) sogl_loadOpenGLFunction("glUniformBlockBinding");
-    if (!glUniformBlockBinding && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glUniformBlockBinding";
-    }
+SOGL_FUNCTIONS_3_1
 #endif /* GL_VERSION_3_1 */
 
 #if SOGL_TEST_VERSION(3, 2)
-    glDrawElementsBaseVertex = (PFNGLDRAWELEMENTSBASEVERTEXPROC) sogl_loadOpenGLFunction("glDrawElementsBaseVertex");
-    if (!glDrawElementsBaseVertex && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glDrawElementsBaseVertex";
-    }
-    glDrawRangeElementsBaseVertex = (PFNGLDRAWRANGEELEMENTSBASEVERTEXPROC) sogl_loadOpenGLFunction("glDrawRangeElementsBaseVertex");
-    if (!glDrawRangeElementsBaseVertex && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glDrawRangeElementsBaseVertex";
-    }
-    glDrawElementsInstancedBaseVertex = (PFNGLDRAWELEMENTSINSTANCEDBASEVERTEXPROC) sogl_loadOpenGLFunction("glDrawElementsInstancedBaseVertex");
-    if (!glDrawElementsInstancedBaseVertex && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glDrawElementsInstancedBaseVertex";
-    }
-    glMultiDrawElementsBaseVertex = (PFNGLMULTIDRAWELEMENTSBASEVERTEXPROC) sogl_loadOpenGLFunction("glMultiDrawElementsBaseVertex");
-    if (!glMultiDrawElementsBaseVertex && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glMultiDrawElementsBaseVertex";
-    }
-    glProvokingVertex = (PFNGLPROVOKINGVERTEXPROC) sogl_loadOpenGLFunction("glProvokingVertex");
-    if (!glProvokingVertex && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glProvokingVertex";
-    }
-    glFenceSync = (PFNGLFENCESYNCPROC) sogl_loadOpenGLFunction("glFenceSync");
-    if (!glFenceSync && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glFenceSync";
-    }
-    glIsSync = (PFNGLISSYNCPROC) sogl_loadOpenGLFunction("glIsSync");
-    if (!glIsSync && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glIsSync";
-    }
-    glDeleteSync = (PFNGLDELETESYNCPROC) sogl_loadOpenGLFunction("glDeleteSync");
-    if (!glDeleteSync && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glDeleteSync";
-    }
-    glClientWaitSync = (PFNGLCLIENTWAITSYNCPROC) sogl_loadOpenGLFunction("glClientWaitSync");
-    if (!glClientWaitSync && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glClientWaitSync";
-    }
-    glWaitSync = (PFNGLWAITSYNCPROC) sogl_loadOpenGLFunction("glWaitSync");
-    if (!glWaitSync && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glWaitSync";
-    }
-    glGetInteger64v = (PFNGLGETINTEGER64VPROC) sogl_loadOpenGLFunction("glGetInteger64v");
-    if (!glGetInteger64v && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glGetInteger64v";
-    }
-    glGetSynciv = (PFNGLGETSYNCIVPROC) sogl_loadOpenGLFunction("glGetSynciv");
-    if (!glGetSynciv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glGetSynciv";
-    }
-    glGetInteger64i_v = (PFNGLGETINTEGER64I_VPROC) sogl_loadOpenGLFunction("glGetInteger64i_v");
-    if (!glGetInteger64i_v && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glGetInteger64i_v";
-    }
-    glGetBufferParameteri64v = (PFNGLGETBUFFERPARAMETERI64VPROC) sogl_loadOpenGLFunction("glGetBufferParameteri64v");
-    if (!glGetBufferParameteri64v && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glGetBufferParameteri64v";
-    }
-    glFramebufferTexture = (PFNGLFRAMEBUFFERTEXTUREPROC) sogl_loadOpenGLFunction("glFramebufferTexture");
-    if (!glFramebufferTexture && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glFramebufferTexture";
-    }
-    glTexImage2DMultisample = (PFNGLTEXIMAGE2DMULTISAMPLEPROC) sogl_loadOpenGLFunction("glTexImage2DMultisample");
-    if (!glTexImage2DMultisample && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glTexImage2DMultisample";
-    }
-    glTexImage3DMultisample = (PFNGLTEXIMAGE3DMULTISAMPLEPROC) sogl_loadOpenGLFunction("glTexImage3DMultisample");
-    if (!glTexImage3DMultisample && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glTexImage3DMultisample";
-    }
-    glGetMultisamplefv = (PFNGLGETMULTISAMPLEFVPROC) sogl_loadOpenGLFunction("glGetMultisamplefv");
-    if (!glGetMultisamplefv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glGetMultisamplefv";
-    }
-    glSampleMaski = (PFNGLSAMPLEMASKIPROC) sogl_loadOpenGLFunction("glSampleMaski");
-    if (!glSampleMaski && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glSampleMaski";
-    }
+SOGL_FUNCTIONS_3_2
 #endif /* GL_VERSION_3_2 */
 
 #if SOGL_TEST_VERSION(3, 3)
-    glBindFragDataLocationIndexed = (PFNGLBINDFRAGDATALOCATIONINDEXEDPROC) sogl_loadOpenGLFunction("glBindFragDataLocationIndexed");
-    if (!glBindFragDataLocationIndexed && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glBindFragDataLocationIndexed";
-    }
-    glGetFragDataIndex = (PFNGLGETFRAGDATAINDEXPROC) sogl_loadOpenGLFunction("glGetFragDataIndex");
-    if (!glGetFragDataIndex && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glGetFragDataIndex";
-    }
-    glGenSamplers = (PFNGLGENSAMPLERSPROC) sogl_loadOpenGLFunction("glGenSamplers");
-    if (!glGenSamplers && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glGenSamplers";
-    }
-    glDeleteSamplers = (PFNGLDELETESAMPLERSPROC) sogl_loadOpenGLFunction("glDeleteSamplers");
-    if (!glDeleteSamplers && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glDeleteSamplers";
-    }
-    glIsSampler = (PFNGLISSAMPLERPROC) sogl_loadOpenGLFunction("glIsSampler");
-    if (!glIsSampler && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glIsSampler";
-    }
-    glBindSampler = (PFNGLBINDSAMPLERPROC) sogl_loadOpenGLFunction("glBindSampler");
-    if (!glBindSampler && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glBindSampler";
-    }
-    glSamplerParameteri = (PFNGLSAMPLERPARAMETERIPROC) sogl_loadOpenGLFunction("glSamplerParameteri");
-    if (!glSamplerParameteri && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glSamplerParameteri";
-    }
-    glSamplerParameteriv = (PFNGLSAMPLERPARAMETERIVPROC) sogl_loadOpenGLFunction("glSamplerParameteriv");
-    if (!glSamplerParameteriv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glSamplerParameteriv";
-    }
-    glSamplerParameterf = (PFNGLSAMPLERPARAMETERFPROC) sogl_loadOpenGLFunction("glSamplerParameterf");
-    if (!glSamplerParameterf && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glSamplerParameterf";
-    }
-    glSamplerParameterfv = (PFNGLSAMPLERPARAMETERFVPROC) sogl_loadOpenGLFunction("glSamplerParameterfv");
-    if (!glSamplerParameterfv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glSamplerParameterfv";
-    }
-    glSamplerParameterIiv = (PFNGLSAMPLERPARAMETERIIVPROC) sogl_loadOpenGLFunction("glSamplerParameterIiv");
-    if (!glSamplerParameterIiv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glSamplerParameterIiv";
-    }
-    glSamplerParameterIuiv = (PFNGLSAMPLERPARAMETERIUIVPROC) sogl_loadOpenGLFunction("glSamplerParameterIuiv");
-    if (!glSamplerParameterIuiv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glSamplerParameterIuiv";
-    }
-    glGetSamplerParameteriv = (PFNGLGETSAMPLERPARAMETERIVPROC) sogl_loadOpenGLFunction("glGetSamplerParameteriv");
-    if (!glGetSamplerParameteriv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glGetSamplerParameteriv";
-    }
-    glGetSamplerParameterIiv = (PFNGLGETSAMPLERPARAMETERIIVPROC) sogl_loadOpenGLFunction("glGetSamplerParameterIiv");
-    if (!glGetSamplerParameterIiv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glGetSamplerParameterIiv";
-    }
-    glGetSamplerParameterfv = (PFNGLGETSAMPLERPARAMETERFVPROC) sogl_loadOpenGLFunction("glGetSamplerParameterfv");
-    if (!glGetSamplerParameterfv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glGetSamplerParameterfv";
-    }
-    glGetSamplerParameterIuiv = (PFNGLGETSAMPLERPARAMETERIUIVPROC) sogl_loadOpenGLFunction("glGetSamplerParameterIuiv");
-    if (!glGetSamplerParameterIuiv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glGetSamplerParameterIuiv";
-    }
-    glQueryCounter = (PFNGLQUERYCOUNTERPROC) sogl_loadOpenGLFunction("glQueryCounter");
-    if (!glQueryCounter && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glQueryCounter";
-    }
-    glGetQueryObjecti64v = (PFNGLGETQUERYOBJECTI64VPROC) sogl_loadOpenGLFunction("glGetQueryObjecti64v");
-    if (!glGetQueryObjecti64v && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glGetQueryObjecti64v";
-    }
-    glGetQueryObjectui64v = (PFNGLGETQUERYOBJECTUI64VPROC) sogl_loadOpenGLFunction("glGetQueryObjectui64v");
-    if (!glGetQueryObjectui64v && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glGetQueryObjectui64v";
-    }
-    glVertexAttribDivisor = (PFNGLVERTEXATTRIBDIVISORPROC) sogl_loadOpenGLFunction("glVertexAttribDivisor");
-    if (!glVertexAttribDivisor && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glVertexAttribDivisor";
-    }
-    glVertexAttribP1ui = (PFNGLVERTEXATTRIBP1UIPROC) sogl_loadOpenGLFunction("glVertexAttribP1ui");
-    if (!glVertexAttribP1ui && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glVertexAttribP1ui";
-    }
-    glVertexAttribP1uiv = (PFNGLVERTEXATTRIBP1UIVPROC) sogl_loadOpenGLFunction("glVertexAttribP1uiv");
-    if (!glVertexAttribP1uiv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glVertexAttribP1uiv";
-    }
-    glVertexAttribP2ui = (PFNGLVERTEXATTRIBP2UIPROC) sogl_loadOpenGLFunction("glVertexAttribP2ui");
-    if (!glVertexAttribP2ui && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glVertexAttribP2ui";
-    }
-    glVertexAttribP2uiv = (PFNGLVERTEXATTRIBP2UIVPROC) sogl_loadOpenGLFunction("glVertexAttribP2uiv");
-    if (!glVertexAttribP2uiv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glVertexAttribP2uiv";
-    }
-    glVertexAttribP3ui = (PFNGLVERTEXATTRIBP3UIPROC) sogl_loadOpenGLFunction("glVertexAttribP3ui");
-    if (!glVertexAttribP3ui && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glVertexAttribP3ui";
-    }
-    glVertexAttribP3uiv = (PFNGLVERTEXATTRIBP3UIVPROC) sogl_loadOpenGLFunction("glVertexAttribP3uiv");
-    if (!glVertexAttribP3uiv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glVertexAttribP3uiv";
-    }
-    glVertexAttribP4ui = (PFNGLVERTEXATTRIBP4UIPROC) sogl_loadOpenGLFunction("glVertexAttribP4ui");
-    if (!glVertexAttribP4ui && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glVertexAttribP4ui";
-    }
-    glVertexAttribP4uiv = (PFNGLVERTEXATTRIBP4UIVPROC) sogl_loadOpenGLFunction("glVertexAttribP4uiv");
-    if (!glVertexAttribP4uiv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glVertexAttribP4uiv";
-    }
+SOGL_FUNCTIONS_3_3
 #endif /* GL_VERSION_3_3 */
 
 #if SOGL_TEST_VERSION(4, 0)
-    glMinSampleShading = (PFNGLMINSAMPLESHADINGPROC) sogl_loadOpenGLFunction("glMinSampleShading");
-    if (!glMinSampleShading && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glMinSampleShading";
-    }
-    glBlendEquationi = (PFNGLBLENDEQUATIONIPROC) sogl_loadOpenGLFunction("glBlendEquationi");
-    if (!glBlendEquationi && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glBlendEquationi";
-    }
-    glBlendEquationSeparatei = (PFNGLBLENDEQUATIONSEPARATEIPROC) sogl_loadOpenGLFunction("glBlendEquationSeparatei");
-    if (!glBlendEquationSeparatei && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glBlendEquationSeparatei";
-    }
-    glBlendFunci = (PFNGLBLENDFUNCIPROC) sogl_loadOpenGLFunction("glBlendFunci");
-    if (!glBlendFunci && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glBlendFunci";
-    }
-    glBlendFuncSeparatei = (PFNGLBLENDFUNCSEPARATEIPROC) sogl_loadOpenGLFunction("glBlendFuncSeparatei");
-    if (!glBlendFuncSeparatei && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glBlendFuncSeparatei";
-    }
-    glDrawArraysIndirect = (PFNGLDRAWARRAYSINDIRECTPROC) sogl_loadOpenGLFunction("glDrawArraysIndirect");
-    if (!glDrawArraysIndirect && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glDrawArraysIndirect";
-    }
-    glDrawElementsIndirect = (PFNGLDRAWELEMENTSINDIRECTPROC) sogl_loadOpenGLFunction("glDrawElementsIndirect");
-    if (!glDrawElementsIndirect && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glDrawElementsIndirect";
-    }
-    glUniform1d = (PFNGLUNIFORM1DPROC) sogl_loadOpenGLFunction("glUniform1d");
-    if (!glUniform1d && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glUniform1d";
-    }
-    glUniform2d = (PFNGLUNIFORM2DPROC) sogl_loadOpenGLFunction("glUniform2d");
-    if (!glUniform2d && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glUniform2d";
-    }
-    glUniform3d = (PFNGLUNIFORM3DPROC) sogl_loadOpenGLFunction("glUniform3d");
-    if (!glUniform3d && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glUniform3d";
-    }
-    glUniform4d = (PFNGLUNIFORM4DPROC) sogl_loadOpenGLFunction("glUniform4d");
-    if (!glUniform4d && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glUniform4d";
-    }
-    glUniform1dv = (PFNGLUNIFORM1DVPROC) sogl_loadOpenGLFunction("glUniform1dv");
-    if (!glUniform1dv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glUniform1dv";
-    }
-    glUniform2dv = (PFNGLUNIFORM2DVPROC) sogl_loadOpenGLFunction("glUniform2dv");
-    if (!glUniform2dv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glUniform2dv";
-    }
-    glUniform3dv = (PFNGLUNIFORM3DVPROC) sogl_loadOpenGLFunction("glUniform3dv");
-    if (!glUniform3dv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glUniform3dv";
-    }
-    glUniform4dv = (PFNGLUNIFORM4DVPROC) sogl_loadOpenGLFunction("glUniform4dv");
-    if (!glUniform4dv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glUniform4dv";
-    }
-    glUniformMatrix2dv = (PFNGLUNIFORMMATRIX2DVPROC) sogl_loadOpenGLFunction("glUniformMatrix2dv");
-    if (!glUniformMatrix2dv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glUniformMatrix2dv";
-    }
-    glUniformMatrix3dv = (PFNGLUNIFORMMATRIX3DVPROC) sogl_loadOpenGLFunction("glUniformMatrix3dv");
-    if (!glUniformMatrix3dv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glUniformMatrix3dv";
-    }
-    glUniformMatrix4dv = (PFNGLUNIFORMMATRIX4DVPROC) sogl_loadOpenGLFunction("glUniformMatrix4dv");
-    if (!glUniformMatrix4dv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glUniformMatrix4dv";
-    }
-    glUniformMatrix2x3dv = (PFNGLUNIFORMMATRIX2X3DVPROC) sogl_loadOpenGLFunction("glUniformMatrix2x3dv");
-    if (!glUniformMatrix2x3dv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glUniformMatrix2x3dv";
-    }
-    glUniformMatrix2x4dv = (PFNGLUNIFORMMATRIX2X4DVPROC) sogl_loadOpenGLFunction("glUniformMatrix2x4dv");
-    if (!glUniformMatrix2x4dv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glUniformMatrix2x4dv";
-    }
-    glUniformMatrix3x2dv = (PFNGLUNIFORMMATRIX3X2DVPROC) sogl_loadOpenGLFunction("glUniformMatrix3x2dv");
-    if (!glUniformMatrix3x2dv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glUniformMatrix3x2dv";
-    }
-    glUniformMatrix3x4dv = (PFNGLUNIFORMMATRIX3X4DVPROC) sogl_loadOpenGLFunction("glUniformMatrix3x4dv");
-    if (!glUniformMatrix3x4dv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glUniformMatrix3x4dv";
-    }
-    glUniformMatrix4x2dv = (PFNGLUNIFORMMATRIX4X2DVPROC) sogl_loadOpenGLFunction("glUniformMatrix4x2dv");
-    if (!glUniformMatrix4x2dv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glUniformMatrix4x2dv";
-    }
-    glUniformMatrix4x3dv = (PFNGLUNIFORMMATRIX4X3DVPROC) sogl_loadOpenGLFunction("glUniformMatrix4x3dv");
-    if (!glUniformMatrix4x3dv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glUniformMatrix4x3dv";
-    }
-    glGetUniformdv = (PFNGLGETUNIFORMDVPROC) sogl_loadOpenGLFunction("glGetUniformdv");
-    if (!glGetUniformdv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glGetUniformdv";
-    }
-    glGetSubroutineUniformLocation = (PFNGLGETSUBROUTINEUNIFORMLOCATIONPROC) sogl_loadOpenGLFunction("glGetSubroutineUniformLocation");
-    if (!glGetSubroutineUniformLocation && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glGetSubroutineUniformLocation";
-    }
-    glGetSubroutineIndex = (PFNGLGETSUBROUTINEINDEXPROC) sogl_loadOpenGLFunction("glGetSubroutineIndex");
-    if (!glGetSubroutineIndex && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glGetSubroutineIndex";
-    }
-    glGetActiveSubroutineUniformiv = (PFNGLGETACTIVESUBROUTINEUNIFORMIVPROC) sogl_loadOpenGLFunction("glGetActiveSubroutineUniformiv");
-    if (!glGetActiveSubroutineUniformiv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glGetActiveSubroutineUniformiv";
-    }
-    glGetActiveSubroutineUniformName = (PFNGLGETACTIVESUBROUTINEUNIFORMNAMEPROC) sogl_loadOpenGLFunction("glGetActiveSubroutineUniformName");
-    if (!glGetActiveSubroutineUniformName && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glGetActiveSubroutineUniformName";
-    }
-    glGetActiveSubroutineName = (PFNGLGETACTIVESUBROUTINENAMEPROC) sogl_loadOpenGLFunction("glGetActiveSubroutineName");
-    if (!glGetActiveSubroutineName && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glGetActiveSubroutineName";
-    }
-    glUniformSubroutinesuiv = (PFNGLUNIFORMSUBROUTINESUIVPROC) sogl_loadOpenGLFunction("glUniformSubroutinesuiv");
-    if (!glUniformSubroutinesuiv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glUniformSubroutinesuiv";
-    }
-    glGetUniformSubroutineuiv = (PFNGLGETUNIFORMSUBROUTINEUIVPROC) sogl_loadOpenGLFunction("glGetUniformSubroutineuiv");
-    if (!glGetUniformSubroutineuiv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glGetUniformSubroutineuiv";
-    }
-    glGetProgramStageiv = (PFNGLGETPROGRAMSTAGEIVPROC) sogl_loadOpenGLFunction("glGetProgramStageiv");
-    if (!glGetProgramStageiv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glGetProgramStageiv";
-    }
-    glPatchParameteri = (PFNGLPATCHPARAMETERIPROC) sogl_loadOpenGLFunction("glPatchParameteri");
-    if (!glPatchParameteri && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glPatchParameteri";
-    }
-    glPatchParameterfv = (PFNGLPATCHPARAMETERFVPROC) sogl_loadOpenGLFunction("glPatchParameterfv");
-    if (!glPatchParameterfv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glPatchParameterfv";
-    }
-    glBindTransformFeedback = (PFNGLBINDTRANSFORMFEEDBACKPROC) sogl_loadOpenGLFunction("glBindTransformFeedback");
-    if (!glBindTransformFeedback && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glBindTransformFeedback";
-    }
-    glDeleteTransformFeedbacks = (PFNGLDELETETRANSFORMFEEDBACKSPROC) sogl_loadOpenGLFunction("glDeleteTransformFeedbacks");
-    if (!glDeleteTransformFeedbacks && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glDeleteTransformFeedbacks";
-    }
-    glGenTransformFeedbacks = (PFNGLGENTRANSFORMFEEDBACKSPROC) sogl_loadOpenGLFunction("glGenTransformFeedbacks");
-    if (!glGenTransformFeedbacks && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glGenTransformFeedbacks";
-    }
-    glIsTransformFeedback = (PFNGLISTRANSFORMFEEDBACKPROC) sogl_loadOpenGLFunction("glIsTransformFeedback");
-    if (!glIsTransformFeedback && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glIsTransformFeedback";
-    }
-    glPauseTransformFeedback = (PFNGLPAUSETRANSFORMFEEDBACKPROC) sogl_loadOpenGLFunction("glPauseTransformFeedback");
-    if (!glPauseTransformFeedback && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glPauseTransformFeedback";
-    }
-    glResumeTransformFeedback = (PFNGLRESUMETRANSFORMFEEDBACKPROC) sogl_loadOpenGLFunction("glResumeTransformFeedback");
-    if (!glResumeTransformFeedback && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glResumeTransformFeedback";
-    }
-    glDrawTransformFeedback = (PFNGLDRAWTRANSFORMFEEDBACKPROC) sogl_loadOpenGLFunction("glDrawTransformFeedback");
-    if (!glDrawTransformFeedback && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glDrawTransformFeedback";
-    }
-    glDrawTransformFeedbackStream = (PFNGLDRAWTRANSFORMFEEDBACKSTREAMPROC) sogl_loadOpenGLFunction("glDrawTransformFeedbackStream");
-    if (!glDrawTransformFeedbackStream && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glDrawTransformFeedbackStream";
-    }
-    glBeginQueryIndexed = (PFNGLBEGINQUERYINDEXEDPROC) sogl_loadOpenGLFunction("glBeginQueryIndexed");
-    if (!glBeginQueryIndexed && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glBeginQueryIndexed";
-    }
-    glEndQueryIndexed = (PFNGLENDQUERYINDEXEDPROC) sogl_loadOpenGLFunction("glEndQueryIndexed");
-    if (!glEndQueryIndexed && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glEndQueryIndexed";
-    }
-    glGetQueryIndexediv = (PFNGLGETQUERYINDEXEDIVPROC) sogl_loadOpenGLFunction("glGetQueryIndexediv");
-    if (!glGetQueryIndexediv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glGetQueryIndexediv";
-    }
+SOGL_FUNCTIONS_4_0
 #endif /* GL_VERSION_4_0 */
 
 #if SOGL_TEST_VERSION(4, 1)
-    glReleaseShaderCompiler = (PFNGLRELEASESHADERCOMPILERPROC) sogl_loadOpenGLFunction("glReleaseShaderCompiler");
-    if (!glReleaseShaderCompiler && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glReleaseShaderCompiler";
-    }
-    glShaderBinary = (PFNGLSHADERBINARYPROC) sogl_loadOpenGLFunction("glShaderBinary");
-    if (!glShaderBinary && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glShaderBinary";
-    }
-    glGetShaderPrecisionFormat = (PFNGLGETSHADERPRECISIONFORMATPROC) sogl_loadOpenGLFunction("glGetShaderPrecisionFormat");
-    if (!glGetShaderPrecisionFormat && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glGetShaderPrecisionFormat";
-    }
-    glDepthRangef = (PFNGLDEPTHRANGEFPROC) sogl_loadOpenGLFunction("glDepthRangef");
-    if (!glDepthRangef && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glDepthRangef";
-    }
-    glClearDepthf = (PFNGLCLEARDEPTHFPROC) sogl_loadOpenGLFunction("glClearDepthf");
-    if (!glClearDepthf && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glClearDepthf";
-    }
-    glGetProgramBinary = (PFNGLGETPROGRAMBINARYPROC) sogl_loadOpenGLFunction("glGetProgramBinary");
-    if (!glGetProgramBinary && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glGetProgramBinary";
-    }
-    glProgramBinary = (PFNGLPROGRAMBINARYPROC) sogl_loadOpenGLFunction("glProgramBinary");
-    if (!glProgramBinary && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glProgramBinary";
-    }
-    glProgramParameteri = (PFNGLPROGRAMPARAMETERIPROC) sogl_loadOpenGLFunction("glProgramParameteri");
-    if (!glProgramParameteri && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glProgramParameteri";
-    }
-    glUseProgramStages = (PFNGLUSEPROGRAMSTAGESPROC) sogl_loadOpenGLFunction("glUseProgramStages");
-    if (!glUseProgramStages && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glUseProgramStages";
-    }
-    glActiveShaderProgram = (PFNGLACTIVESHADERPROGRAMPROC) sogl_loadOpenGLFunction("glActiveShaderProgram");
-    if (!glActiveShaderProgram && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glActiveShaderProgram";
-    }
-    glCreateShaderProgramv = (PFNGLCREATESHADERPROGRAMVPROC) sogl_loadOpenGLFunction("glCreateShaderProgramv");
-    if (!glCreateShaderProgramv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glCreateShaderProgramv";
-    }
-    glBindProgramPipeline = (PFNGLBINDPROGRAMPIPELINEPROC) sogl_loadOpenGLFunction("glBindProgramPipeline");
-    if (!glBindProgramPipeline && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glBindProgramPipeline";
-    }
-    glDeleteProgramPipelines = (PFNGLDELETEPROGRAMPIPELINESPROC) sogl_loadOpenGLFunction("glDeleteProgramPipelines");
-    if (!glDeleteProgramPipelines && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glDeleteProgramPipelines";
-    }
-    glGenProgramPipelines = (PFNGLGENPROGRAMPIPELINESPROC) sogl_loadOpenGLFunction("glGenProgramPipelines");
-    if (!glGenProgramPipelines && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glGenProgramPipelines";
-    }
-    glIsProgramPipeline = (PFNGLISPROGRAMPIPELINEPROC) sogl_loadOpenGLFunction("glIsProgramPipeline");
-    if (!glIsProgramPipeline && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glIsProgramPipeline";
-    }
-    glGetProgramPipelineiv = (PFNGLGETPROGRAMPIPELINEIVPROC) sogl_loadOpenGLFunction("glGetProgramPipelineiv");
-    if (!glGetProgramPipelineiv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glGetProgramPipelineiv";
-    }
-    glProgramUniform1i = (PFNGLPROGRAMUNIFORM1IPROC) sogl_loadOpenGLFunction("glProgramUniform1i");
-    if (!glProgramUniform1i && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glProgramUniform1i";
-    }
-    glProgramUniform1iv = (PFNGLPROGRAMUNIFORM1IVPROC) sogl_loadOpenGLFunction("glProgramUniform1iv");
-    if (!glProgramUniform1iv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glProgramUniform1iv";
-    }
-    glProgramUniform1f = (PFNGLPROGRAMUNIFORM1FPROC) sogl_loadOpenGLFunction("glProgramUniform1f");
-    if (!glProgramUniform1f && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glProgramUniform1f";
-    }
-    glProgramUniform1fv = (PFNGLPROGRAMUNIFORM1FVPROC) sogl_loadOpenGLFunction("glProgramUniform1fv");
-    if (!glProgramUniform1fv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glProgramUniform1fv";
-    }
-    glProgramUniform1d = (PFNGLPROGRAMUNIFORM1DPROC) sogl_loadOpenGLFunction("glProgramUniform1d");
-    if (!glProgramUniform1d && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glProgramUniform1d";
-    }
-    glProgramUniform1dv = (PFNGLPROGRAMUNIFORM1DVPROC) sogl_loadOpenGLFunction("glProgramUniform1dv");
-    if (!glProgramUniform1dv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glProgramUniform1dv";
-    }
-    glProgramUniform1ui = (PFNGLPROGRAMUNIFORM1UIPROC) sogl_loadOpenGLFunction("glProgramUniform1ui");
-    if (!glProgramUniform1ui && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glProgramUniform1ui";
-    }
-    glProgramUniform1uiv = (PFNGLPROGRAMUNIFORM1UIVPROC) sogl_loadOpenGLFunction("glProgramUniform1uiv");
-    if (!glProgramUniform1uiv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glProgramUniform1uiv";
-    }
-    glProgramUniform2i = (PFNGLPROGRAMUNIFORM2IPROC) sogl_loadOpenGLFunction("glProgramUniform2i");
-    if (!glProgramUniform2i && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glProgramUniform2i";
-    }
-    glProgramUniform2iv = (PFNGLPROGRAMUNIFORM2IVPROC) sogl_loadOpenGLFunction("glProgramUniform2iv");
-    if (!glProgramUniform2iv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glProgramUniform2iv";
-    }
-    glProgramUniform2f = (PFNGLPROGRAMUNIFORM2FPROC) sogl_loadOpenGLFunction("glProgramUniform2f");
-    if (!glProgramUniform2f && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glProgramUniform2f";
-    }
-    glProgramUniform2fv = (PFNGLPROGRAMUNIFORM2FVPROC) sogl_loadOpenGLFunction("glProgramUniform2fv");
-    if (!glProgramUniform2fv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glProgramUniform2fv";
-    }
-    glProgramUniform2d = (PFNGLPROGRAMUNIFORM2DPROC) sogl_loadOpenGLFunction("glProgramUniform2d");
-    if (!glProgramUniform2d && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glProgramUniform2d";
-    }
-    glProgramUniform2dv = (PFNGLPROGRAMUNIFORM2DVPROC) sogl_loadOpenGLFunction("glProgramUniform2dv");
-    if (!glProgramUniform2dv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glProgramUniform2dv";
-    }
-    glProgramUniform2ui = (PFNGLPROGRAMUNIFORM2UIPROC) sogl_loadOpenGLFunction("glProgramUniform2ui");
-    if (!glProgramUniform2ui && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glProgramUniform2ui";
-    }
-    glProgramUniform2uiv = (PFNGLPROGRAMUNIFORM2UIVPROC) sogl_loadOpenGLFunction("glProgramUniform2uiv");
-    if (!glProgramUniform2uiv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glProgramUniform2uiv";
-    }
-    glProgramUniform3i = (PFNGLPROGRAMUNIFORM3IPROC) sogl_loadOpenGLFunction("glProgramUniform3i");
-    if (!glProgramUniform3i && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glProgramUniform3i";
-    }
-    glProgramUniform3iv = (PFNGLPROGRAMUNIFORM3IVPROC) sogl_loadOpenGLFunction("glProgramUniform3iv");
-    if (!glProgramUniform3iv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glProgramUniform3iv";
-    }
-    glProgramUniform3f = (PFNGLPROGRAMUNIFORM3FPROC) sogl_loadOpenGLFunction("glProgramUniform3f");
-    if (!glProgramUniform3f && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glProgramUniform3f";
-    }
-    glProgramUniform3fv = (PFNGLPROGRAMUNIFORM3FVPROC) sogl_loadOpenGLFunction("glProgramUniform3fv");
-    if (!glProgramUniform3fv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glProgramUniform3fv";
-    }
-    glProgramUniform3d = (PFNGLPROGRAMUNIFORM3DPROC) sogl_loadOpenGLFunction("glProgramUniform3d");
-    if (!glProgramUniform3d && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glProgramUniform3d";
-    }
-    glProgramUniform3dv = (PFNGLPROGRAMUNIFORM3DVPROC) sogl_loadOpenGLFunction("glProgramUniform3dv");
-    if (!glProgramUniform3dv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glProgramUniform3dv";
-    }
-    glProgramUniform3ui = (PFNGLPROGRAMUNIFORM3UIPROC) sogl_loadOpenGLFunction("glProgramUniform3ui");
-    if (!glProgramUniform3ui && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glProgramUniform3ui";
-    }
-    glProgramUniform3uiv = (PFNGLPROGRAMUNIFORM3UIVPROC) sogl_loadOpenGLFunction("glProgramUniform3uiv");
-    if (!glProgramUniform3uiv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glProgramUniform3uiv";
-    }
-    glProgramUniform4i = (PFNGLPROGRAMUNIFORM4IPROC) sogl_loadOpenGLFunction("glProgramUniform4i");
-    if (!glProgramUniform4i && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glProgramUniform4i";
-    }
-    glProgramUniform4iv = (PFNGLPROGRAMUNIFORM4IVPROC) sogl_loadOpenGLFunction("glProgramUniform4iv");
-    if (!glProgramUniform4iv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glProgramUniform4iv";
-    }
-    glProgramUniform4f = (PFNGLPROGRAMUNIFORM4FPROC) sogl_loadOpenGLFunction("glProgramUniform4f");
-    if (!glProgramUniform4f && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glProgramUniform4f";
-    }
-    glProgramUniform4fv = (PFNGLPROGRAMUNIFORM4FVPROC) sogl_loadOpenGLFunction("glProgramUniform4fv");
-    if (!glProgramUniform4fv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glProgramUniform4fv";
-    }
-    glProgramUniform4d = (PFNGLPROGRAMUNIFORM4DPROC) sogl_loadOpenGLFunction("glProgramUniform4d");
-    if (!glProgramUniform4d && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glProgramUniform4d";
-    }
-    glProgramUniform4dv = (PFNGLPROGRAMUNIFORM4DVPROC) sogl_loadOpenGLFunction("glProgramUniform4dv");
-    if (!glProgramUniform4dv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glProgramUniform4dv";
-    }
-    glProgramUniform4ui = (PFNGLPROGRAMUNIFORM4UIPROC) sogl_loadOpenGLFunction("glProgramUniform4ui");
-    if (!glProgramUniform4ui && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glProgramUniform4ui";
-    }
-    glProgramUniform4uiv = (PFNGLPROGRAMUNIFORM4UIVPROC) sogl_loadOpenGLFunction("glProgramUniform4uiv");
-    if (!glProgramUniform4uiv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glProgramUniform4uiv";
-    }
-    glProgramUniformMatrix2fv = (PFNGLPROGRAMUNIFORMMATRIX2FVPROC) sogl_loadOpenGLFunction("glProgramUniformMatrix2fv");
-    if (!glProgramUniformMatrix2fv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glProgramUniformMatrix2fv";
-    }
-    glProgramUniformMatrix3fv = (PFNGLPROGRAMUNIFORMMATRIX3FVPROC) sogl_loadOpenGLFunction("glProgramUniformMatrix3fv");
-    if (!glProgramUniformMatrix3fv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glProgramUniformMatrix3fv";
-    }
-    glProgramUniformMatrix4fv = (PFNGLPROGRAMUNIFORMMATRIX4FVPROC) sogl_loadOpenGLFunction("glProgramUniformMatrix4fv");
-    if (!glProgramUniformMatrix4fv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glProgramUniformMatrix4fv";
-    }
-    glProgramUniformMatrix2dv = (PFNGLPROGRAMUNIFORMMATRIX2DVPROC) sogl_loadOpenGLFunction("glProgramUniformMatrix2dv");
-    if (!glProgramUniformMatrix2dv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glProgramUniformMatrix2dv";
-    }
-    glProgramUniformMatrix3dv = (PFNGLPROGRAMUNIFORMMATRIX3DVPROC) sogl_loadOpenGLFunction("glProgramUniformMatrix3dv");
-    if (!glProgramUniformMatrix3dv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glProgramUniformMatrix3dv";
-    }
-    glProgramUniformMatrix4dv = (PFNGLPROGRAMUNIFORMMATRIX4DVPROC) sogl_loadOpenGLFunction("glProgramUniformMatrix4dv");
-    if (!glProgramUniformMatrix4dv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glProgramUniformMatrix4dv";
-    }
-    glProgramUniformMatrix2x3fv = (PFNGLPROGRAMUNIFORMMATRIX2X3FVPROC) sogl_loadOpenGLFunction("glProgramUniformMatrix2x3fv");
-    if (!glProgramUniformMatrix2x3fv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glProgramUniformMatrix2x3fv";
-    }
-    glProgramUniformMatrix3x2fv = (PFNGLPROGRAMUNIFORMMATRIX3X2FVPROC) sogl_loadOpenGLFunction("glProgramUniformMatrix3x2fv");
-    if (!glProgramUniformMatrix3x2fv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glProgramUniformMatrix3x2fv";
-    }
-    glProgramUniformMatrix2x4fv = (PFNGLPROGRAMUNIFORMMATRIX2X4FVPROC) sogl_loadOpenGLFunction("glProgramUniformMatrix2x4fv");
-    if (!glProgramUniformMatrix2x4fv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glProgramUniformMatrix2x4fv";
-    }
-    glProgramUniformMatrix4x2fv = (PFNGLPROGRAMUNIFORMMATRIX4X2FVPROC) sogl_loadOpenGLFunction("glProgramUniformMatrix4x2fv");
-    if (!glProgramUniformMatrix4x2fv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glProgramUniformMatrix4x2fv";
-    }
-    glProgramUniformMatrix3x4fv = (PFNGLPROGRAMUNIFORMMATRIX3X4FVPROC) sogl_loadOpenGLFunction("glProgramUniformMatrix3x4fv");
-    if (!glProgramUniformMatrix3x4fv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glProgramUniformMatrix3x4fv";
-    }
-    glProgramUniformMatrix4x3fv = (PFNGLPROGRAMUNIFORMMATRIX4X3FVPROC) sogl_loadOpenGLFunction("glProgramUniformMatrix4x3fv");
-    if (!glProgramUniformMatrix4x3fv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glProgramUniformMatrix4x3fv";
-    }
-    glProgramUniformMatrix2x3dv = (PFNGLPROGRAMUNIFORMMATRIX2X3DVPROC) sogl_loadOpenGLFunction("glProgramUniformMatrix2x3dv");
-    if (!glProgramUniformMatrix2x3dv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glProgramUniformMatrix2x3dv";
-    }
-    glProgramUniformMatrix3x2dv = (PFNGLPROGRAMUNIFORMMATRIX3X2DVPROC) sogl_loadOpenGLFunction("glProgramUniformMatrix3x2dv");
-    if (!glProgramUniformMatrix3x2dv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glProgramUniformMatrix3x2dv";
-    }
-    glProgramUniformMatrix2x4dv = (PFNGLPROGRAMUNIFORMMATRIX2X4DVPROC) sogl_loadOpenGLFunction("glProgramUniformMatrix2x4dv");
-    if (!glProgramUniformMatrix2x4dv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glProgramUniformMatrix2x4dv";
-    }
-    glProgramUniformMatrix4x2dv = (PFNGLPROGRAMUNIFORMMATRIX4X2DVPROC) sogl_loadOpenGLFunction("glProgramUniformMatrix4x2dv");
-    if (!glProgramUniformMatrix4x2dv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glProgramUniformMatrix4x2dv";
-    }
-    glProgramUniformMatrix3x4dv = (PFNGLPROGRAMUNIFORMMATRIX3X4DVPROC) sogl_loadOpenGLFunction("glProgramUniformMatrix3x4dv");
-    if (!glProgramUniformMatrix3x4dv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glProgramUniformMatrix3x4dv";
-    }
-    glProgramUniformMatrix4x3dv = (PFNGLPROGRAMUNIFORMMATRIX4X3DVPROC) sogl_loadOpenGLFunction("glProgramUniformMatrix4x3dv");
-    if (!glProgramUniformMatrix4x3dv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glProgramUniformMatrix4x3dv";
-    }
-    glValidateProgramPipeline = (PFNGLVALIDATEPROGRAMPIPELINEPROC) sogl_loadOpenGLFunction("glValidateProgramPipeline");
-    if (!glValidateProgramPipeline && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glValidateProgramPipeline";
-    }
-    glGetProgramPipelineInfoLog = (PFNGLGETPROGRAMPIPELINEINFOLOGPROC) sogl_loadOpenGLFunction("glGetProgramPipelineInfoLog");
-    if (!glGetProgramPipelineInfoLog && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glGetProgramPipelineInfoLog";
-    }
-    glVertexAttribL1d = (PFNGLVERTEXATTRIBL1DPROC) sogl_loadOpenGLFunction("glVertexAttribL1d");
-    if (!glVertexAttribL1d && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glVertexAttribL1d";
-    }
-    glVertexAttribL2d = (PFNGLVERTEXATTRIBL2DPROC) sogl_loadOpenGLFunction("glVertexAttribL2d");
-    if (!glVertexAttribL2d && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glVertexAttribL2d";
-    }
-    glVertexAttribL3d = (PFNGLVERTEXATTRIBL3DPROC) sogl_loadOpenGLFunction("glVertexAttribL3d");
-    if (!glVertexAttribL3d && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glVertexAttribL3d";
-    }
-    glVertexAttribL4d = (PFNGLVERTEXATTRIBL4DPROC) sogl_loadOpenGLFunction("glVertexAttribL4d");
-    if (!glVertexAttribL4d && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glVertexAttribL4d";
-    }
-    glVertexAttribL1dv = (PFNGLVERTEXATTRIBL1DVPROC) sogl_loadOpenGLFunction("glVertexAttribL1dv");
-    if (!glVertexAttribL1dv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glVertexAttribL1dv";
-    }
-    glVertexAttribL2dv = (PFNGLVERTEXATTRIBL2DVPROC) sogl_loadOpenGLFunction("glVertexAttribL2dv");
-    if (!glVertexAttribL2dv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glVertexAttribL2dv";
-    }
-    glVertexAttribL3dv = (PFNGLVERTEXATTRIBL3DVPROC) sogl_loadOpenGLFunction("glVertexAttribL3dv");
-    if (!glVertexAttribL3dv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glVertexAttribL3dv";
-    }
-    glVertexAttribL4dv = (PFNGLVERTEXATTRIBL4DVPROC) sogl_loadOpenGLFunction("glVertexAttribL4dv");
-    if (!glVertexAttribL4dv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glVertexAttribL4dv";
-    }
-    glVertexAttribLPointer = (PFNGLVERTEXATTRIBLPOINTERPROC) sogl_loadOpenGLFunction("glVertexAttribLPointer");
-    if (!glVertexAttribLPointer && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glVertexAttribLPointer";
-    }
-    glGetVertexAttribLdv = (PFNGLGETVERTEXATTRIBLDVPROC) sogl_loadOpenGLFunction("glGetVertexAttribLdv");
-    if (!glGetVertexAttribLdv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glGetVertexAttribLdv";
-    }
-    glViewportArrayv = (PFNGLVIEWPORTARRAYVPROC) sogl_loadOpenGLFunction("glViewportArrayv");
-    if (!glViewportArrayv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glViewportArrayv";
-    }
-    glViewportIndexedf = (PFNGLVIEWPORTINDEXEDFPROC) sogl_loadOpenGLFunction("glViewportIndexedf");
-    if (!glViewportIndexedf && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glViewportIndexedf";
-    }
-    glViewportIndexedfv = (PFNGLVIEWPORTINDEXEDFVPROC) sogl_loadOpenGLFunction("glViewportIndexedfv");
-    if (!glViewportIndexedfv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glViewportIndexedfv";
-    }
-    glScissorArrayv = (PFNGLSCISSORARRAYVPROC) sogl_loadOpenGLFunction("glScissorArrayv");
-    if (!glScissorArrayv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glScissorArrayv";
-    }
-    glScissorIndexed = (PFNGLSCISSORINDEXEDPROC) sogl_loadOpenGLFunction("glScissorIndexed");
-    if (!glScissorIndexed && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glScissorIndexed";
-    }
-    glScissorIndexedv = (PFNGLSCISSORINDEXEDVPROC) sogl_loadOpenGLFunction("glScissorIndexedv");
-    if (!glScissorIndexedv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glScissorIndexedv";
-    }
-    glDepthRangeArrayv = (PFNGLDEPTHRANGEARRAYVPROC) sogl_loadOpenGLFunction("glDepthRangeArrayv");
-    if (!glDepthRangeArrayv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glDepthRangeArrayv";
-    }
-    glDepthRangeIndexed = (PFNGLDEPTHRANGEINDEXEDPROC) sogl_loadOpenGLFunction("glDepthRangeIndexed");
-    if (!glDepthRangeIndexed && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glDepthRangeIndexed";
-    }
-    glGetFloati_v = (PFNGLGETFLOATI_VPROC) sogl_loadOpenGLFunction("glGetFloati_v");
-    if (!glGetFloati_v && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glGetFloati_v";
-    }
-    glGetDoublei_v = (PFNGLGETDOUBLEI_VPROC) sogl_loadOpenGLFunction("glGetDoublei_v");
-    if (!glGetDoublei_v && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glGetDoublei_v";
-    }
+SOGL_FUNCTIONS_4_1
 #endif /* GL_VERSION_4_1 */
 
 #if SOGL_TEST_VERSION(4, 2)
-    glDrawArraysInstancedBaseInstance = (PFNGLDRAWARRAYSINSTANCEDBASEINSTANCEPROC) sogl_loadOpenGLFunction("glDrawArraysInstancedBaseInstance");
-    if (!glDrawArraysInstancedBaseInstance && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glDrawArraysInstancedBaseInstance";
-    }
-    glDrawElementsInstancedBaseInstance = (PFNGLDRAWELEMENTSINSTANCEDBASEINSTANCEPROC) sogl_loadOpenGLFunction("glDrawElementsInstancedBaseInstance");
-    if (!glDrawElementsInstancedBaseInstance && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glDrawElementsInstancedBaseInstance";
-    }
-    glDrawElementsInstancedBaseVertexBaseInstance = (PFNGLDRAWELEMENTSINSTANCEDBASEVERTEXBASEINSTANCEPROC) sogl_loadOpenGLFunction("glDrawElementsInstancedBaseVertexBaseInstance");
-    if (!glDrawElementsInstancedBaseVertexBaseInstance && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glDrawElementsInstancedBaseVertexBaseInstance";
-    }
-    glGetInternalformativ = (PFNGLGETINTERNALFORMATIVPROC) sogl_loadOpenGLFunction("glGetInternalformativ");
-    if (!glGetInternalformativ && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glGetInternalformativ";
-    }
-    glGetActiveAtomicCounterBufferiv = (PFNGLGETACTIVEATOMICCOUNTERBUFFERIVPROC) sogl_loadOpenGLFunction("glGetActiveAtomicCounterBufferiv");
-    if (!glGetActiveAtomicCounterBufferiv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glGetActiveAtomicCounterBufferiv";
-    }
-    glBindImageTexture = (PFNGLBINDIMAGETEXTUREPROC) sogl_loadOpenGLFunction("glBindImageTexture");
-    if (!glBindImageTexture && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glBindImageTexture";
-    }
-    glMemoryBarrier = (PFNGLMEMORYBARRIERPROC) sogl_loadOpenGLFunction("glMemoryBarrier");
-    if (!glMemoryBarrier && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glMemoryBarrier";
-    }
-    glTexStorage1D = (PFNGLTEXSTORAGE1DPROC) sogl_loadOpenGLFunction("glTexStorage1D");
-    if (!glTexStorage1D && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glTexStorage1D";
-    }
-    glTexStorage2D = (PFNGLTEXSTORAGE2DPROC) sogl_loadOpenGLFunction("glTexStorage2D");
-    if (!glTexStorage2D && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glTexStorage2D";
-    }
-    glTexStorage3D = (PFNGLTEXSTORAGE3DPROC) sogl_loadOpenGLFunction("glTexStorage3D");
-    if (!glTexStorage3D && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glTexStorage3D";
-    }
-    glDrawTransformFeedbackInstanced = (PFNGLDRAWTRANSFORMFEEDBACKINSTANCEDPROC) sogl_loadOpenGLFunction("glDrawTransformFeedbackInstanced");
-    if (!glDrawTransformFeedbackInstanced && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glDrawTransformFeedbackInstanced";
-    }
-    glDrawTransformFeedbackStreamInstanced = (PFNGLDRAWTRANSFORMFEEDBACKSTREAMINSTANCEDPROC) sogl_loadOpenGLFunction("glDrawTransformFeedbackStreamInstanced");
-    if (!glDrawTransformFeedbackStreamInstanced && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glDrawTransformFeedbackStreamInstanced";
-    }
+SOGL_FUNCTIONS_4_2
 #endif /* GL_VERSION_4_2 */
 
 #if SOGL_TEST_VERSION(4, 3)
-    glClearBufferData = (PFNGLCLEARBUFFERDATAPROC) sogl_loadOpenGLFunction("glClearBufferData");
-    if (!glClearBufferData && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glClearBufferData";
-    }
-    glClearBufferSubData = (PFNGLCLEARBUFFERSUBDATAPROC) sogl_loadOpenGLFunction("glClearBufferSubData");
-    if (!glClearBufferSubData && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glClearBufferSubData";
-    }
-    glDispatchCompute = (PFNGLDISPATCHCOMPUTEPROC) sogl_loadOpenGLFunction("glDispatchCompute");
-    if (!glDispatchCompute && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glDispatchCompute";
-    }
-    glDispatchComputeIndirect = (PFNGLDISPATCHCOMPUTEINDIRECTPROC) sogl_loadOpenGLFunction("glDispatchComputeIndirect");
-    if (!glDispatchComputeIndirect && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glDispatchComputeIndirect";
-    }
-    glCopyImageSubData = (PFNGLCOPYIMAGESUBDATAPROC) sogl_loadOpenGLFunction("glCopyImageSubData");
-    if (!glCopyImageSubData && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glCopyImageSubData";
-    }
-    glFramebufferParameteri = (PFNGLFRAMEBUFFERPARAMETERIPROC) sogl_loadOpenGLFunction("glFramebufferParameteri");
-    if (!glFramebufferParameteri && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glFramebufferParameteri";
-    }
-    glGetFramebufferParameteriv = (PFNGLGETFRAMEBUFFERPARAMETERIVPROC) sogl_loadOpenGLFunction("glGetFramebufferParameteriv");
-    if (!glGetFramebufferParameteriv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glGetFramebufferParameteriv";
-    }
-    glGetInternalformati64v = (PFNGLGETINTERNALFORMATI64VPROC) sogl_loadOpenGLFunction("glGetInternalformati64v");
-    if (!glGetInternalformati64v && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glGetInternalformati64v";
-    }
-    glInvalidateTexSubImage = (PFNGLINVALIDATETEXSUBIMAGEPROC) sogl_loadOpenGLFunction("glInvalidateTexSubImage");
-    if (!glInvalidateTexSubImage && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glInvalidateTexSubImage";
-    }
-    glInvalidateTexImage = (PFNGLINVALIDATETEXIMAGEPROC) sogl_loadOpenGLFunction("glInvalidateTexImage");
-    if (!glInvalidateTexImage && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glInvalidateTexImage";
-    }
-    glInvalidateBufferSubData = (PFNGLINVALIDATEBUFFERSUBDATAPROC) sogl_loadOpenGLFunction("glInvalidateBufferSubData");
-    if (!glInvalidateBufferSubData && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glInvalidateBufferSubData";
-    }
-    glInvalidateBufferData = (PFNGLINVALIDATEBUFFERDATAPROC) sogl_loadOpenGLFunction("glInvalidateBufferData");
-    if (!glInvalidateBufferData && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glInvalidateBufferData";
-    }
-    glInvalidateFramebuffer = (PFNGLINVALIDATEFRAMEBUFFERPROC) sogl_loadOpenGLFunction("glInvalidateFramebuffer");
-    if (!glInvalidateFramebuffer && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glInvalidateFramebuffer";
-    }
-    glInvalidateSubFramebuffer = (PFNGLINVALIDATESUBFRAMEBUFFERPROC) sogl_loadOpenGLFunction("glInvalidateSubFramebuffer");
-    if (!glInvalidateSubFramebuffer && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glInvalidateSubFramebuffer";
-    }
-    glMultiDrawArraysIndirect = (PFNGLMULTIDRAWARRAYSINDIRECTPROC) sogl_loadOpenGLFunction("glMultiDrawArraysIndirect");
-    if (!glMultiDrawArraysIndirect && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glMultiDrawArraysIndirect";
-    }
-    glMultiDrawElementsIndirect = (PFNGLMULTIDRAWELEMENTSINDIRECTPROC) sogl_loadOpenGLFunction("glMultiDrawElementsIndirect");
-    if (!glMultiDrawElementsIndirect && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glMultiDrawElementsIndirect";
-    }
-    glGetProgramInterfaceiv = (PFNGLGETPROGRAMINTERFACEIVPROC) sogl_loadOpenGLFunction("glGetProgramInterfaceiv");
-    if (!glGetProgramInterfaceiv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glGetProgramInterfaceiv";
-    }
-    glGetProgramResourceIndex = (PFNGLGETPROGRAMRESOURCEINDEXPROC) sogl_loadOpenGLFunction("glGetProgramResourceIndex");
-    if (!glGetProgramResourceIndex && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glGetProgramResourceIndex";
-    }
-    glGetProgramResourceName = (PFNGLGETPROGRAMRESOURCENAMEPROC) sogl_loadOpenGLFunction("glGetProgramResourceName");
-    if (!glGetProgramResourceName && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glGetProgramResourceName";
-    }
-    glGetProgramResourceiv = (PFNGLGETPROGRAMRESOURCEIVPROC) sogl_loadOpenGLFunction("glGetProgramResourceiv");
-    if (!glGetProgramResourceiv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glGetProgramResourceiv";
-    }
-    glGetProgramResourceLocation = (PFNGLGETPROGRAMRESOURCELOCATIONPROC) sogl_loadOpenGLFunction("glGetProgramResourceLocation");
-    if (!glGetProgramResourceLocation && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glGetProgramResourceLocation";
-    }
-    glGetProgramResourceLocationIndex = (PFNGLGETPROGRAMRESOURCELOCATIONINDEXPROC) sogl_loadOpenGLFunction("glGetProgramResourceLocationIndex");
-    if (!glGetProgramResourceLocationIndex && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glGetProgramResourceLocationIndex";
-    }
-    glShaderStorageBlockBinding = (PFNGLSHADERSTORAGEBLOCKBINDINGPROC) sogl_loadOpenGLFunction("glShaderStorageBlockBinding");
-    if (!glShaderStorageBlockBinding && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glShaderStorageBlockBinding";
-    }
-    glTexBufferRange = (PFNGLTEXBUFFERRANGEPROC) sogl_loadOpenGLFunction("glTexBufferRange");
-    if (!glTexBufferRange && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glTexBufferRange";
-    }
-    glTexStorage2DMultisample = (PFNGLTEXSTORAGE2DMULTISAMPLEPROC) sogl_loadOpenGLFunction("glTexStorage2DMultisample");
-    if (!glTexStorage2DMultisample && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glTexStorage2DMultisample";
-    }
-    glTexStorage3DMultisample = (PFNGLTEXSTORAGE3DMULTISAMPLEPROC) sogl_loadOpenGLFunction("glTexStorage3DMultisample");
-    if (!glTexStorage3DMultisample && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glTexStorage3DMultisample";
-    }
-    glTextureView = (PFNGLTEXTUREVIEWPROC) sogl_loadOpenGLFunction("glTextureView");
-    if (!glTextureView && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glTextureView";
-    }
-    glBindVertexBuffer = (PFNGLBINDVERTEXBUFFERPROC) sogl_loadOpenGLFunction("glBindVertexBuffer");
-    if (!glBindVertexBuffer && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glBindVertexBuffer";
-    }
-    glVertexAttribFormat = (PFNGLVERTEXATTRIBFORMATPROC) sogl_loadOpenGLFunction("glVertexAttribFormat");
-    if (!glVertexAttribFormat && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glVertexAttribFormat";
-    }
-    glVertexAttribIFormat = (PFNGLVERTEXATTRIBIFORMATPROC) sogl_loadOpenGLFunction("glVertexAttribIFormat");
-    if (!glVertexAttribIFormat && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glVertexAttribIFormat";
-    }
-    glVertexAttribLFormat = (PFNGLVERTEXATTRIBLFORMATPROC) sogl_loadOpenGLFunction("glVertexAttribLFormat");
-    if (!glVertexAttribLFormat && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glVertexAttribLFormat";
-    }
-    glVertexAttribBinding = (PFNGLVERTEXATTRIBBINDINGPROC) sogl_loadOpenGLFunction("glVertexAttribBinding");
-    if (!glVertexAttribBinding && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glVertexAttribBinding";
-    }
-    glVertexBindingDivisor = (PFNGLVERTEXBINDINGDIVISORPROC) sogl_loadOpenGLFunction("glVertexBindingDivisor");
-    if (!glVertexBindingDivisor && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glVertexBindingDivisor";
-    }
-    glDebugMessageControl = (PFNGLDEBUGMESSAGECONTROLPROC) sogl_loadOpenGLFunction("glDebugMessageControl");
-    if (!glDebugMessageControl && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glDebugMessageControl";
-    }
-    glDebugMessageInsert = (PFNGLDEBUGMESSAGEINSERTPROC) sogl_loadOpenGLFunction("glDebugMessageInsert");
-    if (!glDebugMessageInsert && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glDebugMessageInsert";
-    }
-    glDebugMessageCallback = (PFNGLDEBUGMESSAGECALLBACKPROC) sogl_loadOpenGLFunction("glDebugMessageCallback");
-    if (!glDebugMessageCallback && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glDebugMessageCallback";
-    }
-    glGetDebugMessageLog = (PFNGLGETDEBUGMESSAGELOGPROC) sogl_loadOpenGLFunction("glGetDebugMessageLog");
-    if (!glGetDebugMessageLog && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glGetDebugMessageLog";
-    }
-    glPushDebugGroup = (PFNGLPUSHDEBUGGROUPPROC) sogl_loadOpenGLFunction("glPushDebugGroup");
-    if (!glPushDebugGroup && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glPushDebugGroup";
-    }
-    glPopDebugGroup = (PFNGLPOPDEBUGGROUPPROC) sogl_loadOpenGLFunction("glPopDebugGroup");
-    if (!glPopDebugGroup && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glPopDebugGroup";
-    }
-    glObjectLabel = (PFNGLOBJECTLABELPROC) sogl_loadOpenGLFunction("glObjectLabel");
-    if (!glObjectLabel && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glObjectLabel";
-    }
-    glGetObjectLabel = (PFNGLGETOBJECTLABELPROC) sogl_loadOpenGLFunction("glGetObjectLabel");
-    if (!glGetObjectLabel && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glGetObjectLabel";
-    }
-    glObjectPtrLabel = (PFNGLOBJECTPTRLABELPROC) sogl_loadOpenGLFunction("glObjectPtrLabel");
-    if (!glObjectPtrLabel && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glObjectPtrLabel";
-    }
-    glGetObjectPtrLabel = (PFNGLGETOBJECTPTRLABELPROC) sogl_loadOpenGLFunction("glGetObjectPtrLabel");
-    if (!glGetObjectPtrLabel && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glGetObjectPtrLabel";
-    }
+SOGL_FUNCTIONS_4_3
 #endif /* GL_VERSION_4_3 */
 
 #if SOGL_TEST_VERSION(4, 4)
-    glBufferStorage = (PFNGLBUFFERSTORAGEPROC) sogl_loadOpenGLFunction("glBufferStorage");
-    if (!glBufferStorage && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glBufferStorage";
-    }
-    glClearTexImage = (PFNGLCLEARTEXIMAGEPROC) sogl_loadOpenGLFunction("glClearTexImage");
-    if (!glClearTexImage && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glClearTexImage";
-    }
-    glClearTexSubImage = (PFNGLCLEARTEXSUBIMAGEPROC) sogl_loadOpenGLFunction("glClearTexSubImage");
-    if (!glClearTexSubImage && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glClearTexSubImage";
-    }
-    glBindBuffersBase = (PFNGLBINDBUFFERSBASEPROC) sogl_loadOpenGLFunction("glBindBuffersBase");
-    if (!glBindBuffersBase && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glBindBuffersBase";
-    }
-    glBindBuffersRange = (PFNGLBINDBUFFERSRANGEPROC) sogl_loadOpenGLFunction("glBindBuffersRange");
-    if (!glBindBuffersRange && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glBindBuffersRange";
-    }
-    glBindTextures = (PFNGLBINDTEXTURESPROC) sogl_loadOpenGLFunction("glBindTextures");
-    if (!glBindTextures && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glBindTextures";
-    }
-    glBindSamplers = (PFNGLBINDSAMPLERSPROC) sogl_loadOpenGLFunction("glBindSamplers");
-    if (!glBindSamplers && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glBindSamplers";
-    }
-    glBindImageTextures = (PFNGLBINDIMAGETEXTURESPROC) sogl_loadOpenGLFunction("glBindImageTextures");
-    if (!glBindImageTextures && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glBindImageTextures";
-    }
-    glBindVertexBuffers = (PFNGLBINDVERTEXBUFFERSPROC) sogl_loadOpenGLFunction("glBindVertexBuffers");
-    if (!glBindVertexBuffers && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glBindVertexBuffers";
-    }
+SOGL_FUNCTIONS_4_4
 #endif /* GL_VERSION_4_4 */
 
 #if SOGL_TEST_VERSION(4, 5)
-    glClipControl = (PFNGLCLIPCONTROLPROC) sogl_loadOpenGLFunction("glClipControl");
-    if (!glClipControl && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glClipControl";
-    }
-    glCreateTransformFeedbacks = (PFNGLCREATETRANSFORMFEEDBACKSPROC) sogl_loadOpenGLFunction("glCreateTransformFeedbacks");
-    if (!glCreateTransformFeedbacks && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glCreateTransformFeedbacks";
-    }
-    glTransformFeedbackBufferBase = (PFNGLTRANSFORMFEEDBACKBUFFERBASEPROC) sogl_loadOpenGLFunction("glTransformFeedbackBufferBase");
-    if (!glTransformFeedbackBufferBase && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glTransformFeedbackBufferBase";
-    }
-    glTransformFeedbackBufferRange = (PFNGLTRANSFORMFEEDBACKBUFFERRANGEPROC) sogl_loadOpenGLFunction("glTransformFeedbackBufferRange");
-    if (!glTransformFeedbackBufferRange && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glTransformFeedbackBufferRange";
-    }
-    glGetTransformFeedbackiv = (PFNGLGETTRANSFORMFEEDBACKIVPROC) sogl_loadOpenGLFunction("glGetTransformFeedbackiv");
-    if (!glGetTransformFeedbackiv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glGetTransformFeedbackiv";
-    }
-    glGetTransformFeedbacki_v = (PFNGLGETTRANSFORMFEEDBACKI_VPROC) sogl_loadOpenGLFunction("glGetTransformFeedbacki_v");
-    if (!glGetTransformFeedbacki_v && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glGetTransformFeedbacki_v";
-    }
-    glGetTransformFeedbacki64_v = (PFNGLGETTRANSFORMFEEDBACKI64_VPROC) sogl_loadOpenGLFunction("glGetTransformFeedbacki64_v");
-    if (!glGetTransformFeedbacki64_v && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glGetTransformFeedbacki64_v";
-    }
-    glCreateBuffers = (PFNGLCREATEBUFFERSPROC) sogl_loadOpenGLFunction("glCreateBuffers");
-    if (!glCreateBuffers && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glCreateBuffers";
-    }
-    glNamedBufferStorage = (PFNGLNAMEDBUFFERSTORAGEPROC) sogl_loadOpenGLFunction("glNamedBufferStorage");
-    if (!glNamedBufferStorage && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glNamedBufferStorage";
-    }
-    glNamedBufferData = (PFNGLNAMEDBUFFERDATAPROC) sogl_loadOpenGLFunction("glNamedBufferData");
-    if (!glNamedBufferData && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glNamedBufferData";
-    }
-    glNamedBufferSubData = (PFNGLNAMEDBUFFERSUBDATAPROC) sogl_loadOpenGLFunction("glNamedBufferSubData");
-    if (!glNamedBufferSubData && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glNamedBufferSubData";
-    }
-    glCopyNamedBufferSubData = (PFNGLCOPYNAMEDBUFFERSUBDATAPROC) sogl_loadOpenGLFunction("glCopyNamedBufferSubData");
-    if (!glCopyNamedBufferSubData && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glCopyNamedBufferSubData";
-    }
-    glClearNamedBufferData = (PFNGLCLEARNAMEDBUFFERDATAPROC) sogl_loadOpenGLFunction("glClearNamedBufferData");
-    if (!glClearNamedBufferData && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glClearNamedBufferData";
-    }
-    glClearNamedBufferSubData = (PFNGLCLEARNAMEDBUFFERSUBDATAPROC) sogl_loadOpenGLFunction("glClearNamedBufferSubData");
-    if (!glClearNamedBufferSubData && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glClearNamedBufferSubData";
-    }
-    glMapNamedBuffer = (PFNGLMAPNAMEDBUFFERPROC) sogl_loadOpenGLFunction("glMapNamedBuffer");
-    if (!glMapNamedBuffer && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glMapNamedBuffer";
-    }
-    glMapNamedBufferRange = (PFNGLMAPNAMEDBUFFERRANGEPROC) sogl_loadOpenGLFunction("glMapNamedBufferRange");
-    if (!glMapNamedBufferRange && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glMapNamedBufferRange";
-    }
-    glUnmapNamedBuffer = (PFNGLUNMAPNAMEDBUFFERPROC) sogl_loadOpenGLFunction("glUnmapNamedBuffer");
-    if (!glUnmapNamedBuffer && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glUnmapNamedBuffer";
-    }
-    glFlushMappedNamedBufferRange = (PFNGLFLUSHMAPPEDNAMEDBUFFERRANGEPROC) sogl_loadOpenGLFunction("glFlushMappedNamedBufferRange");
-    if (!glFlushMappedNamedBufferRange && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glFlushMappedNamedBufferRange";
-    }
-    glGetNamedBufferParameteriv = (PFNGLGETNAMEDBUFFERPARAMETERIVPROC) sogl_loadOpenGLFunction("glGetNamedBufferParameteriv");
-    if (!glGetNamedBufferParameteriv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glGetNamedBufferParameteriv";
-    }
-    glGetNamedBufferParameteri64v = (PFNGLGETNAMEDBUFFERPARAMETERI64VPROC) sogl_loadOpenGLFunction("glGetNamedBufferParameteri64v");
-    if (!glGetNamedBufferParameteri64v && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glGetNamedBufferParameteri64v";
-    }
-    glGetNamedBufferPointerv = (PFNGLGETNAMEDBUFFERPOINTERVPROC) sogl_loadOpenGLFunction("glGetNamedBufferPointerv");
-    if (!glGetNamedBufferPointerv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glGetNamedBufferPointerv";
-    }
-    glGetNamedBufferSubData = (PFNGLGETNAMEDBUFFERSUBDATAPROC) sogl_loadOpenGLFunction("glGetNamedBufferSubData");
-    if (!glGetNamedBufferSubData && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glGetNamedBufferSubData";
-    }
-    glCreateFramebuffers = (PFNGLCREATEFRAMEBUFFERSPROC) sogl_loadOpenGLFunction("glCreateFramebuffers");
-    if (!glCreateFramebuffers && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glCreateFramebuffers";
-    }
-    glNamedFramebufferRenderbuffer = (PFNGLNAMEDFRAMEBUFFERRENDERBUFFERPROC) sogl_loadOpenGLFunction("glNamedFramebufferRenderbuffer");
-    if (!glNamedFramebufferRenderbuffer && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glNamedFramebufferRenderbuffer";
-    }
-    glNamedFramebufferParameteri = (PFNGLNAMEDFRAMEBUFFERPARAMETERIPROC) sogl_loadOpenGLFunction("glNamedFramebufferParameteri");
-    if (!glNamedFramebufferParameteri && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glNamedFramebufferParameteri";
-    }
-    glNamedFramebufferTexture = (PFNGLNAMEDFRAMEBUFFERTEXTUREPROC) sogl_loadOpenGLFunction("glNamedFramebufferTexture");
-    if (!glNamedFramebufferTexture && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glNamedFramebufferTexture";
-    }
-    glNamedFramebufferTextureLayer = (PFNGLNAMEDFRAMEBUFFERTEXTURELAYERPROC) sogl_loadOpenGLFunction("glNamedFramebufferTextureLayer");
-    if (!glNamedFramebufferTextureLayer && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glNamedFramebufferTextureLayer";
-    }
-    glNamedFramebufferDrawBuffer = (PFNGLNAMEDFRAMEBUFFERDRAWBUFFERPROC) sogl_loadOpenGLFunction("glNamedFramebufferDrawBuffer");
-    if (!glNamedFramebufferDrawBuffer && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glNamedFramebufferDrawBuffer";
-    }
-    glNamedFramebufferDrawBuffers = (PFNGLNAMEDFRAMEBUFFERDRAWBUFFERSPROC) sogl_loadOpenGLFunction("glNamedFramebufferDrawBuffers");
-    if (!glNamedFramebufferDrawBuffers && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glNamedFramebufferDrawBuffers";
-    }
-    glNamedFramebufferReadBuffer = (PFNGLNAMEDFRAMEBUFFERREADBUFFERPROC) sogl_loadOpenGLFunction("glNamedFramebufferReadBuffer");
-    if (!glNamedFramebufferReadBuffer && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glNamedFramebufferReadBuffer";
-    }
-    glInvalidateNamedFramebufferData = (PFNGLINVALIDATENAMEDFRAMEBUFFERDATAPROC) sogl_loadOpenGLFunction("glInvalidateNamedFramebufferData");
-    if (!glInvalidateNamedFramebufferData && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glInvalidateNamedFramebufferData";
-    }
-    glInvalidateNamedFramebufferSubData = (PFNGLINVALIDATENAMEDFRAMEBUFFERSUBDATAPROC) sogl_loadOpenGLFunction("glInvalidateNamedFramebufferSubData");
-    if (!glInvalidateNamedFramebufferSubData && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glInvalidateNamedFramebufferSubData";
-    }
-    glClearNamedFramebufferiv = (PFNGLCLEARNAMEDFRAMEBUFFERIVPROC) sogl_loadOpenGLFunction("glClearNamedFramebufferiv");
-    if (!glClearNamedFramebufferiv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glClearNamedFramebufferiv";
-    }
-    glClearNamedFramebufferuiv = (PFNGLCLEARNAMEDFRAMEBUFFERUIVPROC) sogl_loadOpenGLFunction("glClearNamedFramebufferuiv");
-    if (!glClearNamedFramebufferuiv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glClearNamedFramebufferuiv";
-    }
-    glClearNamedFramebufferfv = (PFNGLCLEARNAMEDFRAMEBUFFERFVPROC) sogl_loadOpenGLFunction("glClearNamedFramebufferfv");
-    if (!glClearNamedFramebufferfv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glClearNamedFramebufferfv";
-    }
-    glClearNamedFramebufferfi = (PFNGLCLEARNAMEDFRAMEBUFFERFIPROC) sogl_loadOpenGLFunction("glClearNamedFramebufferfi");
-    if (!glClearNamedFramebufferfi && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glClearNamedFramebufferfi";
-    }
-    glBlitNamedFramebuffer = (PFNGLBLITNAMEDFRAMEBUFFERPROC) sogl_loadOpenGLFunction("glBlitNamedFramebuffer");
-    if (!glBlitNamedFramebuffer && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glBlitNamedFramebuffer";
-    }
-    glCheckNamedFramebufferStatus = (PFNGLCHECKNAMEDFRAMEBUFFERSTATUSPROC) sogl_loadOpenGLFunction("glCheckNamedFramebufferStatus");
-    if (!glCheckNamedFramebufferStatus && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glCheckNamedFramebufferStatus";
-    }
-    glGetNamedFramebufferParameteriv = (PFNGLGETNAMEDFRAMEBUFFERPARAMETERIVPROC) sogl_loadOpenGLFunction("glGetNamedFramebufferParameteriv");
-    if (!glGetNamedFramebufferParameteriv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glGetNamedFramebufferParameteriv";
-    }
-    glGetNamedFramebufferAttachmentParameteriv = (PFNGLGETNAMEDFRAMEBUFFERATTACHMENTPARAMETERIVPROC) sogl_loadOpenGLFunction("glGetNamedFramebufferAttachmentParameteriv");
-    if (!glGetNamedFramebufferAttachmentParameteriv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glGetNamedFramebufferAttachmentParameteriv";
-    }
-    glCreateRenderbuffers = (PFNGLCREATERENDERBUFFERSPROC) sogl_loadOpenGLFunction("glCreateRenderbuffers");
-    if (!glCreateRenderbuffers && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glCreateRenderbuffers";
-    }
-    glNamedRenderbufferStorage = (PFNGLNAMEDRENDERBUFFERSTORAGEPROC) sogl_loadOpenGLFunction("glNamedRenderbufferStorage");
-    if (!glNamedRenderbufferStorage && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glNamedRenderbufferStorage";
-    }
-    glNamedRenderbufferStorageMultisample = (PFNGLNAMEDRENDERBUFFERSTORAGEMULTISAMPLEPROC) sogl_loadOpenGLFunction("glNamedRenderbufferStorageMultisample");
-    if (!glNamedRenderbufferStorageMultisample && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glNamedRenderbufferStorageMultisample";
-    }
-    glGetNamedRenderbufferParameteriv = (PFNGLGETNAMEDRENDERBUFFERPARAMETERIVPROC) sogl_loadOpenGLFunction("glGetNamedRenderbufferParameteriv");
-    if (!glGetNamedRenderbufferParameteriv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glGetNamedRenderbufferParameteriv";
-    }
-    glCreateTextures = (PFNGLCREATETEXTURESPROC) sogl_loadOpenGLFunction("glCreateTextures");
-    if (!glCreateTextures && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glCreateTextures";
-    }
-    glTextureBuffer = (PFNGLTEXTUREBUFFERPROC) sogl_loadOpenGLFunction("glTextureBuffer");
-    if (!glTextureBuffer && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glTextureBuffer";
-    }
-    glTextureBufferRange = (PFNGLTEXTUREBUFFERRANGEPROC) sogl_loadOpenGLFunction("glTextureBufferRange");
-    if (!glTextureBufferRange && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glTextureBufferRange";
-    }
-    glTextureStorage1D = (PFNGLTEXTURESTORAGE1DPROC) sogl_loadOpenGLFunction("glTextureStorage1D");
-    if (!glTextureStorage1D && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glTextureStorage1D";
-    }
-    glTextureStorage2D = (PFNGLTEXTURESTORAGE2DPROC) sogl_loadOpenGLFunction("glTextureStorage2D");
-    if (!glTextureStorage2D && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glTextureStorage2D";
-    }
-    glTextureStorage3D = (PFNGLTEXTURESTORAGE3DPROC) sogl_loadOpenGLFunction("glTextureStorage3D");
-    if (!glTextureStorage3D && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glTextureStorage3D";
-    }
-    glTextureStorage2DMultisample = (PFNGLTEXTURESTORAGE2DMULTISAMPLEPROC) sogl_loadOpenGLFunction("glTextureStorage2DMultisample");
-    if (!glTextureStorage2DMultisample && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glTextureStorage2DMultisample";
-    }
-    glTextureStorage3DMultisample = (PFNGLTEXTURESTORAGE3DMULTISAMPLEPROC) sogl_loadOpenGLFunction("glTextureStorage3DMultisample");
-    if (!glTextureStorage3DMultisample && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glTextureStorage3DMultisample";
-    }
-    glTextureSubImage1D = (PFNGLTEXTURESUBIMAGE1DPROC) sogl_loadOpenGLFunction("glTextureSubImage1D");
-    if (!glTextureSubImage1D && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glTextureSubImage1D";
-    }
-    glTextureSubImage2D = (PFNGLTEXTURESUBIMAGE2DPROC) sogl_loadOpenGLFunction("glTextureSubImage2D");
-    if (!glTextureSubImage2D && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glTextureSubImage2D";
-    }
-    glTextureSubImage3D = (PFNGLTEXTURESUBIMAGE3DPROC) sogl_loadOpenGLFunction("glTextureSubImage3D");
-    if (!glTextureSubImage3D && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glTextureSubImage3D";
-    }
-    glCompressedTextureSubImage1D = (PFNGLCOMPRESSEDTEXTURESUBIMAGE1DPROC) sogl_loadOpenGLFunction("glCompressedTextureSubImage1D");
-    if (!glCompressedTextureSubImage1D && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glCompressedTextureSubImage1D";
-    }
-    glCompressedTextureSubImage2D = (PFNGLCOMPRESSEDTEXTURESUBIMAGE2DPROC) sogl_loadOpenGLFunction("glCompressedTextureSubImage2D");
-    if (!glCompressedTextureSubImage2D && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glCompressedTextureSubImage2D";
-    }
-    glCompressedTextureSubImage3D = (PFNGLCOMPRESSEDTEXTURESUBIMAGE3DPROC) sogl_loadOpenGLFunction("glCompressedTextureSubImage3D");
-    if (!glCompressedTextureSubImage3D && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glCompressedTextureSubImage3D";
-    }
-    glCopyTextureSubImage1D = (PFNGLCOPYTEXTURESUBIMAGE1DPROC) sogl_loadOpenGLFunction("glCopyTextureSubImage1D");
-    if (!glCopyTextureSubImage1D && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glCopyTextureSubImage1D";
-    }
-    glCopyTextureSubImage2D = (PFNGLCOPYTEXTURESUBIMAGE2DPROC) sogl_loadOpenGLFunction("glCopyTextureSubImage2D");
-    if (!glCopyTextureSubImage2D && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glCopyTextureSubImage2D";
-    }
-    glCopyTextureSubImage3D = (PFNGLCOPYTEXTURESUBIMAGE3DPROC) sogl_loadOpenGLFunction("glCopyTextureSubImage3D");
-    if (!glCopyTextureSubImage3D && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glCopyTextureSubImage3D";
-    }
-    glTextureParameterf = (PFNGLTEXTUREPARAMETERFPROC) sogl_loadOpenGLFunction("glTextureParameterf");
-    if (!glTextureParameterf && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glTextureParameterf";
-    }
-    glTextureParameterfv = (PFNGLTEXTUREPARAMETERFVPROC) sogl_loadOpenGLFunction("glTextureParameterfv");
-    if (!glTextureParameterfv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glTextureParameterfv";
-    }
-    glTextureParameteri = (PFNGLTEXTUREPARAMETERIPROC) sogl_loadOpenGLFunction("glTextureParameteri");
-    if (!glTextureParameteri && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glTextureParameteri";
-    }
-    glTextureParameterIiv = (PFNGLTEXTUREPARAMETERIIVPROC) sogl_loadOpenGLFunction("glTextureParameterIiv");
-    if (!glTextureParameterIiv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glTextureParameterIiv";
-    }
-    glTextureParameterIuiv = (PFNGLTEXTUREPARAMETERIUIVPROC) sogl_loadOpenGLFunction("glTextureParameterIuiv");
-    if (!glTextureParameterIuiv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glTextureParameterIuiv";
-    }
-    glTextureParameteriv = (PFNGLTEXTUREPARAMETERIVPROC) sogl_loadOpenGLFunction("glTextureParameteriv");
-    if (!glTextureParameteriv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glTextureParameteriv";
-    }
-    glGenerateTextureMipmap = (PFNGLGENERATETEXTUREMIPMAPPROC) sogl_loadOpenGLFunction("glGenerateTextureMipmap");
-    if (!glGenerateTextureMipmap && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glGenerateTextureMipmap";
-    }
-    glBindTextureUnit = (PFNGLBINDTEXTUREUNITPROC) sogl_loadOpenGLFunction("glBindTextureUnit");
-    if (!glBindTextureUnit && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glBindTextureUnit";
-    }
-    glGetTextureImage = (PFNGLGETTEXTUREIMAGEPROC) sogl_loadOpenGLFunction("glGetTextureImage");
-    if (!glGetTextureImage && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glGetTextureImage";
-    }
-    glGetCompressedTextureImage = (PFNGLGETCOMPRESSEDTEXTUREIMAGEPROC) sogl_loadOpenGLFunction("glGetCompressedTextureImage");
-    if (!glGetCompressedTextureImage && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glGetCompressedTextureImage";
-    }
-    glGetTextureLevelParameterfv = (PFNGLGETTEXTURELEVELPARAMETERFVPROC) sogl_loadOpenGLFunction("glGetTextureLevelParameterfv");
-    if (!glGetTextureLevelParameterfv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glGetTextureLevelParameterfv";
-    }
-    glGetTextureLevelParameteriv = (PFNGLGETTEXTURELEVELPARAMETERIVPROC) sogl_loadOpenGLFunction("glGetTextureLevelParameteriv");
-    if (!glGetTextureLevelParameteriv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glGetTextureLevelParameteriv";
-    }
-    glGetTextureParameterfv = (PFNGLGETTEXTUREPARAMETERFVPROC) sogl_loadOpenGLFunction("glGetTextureParameterfv");
-    if (!glGetTextureParameterfv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glGetTextureParameterfv";
-    }
-    glGetTextureParameterIiv = (PFNGLGETTEXTUREPARAMETERIIVPROC) sogl_loadOpenGLFunction("glGetTextureParameterIiv");
-    if (!glGetTextureParameterIiv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glGetTextureParameterIiv";
-    }
-    glGetTextureParameterIuiv = (PFNGLGETTEXTUREPARAMETERIUIVPROC) sogl_loadOpenGLFunction("glGetTextureParameterIuiv");
-    if (!glGetTextureParameterIuiv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glGetTextureParameterIuiv";
-    }
-    glGetTextureParameteriv = (PFNGLGETTEXTUREPARAMETERIVPROC) sogl_loadOpenGLFunction("glGetTextureParameteriv");
-    if (!glGetTextureParameteriv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glGetTextureParameteriv";
-    }
-    glCreateVertexArrays = (PFNGLCREATEVERTEXARRAYSPROC) sogl_loadOpenGLFunction("glCreateVertexArrays");
-    if (!glCreateVertexArrays && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glCreateVertexArrays";
-    }
-    glDisableVertexArrayAttrib = (PFNGLDISABLEVERTEXARRAYATTRIBPROC) sogl_loadOpenGLFunction("glDisableVertexArrayAttrib");
-    if (!glDisableVertexArrayAttrib && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glDisableVertexArrayAttrib";
-    }
-    glEnableVertexArrayAttrib = (PFNGLENABLEVERTEXARRAYATTRIBPROC) sogl_loadOpenGLFunction("glEnableVertexArrayAttrib");
-    if (!glEnableVertexArrayAttrib && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glEnableVertexArrayAttrib";
-    }
-    glVertexArrayElementBuffer = (PFNGLVERTEXARRAYELEMENTBUFFERPROC) sogl_loadOpenGLFunction("glVertexArrayElementBuffer");
-    if (!glVertexArrayElementBuffer && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glVertexArrayElementBuffer";
-    }
-    glVertexArrayVertexBuffer = (PFNGLVERTEXARRAYVERTEXBUFFERPROC) sogl_loadOpenGLFunction("glVertexArrayVertexBuffer");
-    if (!glVertexArrayVertexBuffer && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glVertexArrayVertexBuffer";
-    }
-    glVertexArrayVertexBuffers = (PFNGLVERTEXARRAYVERTEXBUFFERSPROC) sogl_loadOpenGLFunction("glVertexArrayVertexBuffers");
-    if (!glVertexArrayVertexBuffers && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glVertexArrayVertexBuffers";
-    }
-    glVertexArrayAttribBinding = (PFNGLVERTEXARRAYATTRIBBINDINGPROC) sogl_loadOpenGLFunction("glVertexArrayAttribBinding");
-    if (!glVertexArrayAttribBinding && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glVertexArrayAttribBinding";
-    }
-    glVertexArrayAttribFormat = (PFNGLVERTEXARRAYATTRIBFORMATPROC) sogl_loadOpenGLFunction("glVertexArrayAttribFormat");
-    if (!glVertexArrayAttribFormat && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glVertexArrayAttribFormat";
-    }
-    glVertexArrayAttribIFormat = (PFNGLVERTEXARRAYATTRIBIFORMATPROC) sogl_loadOpenGLFunction("glVertexArrayAttribIFormat");
-    if (!glVertexArrayAttribIFormat && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glVertexArrayAttribIFormat";
-    }
-    glVertexArrayAttribLFormat = (PFNGLVERTEXARRAYATTRIBLFORMATPROC) sogl_loadOpenGLFunction("glVertexArrayAttribLFormat");
-    if (!glVertexArrayAttribLFormat && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glVertexArrayAttribLFormat";
-    }
-    glVertexArrayBindingDivisor = (PFNGLVERTEXARRAYBINDINGDIVISORPROC) sogl_loadOpenGLFunction("glVertexArrayBindingDivisor");
-    if (!glVertexArrayBindingDivisor && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glVertexArrayBindingDivisor";
-    }
-    glGetVertexArrayiv = (PFNGLGETVERTEXARRAYIVPROC) sogl_loadOpenGLFunction("glGetVertexArrayiv");
-    if (!glGetVertexArrayiv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glGetVertexArrayiv";
-    }
-    glGetVertexArrayIndexediv = (PFNGLGETVERTEXARRAYINDEXEDIVPROC) sogl_loadOpenGLFunction("glGetVertexArrayIndexediv");
-    if (!glGetVertexArrayIndexediv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glGetVertexArrayIndexediv";
-    }
-    glGetVertexArrayIndexed64iv = (PFNGLGETVERTEXARRAYINDEXED64IVPROC) sogl_loadOpenGLFunction("glGetVertexArrayIndexed64iv");
-    if (!glGetVertexArrayIndexed64iv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glGetVertexArrayIndexed64iv";
-    }
-    glCreateSamplers = (PFNGLCREATESAMPLERSPROC) sogl_loadOpenGLFunction("glCreateSamplers");
-    if (!glCreateSamplers && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glCreateSamplers";
-    }
-    glCreateProgramPipelines = (PFNGLCREATEPROGRAMPIPELINESPROC) sogl_loadOpenGLFunction("glCreateProgramPipelines");
-    if (!glCreateProgramPipelines && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glCreateProgramPipelines";
-    }
-    glCreateQueries = (PFNGLCREATEQUERIESPROC) sogl_loadOpenGLFunction("glCreateQueries");
-    if (!glCreateQueries && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glCreateQueries";
-    }
-    glGetQueryBufferObjecti64v = (PFNGLGETQUERYBUFFEROBJECTI64VPROC) sogl_loadOpenGLFunction("glGetQueryBufferObjecti64v");
-    if (!glGetQueryBufferObjecti64v && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glGetQueryBufferObjecti64v";
-    }
-    glGetQueryBufferObjectiv = (PFNGLGETQUERYBUFFEROBJECTIVPROC) sogl_loadOpenGLFunction("glGetQueryBufferObjectiv");
-    if (!glGetQueryBufferObjectiv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glGetQueryBufferObjectiv";
-    }
-    glGetQueryBufferObjectui64v = (PFNGLGETQUERYBUFFEROBJECTUI64VPROC) sogl_loadOpenGLFunction("glGetQueryBufferObjectui64v");
-    if (!glGetQueryBufferObjectui64v && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glGetQueryBufferObjectui64v";
-    }
-    glGetQueryBufferObjectuiv = (PFNGLGETQUERYBUFFEROBJECTUIVPROC) sogl_loadOpenGLFunction("glGetQueryBufferObjectuiv");
-    if (!glGetQueryBufferObjectuiv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glGetQueryBufferObjectuiv";
-    }
-    glMemoryBarrierByRegion = (PFNGLMEMORYBARRIERBYREGIONPROC) sogl_loadOpenGLFunction("glMemoryBarrierByRegion");
-    if (!glMemoryBarrierByRegion && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glMemoryBarrierByRegion";
-    }
-    glGetTextureSubImage = (PFNGLGETTEXTURESUBIMAGEPROC) sogl_loadOpenGLFunction("glGetTextureSubImage");
-    if (!glGetTextureSubImage && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glGetTextureSubImage";
-    }
-    glGetCompressedTextureSubImage = (PFNGLGETCOMPRESSEDTEXTURESUBIMAGEPROC) sogl_loadOpenGLFunction("glGetCompressedTextureSubImage");
-    if (!glGetCompressedTextureSubImage && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glGetCompressedTextureSubImage";
-    }
-    glGetGraphicsResetStatus = (PFNGLGETGRAPHICSRESETSTATUSPROC) sogl_loadOpenGLFunction("glGetGraphicsResetStatus");
-    if (!glGetGraphicsResetStatus && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glGetGraphicsResetStatus";
-    }
-    glGetnCompressedTexImage = (PFNGLGETNCOMPRESSEDTEXIMAGEPROC) sogl_loadOpenGLFunction("glGetnCompressedTexImage");
-    if (!glGetnCompressedTexImage && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glGetnCompressedTexImage";
-    }
-    glGetnTexImage = (PFNGLGETNTEXIMAGEPROC) sogl_loadOpenGLFunction("glGetnTexImage");
-    if (!glGetnTexImage && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glGetnTexImage";
-    }
-    glGetnUniformdv = (PFNGLGETNUNIFORMDVPROC) sogl_loadOpenGLFunction("glGetnUniformdv");
-    if (!glGetnUniformdv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glGetnUniformdv";
-    }
-    glGetnUniformfv = (PFNGLGETNUNIFORMFVPROC) sogl_loadOpenGLFunction("glGetnUniformfv");
-    if (!glGetnUniformfv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glGetnUniformfv";
-    }
-    glGetnUniformiv = (PFNGLGETNUNIFORMIVPROC) sogl_loadOpenGLFunction("glGetnUniformiv");
-    if (!glGetnUniformiv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glGetnUniformiv";
-    }
-    glGetnUniformuiv = (PFNGLGETNUNIFORMUIVPROC) sogl_loadOpenGLFunction("glGetnUniformuiv");
-    if (!glGetnUniformuiv && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glGetnUniformuiv";
-    }
-    glReadnPixels = (PFNGLREADNPIXELSPROC) sogl_loadOpenGLFunction("glReadnPixels");
-    if (!glReadnPixels && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glReadnPixels";
-    }
-    glTextureBarrier = (PFNGLTEXTUREBARRIERPROC) sogl_loadOpenGLFunction("glTextureBarrier");
-    if (!glTextureBarrier && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glTextureBarrier";
-    }
+SOGL_FUNCTIONS_4_5
 #endif /* GL_VERSION_4_5 */
 
 #if SOGL_TEST_VERSION(4, 6)
-    glSpecializeShader = (PFNGLSPECIALIZESHADERPROC) sogl_loadOpenGLFunction("glSpecializeShader");
-    if (!glSpecializeShader && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glSpecializeShader";
-    }
-    glMultiDrawArraysIndirectCount = (PFNGLMULTIDRAWARRAYSINDIRECTCOUNTPROC) sogl_loadOpenGLFunction("glMultiDrawArraysIndirectCount");
-    if (!glMultiDrawArraysIndirectCount && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glMultiDrawArraysIndirectCount";
-    }
-    glMultiDrawElementsIndirectCount = (PFNGLMULTIDRAWELEMENTSINDIRECTCOUNTPROC) sogl_loadOpenGLFunction("glMultiDrawElementsIndirectCount");
-    if (!glMultiDrawElementsIndirectCount && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glMultiDrawElementsIndirectCount";
-    }
-    glPolygonOffsetClamp = (PFNGLPOLYGONOFFSETCLAMPPROC) sogl_loadOpenGLFunction("glPolygonOffsetClamp");
-    if (!glPolygonOffsetClamp && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glPolygonOffsetClamp";
-    }
-#endif /* GL_VERSION_4_6 */	
-
-    /* LOAD EXTENSIONS */
+SOGL_FUNCTIONS_4_6
+#endif /* GL_VERSION_4_6 */
 
 #ifdef SOGL_ARB_ES3_2_compatibility
-    glPrimitiveBoundingBoxARB = (PFNGLPRIMITIVEBOUNDINGBOXARBPROC) sogl_loadOpenGLFunction("glPrimitiveBoundingBoxARB");
-    if (!glPrimitiveBoundingBoxARB && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glPrimitiveBoundingBoxARB";
-    }
+SOGL_FUNCTIONS_ARB_ES3_2_compatibility
 #endif /* SOGL_ARB_ES3_2_compatibility */
 
 #ifdef SOGL_ARB_bindless_texture
-    glGetTextureHandleARB = (PFNGLGETTEXTUREHANDLEARBPROC) sogl_loadOpenGLFunction("glGetTextureHandleARB");
-    if (!glGetTextureHandleARB && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glGetTextureHandleARB";
-    }
-    glGetTextureSamplerHandleARB = (PFNGLGETTEXTURESAMPLERHANDLEARBPROC) sogl_loadOpenGLFunction("glGetTextureSamplerHandleARB");
-    if (!glGetTextureSamplerHandleARB && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glGetTextureSamplerHandleARB";
-    }
-    glMakeTextureHandleResidentARB = (PFNGLMAKETEXTUREHANDLERESIDENTARBPROC) sogl_loadOpenGLFunction("glMakeTextureHandleResidentARB");
-    if (!glMakeTextureHandleResidentARB && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glMakeTextureHandleResidentARB";
-    }
-    glMakeTextureHandleNonResidentARB = (PFNGLMAKETEXTUREHANDLENONRESIDENTARBPROC) sogl_loadOpenGLFunction("glMakeTextureHandleNonResidentARB");
-    if (!glMakeTextureHandleNonResidentARB && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glMakeTextureHandleNonResidentARB";
-    }
-    glGetImageHandleARB = (PFNGLGETIMAGEHANDLEARBPROC) sogl_loadOpenGLFunction("glGetImageHandleARB");
-    if (!glGetImageHandleARB && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glGetImageHandleARB";
-    }
-    glMakeImageHandleResidentARB = (PFNGLMAKEIMAGEHANDLERESIDENTARBPROC) sogl_loadOpenGLFunction("glMakeImageHandleResidentARB");
-    if (!glMakeImageHandleResidentARB && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glMakeImageHandleResidentARB";
-    }
-    glMakeImageHandleNonResidentARB = (PFNGLMAKEIMAGEHANDLENONRESIDENTARBPROC) sogl_loadOpenGLFunction("glMakeImageHandleNonResidentARB");
-    if (!glMakeImageHandleNonResidentARB && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glMakeImageHandleNonResidentARB";
-    }
-    glUniformHandleui64ARB = (PFNGLUNIFORMHANDLEUI64ARBPROC) sogl_loadOpenGLFunction("glUniformHandleui64ARB");
-    if (!glUniformHandleui64ARB && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glUniformHandleui64ARB";
-    }
-    glUniformHandleui64vARB = (PFNGLUNIFORMHANDLEUI64VARBPROC) sogl_loadOpenGLFunction("glUniformHandleui64vARB");
-    if (!glUniformHandleui64vARB && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glUniformHandleui64vARB";
-    }
-    glProgramUniformHandleui64ARB = (PFNGLPROGRAMUNIFORMHANDLEUI64ARBPROC) sogl_loadOpenGLFunction("glProgramUniformHandleui64ARB");
-    if (!glProgramUniformHandleui64ARB && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glProgramUniformHandleui64ARB";
-    }
-    glProgramUniformHandleui64vARB = (PFNGLPROGRAMUNIFORMHANDLEUI64VARBPROC) sogl_loadOpenGLFunction("glProgramUniformHandleui64vARB");
-    if (!glProgramUniformHandleui64vARB && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glProgramUniformHandleui64vARB";
-    }
-    glIsTextureHandleResidentARB = (PFNGLISTEXTUREHANDLERESIDENTARBPROC) sogl_loadOpenGLFunction("glIsTextureHandleResidentARB");
-    if (!glIsTextureHandleResidentARB && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glIsTextureHandleResidentARB";
-    }
-    glIsImageHandleResidentARB = (PFNGLISIMAGEHANDLERESIDENTARBPROC) sogl_loadOpenGLFunction("glIsImageHandleResidentARB");
-    if (!glIsImageHandleResidentARB && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glIsImageHandleResidentARB";
-    }
-    glVertexAttribL1ui64ARB = (PFNGLVERTEXATTRIBL1UI64ARBPROC) sogl_loadOpenGLFunction("glVertexAttribL1ui64ARB");
-    if (!glVertexAttribL1ui64ARB && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glVertexAttribL1ui64ARB";
-    }
-    glVertexAttribL1ui64vARB = (PFNGLVERTEXATTRIBL1UI64VARBPROC) sogl_loadOpenGLFunction("glVertexAttribL1ui64vARB");
-    if (!glVertexAttribL1ui64vARB && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glVertexAttribL1ui64vARB";
-    }
-    glGetVertexAttribLui64vARB = (PFNGLGETVERTEXATTRIBLUI64VARBPROC) sogl_loadOpenGLFunction("glGetVertexAttribLui64vARB");
-    if (!glGetVertexAttribLui64vARB && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glGetVertexAttribLui64vARB";
-    }
+SOGL_FUNCTIONS_ARB_bindless_texture
 #endif /* SOGL_ARB_bindless_texture */
 
 #ifdef SOGL_ARB_cl_event
-    glCreateSyncFromCLeventARB = (PFNGLCREATESYNCFROMCLEVENTARBPROC) sogl_loadOpenGLFunction("glCreateSyncFromCLeventARB");
-    if (!glCreateSyncFromCLeventARB && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glCreateSyncFromCLeventARB";
-    }
+SOGL_FUNCTIONS_ARB_cl_event
 #endif /* SOGL_ARB_cl_event */
 
 #ifdef SOGL_ARB_compute_variable_group_size
-    glDispatchComputeGroupSizeARB = (PFNGLDISPATCHCOMPUTEGROUPSIZEARBPROC) sogl_loadOpenGLFunction("glDispatchComputeGroupSizeARB");
-    if (!glDispatchComputeGroupSizeARB && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glDispatchComputeGroupSizeARB";
-    }
+SOGL_FUNCTIONS_ARB_compute_variable_group_size
 #endif /* SOGL_ARB_compute_variable_group_size */
 
 #ifdef SOGL_ARB_debug_output
-    glDebugMessageControlARB = (PFNGLDEBUGMESSAGECONTROLARBPROC) sogl_loadOpenGLFunction("glDebugMessageControlARB");
-    if (!glDebugMessageControlARB && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glDebugMessageControlARB";
-    }
-    glDebugMessageInsertARB = (PFNGLDEBUGMESSAGEINSERTARBPROC) sogl_loadOpenGLFunction("glDebugMessageInsertARB");
-    if (!glDebugMessageInsertARB && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glDebugMessageInsertARB";
-    }
-    glDebugMessageCallbackARB = (PFNGLDEBUGMESSAGECALLBACKARBPROC) sogl_loadOpenGLFunction("glDebugMessageCallbackARB");
-    if (!glDebugMessageCallbackARB && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glDebugMessageCallbackARB";
-    }
-    glGetDebugMessageLogARB = (PFNGLGETDEBUGMESSAGELOGARBPROC) sogl_loadOpenGLFunction("glGetDebugMessageLogARB");
-    if (!glGetDebugMessageLogARB && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glGetDebugMessageLogARB";
-    }
+SOGL_FUNCTIONS_ARB_debug_output
 #endif /* SOGL_ARB_debug_output */
 
 #ifdef SOGL_ARB_draw_buffers_blend
-    glBlendEquationiARB = (PFNGLBLENDEQUATIONIARBPROC) sogl_loadOpenGLFunction("glBlendEquationiARB");
-    if (!glBlendEquationiARB && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glBlendEquationiARB";
-    }
-    glBlendEquationSeparateiARB = (PFNGLBLENDEQUATIONSEPARATEIARBPROC) sogl_loadOpenGLFunction("glBlendEquationSeparateiARB");
-    if (!glBlendEquationSeparateiARB && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glBlendEquationSeparateiARB";
-    }
-    glBlendFunciARB = (PFNGLBLENDFUNCIARBPROC) sogl_loadOpenGLFunction("glBlendFunciARB");
-    if (!glBlendFunciARB && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glBlendFunciARB";
-    }
-    glBlendFuncSeparateiARB = (PFNGLBLENDFUNCSEPARATEIARBPROC) sogl_loadOpenGLFunction("glBlendFuncSeparateiARB");
-    if (!glBlendFuncSeparateiARB && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glBlendFuncSeparateiARB";
-    }
+SOGL_FUNCTIONS_ARB_draw_buffers_blend
 #endif /* SOGL_ARB_draw_buffers_blend */
 
 #ifdef SOGL_ARB_draw_instanced
-    glDrawArraysInstancedARB = (PFNGLDRAWARRAYSINSTANCEDARBPROC) sogl_loadOpenGLFunction("glDrawArraysInstancedARB");
-    if (!glDrawArraysInstancedARB && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glDrawArraysInstancedARB";
-    }
-    glDrawElementsInstancedARB = (PFNGLDRAWELEMENTSINSTANCEDARBPROC) sogl_loadOpenGLFunction("glDrawElementsInstancedARB");
-    if (!glDrawElementsInstancedARB && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glDrawElementsInstancedARB";
-    }
+SOGL_FUNCTIONS_ARB_draw_instanced
 #endif /* SOGL_ARB_draw_instanced */
 
 #ifdef SOGL_ARB_geometry_shader4
-    glProgramParameteriARB = (PFNGLPROGRAMPARAMETERIARBPROC) sogl_loadOpenGLFunction("glProgramParameteriARB");
-    if (!glProgramParameteriARB && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glProgramParameteriARB";
-    }
-    glFramebufferTextureARB = (PFNGLFRAMEBUFFERTEXTUREARBPROC) sogl_loadOpenGLFunction("glFramebufferTextureARB");
-    if (!glFramebufferTextureARB && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glFramebufferTextureARB";
-    }
-    glFramebufferTextureLayerARB = (PFNGLFRAMEBUFFERTEXTURELAYERARBPROC) sogl_loadOpenGLFunction("glFramebufferTextureLayerARB");
-    if (!glFramebufferTextureLayerARB && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glFramebufferTextureLayerARB";
-    }
-    glFramebufferTextureFaceARB = (PFNGLFRAMEBUFFERTEXTUREFACEARBPROC) sogl_loadOpenGLFunction("glFramebufferTextureFaceARB");
-    if (!glFramebufferTextureFaceARB && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glFramebufferTextureFaceARB";
-    }
+SOGL_FUNCTIONS_ARB_geometry_shader4
 #endif /* SOGL_ARB_geometry_shader4 */
 
 #ifdef SOGL_ARB_gl_spirv
-    glSpecializeShaderARB = (PFNGLSPECIALIZESHADERARBPROC) sogl_loadOpenGLFunction("glSpecializeShaderARB");
-    if (!glSpecializeShaderARB && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glSpecializeShaderARB";
-    }
+SOGL_FUNCTIONS_ARB_gl_spirv
 #endif /* SOGL_ARB_gl_spirv */
 
 #ifdef SOGL_ARB_gpu_shader_int64
-    glUniform1i64ARB = (PFNGLUNIFORM1I64ARBPROC) sogl_loadOpenGLFunction("glUniform1i64ARB");
-    if (!glUniform1i64ARB && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glUniform1i64ARB";
-    }
-    glUniform2i64ARB = (PFNGLUNIFORM2I64ARBPROC) sogl_loadOpenGLFunction("glUniform2i64ARB");
-    if (!glUniform2i64ARB && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glUniform2i64ARB";
-    }
-    glUniform3i64ARB = (PFNGLUNIFORM3I64ARBPROC) sogl_loadOpenGLFunction("glUniform3i64ARB");
-    if (!glUniform3i64ARB && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glUniform3i64ARB";
-    }
-    glUniform4i64ARB = (PFNGLUNIFORM4I64ARBPROC) sogl_loadOpenGLFunction("glUniform4i64ARB");
-    if (!glUniform4i64ARB && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glUniform4i64ARB";
-    }
-    glUniform1i64vARB = (PFNGLUNIFORM1I64VARBPROC) sogl_loadOpenGLFunction("glUniform1i64vARB");
-    if (!glUniform1i64vARB && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glUniform1i64vARB";
-    }
-    glUniform2i64vARB = (PFNGLUNIFORM2I64VARBPROC) sogl_loadOpenGLFunction("glUniform2i64vARB");
-    if (!glUniform2i64vARB && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glUniform2i64vARB";
-    }
-    glUniform3i64vARB = (PFNGLUNIFORM3I64VARBPROC) sogl_loadOpenGLFunction("glUniform3i64vARB");
-    if (!glUniform3i64vARB && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glUniform3i64vARB";
-    }
-    glUniform4i64vARB = (PFNGLUNIFORM4I64VARBPROC) sogl_loadOpenGLFunction("glUniform4i64vARB");
-    if (!glUniform4i64vARB && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glUniform4i64vARB";
-    }
-    glUniform1ui64ARB = (PFNGLUNIFORM1UI64ARBPROC) sogl_loadOpenGLFunction("glUniform1ui64ARB");
-    if (!glUniform1ui64ARB && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glUniform1ui64ARB";
-    }
-    glUniform2ui64ARB = (PFNGLUNIFORM2UI64ARBPROC) sogl_loadOpenGLFunction("glUniform2ui64ARB");
-    if (!glUniform2ui64ARB && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glUniform2ui64ARB";
-    }
-    glUniform3ui64ARB = (PFNGLUNIFORM3UI64ARBPROC) sogl_loadOpenGLFunction("glUniform3ui64ARB");
-    if (!glUniform3ui64ARB && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glUniform3ui64ARB";
-    }
-    glUniform4ui64ARB = (PFNGLUNIFORM4UI64ARBPROC) sogl_loadOpenGLFunction("glUniform4ui64ARB");
-    if (!glUniform4ui64ARB && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glUniform4ui64ARB";
-    }
-    glUniform1ui64vARB = (PFNGLUNIFORM1UI64VARBPROC) sogl_loadOpenGLFunction("glUniform1ui64vARB");
-    if (!glUniform1ui64vARB && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glUniform1ui64vARB";
-    }
-    glUniform2ui64vARB = (PFNGLUNIFORM2UI64VARBPROC) sogl_loadOpenGLFunction("glUniform2ui64vARB");
-    if (!glUniform2ui64vARB && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glUniform2ui64vARB";
-    }
-    glUniform3ui64vARB = (PFNGLUNIFORM3UI64VARBPROC) sogl_loadOpenGLFunction("glUniform3ui64vARB");
-    if (!glUniform3ui64vARB && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glUniform3ui64vARB";
-    }
-    glUniform4ui64vARB = (PFNGLUNIFORM4UI64VARBPROC) sogl_loadOpenGLFunction("glUniform4ui64vARB");
-    if (!glUniform4ui64vARB && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glUniform4ui64vARB";
-    }
-    glGetUniformi64vARB = (PFNGLGETUNIFORMI64VARBPROC) sogl_loadOpenGLFunction("glGetUniformi64vARB");
-    if (!glGetUniformi64vARB && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glGetUniformi64vARB";
-    }
-    glGetUniformui64vARB = (PFNGLGETUNIFORMUI64VARBPROC) sogl_loadOpenGLFunction("glGetUniformui64vARB");
-    if (!glGetUniformui64vARB && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glGetUniformui64vARB";
-    }
-    glGetnUniformi64vARB = (PFNGLGETNUNIFORMI64VARBPROC) sogl_loadOpenGLFunction("glGetnUniformi64vARB");
-    if (!glGetnUniformi64vARB && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glGetnUniformi64vARB";
-    }
-    glGetnUniformui64vARB = (PFNGLGETNUNIFORMUI64VARBPROC) sogl_loadOpenGLFunction("glGetnUniformui64vARB");
-    if (!glGetnUniformui64vARB && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glGetnUniformui64vARB";
-    }
-    glProgramUniform1i64ARB = (PFNGLPROGRAMUNIFORM1I64ARBPROC) sogl_loadOpenGLFunction("glProgramUniform1i64ARB");
-    if (!glProgramUniform1i64ARB && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glProgramUniform1i64ARB";
-    }
-    glProgramUniform2i64ARB = (PFNGLPROGRAMUNIFORM2I64ARBPROC) sogl_loadOpenGLFunction("glProgramUniform2i64ARB");
-    if (!glProgramUniform2i64ARB && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glProgramUniform2i64ARB";
-    }
-    glProgramUniform3i64ARB = (PFNGLPROGRAMUNIFORM3I64ARBPROC) sogl_loadOpenGLFunction("glProgramUniform3i64ARB");
-    if (!glProgramUniform3i64ARB && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glProgramUniform3i64ARB";
-    }
-    glProgramUniform4i64ARB = (PFNGLPROGRAMUNIFORM4I64ARBPROC) sogl_loadOpenGLFunction("glProgramUniform4i64ARB");
-    if (!glProgramUniform4i64ARB && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glProgramUniform4i64ARB";
-    }
-    glProgramUniform1i64vARB = (PFNGLPROGRAMUNIFORM1I64VARBPROC) sogl_loadOpenGLFunction("glProgramUniform1i64vARB");
-    if (!glProgramUniform1i64vARB && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glProgramUniform1i64vARB";
-    }
-    glProgramUniform2i64vARB = (PFNGLPROGRAMUNIFORM2I64VARBPROC) sogl_loadOpenGLFunction("glProgramUniform2i64vARB");
-    if (!glProgramUniform2i64vARB && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glProgramUniform2i64vARB";
-    }
-    glProgramUniform3i64vARB = (PFNGLPROGRAMUNIFORM3I64VARBPROC) sogl_loadOpenGLFunction("glProgramUniform3i64vARB");
-    if (!glProgramUniform3i64vARB && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glProgramUniform3i64vARB";
-    }
-    glProgramUniform4i64vARB = (PFNGLPROGRAMUNIFORM4I64VARBPROC) sogl_loadOpenGLFunction("glProgramUniform4i64vARB");
-    if (!glProgramUniform4i64vARB && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glProgramUniform4i64vARB";
-    }
-    glProgramUniform1ui64ARB = (PFNGLPROGRAMUNIFORM1UI64ARBPROC) sogl_loadOpenGLFunction("glProgramUniform1ui64ARB");
-    if (!glProgramUniform1ui64ARB && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glProgramUniform1ui64ARB";
-    }
-    glProgramUniform2ui64ARB = (PFNGLPROGRAMUNIFORM2UI64ARBPROC) sogl_loadOpenGLFunction("glProgramUniform2ui64ARB");
-    if (!glProgramUniform2ui64ARB && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glProgramUniform2ui64ARB";
-    }
-    glProgramUniform3ui64ARB = (PFNGLPROGRAMUNIFORM3UI64ARBPROC) sogl_loadOpenGLFunction("glProgramUniform3ui64ARB");
-    if (!glProgramUniform3ui64ARB && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glProgramUniform3ui64ARB";
-    }
-    glProgramUniform4ui64ARB = (PFNGLPROGRAMUNIFORM4UI64ARBPROC) sogl_loadOpenGLFunction("glProgramUniform4ui64ARB");
-    if (!glProgramUniform4ui64ARB && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glProgramUniform4ui64ARB";
-    }
-    glProgramUniform1ui64vARB = (PFNGLPROGRAMUNIFORM1UI64VARBPROC) sogl_loadOpenGLFunction("glProgramUniform1ui64vARB");
-    if (!glProgramUniform1ui64vARB && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glProgramUniform1ui64vARB";
-    }
-    glProgramUniform2ui64vARB = (PFNGLPROGRAMUNIFORM2UI64VARBPROC) sogl_loadOpenGLFunction("glProgramUniform2ui64vARB");
-    if (!glProgramUniform2ui64vARB && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glProgramUniform2ui64vARB";
-    }
-    glProgramUniform3ui64vARB = (PFNGLPROGRAMUNIFORM3UI64VARBPROC) sogl_loadOpenGLFunction("glProgramUniform3ui64vARB");
-    if (!glProgramUniform3ui64vARB && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glProgramUniform3ui64vARB";
-    }
-    glProgramUniform4ui64vARB = (PFNGLPROGRAMUNIFORM4UI64VARBPROC) sogl_loadOpenGLFunction("glProgramUniform4ui64vARB");
-    if (!glProgramUniform4ui64vARB && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glProgramUniform4ui64vARB";
-    }
+SOGL_FUNCTIONS_ARB_gpu_shader_int64
 #endif /* SOGL_ARB_gpu_shader_int64 */
 
 #ifdef SOGL_ARB_indirect_parameters
-    glMultiDrawArraysIndirectCountARB = (PFNGLMULTIDRAWARRAYSINDIRECTCOUNTARBPROC) sogl_loadOpenGLFunction("glMultiDrawArraysIndirectCountARB");
-    if (!glMultiDrawArraysIndirectCountARB && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glMultiDrawArraysIndirectCountARB";
-    }
-    glMultiDrawElementsIndirectCountARB = (PFNGLMULTIDRAWELEMENTSINDIRECTCOUNTARBPROC) sogl_loadOpenGLFunction("glMultiDrawElementsIndirectCountARB");
-    if (!glMultiDrawElementsIndirectCountARB && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glMultiDrawElementsIndirectCountARB";
-    }
+SOGL_FUNCTIONS_ARB_indirect_parameters
 #endif /* SOGL_ARB_indirect_parameters */
 
 #ifdef SOGL_ARB_instanced_arrays
-    glVertexAttribDivisorARB = (PFNGLVERTEXATTRIBDIVISORARBPROC) sogl_loadOpenGLFunction("glVertexAttribDivisorARB");
-    if (!glVertexAttribDivisorARB && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glVertexAttribDivisorARB";
-    }
+SOGL_FUNCTIONS_ARB_instanced_arrays
 #endif /* SOGL_ARB_instanced_arrays */
 
 #ifdef SOGL_ARB_parallel_shader_compile
-    glMaxShaderCompilerThreadsARB = (PFNGLMAXSHADERCOMPILERTHREADSARBPROC) sogl_loadOpenGLFunction("glMaxShaderCompilerThreadsARB");
-    if (!glMaxShaderCompilerThreadsARB && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glMaxShaderCompilerThreadsARB";
-    }
+SOGL_FUNCTIONS_ARB_parallel_shader_compile
 #endif /* SOGL_ARB_parallel_shader_compile */
 
 #ifdef SOGL_ARB_robustness
-    glGetGraphicsResetStatusARB = (PFNGLGETGRAPHICSRESETSTATUSARBPROC) sogl_loadOpenGLFunction("glGetGraphicsResetStatusARB");
-    if (!glGetGraphicsResetStatusARB && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glGetGraphicsResetStatusARB";
-    }
-    glGetnTexImageARB = (PFNGLGETNTEXIMAGEARBPROC) sogl_loadOpenGLFunction("glGetnTexImageARB");
-    if (!glGetnTexImageARB && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glGetnTexImageARB";
-    }
-    glReadnPixelsARB = (PFNGLREADNPIXELSARBPROC) sogl_loadOpenGLFunction("glReadnPixelsARB");
-    if (!glReadnPixelsARB && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glReadnPixelsARB";
-    }
-    glGetnCompressedTexImageARB = (PFNGLGETNCOMPRESSEDTEXIMAGEARBPROC) sogl_loadOpenGLFunction("glGetnCompressedTexImageARB");
-    if (!glGetnCompressedTexImageARB && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glGetnCompressedTexImageARB";
-    }
-    glGetnUniformfvARB = (PFNGLGETNUNIFORMFVARBPROC) sogl_loadOpenGLFunction("glGetnUniformfvARB");
-    if (!glGetnUniformfvARB && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glGetnUniformfvARB";
-    }
-    glGetnUniformivARB = (PFNGLGETNUNIFORMIVARBPROC) sogl_loadOpenGLFunction("glGetnUniformivARB");
-    if (!glGetnUniformivARB && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glGetnUniformivARB";
-    }
-    glGetnUniformuivARB = (PFNGLGETNUNIFORMUIVARBPROC) sogl_loadOpenGLFunction("glGetnUniformuivARB");
-    if (!glGetnUniformuivARB && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glGetnUniformuivARB";
-    }
-    glGetnUniformdvARB = (PFNGLGETNUNIFORMDVARBPROC) sogl_loadOpenGLFunction("glGetnUniformdvARB");
-    if (!glGetnUniformdvARB && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glGetnUniformdvARB";
-    }
+SOGL_FUNCTIONS_ARB_robustness
 #endif /* SOGL_ARB_robustness */
 
 #ifdef SOGL_ARB_sample_locations
-    glFramebufferSampleLocationsfvARB = (PFNGLFRAMEBUFFERSAMPLELOCATIONSFVARBPROC) sogl_loadOpenGLFunction("glFramebufferSampleLocationsfvARB");
-    if (!glFramebufferSampleLocationsfvARB && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glFramebufferSampleLocationsfvARB";
-    }
-    glNamedFramebufferSampleLocationsfvARB = (PFNGLNAMEDFRAMEBUFFERSAMPLELOCATIONSFVARBPROC) sogl_loadOpenGLFunction("glNamedFramebufferSampleLocationsfvARB");
-    if (!glNamedFramebufferSampleLocationsfvARB && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glNamedFramebufferSampleLocationsfvARB";
-    }
-    glEvaluateDepthValuesARB = (PFNGLEVALUATEDEPTHVALUESARBPROC) sogl_loadOpenGLFunction("glEvaluateDepthValuesARB");
-    if (!glEvaluateDepthValuesARB && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glEvaluateDepthValuesARB";
-    }
+SOGL_FUNCTIONS_ARB_sample_locations
 #endif /* SOGL_ARB_sample_locations */
 
 #ifdef SOGL_ARB_sample_shading
-    glMinSampleShadingARB = (PFNGLMINSAMPLESHADINGARBPROC) sogl_loadOpenGLFunction("glMinSampleShadingARB");
-    if (!glMinSampleShadingARB && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glMinSampleShadingARB";
-    }
+SOGL_FUNCTIONS_ARB_sample_shading
 #endif /* SOGL_ARB_sample_shading */
 
 #ifdef SOGL_ARB_shading_language_include
-    glNamedStringARB = (PFNGLNAMEDSTRINGARBPROC) sogl_loadOpenGLFunction("glNamedStringARB");
-    if (!glNamedStringARB && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glNamedStringARB";
-    }
-    glDeleteNamedStringARB = (PFNGLDELETENAMEDSTRINGARBPROC) sogl_loadOpenGLFunction("glDeleteNamedStringARB");
-    if (!glDeleteNamedStringARB && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glDeleteNamedStringARB";
-    }
-    glCompileShaderIncludeARB = (PFNGLCOMPILESHADERINCLUDEARBPROC) sogl_loadOpenGLFunction("glCompileShaderIncludeARB");
-    if (!glCompileShaderIncludeARB && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glCompileShaderIncludeARB";
-    }
-    glIsNamedStringARB = (PFNGLISNAMEDSTRINGARBPROC) sogl_loadOpenGLFunction("glIsNamedStringARB");
-    if (!glIsNamedStringARB && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glIsNamedStringARB";
-    }
-    glGetNamedStringARB = (PFNGLGETNAMEDSTRINGARBPROC) sogl_loadOpenGLFunction("glGetNamedStringARB");
-    if (!glGetNamedStringARB && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glGetNamedStringARB";
-    }
-    glGetNamedStringivARB = (PFNGLGETNAMEDSTRINGIVARBPROC) sogl_loadOpenGLFunction("glGetNamedStringivARB");
-    if (!glGetNamedStringivARB && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glGetNamedStringivARB";
-    }
+SOGL_FUNCTIONS_ARB_shading_language_include
 #endif /* SOGL_ARB_shading_language_include */
 
 #ifdef SOGL_ARB_sparse_buffer
-    glBufferPageCommitmentARB = (PFNGLBUFFERPAGECOMMITMENTARBPROC) sogl_loadOpenGLFunction("glBufferPageCommitmentARB");
-    if (!glBufferPageCommitmentARB && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glBufferPageCommitmentARB";
-    }
-    glNamedBufferPageCommitmentEXT = (PFNGLNAMEDBUFFERPAGECOMMITMENTEXTPROC) sogl_loadOpenGLFunction("glNamedBufferPageCommitmentEXT");
-    if (!glNamedBufferPageCommitmentEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glNamedBufferPageCommitmentEXT";
-    }
-    glNamedBufferPageCommitmentARB = (PFNGLNAMEDBUFFERPAGECOMMITMENTARBPROC) sogl_loadOpenGLFunction("glNamedBufferPageCommitmentARB");
-    if (!glNamedBufferPageCommitmentARB && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glNamedBufferPageCommitmentARB";
-    }
+SOGL_FUNCTIONS_ARB_sparse_buffer
 #endif /* SOGL_ARB_sparse_buffer */
 
 #ifdef SOGL_ARB_sparse_texture
-    glTexPageCommitmentARB = (PFNGLTEXPAGECOMMITMENTARBPROC) sogl_loadOpenGLFunction("glTexPageCommitmentARB");
-    if (!glTexPageCommitmentARB && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glTexPageCommitmentARB";
-    }
+SOGL_FUNCTIONS_ARB_sparse_texture
 #endif /* SOGL_ARB_sparse_texture */
 
 #ifdef SOGL_ARB_texture_buffer_object
-    glTexBufferARB = (PFNGLTEXBUFFERARBPROC) sogl_loadOpenGLFunction("glTexBufferARB");
-    if (!glTexBufferARB && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glTexBufferARB";
-    }
+SOGL_FUNCTIONS_ARB_texture_buffer_object
 #endif /* SOGL_ARB_texture_buffer_object */
 
 #ifdef SOGL_ARB_viewport_array
-    glDepthRangeArraydvNV = (PFNGLDEPTHRANGEARRAYDVNVPROC) sogl_loadOpenGLFunction("glDepthRangeArraydvNV");
-    if (!glDepthRangeArraydvNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glDepthRangeArraydvNV";
-    }
-    glDepthRangeIndexeddNV = (PFNGLDEPTHRANGEINDEXEDDNVPROC) sogl_loadOpenGLFunction("glDepthRangeIndexeddNV");
-    if (!glDepthRangeIndexeddNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glDepthRangeIndexeddNV";
-    }
+SOGL_FUNCTIONS_ARB_viewport_array
 #endif /* SOGL_ARB_viewport_array */
 
 #ifdef SOGL_KHR_blend_equation_advanced
-    glBlendBarrierKHR = (PFNGLBLENDBARRIERKHRPROC) sogl_loadOpenGLFunction("glBlendBarrierKHR");
-    if (!glBlendBarrierKHR && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glBlendBarrierKHR";
-    }
+SOGL_FUNCTIONS_KHR_blend_equation_advanced
 #endif /* SOGL_KHR_blend_equation_advanced */
 
 #ifdef SOGL_KHR_parallel_shader_compile
-    glMaxShaderCompilerThreadsKHR = (PFNGLMAXSHADERCOMPILERTHREADSKHRPROC) sogl_loadOpenGLFunction("glMaxShaderCompilerThreadsKHR");
-    if (!glMaxShaderCompilerThreadsKHR && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glMaxShaderCompilerThreadsKHR";
-    }
+SOGL_FUNCTIONS_KHR_parallel_shader_compile
 #endif /* SOGL_KHR_parallel_shader_compile */
 
 #ifdef SOGL_AMD_framebuffer_multisample_advanced
-    glRenderbufferStorageMultisampleAdvancedAMD = (PFNGLRENDERBUFFERSTORAGEMULTISAMPLEADVANCEDAMDPROC) sogl_loadOpenGLFunction("glRenderbufferStorageMultisampleAdvancedAMD");
-    if (!glRenderbufferStorageMultisampleAdvancedAMD && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glRenderbufferStorageMultisampleAdvancedAMD";
-    }
-    glNamedRenderbufferStorageMultisampleAdvancedAMD = (PFNGLNAMEDRENDERBUFFERSTORAGEMULTISAMPLEADVANCEDAMDPROC) sogl_loadOpenGLFunction("glNamedRenderbufferStorageMultisampleAdvancedAMD");
-    if (!glNamedRenderbufferStorageMultisampleAdvancedAMD && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glNamedRenderbufferStorageMultisampleAdvancedAMD";
-    }
+SOGL_FUNCTIONS_AMD_framebuffer_multisample_advanced
 #endif /* SOGL_AMD_framebuffer_multisample_advanced */
 
 #ifdef SOGL_AMD_performance_monitor
-    glGetPerfMonitorGroupsAMD = (PFNGLGETPERFMONITORGROUPSAMDPROC) sogl_loadOpenGLFunction("glGetPerfMonitorGroupsAMD");
-    if (!glGetPerfMonitorGroupsAMD && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glGetPerfMonitorGroupsAMD";
-    }
-    glGetPerfMonitorCountersAMD = (PFNGLGETPERFMONITORCOUNTERSAMDPROC) sogl_loadOpenGLFunction("glGetPerfMonitorCountersAMD");
-    if (!glGetPerfMonitorCountersAMD && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glGetPerfMonitorCountersAMD";
-    }
-    glGetPerfMonitorGroupStringAMD = (PFNGLGETPERFMONITORGROUPSTRINGAMDPROC) sogl_loadOpenGLFunction("glGetPerfMonitorGroupStringAMD");
-    if (!glGetPerfMonitorGroupStringAMD && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glGetPerfMonitorGroupStringAMD";
-    }
-    glGetPerfMonitorCounterStringAMD = (PFNGLGETPERFMONITORCOUNTERSTRINGAMDPROC) sogl_loadOpenGLFunction("glGetPerfMonitorCounterStringAMD");
-    if (!glGetPerfMonitorCounterStringAMD && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glGetPerfMonitorCounterStringAMD";
-    }
-    glGetPerfMonitorCounterInfoAMD = (PFNGLGETPERFMONITORCOUNTERINFOAMDPROC) sogl_loadOpenGLFunction("glGetPerfMonitorCounterInfoAMD");
-    if (!glGetPerfMonitorCounterInfoAMD && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glGetPerfMonitorCounterInfoAMD";
-    }
-    glGenPerfMonitorsAMD = (PFNGLGENPERFMONITORSAMDPROC) sogl_loadOpenGLFunction("glGenPerfMonitorsAMD");
-    if (!glGenPerfMonitorsAMD && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glGenPerfMonitorsAMD";
-    }
-    glDeletePerfMonitorsAMD = (PFNGLDELETEPERFMONITORSAMDPROC) sogl_loadOpenGLFunction("glDeletePerfMonitorsAMD");
-    if (!glDeletePerfMonitorsAMD && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glDeletePerfMonitorsAMD";
-    }
-    glSelectPerfMonitorCountersAMD = (PFNGLSELECTPERFMONITORCOUNTERSAMDPROC) sogl_loadOpenGLFunction("glSelectPerfMonitorCountersAMD");
-    if (!glSelectPerfMonitorCountersAMD && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glSelectPerfMonitorCountersAMD";
-    }
-    glBeginPerfMonitorAMD = (PFNGLBEGINPERFMONITORAMDPROC) sogl_loadOpenGLFunction("glBeginPerfMonitorAMD");
-    if (!glBeginPerfMonitorAMD && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glBeginPerfMonitorAMD";
-    }
-    glEndPerfMonitorAMD = (PFNGLENDPERFMONITORAMDPROC) sogl_loadOpenGLFunction("glEndPerfMonitorAMD");
-    if (!glEndPerfMonitorAMD && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glEndPerfMonitorAMD";
-    }
-    glGetPerfMonitorCounterDataAMD = (PFNGLGETPERFMONITORCOUNTERDATAAMDPROC) sogl_loadOpenGLFunction("glGetPerfMonitorCounterDataAMD");
-    if (!glGetPerfMonitorCounterDataAMD && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glGetPerfMonitorCounterDataAMD";
-    }
+SOGL_FUNCTIONS_AMD_performance_monitor
 #endif /* SOGL_AMD_performance_monitor */
 
 #ifdef SOGL_EXT_EGL_image_storage
-    glEGLImageTargetTexStorageEXT = (PFNGLEGLIMAGETARGETTEXSTORAGEEXTPROC) sogl_loadOpenGLFunction("glEGLImageTargetTexStorageEXT");
-    if (!glEGLImageTargetTexStorageEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glEGLImageTargetTexStorageEXT";
-    }
-    glEGLImageTargetTextureStorageEXT = (PFNGLEGLIMAGETARGETTEXTURESTORAGEEXTPROC) sogl_loadOpenGLFunction("glEGLImageTargetTextureStorageEXT");
-    if (!glEGLImageTargetTextureStorageEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glEGLImageTargetTextureStorageEXT";
-    }
+SOGL_FUNCTIONS_EXT_EGL_image_storage
 #endif /* SOGL_EXT_EGL_image_storage */
 
 #ifdef SOGL_EXT_debug_label
-    glLabelObjectEXT = (PFNGLLABELOBJECTEXTPROC) sogl_loadOpenGLFunction("glLabelObjectEXT");
-    if (!glLabelObjectEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glLabelObjectEXT";
-    }
-    glGetObjectLabelEXT = (PFNGLGETOBJECTLABELEXTPROC) sogl_loadOpenGLFunction("glGetObjectLabelEXT");
-    if (!glGetObjectLabelEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glGetObjectLabelEXT";
-    }
+SOGL_FUNCTIONS_EXT_debug_label
 #endif /* SOGL_EXT_debug_label */
 
 #ifdef SOGL_EXT_debug_marker
-    glInsertEventMarkerEXT = (PFNGLINSERTEVENTMARKEREXTPROC) sogl_loadOpenGLFunction("glInsertEventMarkerEXT");
-    if (!glInsertEventMarkerEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glInsertEventMarkerEXT";
-    }
-    glPushGroupMarkerEXT = (PFNGLPUSHGROUPMARKEREXTPROC) sogl_loadOpenGLFunction("glPushGroupMarkerEXT");
-    if (!glPushGroupMarkerEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glPushGroupMarkerEXT";
-    }
-    glPopGroupMarkerEXT = (PFNGLPOPGROUPMARKEREXTPROC) sogl_loadOpenGLFunction("glPopGroupMarkerEXT");
-    if (!glPopGroupMarkerEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glPopGroupMarkerEXT";
-    }
+SOGL_FUNCTIONS_EXT_debug_marker
 #endif /* SOGL_EXT_debug_marker */
 
 #ifdef SOGL_EXT_direct_state_access
-    glMatrixLoadfEXT = (PFNGLMATRIXLOADFEXTPROC) sogl_loadOpenGLFunction("glMatrixLoadfEXT");
-    if (!glMatrixLoadfEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glMatrixLoadfEXT";
-    }
-    glMatrixLoaddEXT = (PFNGLMATRIXLOADDEXTPROC) sogl_loadOpenGLFunction("glMatrixLoaddEXT");
-    if (!glMatrixLoaddEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glMatrixLoaddEXT";
-    }
-    glMatrixMultfEXT = (PFNGLMATRIXMULTFEXTPROC) sogl_loadOpenGLFunction("glMatrixMultfEXT");
-    if (!glMatrixMultfEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glMatrixMultfEXT";
-    }
-    glMatrixMultdEXT = (PFNGLMATRIXMULTDEXTPROC) sogl_loadOpenGLFunction("glMatrixMultdEXT");
-    if (!glMatrixMultdEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glMatrixMultdEXT";
-    }
-    glMatrixLoadIdentityEXT = (PFNGLMATRIXLOADIDENTITYEXTPROC) sogl_loadOpenGLFunction("glMatrixLoadIdentityEXT");
-    if (!glMatrixLoadIdentityEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glMatrixLoadIdentityEXT";
-    }
-    glMatrixRotatefEXT = (PFNGLMATRIXROTATEFEXTPROC) sogl_loadOpenGLFunction("glMatrixRotatefEXT");
-    if (!glMatrixRotatefEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glMatrixRotatefEXT";
-    }
-    glMatrixRotatedEXT = (PFNGLMATRIXROTATEDEXTPROC) sogl_loadOpenGLFunction("glMatrixRotatedEXT");
-    if (!glMatrixRotatedEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glMatrixRotatedEXT";
-    }
-    glMatrixScalefEXT = (PFNGLMATRIXSCALEFEXTPROC) sogl_loadOpenGLFunction("glMatrixScalefEXT");
-    if (!glMatrixScalefEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glMatrixScalefEXT";
-    }
-    glMatrixScaledEXT = (PFNGLMATRIXSCALEDEXTPROC) sogl_loadOpenGLFunction("glMatrixScaledEXT");
-    if (!glMatrixScaledEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glMatrixScaledEXT";
-    }
-    glMatrixTranslatefEXT = (PFNGLMATRIXTRANSLATEFEXTPROC) sogl_loadOpenGLFunction("glMatrixTranslatefEXT");
-    if (!glMatrixTranslatefEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glMatrixTranslatefEXT";
-    }
-    glMatrixTranslatedEXT = (PFNGLMATRIXTRANSLATEDEXTPROC) sogl_loadOpenGLFunction("glMatrixTranslatedEXT");
-    if (!glMatrixTranslatedEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glMatrixTranslatedEXT";
-    }
-    glMatrixFrustumEXT = (PFNGLMATRIXFRUSTUMEXTPROC) sogl_loadOpenGLFunction("glMatrixFrustumEXT");
-    if (!glMatrixFrustumEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glMatrixFrustumEXT";
-    }
-    glMatrixOrthoEXT = (PFNGLMATRIXORTHOEXTPROC) sogl_loadOpenGLFunction("glMatrixOrthoEXT");
-    if (!glMatrixOrthoEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glMatrixOrthoEXT";
-    }
-    glMatrixPopEXT = (PFNGLMATRIXPOPEXTPROC) sogl_loadOpenGLFunction("glMatrixPopEXT");
-    if (!glMatrixPopEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glMatrixPopEXT";
-    }
-    glMatrixPushEXT = (PFNGLMATRIXPUSHEXTPROC) sogl_loadOpenGLFunction("glMatrixPushEXT");
-    if (!glMatrixPushEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glMatrixPushEXT";
-    }
-    glClientAttribDefaultEXT = (PFNGLCLIENTATTRIBDEFAULTEXTPROC) sogl_loadOpenGLFunction("glClientAttribDefaultEXT");
-    if (!glClientAttribDefaultEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glClientAttribDefaultEXT";
-    }
-    glPushClientAttribDefaultEXT = (PFNGLPUSHCLIENTATTRIBDEFAULTEXTPROC) sogl_loadOpenGLFunction("glPushClientAttribDefaultEXT");
-    if (!glPushClientAttribDefaultEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glPushClientAttribDefaultEXT";
-    }
-    glTextureParameterfEXT = (PFNGLTEXTUREPARAMETERFEXTPROC) sogl_loadOpenGLFunction("glTextureParameterfEXT");
-    if (!glTextureParameterfEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glTextureParameterfEXT";
-    }
-    glTextureParameterfvEXT = (PFNGLTEXTUREPARAMETERFVEXTPROC) sogl_loadOpenGLFunction("glTextureParameterfvEXT");
-    if (!glTextureParameterfvEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glTextureParameterfvEXT";
-    }
-    glTextureParameteriEXT = (PFNGLTEXTUREPARAMETERIEXTPROC) sogl_loadOpenGLFunction("glTextureParameteriEXT");
-    if (!glTextureParameteriEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glTextureParameteriEXT";
-    }
-    glTextureParameterivEXT = (PFNGLTEXTUREPARAMETERIVEXTPROC) sogl_loadOpenGLFunction("glTextureParameterivEXT");
-    if (!glTextureParameterivEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glTextureParameterivEXT";
-    }
-    glTextureImage1DEXT = (PFNGLTEXTUREIMAGE1DEXTPROC) sogl_loadOpenGLFunction("glTextureImage1DEXT");
-    if (!glTextureImage1DEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glTextureImage1DEXT";
-    }
-    glTextureImage2DEXT = (PFNGLTEXTUREIMAGE2DEXTPROC) sogl_loadOpenGLFunction("glTextureImage2DEXT");
-    if (!glTextureImage2DEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glTextureImage2DEXT";
-    }
-    glTextureSubImage1DEXT = (PFNGLTEXTURESUBIMAGE1DEXTPROC) sogl_loadOpenGLFunction("glTextureSubImage1DEXT");
-    if (!glTextureSubImage1DEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glTextureSubImage1DEXT";
-    }
-    glTextureSubImage2DEXT = (PFNGLTEXTURESUBIMAGE2DEXTPROC) sogl_loadOpenGLFunction("glTextureSubImage2DEXT");
-    if (!glTextureSubImage2DEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glTextureSubImage2DEXT";
-    }
-    glCopyTextureImage1DEXT = (PFNGLCOPYTEXTUREIMAGE1DEXTPROC) sogl_loadOpenGLFunction("glCopyTextureImage1DEXT");
-    if (!glCopyTextureImage1DEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glCopyTextureImage1DEXT";
-    }
-    glCopyTextureImage2DEXT = (PFNGLCOPYTEXTUREIMAGE2DEXTPROC) sogl_loadOpenGLFunction("glCopyTextureImage2DEXT");
-    if (!glCopyTextureImage2DEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glCopyTextureImage2DEXT";
-    }
-    glCopyTextureSubImage1DEXT = (PFNGLCOPYTEXTURESUBIMAGE1DEXTPROC) sogl_loadOpenGLFunction("glCopyTextureSubImage1DEXT");
-    if (!glCopyTextureSubImage1DEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glCopyTextureSubImage1DEXT";
-    }
-    glCopyTextureSubImage2DEXT = (PFNGLCOPYTEXTURESUBIMAGE2DEXTPROC) sogl_loadOpenGLFunction("glCopyTextureSubImage2DEXT");
-    if (!glCopyTextureSubImage2DEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glCopyTextureSubImage2DEXT";
-    }
-    glGetTextureImageEXT = (PFNGLGETTEXTUREIMAGEEXTPROC) sogl_loadOpenGLFunction("glGetTextureImageEXT");
-    if (!glGetTextureImageEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glGetTextureImageEXT";
-    }
-    glGetTextureParameterfvEXT = (PFNGLGETTEXTUREPARAMETERFVEXTPROC) sogl_loadOpenGLFunction("glGetTextureParameterfvEXT");
-    if (!glGetTextureParameterfvEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glGetTextureParameterfvEXT";
-    }
-    glGetTextureParameterivEXT = (PFNGLGETTEXTUREPARAMETERIVEXTPROC) sogl_loadOpenGLFunction("glGetTextureParameterivEXT");
-    if (!glGetTextureParameterivEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glGetTextureParameterivEXT";
-    }
-    glGetTextureLevelParameterfvEXT = (PFNGLGETTEXTURELEVELPARAMETERFVEXTPROC) sogl_loadOpenGLFunction("glGetTextureLevelParameterfvEXT");
-    if (!glGetTextureLevelParameterfvEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glGetTextureLevelParameterfvEXT";
-    }
-    glGetTextureLevelParameterivEXT = (PFNGLGETTEXTURELEVELPARAMETERIVEXTPROC) sogl_loadOpenGLFunction("glGetTextureLevelParameterivEXT");
-    if (!glGetTextureLevelParameterivEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glGetTextureLevelParameterivEXT";
-    }
-    glTextureImage3DEXT = (PFNGLTEXTUREIMAGE3DEXTPROC) sogl_loadOpenGLFunction("glTextureImage3DEXT");
-    if (!glTextureImage3DEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glTextureImage3DEXT";
-    }
-    glTextureSubImage3DEXT = (PFNGLTEXTURESUBIMAGE3DEXTPROC) sogl_loadOpenGLFunction("glTextureSubImage3DEXT");
-    if (!glTextureSubImage3DEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glTextureSubImage3DEXT";
-    }
-    glCopyTextureSubImage3DEXT = (PFNGLCOPYTEXTURESUBIMAGE3DEXTPROC) sogl_loadOpenGLFunction("glCopyTextureSubImage3DEXT");
-    if (!glCopyTextureSubImage3DEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glCopyTextureSubImage3DEXT";
-    }
-    glBindMultiTextureEXT = (PFNGLBINDMULTITEXTUREEXTPROC) sogl_loadOpenGLFunction("glBindMultiTextureEXT");
-    if (!glBindMultiTextureEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glBindMultiTextureEXT";
-    }
-    glMultiTexCoordPointerEXT = (PFNGLMULTITEXCOORDPOINTEREXTPROC) sogl_loadOpenGLFunction("glMultiTexCoordPointerEXT");
-    if (!glMultiTexCoordPointerEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glMultiTexCoordPointerEXT";
-    }
-    glMultiTexEnvfEXT = (PFNGLMULTITEXENVFEXTPROC) sogl_loadOpenGLFunction("glMultiTexEnvfEXT");
-    if (!glMultiTexEnvfEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glMultiTexEnvfEXT";
-    }
-    glMultiTexEnvfvEXT = (PFNGLMULTITEXENVFVEXTPROC) sogl_loadOpenGLFunction("glMultiTexEnvfvEXT");
-    if (!glMultiTexEnvfvEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glMultiTexEnvfvEXT";
-    }
-    glMultiTexEnviEXT = (PFNGLMULTITEXENVIEXTPROC) sogl_loadOpenGLFunction("glMultiTexEnviEXT");
-    if (!glMultiTexEnviEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glMultiTexEnviEXT";
-    }
-    glMultiTexEnvivEXT = (PFNGLMULTITEXENVIVEXTPROC) sogl_loadOpenGLFunction("glMultiTexEnvivEXT");
-    if (!glMultiTexEnvivEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glMultiTexEnvivEXT";
-    }
-    glMultiTexGendEXT = (PFNGLMULTITEXGENDEXTPROC) sogl_loadOpenGLFunction("glMultiTexGendEXT");
-    if (!glMultiTexGendEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glMultiTexGendEXT";
-    }
-    glMultiTexGendvEXT = (PFNGLMULTITEXGENDVEXTPROC) sogl_loadOpenGLFunction("glMultiTexGendvEXT");
-    if (!glMultiTexGendvEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glMultiTexGendvEXT";
-    }
-    glMultiTexGenfEXT = (PFNGLMULTITEXGENFEXTPROC) sogl_loadOpenGLFunction("glMultiTexGenfEXT");
-    if (!glMultiTexGenfEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glMultiTexGenfEXT";
-    }
-    glMultiTexGenfvEXT = (PFNGLMULTITEXGENFVEXTPROC) sogl_loadOpenGLFunction("glMultiTexGenfvEXT");
-    if (!glMultiTexGenfvEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glMultiTexGenfvEXT";
-    }
-    glMultiTexGeniEXT = (PFNGLMULTITEXGENIEXTPROC) sogl_loadOpenGLFunction("glMultiTexGeniEXT");
-    if (!glMultiTexGeniEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glMultiTexGeniEXT";
-    }
-    glMultiTexGenivEXT = (PFNGLMULTITEXGENIVEXTPROC) sogl_loadOpenGLFunction("glMultiTexGenivEXT");
-    if (!glMultiTexGenivEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glMultiTexGenivEXT";
-    }
-    glGetMultiTexEnvfvEXT = (PFNGLGETMULTITEXENVFVEXTPROC) sogl_loadOpenGLFunction("glGetMultiTexEnvfvEXT");
-    if (!glGetMultiTexEnvfvEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glGetMultiTexEnvfvEXT";
-    }
-    glGetMultiTexEnvivEXT = (PFNGLGETMULTITEXENVIVEXTPROC) sogl_loadOpenGLFunction("glGetMultiTexEnvivEXT");
-    if (!glGetMultiTexEnvivEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glGetMultiTexEnvivEXT";
-    }
-    glGetMultiTexGendvEXT = (PFNGLGETMULTITEXGENDVEXTPROC) sogl_loadOpenGLFunction("glGetMultiTexGendvEXT");
-    if (!glGetMultiTexGendvEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glGetMultiTexGendvEXT";
-    }
-    glGetMultiTexGenfvEXT = (PFNGLGETMULTITEXGENFVEXTPROC) sogl_loadOpenGLFunction("glGetMultiTexGenfvEXT");
-    if (!glGetMultiTexGenfvEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glGetMultiTexGenfvEXT";
-    }
-    glGetMultiTexGenivEXT = (PFNGLGETMULTITEXGENIVEXTPROC) sogl_loadOpenGLFunction("glGetMultiTexGenivEXT");
-    if (!glGetMultiTexGenivEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glGetMultiTexGenivEXT";
-    }
-    glMultiTexParameteriEXT = (PFNGLMULTITEXPARAMETERIEXTPROC) sogl_loadOpenGLFunction("glMultiTexParameteriEXT");
-    if (!glMultiTexParameteriEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glMultiTexParameteriEXT";
-    }
-    glMultiTexParameterivEXT = (PFNGLMULTITEXPARAMETERIVEXTPROC) sogl_loadOpenGLFunction("glMultiTexParameterivEXT");
-    if (!glMultiTexParameterivEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glMultiTexParameterivEXT";
-    }
-    glMultiTexParameterfEXT = (PFNGLMULTITEXPARAMETERFEXTPROC) sogl_loadOpenGLFunction("glMultiTexParameterfEXT");
-    if (!glMultiTexParameterfEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glMultiTexParameterfEXT";
-    }
-    glMultiTexParameterfvEXT = (PFNGLMULTITEXPARAMETERFVEXTPROC) sogl_loadOpenGLFunction("glMultiTexParameterfvEXT");
-    if (!glMultiTexParameterfvEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glMultiTexParameterfvEXT";
-    }
-    glMultiTexImage1DEXT = (PFNGLMULTITEXIMAGE1DEXTPROC) sogl_loadOpenGLFunction("glMultiTexImage1DEXT");
-    if (!glMultiTexImage1DEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glMultiTexImage1DEXT";
-    }
-    glMultiTexImage2DEXT = (PFNGLMULTITEXIMAGE2DEXTPROC) sogl_loadOpenGLFunction("glMultiTexImage2DEXT");
-    if (!glMultiTexImage2DEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glMultiTexImage2DEXT";
-    }
-    glMultiTexSubImage1DEXT = (PFNGLMULTITEXSUBIMAGE1DEXTPROC) sogl_loadOpenGLFunction("glMultiTexSubImage1DEXT");
-    if (!glMultiTexSubImage1DEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glMultiTexSubImage1DEXT";
-    }
-    glMultiTexSubImage2DEXT = (PFNGLMULTITEXSUBIMAGE2DEXTPROC) sogl_loadOpenGLFunction("glMultiTexSubImage2DEXT");
-    if (!glMultiTexSubImage2DEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glMultiTexSubImage2DEXT";
-    }
-    glCopyMultiTexImage1DEXT = (PFNGLCOPYMULTITEXIMAGE1DEXTPROC) sogl_loadOpenGLFunction("glCopyMultiTexImage1DEXT");
-    if (!glCopyMultiTexImage1DEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glCopyMultiTexImage1DEXT";
-    }
-    glCopyMultiTexImage2DEXT = (PFNGLCOPYMULTITEXIMAGE2DEXTPROC) sogl_loadOpenGLFunction("glCopyMultiTexImage2DEXT");
-    if (!glCopyMultiTexImage2DEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glCopyMultiTexImage2DEXT";
-    }
-    glCopyMultiTexSubImage1DEXT = (PFNGLCOPYMULTITEXSUBIMAGE1DEXTPROC) sogl_loadOpenGLFunction("glCopyMultiTexSubImage1DEXT");
-    if (!glCopyMultiTexSubImage1DEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glCopyMultiTexSubImage1DEXT";
-    }
-    glCopyMultiTexSubImage2DEXT = (PFNGLCOPYMULTITEXSUBIMAGE2DEXTPROC) sogl_loadOpenGLFunction("glCopyMultiTexSubImage2DEXT");
-    if (!glCopyMultiTexSubImage2DEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glCopyMultiTexSubImage2DEXT";
-    }
-    glGetMultiTexImageEXT = (PFNGLGETMULTITEXIMAGEEXTPROC) sogl_loadOpenGLFunction("glGetMultiTexImageEXT");
-    if (!glGetMultiTexImageEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glGetMultiTexImageEXT";
-    }
-    glGetMultiTexParameterfvEXT = (PFNGLGETMULTITEXPARAMETERFVEXTPROC) sogl_loadOpenGLFunction("glGetMultiTexParameterfvEXT");
-    if (!glGetMultiTexParameterfvEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glGetMultiTexParameterfvEXT";
-    }
-    glGetMultiTexParameterivEXT = (PFNGLGETMULTITEXPARAMETERIVEXTPROC) sogl_loadOpenGLFunction("glGetMultiTexParameterivEXT");
-    if (!glGetMultiTexParameterivEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glGetMultiTexParameterivEXT";
-    }
-    glGetMultiTexLevelParameterfvEXT = (PFNGLGETMULTITEXLEVELPARAMETERFVEXTPROC) sogl_loadOpenGLFunction("glGetMultiTexLevelParameterfvEXT");
-    if (!glGetMultiTexLevelParameterfvEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glGetMultiTexLevelParameterfvEXT";
-    }
-    glGetMultiTexLevelParameterivEXT = (PFNGLGETMULTITEXLEVELPARAMETERIVEXTPROC) sogl_loadOpenGLFunction("glGetMultiTexLevelParameterivEXT");
-    if (!glGetMultiTexLevelParameterivEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glGetMultiTexLevelParameterivEXT";
-    }
-    glMultiTexImage3DEXT = (PFNGLMULTITEXIMAGE3DEXTPROC) sogl_loadOpenGLFunction("glMultiTexImage3DEXT");
-    if (!glMultiTexImage3DEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glMultiTexImage3DEXT";
-    }
-    glMultiTexSubImage3DEXT = (PFNGLMULTITEXSUBIMAGE3DEXTPROC) sogl_loadOpenGLFunction("glMultiTexSubImage3DEXT");
-    if (!glMultiTexSubImage3DEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glMultiTexSubImage3DEXT";
-    }
-    glCopyMultiTexSubImage3DEXT = (PFNGLCOPYMULTITEXSUBIMAGE3DEXTPROC) sogl_loadOpenGLFunction("glCopyMultiTexSubImage3DEXT");
-    if (!glCopyMultiTexSubImage3DEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glCopyMultiTexSubImage3DEXT";
-    }
-    glEnableClientStateIndexedEXT = (PFNGLENABLECLIENTSTATEINDEXEDEXTPROC) sogl_loadOpenGLFunction("glEnableClientStateIndexedEXT");
-    if (!glEnableClientStateIndexedEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glEnableClientStateIndexedEXT";
-    }
-    glDisableClientStateIndexedEXT = (PFNGLDISABLECLIENTSTATEINDEXEDEXTPROC) sogl_loadOpenGLFunction("glDisableClientStateIndexedEXT");
-    if (!glDisableClientStateIndexedEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glDisableClientStateIndexedEXT";
-    }
-    glGetFloatIndexedvEXT = (PFNGLGETFLOATINDEXEDVEXTPROC) sogl_loadOpenGLFunction("glGetFloatIndexedvEXT");
-    if (!glGetFloatIndexedvEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glGetFloatIndexedvEXT";
-    }
-    glGetDoubleIndexedvEXT = (PFNGLGETDOUBLEINDEXEDVEXTPROC) sogl_loadOpenGLFunction("glGetDoubleIndexedvEXT");
-    if (!glGetDoubleIndexedvEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glGetDoubleIndexedvEXT";
-    }
-    glGetPointerIndexedvEXT = (PFNGLGETPOINTERINDEXEDVEXTPROC) sogl_loadOpenGLFunction("glGetPointerIndexedvEXT");
-    if (!glGetPointerIndexedvEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glGetPointerIndexedvEXT";
-    }
-    glEnableIndexedEXT = (PFNGLENABLEINDEXEDEXTPROC) sogl_loadOpenGLFunction("glEnableIndexedEXT");
-    if (!glEnableIndexedEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glEnableIndexedEXT";
-    }
-    glDisableIndexedEXT = (PFNGLDISABLEINDEXEDEXTPROC) sogl_loadOpenGLFunction("glDisableIndexedEXT");
-    if (!glDisableIndexedEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glDisableIndexedEXT";
-    }
-    glIsEnabledIndexedEXT = (PFNGLISENABLEDINDEXEDEXTPROC) sogl_loadOpenGLFunction("glIsEnabledIndexedEXT");
-    if (!glIsEnabledIndexedEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glIsEnabledIndexedEXT";
-    }
-    glGetIntegerIndexedvEXT = (PFNGLGETINTEGERINDEXEDVEXTPROC) sogl_loadOpenGLFunction("glGetIntegerIndexedvEXT");
-    if (!glGetIntegerIndexedvEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glGetIntegerIndexedvEXT";
-    }
-    glGetBooleanIndexedvEXT = (PFNGLGETBOOLEANINDEXEDVEXTPROC) sogl_loadOpenGLFunction("glGetBooleanIndexedvEXT");
-    if (!glGetBooleanIndexedvEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glGetBooleanIndexedvEXT";
-    }
-    glCompressedTextureImage3DEXT = (PFNGLCOMPRESSEDTEXTUREIMAGE3DEXTPROC) sogl_loadOpenGLFunction("glCompressedTextureImage3DEXT");
-    if (!glCompressedTextureImage3DEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glCompressedTextureImage3DEXT";
-    }
-    glCompressedTextureImage2DEXT = (PFNGLCOMPRESSEDTEXTUREIMAGE2DEXTPROC) sogl_loadOpenGLFunction("glCompressedTextureImage2DEXT");
-    if (!glCompressedTextureImage2DEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glCompressedTextureImage2DEXT";
-    }
-    glCompressedTextureImage1DEXT = (PFNGLCOMPRESSEDTEXTUREIMAGE1DEXTPROC) sogl_loadOpenGLFunction("glCompressedTextureImage1DEXT");
-    if (!glCompressedTextureImage1DEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glCompressedTextureImage1DEXT";
-    }
-    glCompressedTextureSubImage3DEXT = (PFNGLCOMPRESSEDTEXTURESUBIMAGE3DEXTPROC) sogl_loadOpenGLFunction("glCompressedTextureSubImage3DEXT");
-    if (!glCompressedTextureSubImage3DEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glCompressedTextureSubImage3DEXT";
-    }
-    glCompressedTextureSubImage2DEXT = (PFNGLCOMPRESSEDTEXTURESUBIMAGE2DEXTPROC) sogl_loadOpenGLFunction("glCompressedTextureSubImage2DEXT");
-    if (!glCompressedTextureSubImage2DEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glCompressedTextureSubImage2DEXT";
-    }
-    glCompressedTextureSubImage1DEXT = (PFNGLCOMPRESSEDTEXTURESUBIMAGE1DEXTPROC) sogl_loadOpenGLFunction("glCompressedTextureSubImage1DEXT");
-    if (!glCompressedTextureSubImage1DEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glCompressedTextureSubImage1DEXT";
-    }
-    glGetCompressedTextureImageEXT = (PFNGLGETCOMPRESSEDTEXTUREIMAGEEXTPROC) sogl_loadOpenGLFunction("glGetCompressedTextureImageEXT");
-    if (!glGetCompressedTextureImageEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glGetCompressedTextureImageEXT";
-    }
-    glCompressedMultiTexImage3DEXT = (PFNGLCOMPRESSEDMULTITEXIMAGE3DEXTPROC) sogl_loadOpenGLFunction("glCompressedMultiTexImage3DEXT");
-    if (!glCompressedMultiTexImage3DEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glCompressedMultiTexImage3DEXT";
-    }
-    glCompressedMultiTexImage2DEXT = (PFNGLCOMPRESSEDMULTITEXIMAGE2DEXTPROC) sogl_loadOpenGLFunction("glCompressedMultiTexImage2DEXT");
-    if (!glCompressedMultiTexImage2DEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glCompressedMultiTexImage2DEXT";
-    }
-    glCompressedMultiTexImage1DEXT = (PFNGLCOMPRESSEDMULTITEXIMAGE1DEXTPROC) sogl_loadOpenGLFunction("glCompressedMultiTexImage1DEXT");
-    if (!glCompressedMultiTexImage1DEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glCompressedMultiTexImage1DEXT";
-    }
-    glCompressedMultiTexSubImage3DEXT = (PFNGLCOMPRESSEDMULTITEXSUBIMAGE3DEXTPROC) sogl_loadOpenGLFunction("glCompressedMultiTexSubImage3DEXT");
-    if (!glCompressedMultiTexSubImage3DEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glCompressedMultiTexSubImage3DEXT";
-    }
-    glCompressedMultiTexSubImage2DEXT = (PFNGLCOMPRESSEDMULTITEXSUBIMAGE2DEXTPROC) sogl_loadOpenGLFunction("glCompressedMultiTexSubImage2DEXT");
-    if (!glCompressedMultiTexSubImage2DEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glCompressedMultiTexSubImage2DEXT";
-    }
-    glCompressedMultiTexSubImage1DEXT = (PFNGLCOMPRESSEDMULTITEXSUBIMAGE1DEXTPROC) sogl_loadOpenGLFunction("glCompressedMultiTexSubImage1DEXT");
-    if (!glCompressedMultiTexSubImage1DEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glCompressedMultiTexSubImage1DEXT";
-    }
-    glGetCompressedMultiTexImageEXT = (PFNGLGETCOMPRESSEDMULTITEXIMAGEEXTPROC) sogl_loadOpenGLFunction("glGetCompressedMultiTexImageEXT");
-    if (!glGetCompressedMultiTexImageEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glGetCompressedMultiTexImageEXT";
-    }
-    glMatrixLoadTransposefEXT = (PFNGLMATRIXLOADTRANSPOSEFEXTPROC) sogl_loadOpenGLFunction("glMatrixLoadTransposefEXT");
-    if (!glMatrixLoadTransposefEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glMatrixLoadTransposefEXT";
-    }
-    glMatrixLoadTransposedEXT = (PFNGLMATRIXLOADTRANSPOSEDEXTPROC) sogl_loadOpenGLFunction("glMatrixLoadTransposedEXT");
-    if (!glMatrixLoadTransposedEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glMatrixLoadTransposedEXT";
-    }
-    glMatrixMultTransposefEXT = (PFNGLMATRIXMULTTRANSPOSEFEXTPROC) sogl_loadOpenGLFunction("glMatrixMultTransposefEXT");
-    if (!glMatrixMultTransposefEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glMatrixMultTransposefEXT";
-    }
-    glMatrixMultTransposedEXT = (PFNGLMATRIXMULTTRANSPOSEDEXTPROC) sogl_loadOpenGLFunction("glMatrixMultTransposedEXT");
-    if (!glMatrixMultTransposedEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glMatrixMultTransposedEXT";
-    }
-    glNamedBufferDataEXT = (PFNGLNAMEDBUFFERDATAEXTPROC) sogl_loadOpenGLFunction("glNamedBufferDataEXT");
-    if (!glNamedBufferDataEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glNamedBufferDataEXT";
-    }
-    glNamedBufferSubDataEXT = (PFNGLNAMEDBUFFERSUBDATAEXTPROC) sogl_loadOpenGLFunction("glNamedBufferSubDataEXT");
-    if (!glNamedBufferSubDataEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glNamedBufferSubDataEXT";
-    }
-    glMapNamedBufferEXT = (PFNGLMAPNAMEDBUFFEREXTPROC) sogl_loadOpenGLFunction("glMapNamedBufferEXT");
-    if (!glMapNamedBufferEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glMapNamedBufferEXT";
-    }
-    glUnmapNamedBufferEXT = (PFNGLUNMAPNAMEDBUFFEREXTPROC) sogl_loadOpenGLFunction("glUnmapNamedBufferEXT");
-    if (!glUnmapNamedBufferEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glUnmapNamedBufferEXT";
-    }
-    glGetNamedBufferParameterivEXT = (PFNGLGETNAMEDBUFFERPARAMETERIVEXTPROC) sogl_loadOpenGLFunction("glGetNamedBufferParameterivEXT");
-    if (!glGetNamedBufferParameterivEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glGetNamedBufferParameterivEXT";
-    }
-    glGetNamedBufferPointervEXT = (PFNGLGETNAMEDBUFFERPOINTERVEXTPROC) sogl_loadOpenGLFunction("glGetNamedBufferPointervEXT");
-    if (!glGetNamedBufferPointervEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glGetNamedBufferPointervEXT";
-    }
-    glGetNamedBufferSubDataEXT = (PFNGLGETNAMEDBUFFERSUBDATAEXTPROC) sogl_loadOpenGLFunction("glGetNamedBufferSubDataEXT");
-    if (!glGetNamedBufferSubDataEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glGetNamedBufferSubDataEXT";
-    }
-    glProgramUniform1fEXT = (PFNGLPROGRAMUNIFORM1FEXTPROC) sogl_loadOpenGLFunction("glProgramUniform1fEXT");
-    if (!glProgramUniform1fEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glProgramUniform1fEXT";
-    }
-    glProgramUniform2fEXT = (PFNGLPROGRAMUNIFORM2FEXTPROC) sogl_loadOpenGLFunction("glProgramUniform2fEXT");
-    if (!glProgramUniform2fEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glProgramUniform2fEXT";
-    }
-    glProgramUniform3fEXT = (PFNGLPROGRAMUNIFORM3FEXTPROC) sogl_loadOpenGLFunction("glProgramUniform3fEXT");
-    if (!glProgramUniform3fEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glProgramUniform3fEXT";
-    }
-    glProgramUniform4fEXT = (PFNGLPROGRAMUNIFORM4FEXTPROC) sogl_loadOpenGLFunction("glProgramUniform4fEXT");
-    if (!glProgramUniform4fEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glProgramUniform4fEXT";
-    }
-    glProgramUniform1iEXT = (PFNGLPROGRAMUNIFORM1IEXTPROC) sogl_loadOpenGLFunction("glProgramUniform1iEXT");
-    if (!glProgramUniform1iEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glProgramUniform1iEXT";
-    }
-    glProgramUniform2iEXT = (PFNGLPROGRAMUNIFORM2IEXTPROC) sogl_loadOpenGLFunction("glProgramUniform2iEXT");
-    if (!glProgramUniform2iEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glProgramUniform2iEXT";
-    }
-    glProgramUniform3iEXT = (PFNGLPROGRAMUNIFORM3IEXTPROC) sogl_loadOpenGLFunction("glProgramUniform3iEXT");
-    if (!glProgramUniform3iEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glProgramUniform3iEXT";
-    }
-    glProgramUniform4iEXT = (PFNGLPROGRAMUNIFORM4IEXTPROC) sogl_loadOpenGLFunction("glProgramUniform4iEXT");
-    if (!glProgramUniform4iEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glProgramUniform4iEXT";
-    }
-    glProgramUniform1fvEXT = (PFNGLPROGRAMUNIFORM1FVEXTPROC) sogl_loadOpenGLFunction("glProgramUniform1fvEXT");
-    if (!glProgramUniform1fvEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glProgramUniform1fvEXT";
-    }
-    glProgramUniform2fvEXT = (PFNGLPROGRAMUNIFORM2FVEXTPROC) sogl_loadOpenGLFunction("glProgramUniform2fvEXT");
-    if (!glProgramUniform2fvEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glProgramUniform2fvEXT";
-    }
-    glProgramUniform3fvEXT = (PFNGLPROGRAMUNIFORM3FVEXTPROC) sogl_loadOpenGLFunction("glProgramUniform3fvEXT");
-    if (!glProgramUniform3fvEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glProgramUniform3fvEXT";
-    }
-    glProgramUniform4fvEXT = (PFNGLPROGRAMUNIFORM4FVEXTPROC) sogl_loadOpenGLFunction("glProgramUniform4fvEXT");
-    if (!glProgramUniform4fvEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glProgramUniform4fvEXT";
-    }
-    glProgramUniform1ivEXT = (PFNGLPROGRAMUNIFORM1IVEXTPROC) sogl_loadOpenGLFunction("glProgramUniform1ivEXT");
-    if (!glProgramUniform1ivEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glProgramUniform1ivEXT";
-    }
-    glProgramUniform2ivEXT = (PFNGLPROGRAMUNIFORM2IVEXTPROC) sogl_loadOpenGLFunction("glProgramUniform2ivEXT");
-    if (!glProgramUniform2ivEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glProgramUniform2ivEXT";
-    }
-    glProgramUniform3ivEXT = (PFNGLPROGRAMUNIFORM3IVEXTPROC) sogl_loadOpenGLFunction("glProgramUniform3ivEXT");
-    if (!glProgramUniform3ivEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glProgramUniform3ivEXT";
-    }
-    glProgramUniform4ivEXT = (PFNGLPROGRAMUNIFORM4IVEXTPROC) sogl_loadOpenGLFunction("glProgramUniform4ivEXT");
-    if (!glProgramUniform4ivEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glProgramUniform4ivEXT";
-    }
-    glProgramUniformMatrix2fvEXT = (PFNGLPROGRAMUNIFORMMATRIX2FVEXTPROC) sogl_loadOpenGLFunction("glProgramUniformMatrix2fvEXT");
-    if (!glProgramUniformMatrix2fvEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glProgramUniformMatrix2fvEXT";
-    }
-    glProgramUniformMatrix3fvEXT = (PFNGLPROGRAMUNIFORMMATRIX3FVEXTPROC) sogl_loadOpenGLFunction("glProgramUniformMatrix3fvEXT");
-    if (!glProgramUniformMatrix3fvEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glProgramUniformMatrix3fvEXT";
-    }
-    glProgramUniformMatrix4fvEXT = (PFNGLPROGRAMUNIFORMMATRIX4FVEXTPROC) sogl_loadOpenGLFunction("glProgramUniformMatrix4fvEXT");
-    if (!glProgramUniformMatrix4fvEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glProgramUniformMatrix4fvEXT";
-    }
-    glProgramUniformMatrix2x3fvEXT = (PFNGLPROGRAMUNIFORMMATRIX2X3FVEXTPROC) sogl_loadOpenGLFunction("glProgramUniformMatrix2x3fvEXT");
-    if (!glProgramUniformMatrix2x3fvEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glProgramUniformMatrix2x3fvEXT";
-    }
-    glProgramUniformMatrix3x2fvEXT = (PFNGLPROGRAMUNIFORMMATRIX3X2FVEXTPROC) sogl_loadOpenGLFunction("glProgramUniformMatrix3x2fvEXT");
-    if (!glProgramUniformMatrix3x2fvEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glProgramUniformMatrix3x2fvEXT";
-    }
-    glProgramUniformMatrix2x4fvEXT = (PFNGLPROGRAMUNIFORMMATRIX2X4FVEXTPROC) sogl_loadOpenGLFunction("glProgramUniformMatrix2x4fvEXT");
-    if (!glProgramUniformMatrix2x4fvEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glProgramUniformMatrix2x4fvEXT";
-    }
-    glProgramUniformMatrix4x2fvEXT = (PFNGLPROGRAMUNIFORMMATRIX4X2FVEXTPROC) sogl_loadOpenGLFunction("glProgramUniformMatrix4x2fvEXT");
-    if (!glProgramUniformMatrix4x2fvEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glProgramUniformMatrix4x2fvEXT";
-    }
-    glProgramUniformMatrix3x4fvEXT = (PFNGLPROGRAMUNIFORMMATRIX3X4FVEXTPROC) sogl_loadOpenGLFunction("glProgramUniformMatrix3x4fvEXT");
-    if (!glProgramUniformMatrix3x4fvEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glProgramUniformMatrix3x4fvEXT";
-    }
-    glProgramUniformMatrix4x3fvEXT = (PFNGLPROGRAMUNIFORMMATRIX4X3FVEXTPROC) sogl_loadOpenGLFunction("glProgramUniformMatrix4x3fvEXT");
-    if (!glProgramUniformMatrix4x3fvEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glProgramUniformMatrix4x3fvEXT";
-    }
-    glTextureBufferEXT = (PFNGLTEXTUREBUFFEREXTPROC) sogl_loadOpenGLFunction("glTextureBufferEXT");
-    if (!glTextureBufferEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glTextureBufferEXT";
-    }
-    glMultiTexBufferEXT = (PFNGLMULTITEXBUFFEREXTPROC) sogl_loadOpenGLFunction("glMultiTexBufferEXT");
-    if (!glMultiTexBufferEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glMultiTexBufferEXT";
-    }
-    glTextureParameterIivEXT = (PFNGLTEXTUREPARAMETERIIVEXTPROC) sogl_loadOpenGLFunction("glTextureParameterIivEXT");
-    if (!glTextureParameterIivEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glTextureParameterIivEXT";
-    }
-    glTextureParameterIuivEXT = (PFNGLTEXTUREPARAMETERIUIVEXTPROC) sogl_loadOpenGLFunction("glTextureParameterIuivEXT");
-    if (!glTextureParameterIuivEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glTextureParameterIuivEXT";
-    }
-    glGetTextureParameterIivEXT = (PFNGLGETTEXTUREPARAMETERIIVEXTPROC) sogl_loadOpenGLFunction("glGetTextureParameterIivEXT");
-    if (!glGetTextureParameterIivEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glGetTextureParameterIivEXT";
-    }
-    glGetTextureParameterIuivEXT = (PFNGLGETTEXTUREPARAMETERIUIVEXTPROC) sogl_loadOpenGLFunction("glGetTextureParameterIuivEXT");
-    if (!glGetTextureParameterIuivEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glGetTextureParameterIuivEXT";
-    }
-    glMultiTexParameterIivEXT = (PFNGLMULTITEXPARAMETERIIVEXTPROC) sogl_loadOpenGLFunction("glMultiTexParameterIivEXT");
-    if (!glMultiTexParameterIivEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glMultiTexParameterIivEXT";
-    }
-    glMultiTexParameterIuivEXT = (PFNGLMULTITEXPARAMETERIUIVEXTPROC) sogl_loadOpenGLFunction("glMultiTexParameterIuivEXT");
-    if (!glMultiTexParameterIuivEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glMultiTexParameterIuivEXT";
-    }
-    glGetMultiTexParameterIivEXT = (PFNGLGETMULTITEXPARAMETERIIVEXTPROC) sogl_loadOpenGLFunction("glGetMultiTexParameterIivEXT");
-    if (!glGetMultiTexParameterIivEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glGetMultiTexParameterIivEXT";
-    }
-    glGetMultiTexParameterIuivEXT = (PFNGLGETMULTITEXPARAMETERIUIVEXTPROC) sogl_loadOpenGLFunction("glGetMultiTexParameterIuivEXT");
-    if (!glGetMultiTexParameterIuivEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glGetMultiTexParameterIuivEXT";
-    }
-    glProgramUniform1uiEXT = (PFNGLPROGRAMUNIFORM1UIEXTPROC) sogl_loadOpenGLFunction("glProgramUniform1uiEXT");
-    if (!glProgramUniform1uiEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glProgramUniform1uiEXT";
-    }
-    glProgramUniform2uiEXT = (PFNGLPROGRAMUNIFORM2UIEXTPROC) sogl_loadOpenGLFunction("glProgramUniform2uiEXT");
-    if (!glProgramUniform2uiEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glProgramUniform2uiEXT";
-    }
-    glProgramUniform3uiEXT = (PFNGLPROGRAMUNIFORM3UIEXTPROC) sogl_loadOpenGLFunction("glProgramUniform3uiEXT");
-    if (!glProgramUniform3uiEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glProgramUniform3uiEXT";
-    }
-    glProgramUniform4uiEXT = (PFNGLPROGRAMUNIFORM4UIEXTPROC) sogl_loadOpenGLFunction("glProgramUniform4uiEXT");
-    if (!glProgramUniform4uiEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glProgramUniform4uiEXT";
-    }
-    glProgramUniform1uivEXT = (PFNGLPROGRAMUNIFORM1UIVEXTPROC) sogl_loadOpenGLFunction("glProgramUniform1uivEXT");
-    if (!glProgramUniform1uivEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glProgramUniform1uivEXT";
-    }
-    glProgramUniform2uivEXT = (PFNGLPROGRAMUNIFORM2UIVEXTPROC) sogl_loadOpenGLFunction("glProgramUniform2uivEXT");
-    if (!glProgramUniform2uivEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glProgramUniform2uivEXT";
-    }
-    glProgramUniform3uivEXT = (PFNGLPROGRAMUNIFORM3UIVEXTPROC) sogl_loadOpenGLFunction("glProgramUniform3uivEXT");
-    if (!glProgramUniform3uivEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glProgramUniform3uivEXT";
-    }
-    glProgramUniform4uivEXT = (PFNGLPROGRAMUNIFORM4UIVEXTPROC) sogl_loadOpenGLFunction("glProgramUniform4uivEXT");
-    if (!glProgramUniform4uivEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glProgramUniform4uivEXT";
-    }
-    glNamedProgramLocalParameters4fvEXT = (PFNGLNAMEDPROGRAMLOCALPARAMETERS4FVEXTPROC) sogl_loadOpenGLFunction("glNamedProgramLocalParameters4fvEXT");
-    if (!glNamedProgramLocalParameters4fvEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glNamedProgramLocalParameters4fvEXT";
-    }
-    glNamedProgramLocalParameterI4iEXT = (PFNGLNAMEDPROGRAMLOCALPARAMETERI4IEXTPROC) sogl_loadOpenGLFunction("glNamedProgramLocalParameterI4iEXT");
-    if (!glNamedProgramLocalParameterI4iEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glNamedProgramLocalParameterI4iEXT";
-    }
-    glNamedProgramLocalParameterI4ivEXT = (PFNGLNAMEDPROGRAMLOCALPARAMETERI4IVEXTPROC) sogl_loadOpenGLFunction("glNamedProgramLocalParameterI4ivEXT");
-    if (!glNamedProgramLocalParameterI4ivEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glNamedProgramLocalParameterI4ivEXT";
-    }
-    glNamedProgramLocalParametersI4ivEXT = (PFNGLNAMEDPROGRAMLOCALPARAMETERSI4IVEXTPROC) sogl_loadOpenGLFunction("glNamedProgramLocalParametersI4ivEXT");
-    if (!glNamedProgramLocalParametersI4ivEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glNamedProgramLocalParametersI4ivEXT";
-    }
-    glNamedProgramLocalParameterI4uiEXT = (PFNGLNAMEDPROGRAMLOCALPARAMETERI4UIEXTPROC) sogl_loadOpenGLFunction("glNamedProgramLocalParameterI4uiEXT");
-    if (!glNamedProgramLocalParameterI4uiEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glNamedProgramLocalParameterI4uiEXT";
-    }
-    glNamedProgramLocalParameterI4uivEXT = (PFNGLNAMEDPROGRAMLOCALPARAMETERI4UIVEXTPROC) sogl_loadOpenGLFunction("glNamedProgramLocalParameterI4uivEXT");
-    if (!glNamedProgramLocalParameterI4uivEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glNamedProgramLocalParameterI4uivEXT";
-    }
-    glNamedProgramLocalParametersI4uivEXT = (PFNGLNAMEDPROGRAMLOCALPARAMETERSI4UIVEXTPROC) sogl_loadOpenGLFunction("glNamedProgramLocalParametersI4uivEXT");
-    if (!glNamedProgramLocalParametersI4uivEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glNamedProgramLocalParametersI4uivEXT";
-    }
-    glGetNamedProgramLocalParameterIivEXT = (PFNGLGETNAMEDPROGRAMLOCALPARAMETERIIVEXTPROC) sogl_loadOpenGLFunction("glGetNamedProgramLocalParameterIivEXT");
-    if (!glGetNamedProgramLocalParameterIivEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glGetNamedProgramLocalParameterIivEXT";
-    }
-    glGetNamedProgramLocalParameterIuivEXT = (PFNGLGETNAMEDPROGRAMLOCALPARAMETERIUIVEXTPROC) sogl_loadOpenGLFunction("glGetNamedProgramLocalParameterIuivEXT");
-    if (!glGetNamedProgramLocalParameterIuivEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glGetNamedProgramLocalParameterIuivEXT";
-    }
-    glEnableClientStateiEXT = (PFNGLENABLECLIENTSTATEIEXTPROC) sogl_loadOpenGLFunction("glEnableClientStateiEXT");
-    if (!glEnableClientStateiEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glEnableClientStateiEXT";
-    }
-    glDisableClientStateiEXT = (PFNGLDISABLECLIENTSTATEIEXTPROC) sogl_loadOpenGLFunction("glDisableClientStateiEXT");
-    if (!glDisableClientStateiEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glDisableClientStateiEXT";
-    }
-    glGetFloati_vEXT = (PFNGLGETFLOATI_VEXTPROC) sogl_loadOpenGLFunction("glGetFloati_vEXT");
-    if (!glGetFloati_vEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glGetFloati_vEXT";
-    }
-    glGetDoublei_vEXT = (PFNGLGETDOUBLEI_VEXTPROC) sogl_loadOpenGLFunction("glGetDoublei_vEXT");
-    if (!glGetDoublei_vEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glGetDoublei_vEXT";
-    }
-    glGetPointeri_vEXT = (PFNGLGETPOINTERI_VEXTPROC) sogl_loadOpenGLFunction("glGetPointeri_vEXT");
-    if (!glGetPointeri_vEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glGetPointeri_vEXT";
-    }
-    glNamedProgramStringEXT = (PFNGLNAMEDPROGRAMSTRINGEXTPROC) sogl_loadOpenGLFunction("glNamedProgramStringEXT");
-    if (!glNamedProgramStringEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glNamedProgramStringEXT";
-    }
-    glNamedProgramLocalParameter4dEXT = (PFNGLNAMEDPROGRAMLOCALPARAMETER4DEXTPROC) sogl_loadOpenGLFunction("glNamedProgramLocalParameter4dEXT");
-    if (!glNamedProgramLocalParameter4dEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glNamedProgramLocalParameter4dEXT";
-    }
-    glNamedProgramLocalParameter4dvEXT = (PFNGLNAMEDPROGRAMLOCALPARAMETER4DVEXTPROC) sogl_loadOpenGLFunction("glNamedProgramLocalParameter4dvEXT");
-    if (!glNamedProgramLocalParameter4dvEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glNamedProgramLocalParameter4dvEXT";
-    }
-    glNamedProgramLocalParameter4fEXT = (PFNGLNAMEDPROGRAMLOCALPARAMETER4FEXTPROC) sogl_loadOpenGLFunction("glNamedProgramLocalParameter4fEXT");
-    if (!glNamedProgramLocalParameter4fEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glNamedProgramLocalParameter4fEXT";
-    }
-    glNamedProgramLocalParameter4fvEXT = (PFNGLNAMEDPROGRAMLOCALPARAMETER4FVEXTPROC) sogl_loadOpenGLFunction("glNamedProgramLocalParameter4fvEXT");
-    if (!glNamedProgramLocalParameter4fvEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glNamedProgramLocalParameter4fvEXT";
-    }
-    glGetNamedProgramLocalParameterdvEXT = (PFNGLGETNAMEDPROGRAMLOCALPARAMETERDVEXTPROC) sogl_loadOpenGLFunction("glGetNamedProgramLocalParameterdvEXT");
-    if (!glGetNamedProgramLocalParameterdvEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glGetNamedProgramLocalParameterdvEXT";
-    }
-    glGetNamedProgramLocalParameterfvEXT = (PFNGLGETNAMEDPROGRAMLOCALPARAMETERFVEXTPROC) sogl_loadOpenGLFunction("glGetNamedProgramLocalParameterfvEXT");
-    if (!glGetNamedProgramLocalParameterfvEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glGetNamedProgramLocalParameterfvEXT";
-    }
-    glGetNamedProgramivEXT = (PFNGLGETNAMEDPROGRAMIVEXTPROC) sogl_loadOpenGLFunction("glGetNamedProgramivEXT");
-    if (!glGetNamedProgramivEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glGetNamedProgramivEXT";
-    }
-    glGetNamedProgramStringEXT = (PFNGLGETNAMEDPROGRAMSTRINGEXTPROC) sogl_loadOpenGLFunction("glGetNamedProgramStringEXT");
-    if (!glGetNamedProgramStringEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glGetNamedProgramStringEXT";
-    }
-    glNamedRenderbufferStorageEXT = (PFNGLNAMEDRENDERBUFFERSTORAGEEXTPROC) sogl_loadOpenGLFunction("glNamedRenderbufferStorageEXT");
-    if (!glNamedRenderbufferStorageEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glNamedRenderbufferStorageEXT";
-    }
-    glGetNamedRenderbufferParameterivEXT = (PFNGLGETNAMEDRENDERBUFFERPARAMETERIVEXTPROC) sogl_loadOpenGLFunction("glGetNamedRenderbufferParameterivEXT");
-    if (!glGetNamedRenderbufferParameterivEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glGetNamedRenderbufferParameterivEXT";
-    }
-    glNamedRenderbufferStorageMultisampleEXT = (PFNGLNAMEDRENDERBUFFERSTORAGEMULTISAMPLEEXTPROC) sogl_loadOpenGLFunction("glNamedRenderbufferStorageMultisampleEXT");
-    if (!glNamedRenderbufferStorageMultisampleEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glNamedRenderbufferStorageMultisampleEXT";
-    }
-    glNamedRenderbufferStorageMultisampleCoverageEXT = (PFNGLNAMEDRENDERBUFFERSTORAGEMULTISAMPLECOVERAGEEXTPROC) sogl_loadOpenGLFunction("glNamedRenderbufferStorageMultisampleCoverageEXT");
-    if (!glNamedRenderbufferStorageMultisampleCoverageEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glNamedRenderbufferStorageMultisampleCoverageEXT";
-    }
-    glCheckNamedFramebufferStatusEXT = (PFNGLCHECKNAMEDFRAMEBUFFERSTATUSEXTPROC) sogl_loadOpenGLFunction("glCheckNamedFramebufferStatusEXT");
-    if (!glCheckNamedFramebufferStatusEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glCheckNamedFramebufferStatusEXT";
-    }
-    glNamedFramebufferTexture1DEXT = (PFNGLNAMEDFRAMEBUFFERTEXTURE1DEXTPROC) sogl_loadOpenGLFunction("glNamedFramebufferTexture1DEXT");
-    if (!glNamedFramebufferTexture1DEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glNamedFramebufferTexture1DEXT";
-    }
-    glNamedFramebufferTexture2DEXT = (PFNGLNAMEDFRAMEBUFFERTEXTURE2DEXTPROC) sogl_loadOpenGLFunction("glNamedFramebufferTexture2DEXT");
-    if (!glNamedFramebufferTexture2DEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glNamedFramebufferTexture2DEXT";
-    }
-    glNamedFramebufferTexture3DEXT = (PFNGLNAMEDFRAMEBUFFERTEXTURE3DEXTPROC) sogl_loadOpenGLFunction("glNamedFramebufferTexture3DEXT");
-    if (!glNamedFramebufferTexture3DEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glNamedFramebufferTexture3DEXT";
-    }
-    glNamedFramebufferRenderbufferEXT = (PFNGLNAMEDFRAMEBUFFERRENDERBUFFEREXTPROC) sogl_loadOpenGLFunction("glNamedFramebufferRenderbufferEXT");
-    if (!glNamedFramebufferRenderbufferEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glNamedFramebufferRenderbufferEXT";
-    }
-    glGetNamedFramebufferAttachmentParameterivEXT = (PFNGLGETNAMEDFRAMEBUFFERATTACHMENTPARAMETERIVEXTPROC) sogl_loadOpenGLFunction("glGetNamedFramebufferAttachmentParameterivEXT");
-    if (!glGetNamedFramebufferAttachmentParameterivEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glGetNamedFramebufferAttachmentParameterivEXT";
-    }
-    glGenerateTextureMipmapEXT = (PFNGLGENERATETEXTUREMIPMAPEXTPROC) sogl_loadOpenGLFunction("glGenerateTextureMipmapEXT");
-    if (!glGenerateTextureMipmapEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glGenerateTextureMipmapEXT";
-    }
-    glGenerateMultiTexMipmapEXT = (PFNGLGENERATEMULTITEXMIPMAPEXTPROC) sogl_loadOpenGLFunction("glGenerateMultiTexMipmapEXT");
-    if (!glGenerateMultiTexMipmapEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glGenerateMultiTexMipmapEXT";
-    }
-    glFramebufferDrawBufferEXT = (PFNGLFRAMEBUFFERDRAWBUFFEREXTPROC) sogl_loadOpenGLFunction("glFramebufferDrawBufferEXT");
-    if (!glFramebufferDrawBufferEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glFramebufferDrawBufferEXT";
-    }
-    glFramebufferDrawBuffersEXT = (PFNGLFRAMEBUFFERDRAWBUFFERSEXTPROC) sogl_loadOpenGLFunction("glFramebufferDrawBuffersEXT");
-    if (!glFramebufferDrawBuffersEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glFramebufferDrawBuffersEXT";
-    }
-    glFramebufferReadBufferEXT = (PFNGLFRAMEBUFFERREADBUFFEREXTPROC) sogl_loadOpenGLFunction("glFramebufferReadBufferEXT");
-    if (!glFramebufferReadBufferEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glFramebufferReadBufferEXT";
-    }
-    glGetFramebufferParameterivEXT = (PFNGLGETFRAMEBUFFERPARAMETERIVEXTPROC) sogl_loadOpenGLFunction("glGetFramebufferParameterivEXT");
-    if (!glGetFramebufferParameterivEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glGetFramebufferParameterivEXT";
-    }
-    glNamedCopyBufferSubDataEXT = (PFNGLNAMEDCOPYBUFFERSUBDATAEXTPROC) sogl_loadOpenGLFunction("glNamedCopyBufferSubDataEXT");
-    if (!glNamedCopyBufferSubDataEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glNamedCopyBufferSubDataEXT";
-    }
-    glNamedFramebufferTextureEXT = (PFNGLNAMEDFRAMEBUFFERTEXTUREEXTPROC) sogl_loadOpenGLFunction("glNamedFramebufferTextureEXT");
-    if (!glNamedFramebufferTextureEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glNamedFramebufferTextureEXT";
-    }
-    glNamedFramebufferTextureLayerEXT = (PFNGLNAMEDFRAMEBUFFERTEXTURELAYEREXTPROC) sogl_loadOpenGLFunction("glNamedFramebufferTextureLayerEXT");
-    if (!glNamedFramebufferTextureLayerEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glNamedFramebufferTextureLayerEXT";
-    }
-    glNamedFramebufferTextureFaceEXT = (PFNGLNAMEDFRAMEBUFFERTEXTUREFACEEXTPROC) sogl_loadOpenGLFunction("glNamedFramebufferTextureFaceEXT");
-    if (!glNamedFramebufferTextureFaceEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glNamedFramebufferTextureFaceEXT";
-    }
-    glTextureRenderbufferEXT = (PFNGLTEXTURERENDERBUFFEREXTPROC) sogl_loadOpenGLFunction("glTextureRenderbufferEXT");
-    if (!glTextureRenderbufferEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glTextureRenderbufferEXT";
-    }
-    glMultiTexRenderbufferEXT = (PFNGLMULTITEXRENDERBUFFEREXTPROC) sogl_loadOpenGLFunction("glMultiTexRenderbufferEXT");
-    if (!glMultiTexRenderbufferEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glMultiTexRenderbufferEXT";
-    }
-    glVertexArrayVertexOffsetEXT = (PFNGLVERTEXARRAYVERTEXOFFSETEXTPROC) sogl_loadOpenGLFunction("glVertexArrayVertexOffsetEXT");
-    if (!glVertexArrayVertexOffsetEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glVertexArrayVertexOffsetEXT";
-    }
-    glVertexArrayColorOffsetEXT = (PFNGLVERTEXARRAYCOLOROFFSETEXTPROC) sogl_loadOpenGLFunction("glVertexArrayColorOffsetEXT");
-    if (!glVertexArrayColorOffsetEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glVertexArrayColorOffsetEXT";
-    }
-    glVertexArrayEdgeFlagOffsetEXT = (PFNGLVERTEXARRAYEDGEFLAGOFFSETEXTPROC) sogl_loadOpenGLFunction("glVertexArrayEdgeFlagOffsetEXT");
-    if (!glVertexArrayEdgeFlagOffsetEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glVertexArrayEdgeFlagOffsetEXT";
-    }
-    glVertexArrayIndexOffsetEXT = (PFNGLVERTEXARRAYINDEXOFFSETEXTPROC) sogl_loadOpenGLFunction("glVertexArrayIndexOffsetEXT");
-    if (!glVertexArrayIndexOffsetEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glVertexArrayIndexOffsetEXT";
-    }
-    glVertexArrayNormalOffsetEXT = (PFNGLVERTEXARRAYNORMALOFFSETEXTPROC) sogl_loadOpenGLFunction("glVertexArrayNormalOffsetEXT");
-    if (!glVertexArrayNormalOffsetEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glVertexArrayNormalOffsetEXT";
-    }
-    glVertexArrayTexCoordOffsetEXT = (PFNGLVERTEXARRAYTEXCOORDOFFSETEXTPROC) sogl_loadOpenGLFunction("glVertexArrayTexCoordOffsetEXT");
-    if (!glVertexArrayTexCoordOffsetEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glVertexArrayTexCoordOffsetEXT";
-    }
-    glVertexArrayMultiTexCoordOffsetEXT = (PFNGLVERTEXARRAYMULTITEXCOORDOFFSETEXTPROC) sogl_loadOpenGLFunction("glVertexArrayMultiTexCoordOffsetEXT");
-    if (!glVertexArrayMultiTexCoordOffsetEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glVertexArrayMultiTexCoordOffsetEXT";
-    }
-    glVertexArrayFogCoordOffsetEXT = (PFNGLVERTEXARRAYFOGCOORDOFFSETEXTPROC) sogl_loadOpenGLFunction("glVertexArrayFogCoordOffsetEXT");
-    if (!glVertexArrayFogCoordOffsetEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glVertexArrayFogCoordOffsetEXT";
-    }
-    glVertexArraySecondaryColorOffsetEXT = (PFNGLVERTEXARRAYSECONDARYCOLOROFFSETEXTPROC) sogl_loadOpenGLFunction("glVertexArraySecondaryColorOffsetEXT");
-    if (!glVertexArraySecondaryColorOffsetEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glVertexArraySecondaryColorOffsetEXT";
-    }
-    glVertexArrayVertexAttribOffsetEXT = (PFNGLVERTEXARRAYVERTEXATTRIBOFFSETEXTPROC) sogl_loadOpenGLFunction("glVertexArrayVertexAttribOffsetEXT");
-    if (!glVertexArrayVertexAttribOffsetEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glVertexArrayVertexAttribOffsetEXT";
-    }
-    glVertexArrayVertexAttribIOffsetEXT = (PFNGLVERTEXARRAYVERTEXATTRIBIOFFSETEXTPROC) sogl_loadOpenGLFunction("glVertexArrayVertexAttribIOffsetEXT");
-    if (!glVertexArrayVertexAttribIOffsetEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glVertexArrayVertexAttribIOffsetEXT";
-    }
-    glEnableVertexArrayEXT = (PFNGLENABLEVERTEXARRAYEXTPROC) sogl_loadOpenGLFunction("glEnableVertexArrayEXT");
-    if (!glEnableVertexArrayEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glEnableVertexArrayEXT";
-    }
-    glDisableVertexArrayEXT = (PFNGLDISABLEVERTEXARRAYEXTPROC) sogl_loadOpenGLFunction("glDisableVertexArrayEXT");
-    if (!glDisableVertexArrayEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glDisableVertexArrayEXT";
-    }
-    glEnableVertexArrayAttribEXT = (PFNGLENABLEVERTEXARRAYATTRIBEXTPROC) sogl_loadOpenGLFunction("glEnableVertexArrayAttribEXT");
-    if (!glEnableVertexArrayAttribEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glEnableVertexArrayAttribEXT";
-    }
-    glDisableVertexArrayAttribEXT = (PFNGLDISABLEVERTEXARRAYATTRIBEXTPROC) sogl_loadOpenGLFunction("glDisableVertexArrayAttribEXT");
-    if (!glDisableVertexArrayAttribEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glDisableVertexArrayAttribEXT";
-    }
-    glGetVertexArrayIntegervEXT = (PFNGLGETVERTEXARRAYINTEGERVEXTPROC) sogl_loadOpenGLFunction("glGetVertexArrayIntegervEXT");
-    if (!glGetVertexArrayIntegervEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glGetVertexArrayIntegervEXT";
-    }
-    glGetVertexArrayPointervEXT = (PFNGLGETVERTEXARRAYPOINTERVEXTPROC) sogl_loadOpenGLFunction("glGetVertexArrayPointervEXT");
-    if (!glGetVertexArrayPointervEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glGetVertexArrayPointervEXT";
-    }
-    glGetVertexArrayIntegeri_vEXT = (PFNGLGETVERTEXARRAYINTEGERI_VEXTPROC) sogl_loadOpenGLFunction("glGetVertexArrayIntegeri_vEXT");
-    if (!glGetVertexArrayIntegeri_vEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glGetVertexArrayIntegeri_vEXT";
-    }
-    glGetVertexArrayPointeri_vEXT = (PFNGLGETVERTEXARRAYPOINTERI_VEXTPROC) sogl_loadOpenGLFunction("glGetVertexArrayPointeri_vEXT");
-    if (!glGetVertexArrayPointeri_vEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glGetVertexArrayPointeri_vEXT";
-    }
-    glMapNamedBufferRangeEXT = (PFNGLMAPNAMEDBUFFERRANGEEXTPROC) sogl_loadOpenGLFunction("glMapNamedBufferRangeEXT");
-    if (!glMapNamedBufferRangeEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glMapNamedBufferRangeEXT";
-    }
-    glFlushMappedNamedBufferRangeEXT = (PFNGLFLUSHMAPPEDNAMEDBUFFERRANGEEXTPROC) sogl_loadOpenGLFunction("glFlushMappedNamedBufferRangeEXT");
-    if (!glFlushMappedNamedBufferRangeEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glFlushMappedNamedBufferRangeEXT";
-    }
-    glNamedBufferStorageEXT = (PFNGLNAMEDBUFFERSTORAGEEXTPROC) sogl_loadOpenGLFunction("glNamedBufferStorageEXT");
-    if (!glNamedBufferStorageEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glNamedBufferStorageEXT";
-    }
-    glClearNamedBufferDataEXT = (PFNGLCLEARNAMEDBUFFERDATAEXTPROC) sogl_loadOpenGLFunction("glClearNamedBufferDataEXT");
-    if (!glClearNamedBufferDataEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glClearNamedBufferDataEXT";
-    }
-    glClearNamedBufferSubDataEXT = (PFNGLCLEARNAMEDBUFFERSUBDATAEXTPROC) sogl_loadOpenGLFunction("glClearNamedBufferSubDataEXT");
-    if (!glClearNamedBufferSubDataEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glClearNamedBufferSubDataEXT";
-    }
-    glNamedFramebufferParameteriEXT = (PFNGLNAMEDFRAMEBUFFERPARAMETERIEXTPROC) sogl_loadOpenGLFunction("glNamedFramebufferParameteriEXT");
-    if (!glNamedFramebufferParameteriEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glNamedFramebufferParameteriEXT";
-    }
-    glGetNamedFramebufferParameterivEXT = (PFNGLGETNAMEDFRAMEBUFFERPARAMETERIVEXTPROC) sogl_loadOpenGLFunction("glGetNamedFramebufferParameterivEXT");
-    if (!glGetNamedFramebufferParameterivEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glGetNamedFramebufferParameterivEXT";
-    }
-    glProgramUniform1dEXT = (PFNGLPROGRAMUNIFORM1DEXTPROC) sogl_loadOpenGLFunction("glProgramUniform1dEXT");
-    if (!glProgramUniform1dEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glProgramUniform1dEXT";
-    }
-    glProgramUniform2dEXT = (PFNGLPROGRAMUNIFORM2DEXTPROC) sogl_loadOpenGLFunction("glProgramUniform2dEXT");
-    if (!glProgramUniform2dEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glProgramUniform2dEXT";
-    }
-    glProgramUniform3dEXT = (PFNGLPROGRAMUNIFORM3DEXTPROC) sogl_loadOpenGLFunction("glProgramUniform3dEXT");
-    if (!glProgramUniform3dEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glProgramUniform3dEXT";
-    }
-    glProgramUniform4dEXT = (PFNGLPROGRAMUNIFORM4DEXTPROC) sogl_loadOpenGLFunction("glProgramUniform4dEXT");
-    if (!glProgramUniform4dEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glProgramUniform4dEXT";
-    }
-    glProgramUniform1dvEXT = (PFNGLPROGRAMUNIFORM1DVEXTPROC) sogl_loadOpenGLFunction("glProgramUniform1dvEXT");
-    if (!glProgramUniform1dvEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glProgramUniform1dvEXT";
-    }
-    glProgramUniform2dvEXT = (PFNGLPROGRAMUNIFORM2DVEXTPROC) sogl_loadOpenGLFunction("glProgramUniform2dvEXT");
-    if (!glProgramUniform2dvEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glProgramUniform2dvEXT";
-    }
-    glProgramUniform3dvEXT = (PFNGLPROGRAMUNIFORM3DVEXTPROC) sogl_loadOpenGLFunction("glProgramUniform3dvEXT");
-    if (!glProgramUniform3dvEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glProgramUniform3dvEXT";
-    }
-    glProgramUniform4dvEXT = (PFNGLPROGRAMUNIFORM4DVEXTPROC) sogl_loadOpenGLFunction("glProgramUniform4dvEXT");
-    if (!glProgramUniform4dvEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glProgramUniform4dvEXT";
-    }
-    glProgramUniformMatrix2dvEXT = (PFNGLPROGRAMUNIFORMMATRIX2DVEXTPROC) sogl_loadOpenGLFunction("glProgramUniformMatrix2dvEXT");
-    if (!glProgramUniformMatrix2dvEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glProgramUniformMatrix2dvEXT";
-    }
-    glProgramUniformMatrix3dvEXT = (PFNGLPROGRAMUNIFORMMATRIX3DVEXTPROC) sogl_loadOpenGLFunction("glProgramUniformMatrix3dvEXT");
-    if (!glProgramUniformMatrix3dvEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glProgramUniformMatrix3dvEXT";
-    }
-    glProgramUniformMatrix4dvEXT = (PFNGLPROGRAMUNIFORMMATRIX4DVEXTPROC) sogl_loadOpenGLFunction("glProgramUniformMatrix4dvEXT");
-    if (!glProgramUniformMatrix4dvEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glProgramUniformMatrix4dvEXT";
-    }
-    glProgramUniformMatrix2x3dvEXT = (PFNGLPROGRAMUNIFORMMATRIX2X3DVEXTPROC) sogl_loadOpenGLFunction("glProgramUniformMatrix2x3dvEXT");
-    if (!glProgramUniformMatrix2x3dvEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glProgramUniformMatrix2x3dvEXT";
-    }
-    glProgramUniformMatrix2x4dvEXT = (PFNGLPROGRAMUNIFORMMATRIX2X4DVEXTPROC) sogl_loadOpenGLFunction("glProgramUniformMatrix2x4dvEXT");
-    if (!glProgramUniformMatrix2x4dvEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glProgramUniformMatrix2x4dvEXT";
-    }
-    glProgramUniformMatrix3x2dvEXT = (PFNGLPROGRAMUNIFORMMATRIX3X2DVEXTPROC) sogl_loadOpenGLFunction("glProgramUniformMatrix3x2dvEXT");
-    if (!glProgramUniformMatrix3x2dvEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glProgramUniformMatrix3x2dvEXT";
-    }
-    glProgramUniformMatrix3x4dvEXT = (PFNGLPROGRAMUNIFORMMATRIX3X4DVEXTPROC) sogl_loadOpenGLFunction("glProgramUniformMatrix3x4dvEXT");
-    if (!glProgramUniformMatrix3x4dvEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glProgramUniformMatrix3x4dvEXT";
-    }
-    glProgramUniformMatrix4x2dvEXT = (PFNGLPROGRAMUNIFORMMATRIX4X2DVEXTPROC) sogl_loadOpenGLFunction("glProgramUniformMatrix4x2dvEXT");
-    if (!glProgramUniformMatrix4x2dvEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glProgramUniformMatrix4x2dvEXT";
-    }
-    glProgramUniformMatrix4x3dvEXT = (PFNGLPROGRAMUNIFORMMATRIX4X3DVEXTPROC) sogl_loadOpenGLFunction("glProgramUniformMatrix4x3dvEXT");
-    if (!glProgramUniformMatrix4x3dvEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glProgramUniformMatrix4x3dvEXT";
-    }
-    glTextureBufferRangeEXT = (PFNGLTEXTUREBUFFERRANGEEXTPROC) sogl_loadOpenGLFunction("glTextureBufferRangeEXT");
-    if (!glTextureBufferRangeEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glTextureBufferRangeEXT";
-    }
-    glTextureStorage1DEXT = (PFNGLTEXTURESTORAGE1DEXTPROC) sogl_loadOpenGLFunction("glTextureStorage1DEXT");
-    if (!glTextureStorage1DEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glTextureStorage1DEXT";
-    }
-    glTextureStorage2DEXT = (PFNGLTEXTURESTORAGE2DEXTPROC) sogl_loadOpenGLFunction("glTextureStorage2DEXT");
-    if (!glTextureStorage2DEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glTextureStorage2DEXT";
-    }
-    glTextureStorage3DEXT = (PFNGLTEXTURESTORAGE3DEXTPROC) sogl_loadOpenGLFunction("glTextureStorage3DEXT");
-    if (!glTextureStorage3DEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glTextureStorage3DEXT";
-    }
-    glTextureStorage2DMultisampleEXT = (PFNGLTEXTURESTORAGE2DMULTISAMPLEEXTPROC) sogl_loadOpenGLFunction("glTextureStorage2DMultisampleEXT");
-    if (!glTextureStorage2DMultisampleEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glTextureStorage2DMultisampleEXT";
-    }
-    glTextureStorage3DMultisampleEXT = (PFNGLTEXTURESTORAGE3DMULTISAMPLEEXTPROC) sogl_loadOpenGLFunction("glTextureStorage3DMultisampleEXT");
-    if (!glTextureStorage3DMultisampleEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glTextureStorage3DMultisampleEXT";
-    }
-    glVertexArrayBindVertexBufferEXT = (PFNGLVERTEXARRAYBINDVERTEXBUFFEREXTPROC) sogl_loadOpenGLFunction("glVertexArrayBindVertexBufferEXT");
-    if (!glVertexArrayBindVertexBufferEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glVertexArrayBindVertexBufferEXT";
-    }
-    glVertexArrayVertexAttribFormatEXT = (PFNGLVERTEXARRAYVERTEXATTRIBFORMATEXTPROC) sogl_loadOpenGLFunction("glVertexArrayVertexAttribFormatEXT");
-    if (!glVertexArrayVertexAttribFormatEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glVertexArrayVertexAttribFormatEXT";
-    }
-    glVertexArrayVertexAttribIFormatEXT = (PFNGLVERTEXARRAYVERTEXATTRIBIFORMATEXTPROC) sogl_loadOpenGLFunction("glVertexArrayVertexAttribIFormatEXT");
-    if (!glVertexArrayVertexAttribIFormatEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glVertexArrayVertexAttribIFormatEXT";
-    }
-    glVertexArrayVertexAttribLFormatEXT = (PFNGLVERTEXARRAYVERTEXATTRIBLFORMATEXTPROC) sogl_loadOpenGLFunction("glVertexArrayVertexAttribLFormatEXT");
-    if (!glVertexArrayVertexAttribLFormatEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glVertexArrayVertexAttribLFormatEXT";
-    }
-    glVertexArrayVertexAttribBindingEXT = (PFNGLVERTEXARRAYVERTEXATTRIBBINDINGEXTPROC) sogl_loadOpenGLFunction("glVertexArrayVertexAttribBindingEXT");
-    if (!glVertexArrayVertexAttribBindingEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glVertexArrayVertexAttribBindingEXT";
-    }
-    glVertexArrayVertexBindingDivisorEXT = (PFNGLVERTEXARRAYVERTEXBINDINGDIVISOREXTPROC) sogl_loadOpenGLFunction("glVertexArrayVertexBindingDivisorEXT");
-    if (!glVertexArrayVertexBindingDivisorEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glVertexArrayVertexBindingDivisorEXT";
-    }
-    glVertexArrayVertexAttribLOffsetEXT = (PFNGLVERTEXARRAYVERTEXATTRIBLOFFSETEXTPROC) sogl_loadOpenGLFunction("glVertexArrayVertexAttribLOffsetEXT");
-    if (!glVertexArrayVertexAttribLOffsetEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glVertexArrayVertexAttribLOffsetEXT";
-    }
-    glTexturePageCommitmentEXT = (PFNGLTEXTUREPAGECOMMITMENTEXTPROC) sogl_loadOpenGLFunction("glTexturePageCommitmentEXT");
-    if (!glTexturePageCommitmentEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glTexturePageCommitmentEXT";
-    }
-    glVertexArrayVertexAttribDivisorEXT = (PFNGLVERTEXARRAYVERTEXATTRIBDIVISOREXTPROC) sogl_loadOpenGLFunction("glVertexArrayVertexAttribDivisorEXT");
-    if (!glVertexArrayVertexAttribDivisorEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glVertexArrayVertexAttribDivisorEXT";
-    }
+SOGL_FUNCTIONS_EXT_direct_state_access
 #endif /* SOGL_EXT_direct_state_access */
 
 #ifdef SOGL_EXT_draw_instanced
-    glDrawArraysInstancedEXT = (PFNGLDRAWARRAYSINSTANCEDEXTPROC) sogl_loadOpenGLFunction("glDrawArraysInstancedEXT");
-    if (!glDrawArraysInstancedEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glDrawArraysInstancedEXT";
-    }
-    glDrawElementsInstancedEXT = (PFNGLDRAWELEMENTSINSTANCEDEXTPROC) sogl_loadOpenGLFunction("glDrawElementsInstancedEXT");
-    if (!glDrawElementsInstancedEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glDrawElementsInstancedEXT";
-    }
+SOGL_FUNCTIONS_EXT_draw_instanced
 #endif /* SOGL_EXT_draw_instanced */
 
 #ifdef SOGL_EXT_polygon_offset_clamp
-    glPolygonOffsetClampEXT = (PFNGLPOLYGONOFFSETCLAMPEXTPROC) sogl_loadOpenGLFunction("glPolygonOffsetClampEXT");
-    if (!glPolygonOffsetClampEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glPolygonOffsetClampEXT";
-    }
+SOGL_FUNCTIONS_EXT_polygon_offset_clamp
 #endif /* SOGL_EXT_polygon_offset_clamp */
 
 #ifdef SOGL_EXT_raster_multisample
-    glRasterSamplesEXT = (PFNGLRASTERSAMPLESEXTPROC) sogl_loadOpenGLFunction("glRasterSamplesEXT");
-    if (!glRasterSamplesEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glRasterSamplesEXT";
-    }
+SOGL_FUNCTIONS_EXT_raster_multisample
 #endif /* SOGL_EXT_raster_multisample */
 
 #ifdef SOGL_EXT_separate_shader_objects
-    glUseShaderProgramEXT = (PFNGLUSESHADERPROGRAMEXTPROC) sogl_loadOpenGLFunction("glUseShaderProgramEXT");
-    if (!glUseShaderProgramEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glUseShaderProgramEXT";
-    }
-    glActiveProgramEXT = (PFNGLACTIVEPROGRAMEXTPROC) sogl_loadOpenGLFunction("glActiveProgramEXT");
-    if (!glActiveProgramEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glActiveProgramEXT";
-    }
-    glCreateShaderProgramEXT = (PFNGLCREATESHADERPROGRAMEXTPROC) sogl_loadOpenGLFunction("glCreateShaderProgramEXT");
-    if (!glCreateShaderProgramEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glCreateShaderProgramEXT";
-    }
+SOGL_FUNCTIONS_EXT_separate_shader_objects
 #endif /* SOGL_EXT_separate_shader_objects */
 
 #ifdef SOGL_EXT_shader_framebuffer_fetch_non_coherent
-    glFramebufferFetchBarrierEXT = (PFNGLFRAMEBUFFERFETCHBARRIEREXTPROC) sogl_loadOpenGLFunction("glFramebufferFetchBarrierEXT");
-    if (!glFramebufferFetchBarrierEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glFramebufferFetchBarrierEXT";
-    }
+SOGL_FUNCTIONS_EXT_shader_framebuffer_fetch_non_coherent
 #endif /* SOGL_EXT_shader_framebuffer_fetch_non_coherent */
 
 #ifdef SOGL_EXT_window_rectangles
-    glWindowRectanglesEXT = (PFNGLWINDOWRECTANGLESEXTPROC) sogl_loadOpenGLFunction("glWindowRectanglesEXT");
-    if (!glWindowRectanglesEXT && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glWindowRectanglesEXT";
-    }
+SOGL_FUNCTIONS_EXT_window_rectangles
 #endif /* SOGL_EXT_window_rectangles */
 
 #ifdef SOGL_INTEL_framebuffer_CMAA
-    glApplyFramebufferAttachmentCMAAINTEL = (PFNGLAPPLYFRAMEBUFFERATTACHMENTCMAAINTELPROC) sogl_loadOpenGLFunction("glApplyFramebufferAttachmentCMAAINTEL");
-    if (!glApplyFramebufferAttachmentCMAAINTEL && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glApplyFramebufferAttachmentCMAAINTEL";
-    }
+SOGL_FUNCTIONS_INTEL_framebuffer_CMAA
 #endif /* SOGL_INTEL_framebuffer_CMAA */
 
 #ifdef SOGL_INTEL_performance_query
-    glBeginPerfQueryINTEL = (PFNGLBEGINPERFQUERYINTELPROC) sogl_loadOpenGLFunction("glBeginPerfQueryINTEL");
-    if (!glBeginPerfQueryINTEL && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glBeginPerfQueryINTEL";
-    }
-    glCreatePerfQueryINTEL = (PFNGLCREATEPERFQUERYINTELPROC) sogl_loadOpenGLFunction("glCreatePerfQueryINTEL");
-    if (!glCreatePerfQueryINTEL && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glCreatePerfQueryINTEL";
-    }
-    glDeletePerfQueryINTEL = (PFNGLDELETEPERFQUERYINTELPROC) sogl_loadOpenGLFunction("glDeletePerfQueryINTEL");
-    if (!glDeletePerfQueryINTEL && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glDeletePerfQueryINTEL";
-    }
-    glEndPerfQueryINTEL = (PFNGLENDPERFQUERYINTELPROC) sogl_loadOpenGLFunction("glEndPerfQueryINTEL");
-    if (!glEndPerfQueryINTEL && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glEndPerfQueryINTEL";
-    }
-    glGetFirstPerfQueryIdINTEL = (PFNGLGETFIRSTPERFQUERYIDINTELPROC) sogl_loadOpenGLFunction("glGetFirstPerfQueryIdINTEL");
-    if (!glGetFirstPerfQueryIdINTEL && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glGetFirstPerfQueryIdINTEL";
-    }
-    glGetNextPerfQueryIdINTEL = (PFNGLGETNEXTPERFQUERYIDINTELPROC) sogl_loadOpenGLFunction("glGetNextPerfQueryIdINTEL");
-    if (!glGetNextPerfQueryIdINTEL && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glGetNextPerfQueryIdINTEL";
-    }
-    glGetPerfCounterInfoINTEL = (PFNGLGETPERFCOUNTERINFOINTELPROC) sogl_loadOpenGLFunction("glGetPerfCounterInfoINTEL");
-    if (!glGetPerfCounterInfoINTEL && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glGetPerfCounterInfoINTEL";
-    }
-    glGetPerfQueryDataINTEL = (PFNGLGETPERFQUERYDATAINTELPROC) sogl_loadOpenGLFunction("glGetPerfQueryDataINTEL");
-    if (!glGetPerfQueryDataINTEL && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glGetPerfQueryDataINTEL";
-    }
-    glGetPerfQueryIdByNameINTEL = (PFNGLGETPERFQUERYIDBYNAMEINTELPROC) sogl_loadOpenGLFunction("glGetPerfQueryIdByNameINTEL");
-    if (!glGetPerfQueryIdByNameINTEL && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glGetPerfQueryIdByNameINTEL";
-    }
-    glGetPerfQueryInfoINTEL = (PFNGLGETPERFQUERYINFOINTELPROC) sogl_loadOpenGLFunction("glGetPerfQueryInfoINTEL");
-    if (!glGetPerfQueryInfoINTEL && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glGetPerfQueryInfoINTEL";
-    }
+SOGL_FUNCTIONS_INTEL_performance_query
 #endif /* SOGL_INTEL_performance_query */
 
 #ifdef SOGL_MESA_framebuffer_flip_y
-    glFramebufferParameteriMESA = (PFNGLFRAMEBUFFERPARAMETERIMESAPROC) sogl_loadOpenGLFunction("glFramebufferParameteriMESA");
-    if (!glFramebufferParameteriMESA && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glFramebufferParameteriMESA";
-    }
-    glGetFramebufferParameterivMESA = (PFNGLGETFRAMEBUFFERPARAMETERIVMESAPROC) sogl_loadOpenGLFunction("glGetFramebufferParameterivMESA");
-    if (!glGetFramebufferParameterivMESA && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glGetFramebufferParameterivMESA";
-    }
+SOGL_FUNCTIONS_MESA_framebuffer_flip_y
 #endif /* SOGL_MESA_framebuffer_flip_y */
 
 #ifdef SOGL_NV_bindless_multi_draw_indirect
-    glMultiDrawArraysIndirectBindlessNV = (PFNGLMULTIDRAWARRAYSINDIRECTBINDLESSNVPROC) sogl_loadOpenGLFunction("glMultiDrawArraysIndirectBindlessNV");
-    if (!glMultiDrawArraysIndirectBindlessNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glMultiDrawArraysIndirectBindlessNV";
-    }
-    glMultiDrawElementsIndirectBindlessNV = (PFNGLMULTIDRAWELEMENTSINDIRECTBINDLESSNVPROC) sogl_loadOpenGLFunction("glMultiDrawElementsIndirectBindlessNV");
-    if (!glMultiDrawElementsIndirectBindlessNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glMultiDrawElementsIndirectBindlessNV";
-    }
+SOGL_FUNCTIONS_NV_bindless_multi_draw_indirect
 #endif /* SOGL_NV_bindless_multi_draw_indirect */
 
 #ifdef SOGL_NV_bindless_multi_draw_indirect_count
-    glMultiDrawArraysIndirectBindlessCountNV = (PFNGLMULTIDRAWARRAYSINDIRECTBINDLESSCOUNTNVPROC) sogl_loadOpenGLFunction("glMultiDrawArraysIndirectBindlessCountNV");
-    if (!glMultiDrawArraysIndirectBindlessCountNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glMultiDrawArraysIndirectBindlessCountNV";
-    }
-    glMultiDrawElementsIndirectBindlessCountNV = (PFNGLMULTIDRAWELEMENTSINDIRECTBINDLESSCOUNTNVPROC) sogl_loadOpenGLFunction("glMultiDrawElementsIndirectBindlessCountNV");
-    if (!glMultiDrawElementsIndirectBindlessCountNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glMultiDrawElementsIndirectBindlessCountNV";
-    }
+SOGL_FUNCTIONS_NV_bindless_multi_draw_indirect_count
 #endif /* SOGL_NV_bindless_multi_draw_indirect_count */
 
 #ifdef SOGL_NV_bindless_texture
-    glGetTextureHandleNV = (PFNGLGETTEXTUREHANDLENVPROC) sogl_loadOpenGLFunction("glGetTextureHandleNV");
-    if (!glGetTextureHandleNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glGetTextureHandleNV";
-    }
-    glGetTextureSamplerHandleNV = (PFNGLGETTEXTURESAMPLERHANDLENVPROC) sogl_loadOpenGLFunction("glGetTextureSamplerHandleNV");
-    if (!glGetTextureSamplerHandleNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glGetTextureSamplerHandleNV";
-    }
-    glMakeTextureHandleResidentNV = (PFNGLMAKETEXTUREHANDLERESIDENTNVPROC) sogl_loadOpenGLFunction("glMakeTextureHandleResidentNV");
-    if (!glMakeTextureHandleResidentNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glMakeTextureHandleResidentNV";
-    }
-    glMakeTextureHandleNonResidentNV = (PFNGLMAKETEXTUREHANDLENONRESIDENTNVPROC) sogl_loadOpenGLFunction("glMakeTextureHandleNonResidentNV");
-    if (!glMakeTextureHandleNonResidentNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glMakeTextureHandleNonResidentNV";
-    }
-    glGetImageHandleNV = (PFNGLGETIMAGEHANDLENVPROC) sogl_loadOpenGLFunction("glGetImageHandleNV");
-    if (!glGetImageHandleNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glGetImageHandleNV";
-    }
-    glMakeImageHandleResidentNV = (PFNGLMAKEIMAGEHANDLERESIDENTNVPROC) sogl_loadOpenGLFunction("glMakeImageHandleResidentNV");
-    if (!glMakeImageHandleResidentNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glMakeImageHandleResidentNV";
-    }
-    glMakeImageHandleNonResidentNV = (PFNGLMAKEIMAGEHANDLENONRESIDENTNVPROC) sogl_loadOpenGLFunction("glMakeImageHandleNonResidentNV");
-    if (!glMakeImageHandleNonResidentNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glMakeImageHandleNonResidentNV";
-    }
-    glUniformHandleui64NV = (PFNGLUNIFORMHANDLEUI64NVPROC) sogl_loadOpenGLFunction("glUniformHandleui64NV");
-    if (!glUniformHandleui64NV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glUniformHandleui64NV";
-    }
-    glUniformHandleui64vNV = (PFNGLUNIFORMHANDLEUI64VNVPROC) sogl_loadOpenGLFunction("glUniformHandleui64vNV");
-    if (!glUniformHandleui64vNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glUniformHandleui64vNV";
-    }
-    glProgramUniformHandleui64NV = (PFNGLPROGRAMUNIFORMHANDLEUI64NVPROC) sogl_loadOpenGLFunction("glProgramUniformHandleui64NV");
-    if (!glProgramUniformHandleui64NV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glProgramUniformHandleui64NV";
-    }
-    glProgramUniformHandleui64vNV = (PFNGLPROGRAMUNIFORMHANDLEUI64VNVPROC) sogl_loadOpenGLFunction("glProgramUniformHandleui64vNV");
-    if (!glProgramUniformHandleui64vNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glProgramUniformHandleui64vNV";
-    }
-    glIsTextureHandleResidentNV = (PFNGLISTEXTUREHANDLERESIDENTNVPROC) sogl_loadOpenGLFunction("glIsTextureHandleResidentNV");
-    if (!glIsTextureHandleResidentNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glIsTextureHandleResidentNV";
-    }
-    glIsImageHandleResidentNV = (PFNGLISIMAGEHANDLERESIDENTNVPROC) sogl_loadOpenGLFunction("glIsImageHandleResidentNV");
-    if (!glIsImageHandleResidentNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glIsImageHandleResidentNV";
-    }
+SOGL_FUNCTIONS_NV_bindless_texture
 #endif /* SOGL_NV_bindless_texture */
 
 #ifdef SOGL_NV_blend_equation_advanced
-    glBlendParameteriNV = (PFNGLBLENDPARAMETERINVPROC) sogl_loadOpenGLFunction("glBlendParameteriNV");
-    if (!glBlendParameteriNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glBlendParameteriNV";
-    }
-    glBlendBarrierNV = (PFNGLBLENDBARRIERNVPROC) sogl_loadOpenGLFunction("glBlendBarrierNV");
-    if (!glBlendBarrierNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glBlendBarrierNV";
-    }
+SOGL_FUNCTIONS_NV_blend_equation_advanced
 #endif /* SOGL_NV_blend_equation_advanced */
 
 #ifdef SOGL_NV_clip_space_w_scaling
-    glViewportPositionWScaleNV = (PFNGLVIEWPORTPOSITIONWSCALENVPROC) sogl_loadOpenGLFunction("glViewportPositionWScaleNV");
-    if (!glViewportPositionWScaleNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glViewportPositionWScaleNV";
-    }
+SOGL_FUNCTIONS_NV_clip_space_w_scaling
 #endif /* SOGL_NV_clip_space_w_scaling */
 
 #ifdef SOGL_NV_command_list
-    glCreateStatesNV = (PFNGLCREATESTATESNVPROC) sogl_loadOpenGLFunction("glCreateStatesNV");
-    if (!glCreateStatesNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glCreateStatesNV";
-    }
-    glDeleteStatesNV = (PFNGLDELETESTATESNVPROC) sogl_loadOpenGLFunction("glDeleteStatesNV");
-    if (!glDeleteStatesNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glDeleteStatesNV";
-    }
-    glIsStateNV = (PFNGLISSTATENVPROC) sogl_loadOpenGLFunction("glIsStateNV");
-    if (!glIsStateNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glIsStateNV";
-    }
-    glStateCaptureNV = (PFNGLSTATECAPTURENVPROC) sogl_loadOpenGLFunction("glStateCaptureNV");
-    if (!glStateCaptureNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glStateCaptureNV";
-    }
-    glGetCommandHeaderNV = (PFNGLGETCOMMANDHEADERNVPROC) sogl_loadOpenGLFunction("glGetCommandHeaderNV");
-    if (!glGetCommandHeaderNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glGetCommandHeaderNV";
-    }
-    glGetStageIndexNV = (PFNGLGETSTAGEINDEXNVPROC) sogl_loadOpenGLFunction("glGetStageIndexNV");
-    if (!glGetStageIndexNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glGetStageIndexNV";
-    }
-    glDrawCommandsNV = (PFNGLDRAWCOMMANDSNVPROC) sogl_loadOpenGLFunction("glDrawCommandsNV");
-    if (!glDrawCommandsNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glDrawCommandsNV";
-    }
-    glDrawCommandsAddressNV = (PFNGLDRAWCOMMANDSADDRESSNVPROC) sogl_loadOpenGLFunction("glDrawCommandsAddressNV");
-    if (!glDrawCommandsAddressNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glDrawCommandsAddressNV";
-    }
-    glDrawCommandsStatesNV = (PFNGLDRAWCOMMANDSSTATESNVPROC) sogl_loadOpenGLFunction("glDrawCommandsStatesNV");
-    if (!glDrawCommandsStatesNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glDrawCommandsStatesNV";
-    }
-    glDrawCommandsStatesAddressNV = (PFNGLDRAWCOMMANDSSTATESADDRESSNVPROC) sogl_loadOpenGLFunction("glDrawCommandsStatesAddressNV");
-    if (!glDrawCommandsStatesAddressNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glDrawCommandsStatesAddressNV";
-    }
-    glCreateCommandListsNV = (PFNGLCREATECOMMANDLISTSNVPROC) sogl_loadOpenGLFunction("glCreateCommandListsNV");
-    if (!glCreateCommandListsNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glCreateCommandListsNV";
-    }
-    glDeleteCommandListsNV = (PFNGLDELETECOMMANDLISTSNVPROC) sogl_loadOpenGLFunction("glDeleteCommandListsNV");
-    if (!glDeleteCommandListsNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glDeleteCommandListsNV";
-    }
-    glIsCommandListNV = (PFNGLISCOMMANDLISTNVPROC) sogl_loadOpenGLFunction("glIsCommandListNV");
-    if (!glIsCommandListNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glIsCommandListNV";
-    }
-    glListDrawCommandsStatesClientNV = (PFNGLLISTDRAWCOMMANDSSTATESCLIENTNVPROC) sogl_loadOpenGLFunction("glListDrawCommandsStatesClientNV");
-    if (!glListDrawCommandsStatesClientNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glListDrawCommandsStatesClientNV";
-    }
-    glCommandListSegmentsNV = (PFNGLCOMMANDLISTSEGMENTSNVPROC) sogl_loadOpenGLFunction("glCommandListSegmentsNV");
-    if (!glCommandListSegmentsNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glCommandListSegmentsNV";
-    }
-    glCompileCommandListNV = (PFNGLCOMPILECOMMANDLISTNVPROC) sogl_loadOpenGLFunction("glCompileCommandListNV");
-    if (!glCompileCommandListNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glCompileCommandListNV";
-    }
-    glCallCommandListNV = (PFNGLCALLCOMMANDLISTNVPROC) sogl_loadOpenGLFunction("glCallCommandListNV");
-    if (!glCallCommandListNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glCallCommandListNV";
-    }
+SOGL_FUNCTIONS_NV_command_list
 #endif /* SOGL_NV_command_list */
 
 #ifdef SOGL_NV_conditional_render
-    glBeginConditionalRenderNV = (PFNGLBEGINCONDITIONALRENDERNVPROC) sogl_loadOpenGLFunction("glBeginConditionalRenderNV");
-    if (!glBeginConditionalRenderNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glBeginConditionalRenderNV";
-    }
-    glEndConditionalRenderNV = (PFNGLENDCONDITIONALRENDERNVPROC) sogl_loadOpenGLFunction("glEndConditionalRenderNV");
-    if (!glEndConditionalRenderNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glEndConditionalRenderNV";
-    }
+SOGL_FUNCTIONS_NV_conditional_render
 #endif /* SOGL_NV_conditional_render */
 
 #ifdef SOGL_NV_conservative_raster
-    glSubpixelPrecisionBiasNV = (PFNGLSUBPIXELPRECISIONBIASNVPROC) sogl_loadOpenGLFunction("glSubpixelPrecisionBiasNV");
-    if (!glSubpixelPrecisionBiasNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glSubpixelPrecisionBiasNV";
-    }
+SOGL_FUNCTIONS_NV_conservative_raster
 #endif /* SOGL_NV_conservative_raster */
 
 #ifdef SOGL_NV_conservative_raster_dilate
-    glConservativeRasterParameterfNV = (PFNGLCONSERVATIVERASTERPARAMETERFNVPROC) sogl_loadOpenGLFunction("glConservativeRasterParameterfNV");
-    if (!glConservativeRasterParameterfNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glConservativeRasterParameterfNV";
-    }
+SOGL_FUNCTIONS_NV_conservative_raster_dilate
 #endif /* SOGL_NV_conservative_raster_dilate */
 
 #ifdef SOGL_NV_conservative_raster_pre_snap_triangles
-    glConservativeRasterParameteriNV = (PFNGLCONSERVATIVERASTERPARAMETERINVPROC) sogl_loadOpenGLFunction("glConservativeRasterParameteriNV");
-    if (!glConservativeRasterParameteriNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glConservativeRasterParameteriNV";
-    }
+SOGL_FUNCTIONS_NV_conservative_raster_pre_snap_triangles
 #endif /* SOGL_NV_conservative_raster_pre_snap_triangles */
 
 #ifdef SOGL_NV_depth_buffer_float
-    glDepthRangedNV = (PFNGLDEPTHRANGEDNVPROC) sogl_loadOpenGLFunction("glDepthRangedNV");
-    if (!glDepthRangedNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glDepthRangedNV";
-    }
-    glClearDepthdNV = (PFNGLCLEARDEPTHDNVPROC) sogl_loadOpenGLFunction("glClearDepthdNV");
-    if (!glClearDepthdNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glClearDepthdNV";
-    }
-    glDepthBoundsdNV = (PFNGLDEPTHBOUNDSDNVPROC) sogl_loadOpenGLFunction("glDepthBoundsdNV");
-    if (!glDepthBoundsdNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glDepthBoundsdNV";
-    }
+SOGL_FUNCTIONS_NV_depth_buffer_float
 #endif /* SOGL_NV_depth_buffer_float */
 
 #ifdef SOGL_NV_draw_vulkan_image
-    glDrawVkImageNV = (PFNGLDRAWVKIMAGENVPROC) sogl_loadOpenGLFunction("glDrawVkImageNV");
-    if (!glDrawVkImageNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glDrawVkImageNV";
-    }
-    glGetVkProcAddrNV = (PFNGLGETVKPROCADDRNVPROC) sogl_loadOpenGLFunction("glGetVkProcAddrNV");
-    if (!glGetVkProcAddrNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glGetVkProcAddrNV";
-    }
-    glWaitVkSemaphoreNV = (PFNGLWAITVKSEMAPHORENVPROC) sogl_loadOpenGLFunction("glWaitVkSemaphoreNV");
-    if (!glWaitVkSemaphoreNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glWaitVkSemaphoreNV";
-    }
-    glSignalVkSemaphoreNV = (PFNGLSIGNALVKSEMAPHORENVPROC) sogl_loadOpenGLFunction("glSignalVkSemaphoreNV");
-    if (!glSignalVkSemaphoreNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glSignalVkSemaphoreNV";
-    }
-    glSignalVkFenceNV = (PFNGLSIGNALVKFENCENVPROC) sogl_loadOpenGLFunction("glSignalVkFenceNV");
-    if (!glSignalVkFenceNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glSignalVkFenceNV";
-    }
+SOGL_FUNCTIONS_NV_draw_vulkan_image
 #endif /* SOGL_NV_draw_vulkan_image */
 
 #ifdef SOGL_NV_fragment_coverage_to_color
-    glFragmentCoverageColorNV = (PFNGLFRAGMENTCOVERAGECOLORNVPROC) sogl_loadOpenGLFunction("glFragmentCoverageColorNV");
-    if (!glFragmentCoverageColorNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glFragmentCoverageColorNV";
-    }
+SOGL_FUNCTIONS_NV_fragment_coverage_to_color
 #endif /* SOGL_NV_fragment_coverage_to_color */
 
 #ifdef SOGL_NV_framebuffer_mixed_samples
-    glCoverageModulationTableNV = (PFNGLCOVERAGEMODULATIONTABLENVPROC) sogl_loadOpenGLFunction("glCoverageModulationTableNV");
-    if (!glCoverageModulationTableNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glCoverageModulationTableNV";
-    }
-    glGetCoverageModulationTableNV = (PFNGLGETCOVERAGEMODULATIONTABLENVPROC) sogl_loadOpenGLFunction("glGetCoverageModulationTableNV");
-    if (!glGetCoverageModulationTableNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glGetCoverageModulationTableNV";
-    }
-    glCoverageModulationNV = (PFNGLCOVERAGEMODULATIONNVPROC) sogl_loadOpenGLFunction("glCoverageModulationNV");
-    if (!glCoverageModulationNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glCoverageModulationNV";
-    }
+SOGL_FUNCTIONS_NV_framebuffer_mixed_samples
 #endif /* SOGL_NV_framebuffer_mixed_samples */
 
 #ifdef SOGL_NV_framebuffer_multisample_coverage
-    glRenderbufferStorageMultisampleCoverageNV = (PFNGLRENDERBUFFERSTORAGEMULTISAMPLECOVERAGENVPROC) sogl_loadOpenGLFunction("glRenderbufferStorageMultisampleCoverageNV");
-    if (!glRenderbufferStorageMultisampleCoverageNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glRenderbufferStorageMultisampleCoverageNV";
-    }
+SOGL_FUNCTIONS_NV_framebuffer_multisample_coverage
 #endif /* SOGL_NV_framebuffer_multisample_coverage */
 
 #ifdef SOGL_NV_gpu_shader5
-    glUniform1i64NV = (PFNGLUNIFORM1I64NVPROC) sogl_loadOpenGLFunction("glUniform1i64NV");
-    if (!glUniform1i64NV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glUniform1i64NV";
-    }
-    glUniform2i64NV = (PFNGLUNIFORM2I64NVPROC) sogl_loadOpenGLFunction("glUniform2i64NV");
-    if (!glUniform2i64NV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glUniform2i64NV";
-    }
-    glUniform3i64NV = (PFNGLUNIFORM3I64NVPROC) sogl_loadOpenGLFunction("glUniform3i64NV");
-    if (!glUniform3i64NV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glUniform3i64NV";
-    }
-    glUniform4i64NV = (PFNGLUNIFORM4I64NVPROC) sogl_loadOpenGLFunction("glUniform4i64NV");
-    if (!glUniform4i64NV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glUniform4i64NV";
-    }
-    glUniform1i64vNV = (PFNGLUNIFORM1I64VNVPROC) sogl_loadOpenGLFunction("glUniform1i64vNV");
-    if (!glUniform1i64vNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glUniform1i64vNV";
-    }
-    glUniform2i64vNV = (PFNGLUNIFORM2I64VNVPROC) sogl_loadOpenGLFunction("glUniform2i64vNV");
-    if (!glUniform2i64vNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glUniform2i64vNV";
-    }
-    glUniform3i64vNV = (PFNGLUNIFORM3I64VNVPROC) sogl_loadOpenGLFunction("glUniform3i64vNV");
-    if (!glUniform3i64vNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glUniform3i64vNV";
-    }
-    glUniform4i64vNV = (PFNGLUNIFORM4I64VNVPROC) sogl_loadOpenGLFunction("glUniform4i64vNV");
-    if (!glUniform4i64vNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glUniform4i64vNV";
-    }
-    glUniform1ui64NV = (PFNGLUNIFORM1UI64NVPROC) sogl_loadOpenGLFunction("glUniform1ui64NV");
-    if (!glUniform1ui64NV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glUniform1ui64NV";
-    }
-    glUniform2ui64NV = (PFNGLUNIFORM2UI64NVPROC) sogl_loadOpenGLFunction("glUniform2ui64NV");
-    if (!glUniform2ui64NV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glUniform2ui64NV";
-    }
-    glUniform3ui64NV = (PFNGLUNIFORM3UI64NVPROC) sogl_loadOpenGLFunction("glUniform3ui64NV");
-    if (!glUniform3ui64NV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glUniform3ui64NV";
-    }
-    glUniform4ui64NV = (PFNGLUNIFORM4UI64NVPROC) sogl_loadOpenGLFunction("glUniform4ui64NV");
-    if (!glUniform4ui64NV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glUniform4ui64NV";
-    }
-    glUniform1ui64vNV = (PFNGLUNIFORM1UI64VNVPROC) sogl_loadOpenGLFunction("glUniform1ui64vNV");
-    if (!glUniform1ui64vNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glUniform1ui64vNV";
-    }
-    glUniform2ui64vNV = (PFNGLUNIFORM2UI64VNVPROC) sogl_loadOpenGLFunction("glUniform2ui64vNV");
-    if (!glUniform2ui64vNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glUniform2ui64vNV";
-    }
-    glUniform3ui64vNV = (PFNGLUNIFORM3UI64VNVPROC) sogl_loadOpenGLFunction("glUniform3ui64vNV");
-    if (!glUniform3ui64vNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glUniform3ui64vNV";
-    }
-    glUniform4ui64vNV = (PFNGLUNIFORM4UI64VNVPROC) sogl_loadOpenGLFunction("glUniform4ui64vNV");
-    if (!glUniform4ui64vNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glUniform4ui64vNV";
-    }
-    glGetUniformi64vNV = (PFNGLGETUNIFORMI64VNVPROC) sogl_loadOpenGLFunction("glGetUniformi64vNV");
-    if (!glGetUniformi64vNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glGetUniformi64vNV";
-    }
-    glProgramUniform1i64NV = (PFNGLPROGRAMUNIFORM1I64NVPROC) sogl_loadOpenGLFunction("glProgramUniform1i64NV");
-    if (!glProgramUniform1i64NV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glProgramUniform1i64NV";
-    }
-    glProgramUniform2i64NV = (PFNGLPROGRAMUNIFORM2I64NVPROC) sogl_loadOpenGLFunction("glProgramUniform2i64NV");
-    if (!glProgramUniform2i64NV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glProgramUniform2i64NV";
-    }
-    glProgramUniform3i64NV = (PFNGLPROGRAMUNIFORM3I64NVPROC) sogl_loadOpenGLFunction("glProgramUniform3i64NV");
-    if (!glProgramUniform3i64NV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glProgramUniform3i64NV";
-    }
-    glProgramUniform4i64NV = (PFNGLPROGRAMUNIFORM4I64NVPROC) sogl_loadOpenGLFunction("glProgramUniform4i64NV");
-    if (!glProgramUniform4i64NV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glProgramUniform4i64NV";
-    }
-    glProgramUniform1i64vNV = (PFNGLPROGRAMUNIFORM1I64VNVPROC) sogl_loadOpenGLFunction("glProgramUniform1i64vNV");
-    if (!glProgramUniform1i64vNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glProgramUniform1i64vNV";
-    }
-    glProgramUniform2i64vNV = (PFNGLPROGRAMUNIFORM2I64VNVPROC) sogl_loadOpenGLFunction("glProgramUniform2i64vNV");
-    if (!glProgramUniform2i64vNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glProgramUniform2i64vNV";
-    }
-    glProgramUniform3i64vNV = (PFNGLPROGRAMUNIFORM3I64VNVPROC) sogl_loadOpenGLFunction("glProgramUniform3i64vNV");
-    if (!glProgramUniform3i64vNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glProgramUniform3i64vNV";
-    }
-    glProgramUniform4i64vNV = (PFNGLPROGRAMUNIFORM4I64VNVPROC) sogl_loadOpenGLFunction("glProgramUniform4i64vNV");
-    if (!glProgramUniform4i64vNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glProgramUniform4i64vNV";
-    }
-    glProgramUniform1ui64NV = (PFNGLPROGRAMUNIFORM1UI64NVPROC) sogl_loadOpenGLFunction("glProgramUniform1ui64NV");
-    if (!glProgramUniform1ui64NV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glProgramUniform1ui64NV";
-    }
-    glProgramUniform2ui64NV = (PFNGLPROGRAMUNIFORM2UI64NVPROC) sogl_loadOpenGLFunction("glProgramUniform2ui64NV");
-    if (!glProgramUniform2ui64NV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glProgramUniform2ui64NV";
-    }
-    glProgramUniform3ui64NV = (PFNGLPROGRAMUNIFORM3UI64NVPROC) sogl_loadOpenGLFunction("glProgramUniform3ui64NV");
-    if (!glProgramUniform3ui64NV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glProgramUniform3ui64NV";
-    }
-    glProgramUniform4ui64NV = (PFNGLPROGRAMUNIFORM4UI64NVPROC) sogl_loadOpenGLFunction("glProgramUniform4ui64NV");
-    if (!glProgramUniform4ui64NV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glProgramUniform4ui64NV";
-    }
-    glProgramUniform1ui64vNV = (PFNGLPROGRAMUNIFORM1UI64VNVPROC) sogl_loadOpenGLFunction("glProgramUniform1ui64vNV");
-    if (!glProgramUniform1ui64vNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glProgramUniform1ui64vNV";
-    }
-    glProgramUniform2ui64vNV = (PFNGLPROGRAMUNIFORM2UI64VNVPROC) sogl_loadOpenGLFunction("glProgramUniform2ui64vNV");
-    if (!glProgramUniform2ui64vNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glProgramUniform2ui64vNV";
-    }
-    glProgramUniform3ui64vNV = (PFNGLPROGRAMUNIFORM3UI64VNVPROC) sogl_loadOpenGLFunction("glProgramUniform3ui64vNV");
-    if (!glProgramUniform3ui64vNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glProgramUniform3ui64vNV";
-    }
-    glProgramUniform4ui64vNV = (PFNGLPROGRAMUNIFORM4UI64VNVPROC) sogl_loadOpenGLFunction("glProgramUniform4ui64vNV");
-    if (!glProgramUniform4ui64vNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glProgramUniform4ui64vNV";
-    }
+SOGL_FUNCTIONS_NV_gpu_shader5
 #endif /* SOGL_NV_gpu_shader5 */
 
 #ifdef SOGL_NV_internalformat_sample_query
-    glGetInternalformatSampleivNV = (PFNGLGETINTERNALFORMATSAMPLEIVNVPROC) sogl_loadOpenGLFunction("glGetInternalformatSampleivNV");
-    if (!glGetInternalformatSampleivNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glGetInternalformatSampleivNV";
-    }
+SOGL_FUNCTIONS_NV_internalformat_sample_query
 #endif /* SOGL_NV_internalformat_sample_query */
 
 #ifdef SOGL_NV_memory_attachment
-    glGetMemoryObjectDetachedResourcesuivNV = (PFNGLGETMEMORYOBJECTDETACHEDRESOURCESUIVNVPROC) sogl_loadOpenGLFunction("glGetMemoryObjectDetachedResourcesuivNV");
-    if (!glGetMemoryObjectDetachedResourcesuivNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glGetMemoryObjectDetachedResourcesuivNV";
-    }
-    glResetMemoryObjectParameterNV = (PFNGLRESETMEMORYOBJECTPARAMETERNVPROC) sogl_loadOpenGLFunction("glResetMemoryObjectParameterNV");
-    if (!glResetMemoryObjectParameterNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glResetMemoryObjectParameterNV";
-    }
-    glTexAttachMemoryNV = (PFNGLTEXATTACHMEMORYNVPROC) sogl_loadOpenGLFunction("glTexAttachMemoryNV");
-    if (!glTexAttachMemoryNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glTexAttachMemoryNV";
-    }
-    glBufferAttachMemoryNV = (PFNGLBUFFERATTACHMEMORYNVPROC) sogl_loadOpenGLFunction("glBufferAttachMemoryNV");
-    if (!glBufferAttachMemoryNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glBufferAttachMemoryNV";
-    }
-    glTextureAttachMemoryNV = (PFNGLTEXTUREATTACHMEMORYNVPROC) sogl_loadOpenGLFunction("glTextureAttachMemoryNV");
-    if (!glTextureAttachMemoryNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glTextureAttachMemoryNV";
-    }
-    glNamedBufferAttachMemoryNV = (PFNGLNAMEDBUFFERATTACHMEMORYNVPROC) sogl_loadOpenGLFunction("glNamedBufferAttachMemoryNV");
-    if (!glNamedBufferAttachMemoryNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glNamedBufferAttachMemoryNV";
-    }
+SOGL_FUNCTIONS_NV_memory_attachment
 #endif /* SOGL_NV_memory_attachment */
 
 #ifdef SOGL_NV_memory_object_sparse
-    glBufferPageCommitmentMemNV = (PFNGLBUFFERPAGECOMMITMENTMEMNVPROC) sogl_loadOpenGLFunction("glBufferPageCommitmentMemNV");
-    if (!glBufferPageCommitmentMemNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glBufferPageCommitmentMemNV";
-    }
-    glTexPageCommitmentMemNV = (PFNGLTEXPAGECOMMITMENTMEMNVPROC) sogl_loadOpenGLFunction("glTexPageCommitmentMemNV");
-    if (!glTexPageCommitmentMemNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glTexPageCommitmentMemNV";
-    }
-    glNamedBufferPageCommitmentMemNV = (PFNGLNAMEDBUFFERPAGECOMMITMENTMEMNVPROC) sogl_loadOpenGLFunction("glNamedBufferPageCommitmentMemNV");
-    if (!glNamedBufferPageCommitmentMemNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glNamedBufferPageCommitmentMemNV";
-    }
-    glTexturePageCommitmentMemNV = (PFNGLTEXTUREPAGECOMMITMENTMEMNVPROC) sogl_loadOpenGLFunction("glTexturePageCommitmentMemNV");
-    if (!glTexturePageCommitmentMemNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glTexturePageCommitmentMemNV";
-    }
+SOGL_FUNCTIONS_NV_memory_object_sparse
 #endif /* SOGL_NV_memory_object_sparse */
 
 #ifdef SOGL_NV_mesh_shader
-    glDrawMeshTasksNV = (PFNGLDRAWMESHTASKSNVPROC) sogl_loadOpenGLFunction("glDrawMeshTasksNV");
-    if (!glDrawMeshTasksNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glDrawMeshTasksNV";
-    }
-    glDrawMeshTasksIndirectNV = (PFNGLDRAWMESHTASKSINDIRECTNVPROC) sogl_loadOpenGLFunction("glDrawMeshTasksIndirectNV");
-    if (!glDrawMeshTasksIndirectNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glDrawMeshTasksIndirectNV";
-    }
-    glMultiDrawMeshTasksIndirectNV = (PFNGLMULTIDRAWMESHTASKSINDIRECTNVPROC) sogl_loadOpenGLFunction("glMultiDrawMeshTasksIndirectNV");
-    if (!glMultiDrawMeshTasksIndirectNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glMultiDrawMeshTasksIndirectNV";
-    }
-    glMultiDrawMeshTasksIndirectCountNV = (PFNGLMULTIDRAWMESHTASKSINDIRECTCOUNTNVPROC) sogl_loadOpenGLFunction("glMultiDrawMeshTasksIndirectCountNV");
-    if (!glMultiDrawMeshTasksIndirectCountNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glMultiDrawMeshTasksIndirectCountNV";
-    }
+SOGL_FUNCTIONS_NV_mesh_shader
 #endif /* SOGL_NV_mesh_shader */
 
 #ifdef SOGL_NV_path_rendering
-    glGenPathsNV = (PFNGLGENPATHSNVPROC) sogl_loadOpenGLFunction("glGenPathsNV");
-    if (!glGenPathsNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glGenPathsNV";
-    }
-    glDeletePathsNV = (PFNGLDELETEPATHSNVPROC) sogl_loadOpenGLFunction("glDeletePathsNV");
-    if (!glDeletePathsNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glDeletePathsNV";
-    }
-    glIsPathNV = (PFNGLISPATHNVPROC) sogl_loadOpenGLFunction("glIsPathNV");
-    if (!glIsPathNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glIsPathNV";
-    }
-    glPathCommandsNV = (PFNGLPATHCOMMANDSNVPROC) sogl_loadOpenGLFunction("glPathCommandsNV");
-    if (!glPathCommandsNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glPathCommandsNV";
-    }
-    glPathCoordsNV = (PFNGLPATHCOORDSNVPROC) sogl_loadOpenGLFunction("glPathCoordsNV");
-    if (!glPathCoordsNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glPathCoordsNV";
-    }
-    glPathSubCommandsNV = (PFNGLPATHSUBCOMMANDSNVPROC) sogl_loadOpenGLFunction("glPathSubCommandsNV");
-    if (!glPathSubCommandsNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glPathSubCommandsNV";
-    }
-    glPathSubCoordsNV = (PFNGLPATHSUBCOORDSNVPROC) sogl_loadOpenGLFunction("glPathSubCoordsNV");
-    if (!glPathSubCoordsNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glPathSubCoordsNV";
-    }
-    glPathStringNV = (PFNGLPATHSTRINGNVPROC) sogl_loadOpenGLFunction("glPathStringNV");
-    if (!glPathStringNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glPathStringNV";
-    }
-    glPathGlyphsNV = (PFNGLPATHGLYPHSNVPROC) sogl_loadOpenGLFunction("glPathGlyphsNV");
-    if (!glPathGlyphsNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glPathGlyphsNV";
-    }
-    glPathGlyphRangeNV = (PFNGLPATHGLYPHRANGENVPROC) sogl_loadOpenGLFunction("glPathGlyphRangeNV");
-    if (!glPathGlyphRangeNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glPathGlyphRangeNV";
-    }
-    glWeightPathsNV = (PFNGLWEIGHTPATHSNVPROC) sogl_loadOpenGLFunction("glWeightPathsNV");
-    if (!glWeightPathsNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glWeightPathsNV";
-    }
-    glCopyPathNV = (PFNGLCOPYPATHNVPROC) sogl_loadOpenGLFunction("glCopyPathNV");
-    if (!glCopyPathNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glCopyPathNV";
-    }
-    glInterpolatePathsNV = (PFNGLINTERPOLATEPATHSNVPROC) sogl_loadOpenGLFunction("glInterpolatePathsNV");
-    if (!glInterpolatePathsNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glInterpolatePathsNV";
-    }
-    glTransformPathNV = (PFNGLTRANSFORMPATHNVPROC) sogl_loadOpenGLFunction("glTransformPathNV");
-    if (!glTransformPathNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glTransformPathNV";
-    }
-    glPathParameterivNV = (PFNGLPATHPARAMETERIVNVPROC) sogl_loadOpenGLFunction("glPathParameterivNV");
-    if (!glPathParameterivNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glPathParameterivNV";
-    }
-    glPathParameteriNV = (PFNGLPATHPARAMETERINVPROC) sogl_loadOpenGLFunction("glPathParameteriNV");
-    if (!glPathParameteriNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glPathParameteriNV";
-    }
-    glPathParameterfvNV = (PFNGLPATHPARAMETERFVNVPROC) sogl_loadOpenGLFunction("glPathParameterfvNV");
-    if (!glPathParameterfvNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glPathParameterfvNV";
-    }
-    glPathParameterfNV = (PFNGLPATHPARAMETERFNVPROC) sogl_loadOpenGLFunction("glPathParameterfNV");
-    if (!glPathParameterfNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glPathParameterfNV";
-    }
-    glPathDashArrayNV = (PFNGLPATHDASHARRAYNVPROC) sogl_loadOpenGLFunction("glPathDashArrayNV");
-    if (!glPathDashArrayNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glPathDashArrayNV";
-    }
-    glPathStencilFuncNV = (PFNGLPATHSTENCILFUNCNVPROC) sogl_loadOpenGLFunction("glPathStencilFuncNV");
-    if (!glPathStencilFuncNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glPathStencilFuncNV";
-    }
-    glPathStencilDepthOffsetNV = (PFNGLPATHSTENCILDEPTHOFFSETNVPROC) sogl_loadOpenGLFunction("glPathStencilDepthOffsetNV");
-    if (!glPathStencilDepthOffsetNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glPathStencilDepthOffsetNV";
-    }
-    glStencilFillPathNV = (PFNGLSTENCILFILLPATHNVPROC) sogl_loadOpenGLFunction("glStencilFillPathNV");
-    if (!glStencilFillPathNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glStencilFillPathNV";
-    }
-    glStencilStrokePathNV = (PFNGLSTENCILSTROKEPATHNVPROC) sogl_loadOpenGLFunction("glStencilStrokePathNV");
-    if (!glStencilStrokePathNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glStencilStrokePathNV";
-    }
-    glStencilFillPathInstancedNV = (PFNGLSTENCILFILLPATHINSTANCEDNVPROC) sogl_loadOpenGLFunction("glStencilFillPathInstancedNV");
-    if (!glStencilFillPathInstancedNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glStencilFillPathInstancedNV";
-    }
-    glStencilStrokePathInstancedNV = (PFNGLSTENCILSTROKEPATHINSTANCEDNVPROC) sogl_loadOpenGLFunction("glStencilStrokePathInstancedNV");
-    if (!glStencilStrokePathInstancedNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glStencilStrokePathInstancedNV";
-    }
-    glPathCoverDepthFuncNV = (PFNGLPATHCOVERDEPTHFUNCNVPROC) sogl_loadOpenGLFunction("glPathCoverDepthFuncNV");
-    if (!glPathCoverDepthFuncNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glPathCoverDepthFuncNV";
-    }
-    glCoverFillPathNV = (PFNGLCOVERFILLPATHNVPROC) sogl_loadOpenGLFunction("glCoverFillPathNV");
-    if (!glCoverFillPathNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glCoverFillPathNV";
-    }
-    glCoverStrokePathNV = (PFNGLCOVERSTROKEPATHNVPROC) sogl_loadOpenGLFunction("glCoverStrokePathNV");
-    if (!glCoverStrokePathNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glCoverStrokePathNV";
-    }
-    glCoverFillPathInstancedNV = (PFNGLCOVERFILLPATHINSTANCEDNVPROC) sogl_loadOpenGLFunction("glCoverFillPathInstancedNV");
-    if (!glCoverFillPathInstancedNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glCoverFillPathInstancedNV";
-    }
-    glCoverStrokePathInstancedNV = (PFNGLCOVERSTROKEPATHINSTANCEDNVPROC) sogl_loadOpenGLFunction("glCoverStrokePathInstancedNV");
-    if (!glCoverStrokePathInstancedNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glCoverStrokePathInstancedNV";
-    }
-    glGetPathParameterivNV = (PFNGLGETPATHPARAMETERIVNVPROC) sogl_loadOpenGLFunction("glGetPathParameterivNV");
-    if (!glGetPathParameterivNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glGetPathParameterivNV";
-    }
-    glGetPathParameterfvNV = (PFNGLGETPATHPARAMETERFVNVPROC) sogl_loadOpenGLFunction("glGetPathParameterfvNV");
-    if (!glGetPathParameterfvNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glGetPathParameterfvNV";
-    }
-    glGetPathCommandsNV = (PFNGLGETPATHCOMMANDSNVPROC) sogl_loadOpenGLFunction("glGetPathCommandsNV");
-    if (!glGetPathCommandsNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glGetPathCommandsNV";
-    }
-    glGetPathCoordsNV = (PFNGLGETPATHCOORDSNVPROC) sogl_loadOpenGLFunction("glGetPathCoordsNV");
-    if (!glGetPathCoordsNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glGetPathCoordsNV";
-    }
-    glGetPathDashArrayNV = (PFNGLGETPATHDASHARRAYNVPROC) sogl_loadOpenGLFunction("glGetPathDashArrayNV");
-    if (!glGetPathDashArrayNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glGetPathDashArrayNV";
-    }
-    glGetPathMetricsNV = (PFNGLGETPATHMETRICSNVPROC) sogl_loadOpenGLFunction("glGetPathMetricsNV");
-    if (!glGetPathMetricsNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glGetPathMetricsNV";
-    }
-    glGetPathMetricRangeNV = (PFNGLGETPATHMETRICRANGENVPROC) sogl_loadOpenGLFunction("glGetPathMetricRangeNV");
-    if (!glGetPathMetricRangeNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glGetPathMetricRangeNV";
-    }
-    glGetPathSpacingNV = (PFNGLGETPATHSPACINGNVPROC) sogl_loadOpenGLFunction("glGetPathSpacingNV");
-    if (!glGetPathSpacingNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glGetPathSpacingNV";
-    }
-    glIsPointInFillPathNV = (PFNGLISPOINTINFILLPATHNVPROC) sogl_loadOpenGLFunction("glIsPointInFillPathNV");
-    if (!glIsPointInFillPathNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glIsPointInFillPathNV";
-    }
-    glIsPointInStrokePathNV = (PFNGLISPOINTINSTROKEPATHNVPROC) sogl_loadOpenGLFunction("glIsPointInStrokePathNV");
-    if (!glIsPointInStrokePathNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glIsPointInStrokePathNV";
-    }
-    glGetPathLengthNV = (PFNGLGETPATHLENGTHNVPROC) sogl_loadOpenGLFunction("glGetPathLengthNV");
-    if (!glGetPathLengthNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glGetPathLengthNV";
-    }
-    glPointAlongPathNV = (PFNGLPOINTALONGPATHNVPROC) sogl_loadOpenGLFunction("glPointAlongPathNV");
-    if (!glPointAlongPathNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glPointAlongPathNV";
-    }
-    glMatrixLoad3x2fNV = (PFNGLMATRIXLOAD3X2FNVPROC) sogl_loadOpenGLFunction("glMatrixLoad3x2fNV");
-    if (!glMatrixLoad3x2fNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glMatrixLoad3x2fNV";
-    }
-    glMatrixLoad3x3fNV = (PFNGLMATRIXLOAD3X3FNVPROC) sogl_loadOpenGLFunction("glMatrixLoad3x3fNV");
-    if (!glMatrixLoad3x3fNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glMatrixLoad3x3fNV";
-    }
-    glMatrixLoadTranspose3x3fNV = (PFNGLMATRIXLOADTRANSPOSE3X3FNVPROC) sogl_loadOpenGLFunction("glMatrixLoadTranspose3x3fNV");
-    if (!glMatrixLoadTranspose3x3fNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glMatrixLoadTranspose3x3fNV";
-    }
-    glMatrixMult3x2fNV = (PFNGLMATRIXMULT3X2FNVPROC) sogl_loadOpenGLFunction("glMatrixMult3x2fNV");
-    if (!glMatrixMult3x2fNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glMatrixMult3x2fNV";
-    }
-    glMatrixMult3x3fNV = (PFNGLMATRIXMULT3X3FNVPROC) sogl_loadOpenGLFunction("glMatrixMult3x3fNV");
-    if (!glMatrixMult3x3fNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glMatrixMult3x3fNV";
-    }
-    glMatrixMultTranspose3x3fNV = (PFNGLMATRIXMULTTRANSPOSE3X3FNVPROC) sogl_loadOpenGLFunction("glMatrixMultTranspose3x3fNV");
-    if (!glMatrixMultTranspose3x3fNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glMatrixMultTranspose3x3fNV";
-    }
-    glStencilThenCoverFillPathNV = (PFNGLSTENCILTHENCOVERFILLPATHNVPROC) sogl_loadOpenGLFunction("glStencilThenCoverFillPathNV");
-    if (!glStencilThenCoverFillPathNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glStencilThenCoverFillPathNV";
-    }
-    glStencilThenCoverStrokePathNV = (PFNGLSTENCILTHENCOVERSTROKEPATHNVPROC) sogl_loadOpenGLFunction("glStencilThenCoverStrokePathNV");
-    if (!glStencilThenCoverStrokePathNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glStencilThenCoverStrokePathNV";
-    }
-    glStencilThenCoverFillPathInstancedNV = (PFNGLSTENCILTHENCOVERFILLPATHINSTANCEDNVPROC) sogl_loadOpenGLFunction("glStencilThenCoverFillPathInstancedNV");
-    if (!glStencilThenCoverFillPathInstancedNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glStencilThenCoverFillPathInstancedNV";
-    }
-    glStencilThenCoverStrokePathInstancedNV = (PFNGLSTENCILTHENCOVERSTROKEPATHINSTANCEDNVPROC) sogl_loadOpenGLFunction("glStencilThenCoverStrokePathInstancedNV");
-    if (!glStencilThenCoverStrokePathInstancedNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glStencilThenCoverStrokePathInstancedNV";
-    }
-    glPathGlyphIndexRangeNV = (PFNGLPATHGLYPHINDEXRANGENVPROC) sogl_loadOpenGLFunction("glPathGlyphIndexRangeNV");
-    if (!glPathGlyphIndexRangeNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glPathGlyphIndexRangeNV";
-    }
-    glPathGlyphIndexArrayNV = (PFNGLPATHGLYPHINDEXARRAYNVPROC) sogl_loadOpenGLFunction("glPathGlyphIndexArrayNV");
-    if (!glPathGlyphIndexArrayNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glPathGlyphIndexArrayNV";
-    }
-    glPathMemoryGlyphIndexArrayNV = (PFNGLPATHMEMORYGLYPHINDEXARRAYNVPROC) sogl_loadOpenGLFunction("glPathMemoryGlyphIndexArrayNV");
-    if (!glPathMemoryGlyphIndexArrayNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glPathMemoryGlyphIndexArrayNV";
-    }
-    glProgramPathFragmentInputGenNV = (PFNGLPROGRAMPATHFRAGMENTINPUTGENNVPROC) sogl_loadOpenGLFunction("glProgramPathFragmentInputGenNV");
-    if (!glProgramPathFragmentInputGenNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glProgramPathFragmentInputGenNV";
-    }
-    glGetProgramResourcefvNV = (PFNGLGETPROGRAMRESOURCEFVNVPROC) sogl_loadOpenGLFunction("glGetProgramResourcefvNV");
-    if (!glGetProgramResourcefvNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glGetProgramResourcefvNV";
-    }
+SOGL_FUNCTIONS_NV_path_rendering
 #endif /* SOGL_NV_path_rendering */
 
 #ifdef SOGL_NV_sample_locations
-    glFramebufferSampleLocationsfvNV = (PFNGLFRAMEBUFFERSAMPLELOCATIONSFVNVPROC) sogl_loadOpenGLFunction("glFramebufferSampleLocationsfvNV");
-    if (!glFramebufferSampleLocationsfvNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glFramebufferSampleLocationsfvNV";
-    }
-    glNamedFramebufferSampleLocationsfvNV = (PFNGLNAMEDFRAMEBUFFERSAMPLELOCATIONSFVNVPROC) sogl_loadOpenGLFunction("glNamedFramebufferSampleLocationsfvNV");
-    if (!glNamedFramebufferSampleLocationsfvNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glNamedFramebufferSampleLocationsfvNV";
-    }
-    glResolveDepthValuesNV = (PFNGLRESOLVEDEPTHVALUESNVPROC) sogl_loadOpenGLFunction("glResolveDepthValuesNV");
-    if (!glResolveDepthValuesNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glResolveDepthValuesNV";
-    }
+SOGL_FUNCTIONS_NV_sample_locations
 #endif /* SOGL_NV_sample_locations */
 
 #ifdef SOGL_NV_scissor_exclusive
-    glScissorExclusiveNV = (PFNGLSCISSOREXCLUSIVENVPROC) sogl_loadOpenGLFunction("glScissorExclusiveNV");
-    if (!glScissorExclusiveNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glScissorExclusiveNV";
-    }
-    glScissorExclusiveArrayvNV = (PFNGLSCISSOREXCLUSIVEARRAYVNVPROC) sogl_loadOpenGLFunction("glScissorExclusiveArrayvNV");
-    if (!glScissorExclusiveArrayvNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glScissorExclusiveArrayvNV";
-    }
+SOGL_FUNCTIONS_NV_scissor_exclusive
 #endif /* SOGL_NV_scissor_exclusive */
 
 #ifdef SOGL_NV_shader_buffer_load
-    glMakeBufferResidentNV = (PFNGLMAKEBUFFERRESIDENTNVPROC) sogl_loadOpenGLFunction("glMakeBufferResidentNV");
-    if (!glMakeBufferResidentNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glMakeBufferResidentNV";
-    }
-    glMakeBufferNonResidentNV = (PFNGLMAKEBUFFERNONRESIDENTNVPROC) sogl_loadOpenGLFunction("glMakeBufferNonResidentNV");
-    if (!glMakeBufferNonResidentNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glMakeBufferNonResidentNV";
-    }
-    glIsBufferResidentNV = (PFNGLISBUFFERRESIDENTNVPROC) sogl_loadOpenGLFunction("glIsBufferResidentNV");
-    if (!glIsBufferResidentNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glIsBufferResidentNV";
-    }
-    glMakeNamedBufferResidentNV = (PFNGLMAKENAMEDBUFFERRESIDENTNVPROC) sogl_loadOpenGLFunction("glMakeNamedBufferResidentNV");
-    if (!glMakeNamedBufferResidentNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glMakeNamedBufferResidentNV";
-    }
-    glMakeNamedBufferNonResidentNV = (PFNGLMAKENAMEDBUFFERNONRESIDENTNVPROC) sogl_loadOpenGLFunction("glMakeNamedBufferNonResidentNV");
-    if (!glMakeNamedBufferNonResidentNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glMakeNamedBufferNonResidentNV";
-    }
-    glIsNamedBufferResidentNV = (PFNGLISNAMEDBUFFERRESIDENTNVPROC) sogl_loadOpenGLFunction("glIsNamedBufferResidentNV");
-    if (!glIsNamedBufferResidentNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glIsNamedBufferResidentNV";
-    }
-    glGetBufferParameterui64vNV = (PFNGLGETBUFFERPARAMETERUI64VNVPROC) sogl_loadOpenGLFunction("glGetBufferParameterui64vNV");
-    if (!glGetBufferParameterui64vNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glGetBufferParameterui64vNV";
-    }
-    glGetNamedBufferParameterui64vNV = (PFNGLGETNAMEDBUFFERPARAMETERUI64VNVPROC) sogl_loadOpenGLFunction("glGetNamedBufferParameterui64vNV");
-    if (!glGetNamedBufferParameterui64vNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glGetNamedBufferParameterui64vNV";
-    }
-    glGetIntegerui64vNV = (PFNGLGETINTEGERUI64VNVPROC) sogl_loadOpenGLFunction("glGetIntegerui64vNV");
-    if (!glGetIntegerui64vNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glGetIntegerui64vNV";
-    }
-    glUniformui64NV = (PFNGLUNIFORMUI64NVPROC) sogl_loadOpenGLFunction("glUniformui64NV");
-    if (!glUniformui64NV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glUniformui64NV";
-    }
-    glUniformui64vNV = (PFNGLUNIFORMUI64VNVPROC) sogl_loadOpenGLFunction("glUniformui64vNV");
-    if (!glUniformui64vNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glUniformui64vNV";
-    }
-    glGetUniformui64vNV = (PFNGLGETUNIFORMUI64VNVPROC) sogl_loadOpenGLFunction("glGetUniformui64vNV");
-    if (!glGetUniformui64vNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glGetUniformui64vNV";
-    }
-    glProgramUniformui64NV = (PFNGLPROGRAMUNIFORMUI64NVPROC) sogl_loadOpenGLFunction("glProgramUniformui64NV");
-    if (!glProgramUniformui64NV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glProgramUniformui64NV";
-    }
-    glProgramUniformui64vNV = (PFNGLPROGRAMUNIFORMUI64VNVPROC) sogl_loadOpenGLFunction("glProgramUniformui64vNV");
-    if (!glProgramUniformui64vNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glProgramUniformui64vNV";
-    }
+SOGL_FUNCTIONS_NV_shader_buffer_load
 #endif /* SOGL_NV_shader_buffer_load */
 
 #ifdef SOGL_NV_shading_rate_image
-    glBindShadingRateImageNV = (PFNGLBINDSHADINGRATEIMAGENVPROC) sogl_loadOpenGLFunction("glBindShadingRateImageNV");
-    if (!glBindShadingRateImageNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glBindShadingRateImageNV";
-    }
-    glGetShadingRateImagePaletteNV = (PFNGLGETSHADINGRATEIMAGEPALETTENVPROC) sogl_loadOpenGLFunction("glGetShadingRateImagePaletteNV");
-    if (!glGetShadingRateImagePaletteNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glGetShadingRateImagePaletteNV";
-    }
-    glGetShadingRateSampleLocationivNV = (PFNGLGETSHADINGRATESAMPLELOCATIONIVNVPROC) sogl_loadOpenGLFunction("glGetShadingRateSampleLocationivNV");
-    if (!glGetShadingRateSampleLocationivNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glGetShadingRateSampleLocationivNV";
-    }
-    glShadingRateImageBarrierNV = (PFNGLSHADINGRATEIMAGEBARRIERNVPROC) sogl_loadOpenGLFunction("glShadingRateImageBarrierNV");
-    if (!glShadingRateImageBarrierNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glShadingRateImageBarrierNV";
-    }
-    glShadingRateImagePaletteNV = (PFNGLSHADINGRATEIMAGEPALETTENVPROC) sogl_loadOpenGLFunction("glShadingRateImagePaletteNV");
-    if (!glShadingRateImagePaletteNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glShadingRateImagePaletteNV";
-    }
-    glShadingRateSampleOrderNV = (PFNGLSHADINGRATESAMPLEORDERNVPROC) sogl_loadOpenGLFunction("glShadingRateSampleOrderNV");
-    if (!glShadingRateSampleOrderNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glShadingRateSampleOrderNV";
-    }
-    glShadingRateSampleOrderCustomNV = (PFNGLSHADINGRATESAMPLEORDERCUSTOMNVPROC) sogl_loadOpenGLFunction("glShadingRateSampleOrderCustomNV");
-    if (!glShadingRateSampleOrderCustomNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glShadingRateSampleOrderCustomNV";
-    }
+SOGL_FUNCTIONS_NV_shading_rate_image
 #endif /* SOGL_NV_shading_rate_image */
 
 #ifdef SOGL_NV_texture_barrier
-    glTextureBarrierNV = (PFNGLTEXTUREBARRIERNVPROC) sogl_loadOpenGLFunction("glTextureBarrierNV");
-    if (!glTextureBarrierNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glTextureBarrierNV";
-    }
+SOGL_FUNCTIONS_NV_texture_barrier
 #endif /* SOGL_NV_texture_barrier */
 
 #ifdef SOGL_NV_vertex_attrib_integer_64bit
-    glVertexAttribL1i64NV = (PFNGLVERTEXATTRIBL1I64NVPROC) sogl_loadOpenGLFunction("glVertexAttribL1i64NV");
-    if (!glVertexAttribL1i64NV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glVertexAttribL1i64NV";
-    }
-    glVertexAttribL2i64NV = (PFNGLVERTEXATTRIBL2I64NVPROC) sogl_loadOpenGLFunction("glVertexAttribL2i64NV");
-    if (!glVertexAttribL2i64NV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glVertexAttribL2i64NV";
-    }
-    glVertexAttribL3i64NV = (PFNGLVERTEXATTRIBL3I64NVPROC) sogl_loadOpenGLFunction("glVertexAttribL3i64NV");
-    if (!glVertexAttribL3i64NV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glVertexAttribL3i64NV";
-    }
-    glVertexAttribL4i64NV = (PFNGLVERTEXATTRIBL4I64NVPROC) sogl_loadOpenGLFunction("glVertexAttribL4i64NV");
-    if (!glVertexAttribL4i64NV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glVertexAttribL4i64NV";
-    }
-    glVertexAttribL1i64vNV = (PFNGLVERTEXATTRIBL1I64VNVPROC) sogl_loadOpenGLFunction("glVertexAttribL1i64vNV");
-    if (!glVertexAttribL1i64vNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glVertexAttribL1i64vNV";
-    }
-    glVertexAttribL2i64vNV = (PFNGLVERTEXATTRIBL2I64VNVPROC) sogl_loadOpenGLFunction("glVertexAttribL2i64vNV");
-    if (!glVertexAttribL2i64vNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glVertexAttribL2i64vNV";
-    }
-    glVertexAttribL3i64vNV = (PFNGLVERTEXATTRIBL3I64VNVPROC) sogl_loadOpenGLFunction("glVertexAttribL3i64vNV");
-    if (!glVertexAttribL3i64vNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glVertexAttribL3i64vNV";
-    }
-    glVertexAttribL4i64vNV = (PFNGLVERTEXATTRIBL4I64VNVPROC) sogl_loadOpenGLFunction("glVertexAttribL4i64vNV");
-    if (!glVertexAttribL4i64vNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glVertexAttribL4i64vNV";
-    }
-    glVertexAttribL1ui64NV = (PFNGLVERTEXATTRIBL1UI64NVPROC) sogl_loadOpenGLFunction("glVertexAttribL1ui64NV");
-    if (!glVertexAttribL1ui64NV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glVertexAttribL1ui64NV";
-    }
-    glVertexAttribL2ui64NV = (PFNGLVERTEXATTRIBL2UI64NVPROC) sogl_loadOpenGLFunction("glVertexAttribL2ui64NV");
-    if (!glVertexAttribL2ui64NV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glVertexAttribL2ui64NV";
-    }
-    glVertexAttribL3ui64NV = (PFNGLVERTEXATTRIBL3UI64NVPROC) sogl_loadOpenGLFunction("glVertexAttribL3ui64NV");
-    if (!glVertexAttribL3ui64NV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glVertexAttribL3ui64NV";
-    }
-    glVertexAttribL4ui64NV = (PFNGLVERTEXATTRIBL4UI64NVPROC) sogl_loadOpenGLFunction("glVertexAttribL4ui64NV");
-    if (!glVertexAttribL4ui64NV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glVertexAttribL4ui64NV";
-    }
-    glVertexAttribL1ui64vNV = (PFNGLVERTEXATTRIBL1UI64VNVPROC) sogl_loadOpenGLFunction("glVertexAttribL1ui64vNV");
-    if (!glVertexAttribL1ui64vNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glVertexAttribL1ui64vNV";
-    }
-    glVertexAttribL2ui64vNV = (PFNGLVERTEXATTRIBL2UI64VNVPROC) sogl_loadOpenGLFunction("glVertexAttribL2ui64vNV");
-    if (!glVertexAttribL2ui64vNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glVertexAttribL2ui64vNV";
-    }
-    glVertexAttribL3ui64vNV = (PFNGLVERTEXATTRIBL3UI64VNVPROC) sogl_loadOpenGLFunction("glVertexAttribL3ui64vNV");
-    if (!glVertexAttribL3ui64vNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glVertexAttribL3ui64vNV";
-    }
-    glVertexAttribL4ui64vNV = (PFNGLVERTEXATTRIBL4UI64VNVPROC) sogl_loadOpenGLFunction("glVertexAttribL4ui64vNV");
-    if (!glVertexAttribL4ui64vNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glVertexAttribL4ui64vNV";
-    }
-    glGetVertexAttribLi64vNV = (PFNGLGETVERTEXATTRIBLI64VNVPROC) sogl_loadOpenGLFunction("glGetVertexAttribLi64vNV");
-    if (!glGetVertexAttribLi64vNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glGetVertexAttribLi64vNV";
-    }
-    glGetVertexAttribLui64vNV = (PFNGLGETVERTEXATTRIBLUI64VNVPROC) sogl_loadOpenGLFunction("glGetVertexAttribLui64vNV");
-    if (!glGetVertexAttribLui64vNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glGetVertexAttribLui64vNV";
-    }
-    glVertexAttribLFormatNV = (PFNGLVERTEXATTRIBLFORMATNVPROC) sogl_loadOpenGLFunction("glVertexAttribLFormatNV");
-    if (!glVertexAttribLFormatNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glVertexAttribLFormatNV";
-    }
+SOGL_FUNCTIONS_NV_vertex_attrib_integer_64bit
 #endif /* SOGL_NV_vertex_attrib_integer_64bit */
 
 #ifdef SOGL_NV_vertex_buffer_unified_memory
-    glBufferAddressRangeNV = (PFNGLBUFFERADDRESSRANGENVPROC) sogl_loadOpenGLFunction("glBufferAddressRangeNV");
-    if (!glBufferAddressRangeNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glBufferAddressRangeNV";
-    }
-    glVertexFormatNV = (PFNGLVERTEXFORMATNVPROC) sogl_loadOpenGLFunction("glVertexFormatNV");
-    if (!glVertexFormatNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glVertexFormatNV";
-    }
-    glNormalFormatNV = (PFNGLNORMALFORMATNVPROC) sogl_loadOpenGLFunction("glNormalFormatNV");
-    if (!glNormalFormatNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glNormalFormatNV";
-    }
-    glColorFormatNV = (PFNGLCOLORFORMATNVPROC) sogl_loadOpenGLFunction("glColorFormatNV");
-    if (!glColorFormatNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glColorFormatNV";
-    }
-    glIndexFormatNV = (PFNGLINDEXFORMATNVPROC) sogl_loadOpenGLFunction("glIndexFormatNV");
-    if (!glIndexFormatNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glIndexFormatNV";
-    }
-    glTexCoordFormatNV = (PFNGLTEXCOORDFORMATNVPROC) sogl_loadOpenGLFunction("glTexCoordFormatNV");
-    if (!glTexCoordFormatNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glTexCoordFormatNV";
-    }
-    glEdgeFlagFormatNV = (PFNGLEDGEFLAGFORMATNVPROC) sogl_loadOpenGLFunction("glEdgeFlagFormatNV");
-    if (!glEdgeFlagFormatNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glEdgeFlagFormatNV";
-    }
-    glSecondaryColorFormatNV = (PFNGLSECONDARYCOLORFORMATNVPROC) sogl_loadOpenGLFunction("glSecondaryColorFormatNV");
-    if (!glSecondaryColorFormatNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glSecondaryColorFormatNV";
-    }
-    glFogCoordFormatNV = (PFNGLFOGCOORDFORMATNVPROC) sogl_loadOpenGLFunction("glFogCoordFormatNV");
-    if (!glFogCoordFormatNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glFogCoordFormatNV";
-    }
-    glVertexAttribFormatNV = (PFNGLVERTEXATTRIBFORMATNVPROC) sogl_loadOpenGLFunction("glVertexAttribFormatNV");
-    if (!glVertexAttribFormatNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glVertexAttribFormatNV";
-    }
-    glVertexAttribIFormatNV = (PFNGLVERTEXATTRIBIFORMATNVPROC) sogl_loadOpenGLFunction("glVertexAttribIFormatNV");
-    if (!glVertexAttribIFormatNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glVertexAttribIFormatNV";
-    }
-    glGetIntegerui64i_vNV = (PFNGLGETINTEGERUI64I_VNVPROC) sogl_loadOpenGLFunction("glGetIntegerui64i_vNV");
-    if (!glGetIntegerui64i_vNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glGetIntegerui64i_vNV";
-    }
+SOGL_FUNCTIONS_NV_vertex_buffer_unified_memory
 #endif /* SOGL_NV_vertex_buffer_unified_memory */
 
 #ifdef SOGL_NV_viewport_swizzle
-    glViewportSwizzleNV = (PFNGLVIEWPORTSWIZZLENVPROC) sogl_loadOpenGLFunction("glViewportSwizzleNV");
-    if (!glViewportSwizzleNV && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glViewportSwizzleNV";
-    }
+SOGL_FUNCTIONS_NV_viewport_swizzle
 #endif /* SOGL_NV_viewport_swizzle */
 
 #ifdef SOGL_OVR_multiview
-    glFramebufferTextureMultiviewOVR = (PFNGLFRAMEBUFFERTEXTUREMULTIVIEWOVRPROC) sogl_loadOpenGLFunction("glFramebufferTextureMultiviewOVR");
-    if (!glFramebufferTextureMultiviewOVR && failedLoads < SOGL_MAX_REPORTED_FAILURES) {
-        sogl_failedLoads[failedLoads++] = "glFramebufferTextureMultiviewOVR";
-    }
+SOGL_FUNCTIONS_OVR_multiview
 #endif /* SOGL_OVR_multiview */
 
-    sogl_failedLoads[failedLoads] = SOGL_NULL;
     sogl_cleanup();
 
     return failedLoads == 0;
 }
 
+#undef SOGL_FUNCTION
+
 const char** sogl_getFailures() {
-	return sogl_failedLoads;
+    return sogl_failedLoads;
 }
 
 #endif /* SOGL_IMPLEMENTATION */
