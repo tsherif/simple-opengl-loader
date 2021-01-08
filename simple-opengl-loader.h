@@ -5994,7 +5994,7 @@ SOGL_FUNCTIONS_OVR_multiview
     OpenGL Function Defintions
 */
 
-#define SOGL_FUNCTION(type, name) type name = SOGL_NULL;
+#define SOGL_FUNCTION(type, name) type name = (type) SOGL_NULL;
 
 #if SOGL_TEST_VERSION(1, 0)
 SOGL_FUNCTIONS_1_0
