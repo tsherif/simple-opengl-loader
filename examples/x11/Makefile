@@ -1,4 +1,4 @@
-CFLAGS=-g -Wall
+CFLAGS=-g -Wall -Werror
 CC=gcc
 LDLIBS=-lX11 -ldl -lGL
 
