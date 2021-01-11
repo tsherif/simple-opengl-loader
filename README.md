@@ -25,7 +25,7 @@ If OpenGL functions will be loaded and used in a single file, the simplest usage
 
 It is recommended that `simple-opengl-loader.h` be the first include to prevent other OpenGL headers from setting up their own definitions. 
 
-The application should be compiled with the appropriate platform-specific implementation in the `platforms` directory (named `simple-opengl-loader-<platform>.c`). See below to implement support for other platforms. Note that the these dependencies are self-contained and dynamically link to any system libraries they need. They do **not** require the application to explicitly be linked to system OpenGL libararies (`Opengl32` on Windows, `libGL` on Linux).
+The application should be compiled with the appropriate platform-specific implementation in the `platforms` directory (named `simple-opengl-loader-<platform>.c`), or the required functions should be provided by the application (see below). Platform support is currently provided for Windows Win32 and Linux X11 applications. Note that provided platform implementations are self-contained and dynamically link to system OpenGL libraries (`Opengl32` on Windows, `libGL` on Linux), so these libraries do not need to be linked to explicitly. Linux applications do, however, need to be linked against `libdl`.
 
 If OpenGL functions will be used in more then one file, the `SOGL_MAJOR_VERSION` and `SOGL_MINOR_VERSION` should match everywhere the header is included (and `SOGL_IMPLEMENTATION` should be defined exactly once). A simple way to make this more convenient is to wrap the `simple-opengl-loader.h` include and version defines in a separate header file and include the latter throughout the application.
 
@@ -53,7 +53,7 @@ OpenGL extensions can be loaded by defining a constant of the format `SOGL_<exte
     #include "simple-opengl-loader.h"
 ```
 
-Note that the loader makes no guarantees about OpenGL version or extension support. `sogl_loadOpenGL()` returns a boolean value indicating whether any functions failed to load, and the function `sogl_getFailures` returns a null-terminated array of the names of the functions that failed to load (up to a maximum defined by `SOGL_MAX_REPORTED_FAILURES`). 
+Note that the loader makes no guarantees about OpenGL version or extension support. `sogl_loadOpenGL()` returns a boolean value indicating whether it was able to load all requested functions, and the function `sogl_getFailures` returns a null-terminated array of the names of the functions that failed to load (up to a maximum defined by `SOGL_MAX_REPORTED_FAILURES`). 
 
 ```C
     if (!sogl_loadOpenGL()) {
@@ -76,4 +76,4 @@ void *sogl_loadOpenGLFunction(const char *name);
 void sogl_cleanup();
 ```
 
-Implementations are provided in the `platforms` directory and can be compiled directly into applications that wish to use them. Support for other platforms simply involves implementing these functions for the target platform.
+Implementations are provided in the `platforms` directory for Windows Win32 and Linux X11 applications and can be compiled directly into applications that wish to use them. Support for other platforms simply involves implementing these functions for the target platform.
