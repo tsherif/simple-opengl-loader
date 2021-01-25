@@ -23,18 +23,43 @@
 
 //////////////////////////////////////////////////////
 // Example of basic C++ usage of Simple OpenGL 
-// Loader with Win32 and constants defined
-// at the command line
+// Loader with a custom Win32 implementation and 
+// constants defined at the command line.
 //////////////////////////////////////////////////////
 
 #define WIN32_LEAN_AND_MEAN
-#define SOGL_IMPLEMENTATION_WIN32
+#define SOGL_IMPLEMENTATION
 #include "../../simple-opengl-loader.h"
 #include <windows.h>
 #include <GL\gl.h>
 #include "wglext.h"
 #include <stdint.h>
 #include <stdio.h>
+
+typedef PROC (*wglGetProcAddressFP)(LPCSTR Arg1);
+static HMODULE openGLLibHandle = NULL;
+
+void *sogl_loadOpenGLFunction(const char *name) {
+    static wglGetProcAddressFP wglGetProcAddress = NULL;
+
+    if (!openGLLibHandle) {
+        openGLLibHandle = LoadLibraryA("opengl32.dll");
+        wglGetProcAddress = (wglGetProcAddressFP) GetProcAddress(openGLLibHandle, "wglGetProcAddress");
+    }
+    void *fn = (void *)wglGetProcAddress(name);
+    if(fn == 0 || (fn == (void *) 0x1) || (fn == (void *) 0x2) || (fn == (void*) 0x3) || (fn == (void *) -1)) {
+        fn = (void *) GetProcAddress(openGLLibHandle, name);
+    }
+
+    return fn;
+}
+
+void sogl_cleanup() {
+    if (openGLLibHandle) {
+        FreeLibrary(openGLLibHandle);
+        openGLLibHandle = NULL;
+    }
+}
 
 /////////////////////////////////////
 // WGL loading helper functions 
@@ -150,7 +175,7 @@ int CALLBACK WinMain(HINSTANCE instance, HINSTANCE prevInstance, LPSTR cmdLine, 
 
     HWND window = CreateWindow(
         WIN_CLASS_NAME,
-        L"Simple OpenGL Loader Win32 C++ Example",
+        L"Simple OpenGL Loader Win32 C++ Custom Implementation Example",
         WS_OVERLAPPEDWINDOW,
         CW_USEDEFAULT, CW_USEDEFAULT,
         800, 800,
