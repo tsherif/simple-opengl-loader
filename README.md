@@ -1,7 +1,7 @@
 Simple OpenGL Loader
 ====================
 
-An extensible, cross-platform, single-file C/C++ OpenGL loader library.
+An extensible, cross-platform, single-header C/C++ OpenGL loader library.
 
 Usage
 -----
