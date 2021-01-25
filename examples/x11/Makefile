@@ -3,4 +3,4 @@ CC=gcc
 LDLIBS=-lX11 -ldl -lGL
 
 all:
-	$(CC) $(CFLAGS) -o x11-example x11-example.c ../../platforms/simple-opengl-loader-x11.c $(LDLIBS)
+	$(CC) $(CFLAGS) -o x11-example x11-example.c $(LDLIBS)

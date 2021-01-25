@@ -1,16 +1,16 @@
 Simple OpenGL Loader
 ====================
 
-An extensible, cross-platform, (almost) single-file C/C++ OpenGL loader library.
+An extensible, cross-platform, single-file C/C++ OpenGL loader library.
 
 Usage
 -----
-If OpenGL functions will be loaded and used in a single file, the simplest usage involves defining the `SOGL_MAJOR_VERSION`, `SOGL_MINOR_VERSION`and `SOGL_IMPLEMENTATION` constants before including the `simple-opengl-loader.h` header file, and then calling `sogl_loadOpenGL()` after an OpenGL context has been set up by the application.
+For Windows Win32 or Linux X11 applications, the simplest usage involves defining `SOGL_MAJOR_VERSION`, `SOGL_MINOR_VERSION`and either `SOGL_IMPLEMENTATION_WIN32` or `SOGL_IMPLEMENTATION_X11` before including the `simple-opengl-loader.h` header file, and then calling `sogl_loadOpenGL()` after setting up an OpenGL context.
 
 ```C
     #define SOGL_MAJOR_VERSION 4
     #define SOGL_MINOR_VERSION 5
-    #define SOGL_IMPLEMENTATION
+    #define SOGL_IMPLEMENTATION_WIN32 /* or SOGL_IMPLEMENTATION_X11 */
     #include "simple-opengl-loader.h"
 
     int main() {
@@ -25,22 +25,7 @@ If OpenGL functions will be loaded and used in a single file, the simplest usage
 
 It is recommended that `simple-opengl-loader.h` be the first include to prevent other OpenGL headers from setting up their own definitions. 
 
-The application should be compiled with the appropriate platform-specific implementation in the `platforms` directory (named `simple-opengl-loader-<platform>.c`), or the required functions should be provided by the application (see below). Platform support is currently provided for Windows Win32 and Linux X11 applications. Note that provided platform implementations are self-contained and dynamically link to system OpenGL libraries (`Opengl32` on Windows, `libGL` on Linux), so these libraries do not need to be linked to explicitly. Linux applications do, however, need to be linked against `libdl`.
-
-If OpenGL functions will be used in more then one file, the `SOGL_MAJOR_VERSION` and `SOGL_MINOR_VERSION` should match everywhere the header is included (and `SOGL_IMPLEMENTATION` should be defined exactly once). A simple way to make this more convenient is to wrap the `simple-opengl-loader.h` include and version defines in a separate header file and include the latter throughout the application.
-
-```C
-    // File sogl-config.h
-    #define SOGL_MAJOR_VERSION 4
-    #define SOGL_MINOR_VERSION 5
-    #include "simple-opengl-loader.h"
-```
-
-```C
-    // Application files where OpenGL is used.
-    // In the file where OpenGL is loaded: #define SOGL_IMPLEMENTATION
-    #include "sogl-config.h"
-```
+Platform support is included for Windows Win32 and Linux X11 applications by defining the `SOGL_IMPLEMENTATION_WIN32` or `SOGL_IMPLEMENTATION_X11` constants, respectively. The `SOGL_IMPLEMENTATION_X11` implementation requires the application be linked against `libdl`. See below to implement support for other platforms.
 
 OpenGL extensions can be loaded by defining a constant of the format `SOGL_<extension name>` before including the `simple-opengl-loader.h` header.
 
@@ -49,7 +34,7 @@ OpenGL extensions can be loaded by defining a constant of the format `SOGL_<exte
     #define SOGL_MINOR_VERSION 5
     #define SOGL_OVR_multiview
     #define SOGL_KHR_parallel_shader_compile
-    #define SOGL_IMPLEMENTATION
+    #define SOGL_IMPLEMENTATION_WIN32
     #include "simple-opengl-loader.h"
 ```
 
@@ -76,4 +61,19 @@ void *sogl_loadOpenGLFunction(const char *name);
 void sogl_cleanup();
 ```
 
-Implementations are provided in the `platforms` directory for Windows Win32 and Linux X11 applications and can be compiled directly into applications that wish to use them. Support for other platforms simply involves implementing these functions for the target platform.
+Implementations for these functions are provided out-of-the-box for Windows Win32 and Linux X11 applications (see above). Support for other platforms simply requires implementing these two functions for the target platform and defining the constant `SOGL_IMPLEMENTATION` instead of either of the platform-specific implementation constants.
+
+```C
+    #define SOGL_MAJOR_VERSION 4
+    #define SOGL_MINOR_VERSION 5
+    #define SOGL_IMPLEMENTATION
+    #include "simple-opengl-loader.h"
+
+    void *sogl_loadOpenGLFunction(const char *name) {
+        /* Custom function loader implementation */
+    }
+    
+    void sogl_cleanup() {
+        /* Custom cleanup implementation */ 
+    }
+```

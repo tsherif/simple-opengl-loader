@@ -21,9 +21,14 @@
 * CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 **********************************************************************************/
 
+//////////////////////////////////////////////////////
+// Example of basic usage of Simple OpenGL 
+// Loader with X11 using SOGL_IMPLEMENTATION_X11
+//////////////////////////////////////////////////////
+
 #define SOGL_MAJOR_VERSION 4
 #define SOGL_MINOR_VERSION 5
-#define SOGL_IMPLEMENTATION
+#define SOGL_IMPLEMENTATION_X11
 #include "../../simple-opengl-loader.h"
 #include <stdio.h>
 #include <stdlib.h>

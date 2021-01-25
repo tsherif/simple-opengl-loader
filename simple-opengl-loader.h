@@ -5988,7 +5988,69 @@ SOGL_FUNCTIONS_OVR_multiview
 
 /* IMPLEMENTATION */
 
-#ifdef SOGL_IMPLEMENTATION
+#if defined(SOGL_IMPLEMENTATION_WIN32) || defined(SOGL_IMPLEMENTATION_X11) || defined(SOGL_IMPLEMENTATION)
+
+#ifdef SOGL_IMPLEMENTATION_WIN32
+#ifdef SOGL_IMPLEMENTATION_X11
+	#error Only one of SOGL_IMPLEMENTATION_WIN32 or SOGL_IMPLEMENTATION_X11 can be used at a time.
+#endif
+
+static HMODULE sogl_libHandle = NULL;
+
+void *sogl_loadOpenGLFunction(const char *name) {
+	typedef PROC (*wglGetProcAddressFP)(LPCSTR Arg1);
+	static wglGetProcAddressFP wglGetProcAddress = NULL;
+
+	if (!sogl_libHandle) {
+		sogl_libHandle = LoadLibraryA("opengl32.dll");
+		wglGetProcAddress = (wglGetProcAddressFP) GetProcAddress(sogl_libHandle, "wglGetProcAddress");
+	}
+    void *fn = (void *)wglGetProcAddress(name);
+    if(fn == 0 || (fn == (void *) 0x1) || (fn == (void *) 0x2) || (fn == (void*) 0x3) || (fn == (void *) -1)) {
+        fn = (void *) GetProcAddress(sogl_libHandle, name);
+    }
+
+    return fn;
+}
+
+void sogl_cleanup() {
+    if (sogl_libHandle) {
+        FreeLibrary(sogl_libHandle);
+        sogl_libHandle = NULL;
+    }
+}
+#endif /* SOGL_IMPLEMENTATION_WIN32 */
+
+#ifdef SOGL_IMPLEMENTATION_X11
+#include <dlfcn.h>
+static void* sogl_libHandle = SOGL_NULL;
+
+void *sogl_loadOpenGLFunction(const char *name) {  
+    if (!sogl_libHandle) {
+        /*
+            Loading "libGL.so.1" seems more reliable. On my machine, switching to an nvidia GPU 
+            leaves "libGL.so" pointing to the mesa driver.
+            Grabbed this from similar logic in GLFW.
+            https://github.com/glfw/glfw/blob/0b2660f39fc7111a3ef2723b03f5111afbe75bb9/src/glx_context.c#L258-L277 
+        */
+        sogl_libHandle = dlopen("libGL.so.1", RTLD_LAZY | RTLD_LOCAL);
+        if (!sogl_libHandle) {
+            sogl_libHandle = dlopen("libGL.so", RTLD_LAZY | RTLD_LOCAL);   
+        }
+    }
+
+    void *fn = dlsym(sogl_libHandle, name);
+
+    return fn;
+}
+
+void sogl_cleanup() {
+    if (sogl_libHandle) {
+        dlclose(sogl_libHandle);
+        sogl_libHandle = SOGL_NULL;
+    }
+}
+#endif /* SOGL_IMPLEMENTATION_X11 */
 
 /*
     OpenGL Function Defintions

@@ -22,20 +22,44 @@
 **********************************************************************************/
 
 //////////////////////////////////////////////////////
-// Example of basic usage of Simple OpenGL 
-// Loader with Win32 using SOGL_IMPLEMENTATION_WIN32
+// Example of basic C++ usage of Simple OpenGL 
+// Loader with Win32 and platform functions
+// defined by the application.
 //////////////////////////////////////////////////////
 
 #define WIN32_LEAN_AND_MEAN
-#define SOGL_MAJOR_VERSION 4
-#define SOGL_MINOR_VERSION 5
-#define SOGL_IMPLEMENTATION_WIN32
+#define SOGL_IMPLEMENTATION
 #include "../../simple-opengl-loader.h"
 #include <windows.h>
 #include <GL\gl.h>
 #include "wglext.h"
 #include <stdint.h>
 #include <stdio.h>
+
+typedef PROC (*wglGetProcAddressFP)(LPCSTR Arg1);
+static HMODULE libHandle = NULL;
+
+void *sogl_loadOpenGLFunction(const char *name) {
+    static wglGetProcAddressFP wglGetProcAddress = NULL;
+
+    if (!libHandle) {
+        libHandle = LoadLibraryA("opengl32.dll");
+        wglGetProcAddress = (wglGetProcAddressFP) GetProcAddress(libHandle, "wglGetProcAddress");
+    }
+    void *fn = (void *)wglGetProcAddress(name);
+    if(fn == 0 || (fn == (void *) 0x1) || (fn == (void *) 0x2) || (fn == (void*) 0x3) || (fn == (void *) -1)) {
+        fn = (void *) GetProcAddress(libHandle, name);
+    }
+
+    return fn;
+}
+
+void sogl_cleanup() {
+    if (libHandle) {
+        FreeLibrary(libHandle);
+        libHandle = NULL;
+    }
+}
 
 /////////////////////////////////////
 // WGL loading helper functions 
@@ -151,7 +175,7 @@ int CALLBACK WinMain(HINSTANCE instance, HINSTANCE prevInstance, LPSTR cmdLine, 
 
     HWND window = CreateWindow(
         WIN_CLASS_NAME,
-        L"Simple OpenGL Loader Win32 Example",
+        L"Simple OpenGL Loader App-defined Platform Support Example ",
         WS_OVERLAPPEDWINDOW,
         CW_USEDEFAULT, CW_USEDEFAULT,
         800, 800,
@@ -227,21 +251,23 @@ int CALLBACK WinMain(HINSTANCE instance, HINSTANCE prevInstance, LPSTR cmdLine, 
 
     glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
 
-    const char* vsSource = "#version 450\n"
-    "layout (location=0) in vec4 position;\n"
-    "layout (location=1) in vec3 color;\n"
-    "out vec3 vColor;\n"
-    "void main() {\n"
-    "    vColor = color;\n"
-    "    gl_Position = position;\n"
-    "}\n";
+    const char* vsSource = R"GLSL(#version 450
+    layout (location=0) in vec4 position;
+    layout (location=1) in vec3 color;
+    out vec3 vColor;
+    void main() {
+        vColor = color;
+        gl_Position = position;
+    };
+    )GLSL";
 
-    const char* fsSource = "#version 450\n"
-    "in vec3 vColor;\n"
-    "out vec4 fragColor;\n"
-    "void main() {\n"
-    "    fragColor = vec4(vColor, 1.0);\n"
-    "}\n";
+    const char* fsSource = R"GLSL(#version 450
+    in vec3 vColor;
+    out vec4 fragColor;
+    void main() {
+        fragColor = vec4(vColor, 1.0);
+    }
+    )GLSL";
 
     GLuint vertexShader = glCreateShader(GL_VERTEX_SHADER);
     glShaderSource(vertexShader, 1, &vsSource, NULL);
